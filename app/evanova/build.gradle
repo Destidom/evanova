@@ -112,7 +112,7 @@ dependencies {
         exclude module: 'log4j'
         exclude module: 'org.sl4j'
     }
-    compileproject(':views')
+    compile project(':views')
     
     compile 'com.mikepenz:materialdrawer:5.2.+@aar'
 
