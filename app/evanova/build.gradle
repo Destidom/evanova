@@ -114,7 +114,9 @@ dependencies {
     }
     compile project(':views')
     
-    compile 'com.mikepenz:materialdrawer:5.2.+@aar'
+    compile ('com.mikepenz:materialdrawer:5.2.+@aar') {
+    	transitive = true
+    }
 
     provided 'javax.annotation:jsr250-api:1.0'
     compile 'io.reactivex:rxjava-async-util:0.21.+'    
