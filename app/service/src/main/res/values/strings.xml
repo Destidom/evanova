@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="eve.api.url">https://api.eveonline.com</string>
+    <string name="eve.support.key.create">https://community.eveonline.com/support/api-key/CreatePredefined/59113480</string>
+    <string name="eve.support.key.install">https://community.eveonline.com/support/api-key/ActivateInstallLinks?activate=true</string>
+    
+    <string name="skills_requirements_matched">You meet the requirements for this skill.</string>
+    <string name="skills_requirements_unmatched">You do not meet the requirements for this skill.</string>
+
+    <!-- static Eve DB resources -->
+    <string-array name="agent_types">
+        <item>Non Agent</item>
+        <item>Basic Agent</item>
+        <item>Tutorial Agent</item>
+        <item>Research Agent</item>
+        <item>CONCORD Agent</item>
+        <item>Generic Storyline Mission Agent</item>
+        <item>Storyline Mission Agent</item>
+        <item>Event Mission Agent</item>
+        <item>Factional Warfare Agent</item>
+        <item>Epic Arc Agent</item>
+        <item>Aura Agent</item>
+    </string-array>
+
+    <string name="attribute_intelligence">Intelligence</string>
+    <string name="attribute_charisma">Charisma</string>
+    <string name="attribute_willpower">Willpower</string>
+    <string name="attribute_perception">Perception</string>
+    <string name="attribute_memory">Memory</string>
+
+    <string-array name="notification_types">
+
+        <!-- 0 Unknown -->
+        <item>Unknown</item>
+        <!-- 1 Unknown -->
+        <item>Unknown</item>
+        <!-- 2 Character deleted -->
+        <item>Character deleted</item>
+        <!-- 3	Give medal to character -->
+        <item>Give medal to character</item>
+        <!-- 4	Alliance maintenance bill -->
+        <item>Alliance maintenance bill</item>
+        <!-- 5	Alliance war declared -->
+        <item>Alliance war declared</item>
+        <!-- 6	Alliance war surrender -->
+        <item>Alliance war surrender</item>
+        <!-- 7	Alliance war retracted -->
+        <item>Alliance war retracted</item>
+        <!-- 8	Alliance war invalidated by Concord -->
+        <item>Alliance war invalidated by Concord</item>
+        <!-- 9	Bill issued to a character -->
+        <item>Bill issued to a character</item>
+        <!-- 10	Bill issued to corporation or alliance -->
+        <item>Bill issued to corporation or alliance</item>
+        <!-- 11	Bill not paid because there's not enough ISK available -->
+        <item>Bill not paid because there\'s not enough ISK available</item>
+        <!-- 12	Bill, issued by a character, paid -->
+        <item>Bill, issued by a character, paid</item>
+        <!-- 13	Bill, issued by a corporation or alliance, paid -->
+        <item>Bill, issued by a corporation or alliance, paid</item>
+        <!-- 14	Bounty claimed -->
+        <item>Bounty claimed</item>
+        <!-- 15	Clone activated -->
+        <item>Clone activated</item>
+        <!-- 16	New corp member application -->
+        <item>New corp member application</item>
+        <!-- 17	Corp application rejected -->
+        <item>Corp application rejected</item>
+        <!-- 18	Corp application accepted -->
+        <item>Corp application accepted</item>
+        <!-- 19	Corp tax rate changed -->
+        <item>Corp tax rate changed</item>
+        <!-- 20	Corp news report, typically for shareholders -->
+        <item>Corp news report, typically for shareholders</item>
+        <!-- 21	Player leaves corp -->
+        <item>Player leaves corp</item>
+        <!-- 22	Corp news, new CEO -->
+        <item>Corp news, new CEO</item>
+        <!-- 23	Corp dividend/liquidation, sent to shareholders -->
+        <item>Corp dividend/liquidation, sent to shareholders</item>
+        <!-- 24	Corp dividend payout, sent to shareholders -->
+        <item>Corp dividend payout, sent to shareholders</item>
+        <!-- 25	Corp vote created -->
+        <item>Corp vote created</item>
+        <!-- 26	Corp CEO votes revoked during voting -->
+        <item>Corp CEO votes revoked during voting</item>
+        <!-- 27	Corp declares war -->
+        <item>Corp declares war</item>
+        <!-- 28	Corp war has started -->
+        <item>Corp war has started</item>
+        <!-- 29	Corp surrenders war -->
+        <item>Corp surrenders war</item>
+        <!-- 30	Corp retracts war -->
+        <item>Corp retracts war</item>
+        <!-- 31	Corp war invalidated by Concord -->
+        <item>Corp war invalidated by Concord</item>
+        <!-- 32	Container password retrieval -->
+        <item>Container password retrieval</item>
+        <!-- 33	Contraband or low standings cause an attack or items being confiscated -->
+        <item>Contraband or low standings cause an attack or items being confiscated</item>
+        <!-- 34	First ship insurance -->
+        <item>First ship insurance</item>
+        <!-- 35	Ship destroyed, insurance payed -->
+        <item>Ship destroyed, insurance payed</item>
+        <!-- 36	Insurance contract invalidated/runs out -->
+        <item>Insurance contract invalidated/runs out</item>
+        <!-- 37	Sovereignty claim fails (alliance) -->
+        <item>Sovereignty claim fails (alliance)</item>
+        <!-- 38	Sovereignty claim fails (corporation) -->
+        <item>Sovereignty claim fails (corporation)</item>
+        <!-- 39	Sovereignty bill late (alliance) -->
+        <item>Sovereignty bill late (alliance)</item>
+        <!-- 40	Sovereignty bill late (corporation) -->
+        <item>Sovereignty bill late (corporation)</item>
+        <!-- 41	Sovereignty claim lost (alliance) -->
+        <item>Sovereignty claim lost (alliance)</item>
+        <!-- 42	Sovereignty claim lost (corporation) -->
+        <item>Sovereignty claim lost (corporation)</item>
+        <!-- 43	Sovereignty claim acquired (alliance) -->
+        <item>Sovereignty claim acquired (alliance)</item>
+        <!-- 44	Sovereignty claim acquired (corporation) -->
+        <item>Sovereignty claim acquired (corporation)</item>
+        <!-- 45	Alliance anchoring alert -->
+        <item>Alliance anchoring alert</item>
+        <!-- 46	Alliance structure turns vulnerable -->
+        <item>Alliance structure turns vulnerable</item>
+        <!-- 47	Alliance structure turns invulnerable -->
+        <item>Alliance structure turns invulnerable</item>
+        <!-- 48	Sovereignty disruptor anchored -->
+        <item>Sovereignty disruptor anchored</item>
+        <!-- 49	Structure won/lost -->
+        <item>Structure won/lost</item>
+        <!-- 50	Corp office lease expiration notice -->
+        <item>Corp office lease expiration notice</item>
+        <!-- 51	Clone contract revoked by station manager -->
+        <item>Clone contract revoked by station manager</item>
+        <!-- 52	Corp member clones moved between stations -->
+        <item>Corp member clones moved between stations</item>
+        <!-- 53	Clone contract revoked by station manager -->
+        <item>Clone contract revoked by station manager</item>
+        <!-- 54	Insurance contract expired -->
+        <item>Insurance contract expired</item>
+        <!-- 55	Insurance contract issued -->
+        <item>Insurance contract issued</item>
+        <!-- 56	Jump clone destroyed -->
+        <item>Jump clone destroyed</item>
+        <!-- 57	Jump clone destroyed -->
+        <item>Jump clone destroyed</item>
+        <!-- 58	Corporation joining factional warfare -->
+        <item>Corporation joining factional warfare</item>
+        <!-- 59	Corporation leaving factional warfare -->
+        <item>Corporation leaving factional warfare</item>
+        <!-- 60	Corporation kicked from factional warfare on startup because of too low standing to the faction -->
+        <item>Corporation kicked from factional warfare on startup because of too low standing to the faction</item>
+        <!-- 61	Character kicked from factional warfare on startup because of too low standing to the faction -->
+        <item>Character kicked from factional warfare on startup because of too low standing to the faction</item>
+        <!-- 62	Corporation in factional warfare warned on startup because of too low standing to the faction -->
+        <item>Corporation in factional warfare warned on startup because of too low standing to the faction</item>
+        <!-- 63	Character in factional warfare warned on startup because of too low standing to the faction -->
+        <item>Character in factional warfare warned on startup because of too low standing to the faction</item>
+        <!-- 64	Character loses factional warfare rank -->
+        <item>Character loses factional warfare rank</item>
+        <!-- 65	Character gains factional warfare rank -->
+        <item>Character gains factional warfare rank</item>
+        <!-- 66	Agent has moved -->
+        <item>Agent has moved</item>
+        <!-- 67	Mass transaction reversal message -->
+        <item>Mass transaction reversal message</item>
+        <!-- 68	Reimbursement message -->
+        <item>Reimbursement message</item>
+        <!-- 69	Agent locates a character -->
+        <item>Agent locates a character</item>
+        <!-- 70	Research mission becomes available from an agent -->
+        <item>Research mission becomes available from an agent</item>
+        <!-- 71	Agent mission offer expires -->
+        <item>Agent mission offer expires</item>
+        <!-- 72	Agent mission times out -->
+        <item>Agent mission times out</item>
+        <!-- 73	Agent offers a storyline mission -->
+        <item>Agent offers a storyline mission</item>
+        <!-- 74	Tutorial message sent on character creation -->
+        <item>Tutorial message sent on character creation</item>
+        <!-- 75	Tower alert -->
+        <item>Tower alert</item>
+        <!-- 76	Tower resource alert -->
+        <item>Tower resource alert</item>
+        <!-- 77	Station aggression message -->
+        <item>Station aggression message</item>
+        <!-- 78	Station state change message -->
+        <item>Station state change message</item>
+        <!-- 79	Station conquered message -->
+        <item>Station conquered message</item>
+        <!-- 80	Station aggression message -->
+        <item>Station aggression message</item>
+
+        <!-- 81	Corporation requests joining factional warfare -->
+        <item>Corporation requests joining factional warfare</item>
+
+        <!-- 82	Corporation requests leaving factional warfare -->
+        <item>Corporation requests leaving factional warfare</item>
+
+        <!-- 83	Corporation withdrawing a request to join factional warfare -->
+        <item>Corporation withdrawing a request to join factional warfare</item>
+
+        <!-- 84	Corporation withdrawing a request to leave factional warfare -->
+        <item>Corporation withdrawing a request to leave factional warfare</item>
+
+        <!-- 85	Corporation liquidation -->
+        <item>Corporation liquidation</item>
+
+        <!-- 86	Territorial Claim Unit under attack -->
+        <item>Territorial Claim Unit under attack</item>
+
+        <!-- 87	Sovereignty Blockade Unit under attack -->
+        <item>Sovereignty Blockade Unit under attack</item>
+
+        <!-- 88	Infrastructure Hub under attack -->
+        <item>Infrastructure Hub under attack</item>
+
+        <!-- 89	Contact notification -->
+        <item>Contact notification</item>
+
+        <!-- 90	Contact notification -->
+        <item>Your contact level has been modified</item>
+
+        <!-- 91	Incursion Completed -->
+        <item>Your contact level has been modified</item>
+        <!-- 92	Corp Kicked -->
+        <item>Corp Kicked</item>
+        <!-- 93	Customs office has been attacked -->
+        <item>Customs office has been attacked</item>
+        <!-- 94	Customs office has entered reinforced -->
+        <item>Customs office has entered reinforced</item>
+        <!-- 95	Customs office has been transferred -->
+        <item>Customs office has been transferred</item>
+        <!-- 96	FW Alliance Warning -->
+        <item>Faction War Alliance Warning</item>
+        <!-- 97	FW Alliance Kick -->
+        <item>Faction War Alliance Warning</item>
+        <!-- 98	AllWarCorpJoined Msg -->
+        <item>98</item>
+        <!-- 99	Ally Joined Defender -->
+        <item>Ally Joined Defender</item>
+        <!-- 100	Ally Has Joined a War Aggressor -->
+        <item>Ally Has Joined a War Aggressor</item>
+        <!-- 101	Ally Joined War Ally -->
+        <item>Ally Joined War Ally</item>
+        <!-- 102	New war system: entity is offering assistance in a war. -->
+        <item>Offering assistance in a war</item>
+        <!-- 103	War Surrender Offer -->
+        <item>War Surrender Offer</item>
+        <!-- 104	War Surrender Declined -->
+        <item>War Surrender Declined</item>
+        <!-- 105	FacWar LP Payout Kill -->
+        <item>Faction Warfare LP Payout</item>
+        <!-- 106	FacWar LP Payout Event -->
+        <item>Faction Warfare LP Payout</item>
+        <!-- 107	FacWar LP Disqualified Eventd -->
+        <item>Faction Warfare LP Disqualified</item>
+        <!-- 108	FacWar LP Disqualified Kill -->
+        <item>Faction Warfare LP Disqualified</item>
+        <!-- 109 -->
+        <item>109</item>
+        <!-- 110 -->
+        <item>110</item>
+        <!-- 111 -->
+        <item>111</item>
+        <!-- 112 Bounty added ?-->
+        <item>Bounty Added</item>
+        <!-- 113 -->
+        <item>113</item>
+        <!-- 114 -->
+        <item>114</item>
+        <!-- 115 -->
+        <item>115</item>
+        <!-- 116 -->
+        <item>116</item>
+        <!-- 117 Bounty killed? -->
+        <item>Killed</item>
+    </string-array>
+    <!-- end notification_types -->
+
+    <string name="inventory_flags_0">None</string>
+    <string name="inventory_flags_1">Wallet</string>
+    <string name="mailbox_unread">Unread</string>
+    <string name="mailbox_inbox">Inbox</string>
+    <string name="mailbox_outbox">Outbox</string>
+    <string name="mailbox_corporation">Corporation</string>
+    <string name="mailbox_alliance">Alliance</string>
+    <string name="mailbox_others">Others</string>
+    <string name="mailbox_trash">Trash</string>
+    <string name="notifications_insurance">Insurance</string>
+    <string name="notifications_agents">Agents</string>
+    <string name="notifications_bills">Bills</string>
+    <string name="notifications_bounties">Bounties</string>
+    <string name="notifications_contacts">Contacts</string>
+    <string name="notifications_corporate">Corporate</string>
+    <string name="notifications_miscellaneous">Miscellaneous</string>
+    <string name="notifications_old">Old</string>
+    <string name="notifications_sovereignty">Sovereignty</string>
+    <string name="notifications_structures">Structures</string>
+    <string name="notifications_war">War</string>
+    <string name="notifications_trash">Trash</string>
+
+    <string name="notification.attribute.shipName">Ship Name</string>
+    <string name="notification.attribute.typeID">Item</string>
+    <string name="notification.attribute.level">Level</string>
+    <string name="notification.attribute.startDate">Start Date</string>
+    <string name="notification.attribute.endDate">End Date</string>
+    <string name="notification.attribute.numWeeks">Weeks</string>
+    <string name="notification.attribute.hostileState">hostileState</string>
+    <string name="notification.attribute.againstID">Against</string>
+    <string name="notification.attribute.delayHours">Delayed for</string>
+    <string name="notification.attribute.declaredByID">Declared by</string>
+    <string name="notification.attribute.aggressorID">Aggressor</string> 
+    <string name="notification.attribute.aggressorCorpID">Aggressor Corp.</string>    
+    <string name="notification.attribute.cost">Cost</string>
+    <string name="notification.attribute.amount">Amount</string>
+    <string name="notification.attribute.payout">Payout</string>
+    
+    <string-array name="certificate_levels">
+        <item>Basic</item>
+        <item>Standard</item>
+        <item>Improved</item>
+        <item>Elite</item>
+    </string-array>
+    <string-array name="certificate_view_levels">
+        <item>Basic</item>
+        <item>Standard</item>
+        <item>Improved</item>
+        <item>Improved</item>
+        <item>Elite</item>
+    </string-array>
+
+</resources>

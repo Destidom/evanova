@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginRight="4dp"
+        android:text="Level 3"
+        android:textSize="12sp"
+        android:textStyle="bold" android:gravity="center_vertical" 
+        android:id="@+id/j_skillLevelText">
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/jeeves_skill_level_border"
+        android:gravity="center_vertical|center_horizontal"
+        android:padding="4dp" android:id="@+id/skillLevelLayout">
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="10dp"
+            android:layout_marginRight="2dp"
+            android:src="@drawable/s_grey" />
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="10dp"
+            android:layout_marginRight="2dp"
+            android:src="@drawable/s_grey" />
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="10dp"
+            android:layout_marginRight="2dp"
+            android:src="@drawable/s_white" />
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="10dp"
+            android:layout_marginRight="2dp"
+            android:src="@drawable/s_blue" />
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="10dp" />
+    </LinearLayout>
+
+   <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/skillLevelAllowed"
+            android:src="@drawable/ic_bookmark" android:visibility="gone"/>
+ 	<ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/skillLevelRequired"
+            android:src="@drawable/ic_crossmark" android:visibility="gone"/>
+</LinearLayout>

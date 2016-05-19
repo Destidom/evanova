@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="2dp"
+    android:layout_marginTop="2dp"
+    android:padding="4dp"
+    android:background="@drawable/jeeves_panel_no_border"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/j_character_training_RowNameText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_weight="0.2"
+            android:gravity="left|center_vertical"
+            android:minLines="2"
+            android:maxLines="2"
+            android:text="Industrial Potato Construction"
+            android:textColor="@color/white"/>
+
+        <com.tlabs.android.jeeves.views.skills.SkillLevelWidget
+            android:id="@+id/j_character_training_RowSkillLevelView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/j_character_training_RowRemainingText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_weight="0.2"
+            android:gravity="left|center_vertical"
+            android:maxLines="2"
+            android:text="1d 12h 34mn 45s"/>
+
+        <ProgressBar
+            android:id="@+id/j_character_training_RowTimeProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="84dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_vertical|right"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/jeeves_progress_bar"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/j_character_training_RowEndsText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="left|center_vertical"
+        android:maxLines="1"
+        android:paddingRight="4dip"
+        android:text="Ends Sunday 12 January 22:45"
+        android:textSize="14sp"/>
+
+</LinearLayout>

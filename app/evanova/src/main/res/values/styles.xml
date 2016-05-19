@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="Theme.Evanova" parent="Theme.AppCompat.NoActionBar">
+        <!--<item name="actionBarStyle">@style/Theme.EvanovaApplication.ActionBar</item>-->
+        <!--<item name="actionModeBackground">@color/theme_primary_dark</item>-->
+        <item name="drawerArrowStyle">@style/Theme.Evanova.DrawerArrowStyle</item>
+
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="windowActionBarOverlay">true</item>
+
+        <item name="android:alertDialogTheme">@style/Theme.Evanova.DialogTheme</item>
+        <item name="android:dialogTheme">@style/Theme.Evanova.DialogTheme</item>
+    </style>
+
+    <style name="Theme.Evanova.DialogTheme" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@drawable/jeeves_panel_no_border</item>
+    </style>
+
+    <style name="Theme.Evanova.NoDisplay" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowNoDisplay">true</item>
+    </style>
+
+    <style name="Theme.Evanova.DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
+    </style>
+
+    <style name="Theme.Evanova.Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@drawable/jeeves_panel_no_border</item>
+        <item name="popupTheme">@style/Theme.Evanova.ToolbarPopup</item>
+    </style>
+
+    <style name="Theme.Evanova.ToolbarPopup" parent="Widget.AppCompat.ListPopupWindow">
+        <item name="android:background">@color/darkgrey</item>
+
+    </style>
+
+    <declare-styleable name="TextProgressBar">
+        <attr name="progressBackground" format="reference"/>
+    </declare-styleable>
+</resources>

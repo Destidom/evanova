@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_drawer_account"
+        android:icon="@drawable/ic_eve_recruitment"
+        android:title="@string/button_api" />
+    <item
+        android:id="@+id/menu_drawer_characters"
+        android:icon="@drawable/ic_eve_biography"
+        android:title="@string/button_characters" />
+    <item
+        android:id="@+id/menu_drawer_corporations"
+        android:icon="@drawable/ic_eve_corporation"
+        android:title="@string/button_corporations" />
+
+</menu>

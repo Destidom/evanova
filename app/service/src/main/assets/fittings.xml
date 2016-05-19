@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<fittings>
+	<fitting name="Dampening Drake">
+		<description value="Fitted by Evanova Android"/>
+		<shipType value="Drake"/>
+		<hardware slot="low slot 0" type="Damage Control II"/>
+		<hardware slot="low slot 1" type="Ballistic Control System II"/>
+		<hardware slot="low slot 2" type="Ballistic Control System II"/>
+		<hardware slot="low slot 3" type="Nanofiber Internal Structure II"/>
+		<hardware slot="med slot 0" type="Experimental 10MN Microwarpdrive I"/>
+		<hardware slot="med slot 1" type="Stasis Webifier II"/>
+		<hardware slot="med slot 2" type="Warp Disruptor II"/>
+		<hardware slot="med slot 3" type="Warp Scrambler II"/>
+		<hardware slot="med slot 4" type="Large Shield Extender II"/>
+		<hardware slot="med slot 5" type="Large Shield Extender II"/>
+		<hardware slot="hi slot 0" type="Heavy Missile Launcher II"/>
+		<hardware slot="hi slot 1" type="Heavy Missile Launcher II"/>
+		<hardware slot="hi slot 2" type="Heavy Missile Launcher II"/>
+		<hardware slot="hi slot 3" type="Heavy Missile Launcher II"/>
+		<hardware slot="hi slot 4" type="Heavy Missile Launcher II"/>
+		<hardware slot="hi slot 5" type="Heavy Missile Launcher II"/>
+		<hardware slot="rig slot 0" type="Medium Core Defense Field Extender I"/>
+		<hardware slot="rig slot 1" type="Medium Core Defense Field Extender I"/>
+		<hardware slot="rig slot 2" type="Medium Core Defense Field Extender I"/>
+	</fitting>	
+</fittings>

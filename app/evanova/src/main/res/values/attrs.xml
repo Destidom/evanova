@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <item name="pagerCharacterSummary" type="id"/>
+    <item name="pagerContract" type="id"/>
+    <item name="pagerContractList" type="id"/>
+
+    <item name="pagerKillMail" type="id"/>
+
+</resources>

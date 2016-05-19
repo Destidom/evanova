@@ -1,0 +1,45 @@
+apply plugin: 'java'
+
+group = 'com.tlabs.eve'
+version = 'citadel.1.0'
+
+sourceCompatibility = JavaVersion.VERSION_1_7
+targetCompatibility = JavaVersion.VERSION_1_7
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+}
+
+configurations {
+    provided
+    compile.extendsFrom provided
+}
+
+dependencies {
+    compile('com.tlabs.eve:eve-api:5.+') {
+        exclude group: 'commons-beanutils'
+        exclude group: 'commons-logging'
+        exclude group: 'cglib'
+    }
+
+    compile 'com.tlabs.eve.dogma:engine:0.+'
+    compile 'com.tlabs.eve.dogma:ormlite:0.+'
+    compile('com.tlabs.eve.dogma:extra:0.+') {
+        exclude group: 'org.apache.commons', module: 'commons-jexl'
+    }
+    compile 'org.devfleet.crest:api:0.+'
+    compile 'org.devfleet.dotlan:dotlan:0.+'
+
+    provided 'javax.annotation:jsr250-api:1.0'
+    provided 'javax.persistence:persistence-api:1.0.2'
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'com.j256.ormlite:ormlite-core:4.48'
+    testCompile 'com.j256.ormlite:ormlite-jdbc:4.48'
+    testRuntime 'org.xerial:sqlite-jdbc:3.8.+'
+    testRuntime 'org.slf4j:slf4j-log4j12:1.7.12'
+
+}

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top|fill_horizontal"
+        android:background="@drawable/jeeves_panel_no_border"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/j_contract_TitleGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:orientation="vertical"
+            android:visibility="visible"
+            android:layout_marginBottom="2dp">
+
+            <TextView
+                android:id="@+id/j_contract_TitleSubText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="2dp"
+                android:gravity="center_vertical"
+                android:text="Skill Name"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/j_contract_TitleDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="2dip"
+                android:layout_marginRight="2dip"
+                android:layout_marginTop="2dip"
+                android:gravity="center_vertical"
+                android:text="Skill Name"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <TableRow
+                android:id="@+id/j_contract_IssuedByRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Issued By"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/j_contract_IssuedBy"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="TextView" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/j_contract_IssuedToRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Contractor"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/j_contract_IssuedTo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="TextView" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/j_contract_AvailabilityRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Availability"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/j_contract_Availability"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="TextView" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/j_contract_LocationRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:textColor="@color/white"
+                    android:text="Location" />
+
+                <TextView
+                    android:id="@+id/j_contract_Location"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="TextView" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/j_contract_DateIssuedRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Date Issued"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/j_contract_DateIssued"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="TextView" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/j_contract_DateExpirationRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/j_contract_DateExpirationLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Expiration Date"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/j_contract_DateExpiration"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="TextView" />
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/j_contract_TypeText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"                    
+                    android:layout_marginBottom="2dp"
+                    android:text="Contract Type"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="2dp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/j_contract_PriceRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="You will pay"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/j_contract_Price"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="TextView"/>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/j_contract_RewardRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="You will get"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/j_contract_Reward"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="TextView"
+                    android:textColor="@color/green" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/j_contract_BuyoutRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Buyout Price"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/j_contract_Buyout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="TextView" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/j_contract_CollateralRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Collateral"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/j_contract_Collateral"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="TextView" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/j_contract_DestinationRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Destination"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/j_contract_Destination"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="TextView" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/j_contract_VolumeRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Volume"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/j_contract_Volume"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="TextView" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+</ScrollView>

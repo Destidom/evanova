@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tlabs.android.jeeves.views"
+    android:hardwareAccelerated="true"
+    android:installLocation="auto"
+    android:versionCode="0415070"
+    android:versionName="33" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="23" />
+
+</manifest>

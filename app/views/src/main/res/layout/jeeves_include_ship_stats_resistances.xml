@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/Theme.Jeeves.FittingHeader"
+        android:text="Resistances" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon22_32_7"
+                android:visibility="invisible"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:src="@drawable/icon22_32_20" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:src="@drawable/icon22_32_18" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:src="@drawable/icon22_32_17" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:src="@drawable/icon22_32_19" />
+        </TableRow>
+
+        <TableRow android:layout_height="18dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon1_32_13" />
+
+
+            <com.tlabs.android.jeeves.views.ui.TextProgressBar
+                android:id="@+id/statsShieldEMResistance"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.4"
+                android:tag="100 - {271f}*100"
+                app:progressBackground="@drawable/jeeves_layer_list_progress_blue" />
+
+            <com.tlabs.android.jeeves.views.ui.TextProgressBar
+                android:id="@+id/statsShieldThermalResistance"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.4"
+                android:tag="100 - {274f}*100"
+                app:progressBackground="@drawable/jeeves_layer_list_progress_red" />
+
+            <com.tlabs.android.jeeves.views.ui.TextProgressBar
+                android:id="@+id/statsShieldKineticResistance"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.4"
+                android:tag="100 - {273f}*100"
+                app:progressBackground="@drawable/jeeves_layer_list_progress_gray" />
+
+            <com.tlabs.android.jeeves.views.ui.TextProgressBar
+                android:id="@+id/statsShieldEXPResistance"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.4"
+                android:tag="100 - {272f}*100"
+                app:progressBackground="@drawable/jeeves_layer_list_progress_yellow" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon22_32_6" />
+
+            <com.tlabs.android.jeeves.views.ui.TextProgressBar
+                android:id="@+id/statsArmorEMResistance"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.4"
+                android:tag="100 - {267f}*100"
+                app:progressBackground="@drawable/jeeves_layer_list_progress_blue" />
+
+            <com.tlabs.android.jeeves.views.ui.TextProgressBar
+                android:id="@+id/statsArmorThermalResistance"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.4"
+                android:tag="100 - {270f}*100"
+                app:progressBackground="@drawable/jeeves_layer_list_progress_red" />
+
+            <com.tlabs.android.jeeves.views.ui.TextProgressBar
+                android:id="@+id/statsArmorKineticResistance"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.4"
+                android:tag="100 - {269f}*100"
+                app:progressBackground="@drawable/jeeves_layer_list_progress_gray" />
+
+            <com.tlabs.android.jeeves.views.ui.TextProgressBar
+                android:id="@+id/statsArmorEXPResistance"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.4"
+                android:tag="100 - {268f}*100"
+                app:progressBackground="@drawable/jeeves_layer_list_progress_yellow" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon1_32_13" />
+
+
+            <com.tlabs.android.jeeves.views.ui.TextProgressBar
+                android:id="@+id/statsStructureEMResistance"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.4"
+                android:tag="100 - {113f}*100"
+                app:progressBackground="@drawable/jeeves_layer_list_progress_blue" />
+
+            <com.tlabs.android.jeeves.views.ui.TextProgressBar
+                android:id="@+id/statsStructureThermalResistance"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.4"
+                android:tag="100 - {110f}*100"
+                app:progressBackground="@drawable/jeeves_layer_list_progress_red" />
+
+            <com.tlabs.android.jeeves.views.ui.TextProgressBar
+                android:id="@+id/statsStructureKineticResistance"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.4"
+                android:tag="100 - {109f}*100"
+                app:progressBackground="@drawable/jeeves_layer_list_progress_gray" />
+
+            <com.tlabs.android.jeeves.views.ui.TextProgressBar
+                android:id="@+id/statsStructureEXPResistance"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.4"
+                android:tag="100 - {111f}*100"
+                app:progressBackground="@drawable/jeeves_layer_list_progress_yellow" />
+
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/jeeves_panel_no_border" >
+        <include layout="@layout/jeeves_include_ship_stats_disclaimer"/>
+        <include layout="@layout/jeeves_include_ship_stats_resources"/>
+        <include layout="@layout/jeeves_include_ship_stats_capacitor"/>
+
+        <include layout="@layout/jeeves_include_ship_stats_resistances"/>
+        <include layout="@layout/jeeves_include_ship_stats_hp"/>
+        <!--<include layout="@layout/jeeves_include_ship_stats_damages"/>-->
+        <include layout="@layout/jeeves_include_ship_stats_firepower"/>
+
+        <include layout="@layout/jeeves_include_ship_stats_targeting"/>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dip"
+        style="@style/Theme.Jeeves.Panel"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/j_serverStatusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/jeeves_server_status_unknown"
+            android:textColor="@color/yellow"
+            android:textSize="18sp"
+            android:textStyle="bold" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/j_serverStatusTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dip"
+            android:gravity="center_horizontal"
+            android:text="@string/jeeves_server_status_time"
+            android:textColor="@color/white"
+            android:textSize="16sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/j_serverStatusCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/jeeves_server_status_players"
+            android:textColor="@color/white"
+            android:textSize="16sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/j_serverStatusUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/jeeves_server_status_time"
+            android:visibility="gone" >
+        </TextView>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/j_serverRSSRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="2dp"        
+        android:dividerHeight="2dp" />
+
+</LinearLayout>

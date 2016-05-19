@@ -1,0 +1,121 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.neenbedankt.android-apt'
+
+repositories {
+    maven { url "https://jitpack.io" }
+    maven { url 'http://dl.bintray.com/amulyakhare/maven' }
+}
+
+configurations {
+    provided
+    compile.extendsFrom provided
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.0'
+        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+    }
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '23.0.3'
+    productFlavors {
+        dev {
+            minSdkVersion 21
+        }
+        prod {
+            // The actual minSdkVersion for the application.
+            minSdkVersion 14
+        }
+    }
+    lintOptions {
+        abortOnError false
+        quiet true
+    }
+    packagingOptions {
+        pickFirst 'META-INF/ASL2.0'
+
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+        pickFirst 'META-INF/services/com.fasterxml.jackson.core.JsonFactory'
+        pickFirst 'META-INF/services/com.fasterxml.jackson.core.ObjectCodec'
+
+        exclude 'log4j.properties'
+        exclude 'sdelite.db'
+        exclude 'sdelite.sqlite'
+        exclude '*.yaml'
+    }
+    defaultConfig {
+        applicationId "com.tlabs.android.evanova"
+        minSdkVersion 14
+        targetSdkVersion 23
+        multiDexEnabled true
+    }
+    signingConfigs {
+        //You need the proper gradle.properties
+        release {
+            storeFile file(project['evanova.keystore.file'])
+            storePassword project['evanova.keystore.password']
+            keyAlias project['evanova.keystore.key.alias']
+            keyPassword project['evanova.keystore.key.password']
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true               
+            shrinkResources true
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard.cfg'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dexOptions {
+        incremental true
+        javaMaxHeapSize "9220M"
+        preDexLibraries true
+    }
+
+}
+
+dependencies {
+    retrolambdaConfig 'com.jakewharton.retrolambda:retrolambda:2.1.0-jake2'
+
+    apt 'com.jakewharton:butterknife-compiler:8.0.1'
+    apt 'com.google.dagger:dagger-compiler:2.0'
+
+    apt "org.parceler:parceler:1.0.4"
+    
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3.1'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3.1'
+
+    compile 'com.jakewharton:butterknife:8.0.1'
+    apt 'com.jakewharton:butterknife-compiler:8.0.1'
+
+    compile(project(':service')) {
+        exclude module: 'log4j'
+        exclude module: 'org.sl4j'
+    }
+    compileproject(':views')
+    
+    compile 'com.mikepenz:materialdrawer:5.2.+@aar'
+
+    provided 'javax.annotation:jsr250-api:1.0'
+    compile 'io.reactivex:rxjava-async-util:0.21.+'    
+}

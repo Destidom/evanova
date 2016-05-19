@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="jeeves_unknown">Unknown</string>
+
+    <string name="jeeves_server_status_online">Server is online</string>
+    <string name="jeeves_server_status_offline">Server is offline</string>
+    <string name="jeeves_server_status_players">%1$s players online.</string>
+    <string name="jeeves_server_status_unknown">Server status unknown</string>
+    <string name="jeeves_server_status_time">%1$s</string> <!-- full date/time -->
+
+    <string name="jeeves_accounts_noinformation">No account information</string>
+    <string name="jeeves_accounts_paiduntil">Paid until %1$s</string>
+    <string name="jeeves_accounts_crest_enabled">CREST enabled</string>
+    <string name="jeeves_accounts_crest_disabled">CREST disabled</string>
+    <string name="jeeves_accounts_mask">Access Mask %1$d</string>
+    <string name="jeeves_accounts_reload">reload or delete this account.</string>
+    <string name="jeeves_accounts_invalid">Account not authenticated.</string>
+
+    <string name="jeeves_account_created_on">Created on %1$s.</string>
+    <string name="jeeves_account_paid_until">Paid until %1$s.</string>
+    <string name="jeeves_account_paid_remaining">%1$s remaining.</string>
+    <string name="jeeves_account_login_count">%1$d logins - %2$s online.</string>
+
+    <string name="jeeves_account_type_account">Account</string>
+    <string name="jeeves_account_type_character">Character</string>
+    <string name="jeeves_account_type_corporation">Corporation</string>
+
+    <string name="jeeves_characters_training_inactive">Training inactive</string>
+    <string name="jeeves_characters_training_none">Skill queue is empty</string>
+    <string name="jeeves_characters_training_one">1 skill queued until %1$s</string>
+    <string name="jeeves_characters_training_many">%1$d skills queued until %2$s</string>
+    <string name="jeeves_characters_planning_none">No skill planned</string>
+    <string name="jeeves_characters_planning_one">1 skill planned until %1$s</string>
+    <string name="jeeves_characters_planning_many">%1$d skills planned until %2$s</string>
+
+
+    <string name="jeeves_characters_ship">%1$s (%2$s)</string>
+    <string name="jeeves_characters_skill">%1$s %2$d</string>
+
+    <string name="jeeves_contract_title_untitled">Untitled contract</string>
+    <string name="jeeves_contract_page_all">All</string>
+    <string name="jeeves_contract_page_current">Current</string>
+    <string name="jeeves_contract_page_outstanding">Outstanding</string>
+    <string name="jeeves_contract_page_details">Details</string>
+    <string name="jeeves_contract_page_items">Items</string>
+    <string name="jeeves_contract_page_bids">Bids</string>
+    <string name="jeeves_contract_price_text">Price: %1$s / Reward: %2$s ISK</string>
+
+    <string name="jeeves_contract_status_expired">Expired</string>
+    <string name="jeeves_contract_status_expired_on">Expired</string>
+    <string name="jeeves_contract_status_expires_on">Expires %1$s</string>
+    <string name="jeeves_contract_status_completed">Completed</string>
+    <string name="jeeves_contract_status_completed_on">Completed %1$s</string>
+    <string name="jeeves_contract_status_due_on">Due %1$s</string>
+    <string name="jeeves_contract_status_inprogress">In progress</string>
+    <string name="jeeves_contract_status_outstanding">Outstanding</string>
+    <string name="jeeves_contract_status_overdue">Overdue</string>
+    <string name="jeeves_contract_status_cancelled">Cancelled</string>
+    <string name="jeeves_contract_status_deleted">Deleted</string>
+    <string name="jeeves_contract_status_rejected">Rejected</string>
+    <string name="jeeves_contract_status_reversed">Reversed</string>
+    <string name="jeeves_contract_status_failed">Failed</string>
+
+    <string name="jeeves_contract_date_label_expires_on">Expires on</string>
+    <string name="jeeves_contract_date_label_completed_on">Completed on</string>
+    <string name="jeeves_contract_date_label_expired_on">Expired on</string>
+    <string name="jeeves_contract_date_label_due_on">Due on</string>
+    <string name="jeeves_contract_date_label_status">Status</string>
+
+    <string name="jeeves_contract_type_courier">Courier (%1$s)</string>
+    <string name="jeeves_contract_type_exchange">Item Exchange (%1$s)</string>
+    <string name="jeeves_contract_type_auction">Auctions</string>
+
+    <string name="jeeves_contract_item_you_receive_none">You will not receive any item</string>
+    <string name="jeeves_contract_item_you_receive_one">You will receive 1 item</string>
+    <string name="jeeves_contract_item_you_receive">You will receive %1$d items</string>
+    <string name="jeeves_contract_item_you_send_none">You will not give any item</string>
+    <string name="jeeves_contract_item_you_send_one">You will give 1 item</string>
+    <string name="jeeves_contract_item_you_send">You will give %1$d items</string>
+    <string name="jeeves_contract_item_buyer_receive_none">Buyer will not receive any item</string>
+    <string name="jeeves_contract_item_buyer_receive_one">Buyer will receive 1 item</string>
+    <string name="jeeves_contract_item_buyer_receive">Buyer will receive %1$d items</string>
+    <string name="jeeves_contract_item_buyer_send_none">Buyer will not give any item</string>
+    <string name="jeeves_contract_item_buyer_send_one">Buyer will give 1 item</string>
+    <string name="jeeves_contract_item_buyer_send">Buyer will give %1$d items</string>
+    <string name="jeeves_contract_contractor_unassigned">Unassigned</string>
+    <string name="jeeves_contract_issuer_behalf_token"> on behalf of </string>
+    <string name="jeeves_contract_issuer_corp_token">Corp. </string>
+
+    <string name="jeeves_corporations_members_one">1 member.</string>
+    <string name="jeeves_corporations_members_many">%1$d members.</string>
+
+    <string name="jeeves_fit_slots_high">High Slots (%2$d / %1$d)</string>
+    <string name="jeeves_fit_slots_medium">Medium Slots (%2$d / %1$d)</string>
+    <string name="jeeves_fit_slots_low">Low Slots (%2$d / %1$d)</string>
+    <string name="jeeves_fit_slots_rigs">Rigs (%2$d / %1$d)</string>
+    <string name="jeeves_fit_slots_subsystems">Sub Systems (%2$d / %1$d)</string>
+    <string name="jeeves_fit_disclaimer">Fitting statistics may not be accurate and the fields in orange color are fields that are not yet implemented. If you wish to help in figuring it all, please feel free to contact the author.</string>
+
+    <string name="jeeves_killmail_title_details">Victim</string>
+    <string name="jeeves_killmail_title_attackers">Attackers</string>
+    <string name="jeeves_killmail_title_items">Items</string>
+
+    <string name="jeeeves_skilllevelview_level">Level %1d</string>
+
+    <string name="jeeves_route_select_switch">Jump Freighter</string>
+    <string name="jeeves_route_select_from">From</string>
+    <string name="jeeves_route_select_to">To</string>
+    <string name="jeeves_route_select_freighter">Freighter</string>
+    <string name="jeeves_route_select_incursions">Avoid incursions</string>
+    <string name="jeeves_route_select_systems">Solar systems</string>
+    <string name="jeeves_route_select_freighter_skill">Jump Freighter</string>
+    <string name="jeeves_route_select_calibration_skill">Jump Drive Calibration</string>
+    <string name="jeeves_route_select_conservation_skill">Fuel Conservation</string>
+
+
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="app_service_name">Evanova API Service</string>
+      
+    <string name="jeeves_notification_title">Evanova</string>
+    <string name="jeeves_notification_message">%s</string>
+    <string name="jeeves_notification_message_default">Loading data&#8230;</string>
+
+    <string name="jeeves_mail_notification_message_one">%1$s has 1 new mail.</string>
+    <string name="jeeves_mail_notification_message_many">%1$s has %2$d new mails.</string>
+    
+</resources>

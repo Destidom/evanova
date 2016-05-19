@@ -1,0 +1,8 @@
+/build
+/keystore
+*.apk
+*.iml
+gradle.properties
+proguard-mapping.txt
+proguard-seeds.txt
+proguard-unused.txt

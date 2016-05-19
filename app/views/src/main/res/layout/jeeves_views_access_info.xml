@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/accessKeyAccountView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/jeeves_panel_no_border"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/j_viewAccessKeyAccountCreatedText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="No API Key selected"
+            android:textColor="@color/white"
+            android:textSize="16sp"></TextView>
+
+        <TextView
+            android:id="@+id/j_viewAccessKeyAccountLogonText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:textSize="16sp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/j_viewAccessKeyAccountPaidText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Select an API Key from the list"
+            android:textColor="@color/white"
+            android:textSize="16sp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/j_viewAccessKeyAccountUntilText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="or import a key from the Menu"
+            android:textColor="@color/white"
+            android:textSize="16sp">
+
+        </TextView>
+    </LinearLayout>
+
+</ScrollView>

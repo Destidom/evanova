@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/jeeves_panel_no_border"
+    android:baselineAligned="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/icon12_32_7" />
+
+            <com.tlabs.android.jeeves.views.ui.TextProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:tag="{49f} / {48f} * 100"
+                app:progressBackground="@drawable/jeeves_layer_list_progress_blue" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/icon2_32_7" />
+
+            <com.tlabs.android.jeeves.views.ui.TextProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:tag="{15f} / {11f} * 100"
+                app:progressBackground="@drawable/jeeves_layer_list_progress_red" />
+
+    </LinearLayout>
+</LinearLayout>

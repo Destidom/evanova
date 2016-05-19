@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dp"
+    android:background="@drawable/jeeves_panel_no_border"
+    android:minHeight="72dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/j_killmail_CharacterIcon"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="4dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop" />
+
+
+        <TextView
+            android:id="@+id/j_killmail_Character"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/j_killmail_CharacterIcon"
+            android:text="Capsuleer Name"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/j_killmail_Corporation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/j_killmail_Character"
+            android:layout_toRightOf="@+id/j_killmail_CharacterIcon"
+            android:text="Corporation Name"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:id="@+id/j_killmail_Alliance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/j_killmail_Corporation"
+            android:layout_toRightOf="@+id/j_killmail_CharacterIcon"
+            android:text="Alliance Name"
+            android:layout_marginTop="2dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <TextView
+        android:id="@+id/j_killmail_Damage"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Damage" />
+    <TextView
+        android:id="@+id/j_killmail_Ship"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:text="Ship Name" />
+    </LinearLayout>
+
+</LinearLayout>

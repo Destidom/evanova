@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_reload"
+        android:icon="@mipmap/ic_action_refresh"
+        android:title="@string/reload"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_delete"
+        android:icon="@mipmap/ic_action_discard"
+        android:title="@string/menu_accounts_delete"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/menu_notifications"
+        android:title="@string/menu_notifications"/>
+    <item
+        android:id="@+id/menu_accounts_add_eve_keys"
+        android:title="@string/menu_accounts_add_eve_keys"/>
+    <item
+        android:id="@+id/menu_accounts_add_eve_sso"
+        android:title="@string/menu_accounts_add_eve_sso"/>
+    <item
+        android:id="@+id/menu_accounts_add_text_file"
+        android:title="@string/menu_accounts_add_text_file"/>
+    <item
+        android:id="@+id/menu_accounts_add_evemon_file"
+        android:title="@string/menu_accounts_add_evemon_file"/>
+
+</menu>

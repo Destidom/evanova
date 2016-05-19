@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- 
+        REMINDER you CANNOT use integer-array for ListPreferences!
+        @see http://stackoverflow.com/questions/4357094/exception-on-listpreferences
+        @see http://developer.android.com/reference/android/preference/ListPreference.html#setEntryValues(java.lang.CharSequence[])
+     -->
+
+    <string-array name="preferences_update_frequency_entries">
+        <item>Disabled</item>
+        <item>15mn</item>
+        <item>Half Hourly</item>
+        <item>Hourly</item>
+        <item>Half Daily (default)</item>
+        <item>Daily</item>   
+    </string-array>
+    
+    <string-array name="preferences_update_frequency_values">
+        <item>0</item>        
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>                                
+    </string-array>
+    
+	<string-array name="preferences_background_entries">
+		<item>None</item>
+		<item>Planet</item>
+        <item>Moon</item>
+		<item>Pick...</item>
+	</string-array>
+	
+	<string-array name="preferences_background_values">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+	</string-array>
+
+    <string-array name="preferences_display_entries">
+        <item>Pilot Portrait</item>
+        <item>Current Ship</item>
+        <item>Background</item>
+        <item>Nothing</item>
+    </string-array>
+
+    <string-array name="preferences_display_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="dashboard_large_spinner">
+        <item>Capsuleer</item>
+        <item>Corporation</item>
+        <item>Api Keys</item>
+        <item>Evanopedia</item>
+    </string-array>
+
+    <string-array name="array_skill_levels">
+        <item>Level 1</item>
+        <item>Level 2</item>
+        <item>Level 3</item>
+        <item>Level 4</item>
+        <item>Level 5</item>
+    </string-array>
+
+    <string-array name="array_notifications_account">
+        <item>Account expiration</item>
+        <item>Account training</item>
+    </string-array>
+
+    <string-array name="array_notifications_character">
+        <item>Training queue</item>
+        <item>Mail</item>
+        <item>Notifications</item>
+        <item>Contracts</item>
+        <item>Calendar events</item>
+    </string-array>
+
+    <string-array name="array_notifications_corporation">
+        <item>Mail</item>
+        <item>Notifications</item>
+        <item>Contracts</item>
+    </string-array>
+</resources>

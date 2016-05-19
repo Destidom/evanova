@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_drawer_items"
+        android:icon="@drawable/ic_eve_items"
+        android:title="@string/button_items" />
+
+    <item
+        android:id="@+id/menu_drawer_skills"
+        android:icon="@drawable/ic_eve_skills"
+        android:title="@string/button_skills" />
+
+    <item
+        android:id="@+id/menu_drawer_routes"
+        android:icon="@drawable/ic_eve_systems"
+        android:title="@string/button_routes" />
+
+    <item
+        android:id="@+id/menu_drawer_fittings"
+        android:icon="@drawable/ic_eve_fitting"
+        android:title="@string/button_fittings" />
+    <item
+        android:id="@+id/menu_drawer_server"
+        android:icon="@drawable/ic_eve_browser"
+        android:title="@string/button_server" />
+
+    <!-- <item
+         android:id="@+id/menu_drawer_fleets"
+         android:icon="@drawable/eveui_fleet"
+         android:title="@string/drawer.fleets"/> -->
+</menu>

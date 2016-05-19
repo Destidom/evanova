@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--  http://www.colorhunter.com/palette/456696  -->
+<resources>
+	<color name="transparent">#00000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="green">#00FF00</color>
+
+	<color name="orange">#DF8332</color>
+    <color name="yellow">#FFD559</color>
+
+    <color name="grey">#ffcccccc</color>
+    <color name="darkgrey">#99272F36</color>
+    <color name="lightgrey">#99666D78</color>
+
+    <color name="lightblue">#5197C0</color>
+</resources>

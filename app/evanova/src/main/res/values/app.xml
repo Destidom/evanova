@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Evanova</string>
+    <string name="app_version">Version 33 (Citadel 1.0)</string>
+    <string name="app_dir">Evanova</string><!-- external file paths -->
+     
+    <string name="app_author">Evanova Android</string>       
+    <string name="app_corporation">Traquenard Labs (TLABS)</string>
+    <string name="app_url">http://evanova-mobile.blogspot.com/</string>
+
+    <string name="app_service_api">Evanova API Service</string>
+    <string name="app_service_notifications">Evanova Notifications Service</string>
+
+    <string name="app_routes">Evanova Routes</string>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="4dp"
+    android:layout_marginRight="4dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp"
+    android:background="@drawable/jeeves_panel_no_border"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/j_fittingEffectName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="11: powerOutput 23.0 MW"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/j_fittingEffectDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Something something" />
+
+    <TextView
+        android:id="@+id/j_fittingEffectExpression"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Something something" />
+</LinearLayout>

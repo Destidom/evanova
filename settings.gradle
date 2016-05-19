@@ -2,3 +2,7 @@ include ':eve-api-java'
 include ':eve-crest-java'
 include ':eve-dotlan-java'
 include ':eve-dogma-java'
+
+include ':app'
+
+

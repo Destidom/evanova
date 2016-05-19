@@ -1,0 +1,147 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/Theme.Jeeves.Panel">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/j_routeJumpCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/jeeves_route_select_switch"
+            android:textSize="16sp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/j_routeFromAutoComplete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/jeeves_route_select_from" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/j_routeToAutoComplete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/jeeves_route_select_to" />
+        </android.support.design.widget.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/j_routeJumpContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical"
+            android:layout_marginTop="24dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:id="@+id/j_routeFreighterAutoComplete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/jeeves_route_select_freighter" />
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp">
+
+                <CheckBox
+                    android:id="@+id/j_routeJumpIncursionCheck"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:checked="true"
+                    android:text="@string/jeeves_route_select_incursions"
+                    android:textColor="@color/grey" />
+
+                <CheckBox
+                    android:id="@+id/j_routeJumpSystemsCheck"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_weight="0.5"
+                    android:checked="true"
+                    android:text="@string/jeeves_route_select_systems"
+                    android:textColor="@color/grey" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/j_routeJumpFreighterSkillText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:paddingLeft="18dp"
+                android:text="@string/jeeves_route_select_freighter_skill" />
+
+            <include
+                android:id="@+id/j_routeJumpFreighterSkillSeek"
+                layout="@layout/jeeves_include_skill_seekbar" />
+
+            <TextView
+                android:id="@+id/j_routeJumpCalibrationSkillText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:paddingLeft="18dp"
+                android:text="@string/jeeves_route_select_calibration_skill" />
+
+            <include
+                android:id="@+id/j_routeJumpCalibrationSkillSeek"
+                layout="@layout/jeeves_include_skill_seekbar" />
+
+            <TextView
+                android:id="@+id/j_routeJumpConservationSkillText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:paddingLeft="18dp"
+                android:text="@string/jeeves_route_select_conservation_skill" />
+
+            <include
+                android:id="@+id/j_routeJumpConservationSkillSeek"
+                layout="@layout/jeeves_include_skill_seekbar" />
+
+            <!-- spacer -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="0.1"
+                android:text="" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/j_routeSubmitButton"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/eveui_jumpclones" />
+
+    </LinearLayout>
+</ScrollView>

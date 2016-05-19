@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="jeeves.preferences">
+
+    <PreferenceCategory android:title="@string/preferences_category_online">
+        <com.afollestad.materialdialogs.prefs.MaterialListPreference
+            android:dialogTitle="@string/preferences_update_frequency_title"
+            android:defaultValue="4"
+            android:key="preferences.notifications.frequency"
+            android:summary="@string/preferences_update_frequency_summary"
+            android:title="@string/preferences_update_frequency_title"
+            android:entries="@array/preferences_update_frequency_entries"
+            android:entryValues="@array/preferences_update_frequency_values" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="preferences.cache.spare"
+            android:title="@string/preferences_caching_spare_title" />
+
+        <com.tlabs.android.evanova.preferences.CacheDialogPreference
+            android:dialogIcon="@android:drawable/ic_dialog_alert"
+            android:dialogMessage="@string/preferences_cachedialog_message"
+            android:key="preferences.cache.invalidate"
+            android:negativeButtonText="Cancel"
+            android:positiveButtonText="Clear"
+            android:title="@string/preferences_cachedialog_title" />
+
+        <PreferenceScreen android:title="@string/preferences_category_network">
+            <CheckBoxPreference
+                android:defaultValue="false"
+                android:key="preferences.api.check"
+                android:summary="@string/preferences_api_check_summary"
+                android:title="@string/preferences_api_check_title" />
+
+            <EditTextPreference
+                android:defaultValue="https://api.eveonline.com"
+                android:dependency="preferences.api.check"
+                android:key="preferences.api.eve.url"
+                android:summary="@string/preferences_apiurl_summary"
+                android:title="@string/preferences_apiurl_title" />
+            <EditTextPreference
+                android:defaultValue="https://image.eveonline.com"
+                android:dependency="preferences.api.check"
+                android:key="preferences.api.images.url"
+                android:summary="@string/preferences_imagesurl_behaviour_summary"
+                android:title="@string/preferences_imagesurl_behaviour" />
+            <EditTextPreference
+                android:defaultValue="https://client.eveonline.com"
+                android:dependency="preferences.api.check"
+                android:key="preferences.api.server.url"
+                android:summary="@string/preferences_statusurl_behaviour_summary"
+                android:title="@string/preferences_status_behaviour_title" />
+            <EditTextPreference
+                android:defaultValue="http://api.eve-central.com"
+                android:dependency="preferences.api.check"
+                android:key="preferences.api.central.url"
+                android:summary="@string/preferences_evecentral_summary"
+                android:title="@string/preferences_evecentral_title"/>
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/preferences_category_notifications">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="preferences.notifications.option"
+            android:summary="@string/preferences_notification_title_summary"
+            android:title="@string/preferences_notification_title" />
+
+        <PreferenceScreen
+            android:summary="@string/preferences_screen_notifications_summary"
+            android:title="@string/preferences_screen_notifications">
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="preferences.notifications.account.status"
+                android:summary="@string/preferences_notifications_account_status_summary"
+                android:title="@string/preferences_notifications_account_status_title" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="preferences.notifications.account.training"
+                android:summary="@string/preferences_notifications_account_training_summary"
+                android:title="@string/preferences_notifications_account_training_title" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="preferences.notifications.training"
+                android:summary="@string/preferences_notifications_training_summary"
+                android:title="@string/preferences_notifications_training_title" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="preferences.notifications.mail"
+                android:summary="@string/preferences_notifications_mail_summary"
+                android:title="@string/preferences_notifications_mail_title" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="preferences.notifications.notifications"
+                android:summary="@string/preferences_notifications_notifications_summary"
+                android:title="@string/preferences_notifications_notifications_title" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="preferences.notifications.calendar"
+                android:summary="@string/preferences_notifications_calendar_summary"
+                android:title="@string/preferences_notifications_calendar_title" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="preferences.notifications.contracts"
+                android:summary="@string/preferences_notifications_contracts_summary"
+                android:title="@string/preferences_notifications_contracts_title" />
+
+        </PreferenceScreen>
+
+        <RingtonePreference
+            android:key="preferences.notifications.sound"
+            android:ringtoneType="notification|alarm"
+            android:showDefault="true"
+            android:showSilent="true"
+            android:title="@string/preferences_notification_ringtone_title" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/preferences_category_display">
+
+        <com.afollestad.materialdialogs.prefs.MaterialListPreference
+            android:dialogTitle="@string/preferences_background_behaviour_dialog"
+            android:entries="@array/preferences_background_entries"
+            android:entryValues="@array/preferences_background_values"
+            android:defaultValue="1"
+            android:key="preferences.background.key"
+            android:persistent="true"
+            android:summary="@string/preferences_background_behaviour_summary"
+            android:title="@string/preferences_background_behaviour" />
+
+        <com.afollestad.materialdialogs.prefs.MaterialListPreference
+            android:dialogTitle="@string/preferences_display_behaviour_dialog"
+            android:entries="@array/preferences_display_entries"
+            android:entryValues="@array/preferences_display_values"
+            android:defaultValue="0"
+            android:key="preferences.display.key"
+            android:persistent="true"
+            android:summary="@string/preferences_display_behaviour_summary"
+            android:title="@string/preferences_display_behaviour" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--  http://www.colorhunter.com/palette/456696  -->
+<resources>
+	<color name="transparent">#00000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="red">#FF0000</color>
+    <color name="darkred">#200000</color>
+	<color name="green">#00FF00</color>
+	<color name="yellow">#FFD559</color>
+	<color name="orange">#DF8332</color>
+    <color name="lightorange">#FFA500</color>
+
+	<color name="grey">#ffcccccc</color>
+    <color name="darkgrey">#99272F36</color>
+    <color name="bluegrey_transparent">#002D4762</color>
+    <color name="tealgrey">#99436180</color>
+    <color name="bluegrey">#992D4762</color>
+    <color name="lightgrey">#99666D78</color>
+  
+    <color name="blue">#215AB3</color>
+    <color name="lightblue">#5197C0</color>
+        
+    
+    <color name="actionbar_title_color">#224894</color>
+</resources>
