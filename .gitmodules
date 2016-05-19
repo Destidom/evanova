@@ -1,0 +1,12 @@
+[submodule "eve-api-java"]
+	path = eve-api-java
+	url = https://github.com/evanova/eve-api-java.git
+[submodule "eve-crest-java"]
+	path = eve-crest-java
+	url = https://github.com/evanova/eve-crest-java.git
+[submodule "eve-dogma-java"]
+	path = eve-dogma-java
+	url = https://github.com/evanova/eve-dogma-java.git
+[submodule "eve-dotlan-java"]
+	path = eve-dotlan-java
+	url = https://github.com/evanova/eve-dotlan-java.git
