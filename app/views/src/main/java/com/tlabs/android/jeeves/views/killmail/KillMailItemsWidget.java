@@ -15,8 +15,9 @@ import com.tlabs.android.jeeves.views.ui.list.AbstractListRecyclerView;
 import com.tlabs.android.jeeves.views.ui.list.AbstractListRowHolder;
 import com.tlabs.android.jeeves.views.ui.list.ListRecyclerViewAdapter;
 import com.tlabs.eve.api.mail.KillMailItem;
+import com.tlabs.eve.zkb.ZKillMail;
 
-public class KillMailItemsWidget extends AbstractListRecyclerView<KillMailItem> {
+public class KillMailItemsWidget extends AbstractListRecyclerView<KillMailItem> implements KillMailWidget {
 
     private final class ItemHolder extends AbstractListRowHolder<KillMailItem> {
         private ImageView imageView;
@@ -51,6 +52,11 @@ public class KillMailItemsWidget extends AbstractListRecyclerView<KillMailItem> 
 
     public KillMailItemsWidget(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+    }
+
+    @Override
+    public void setKillMail(ZKillMail killMail) {
+        setItems(killMail.getItems());
     }
 
     @Override

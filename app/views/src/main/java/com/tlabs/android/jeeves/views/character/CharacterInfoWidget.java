@@ -47,6 +47,9 @@ public class CharacterInfoWidget extends FrameLayout implements CharacterWidget 
     }
 
     public void setCharacter(EveCharacter character) {
+        if (null == character) {
+            return;
+        }
         balanceText.setText(EveFormat.Currency.LONG(character.getBalance()));
 
         final long fatigue = character.getJumpFatigue() - System.currentTimeMillis();

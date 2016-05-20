@@ -26,9 +26,8 @@
         android:layout_toRightOf="@+id/j_killmail_item_ItemIcon"
         android:ellipsize="end"
         android:maxLines="1"
-        android:text="Railgun X542"
         android:textSize="14sp"
-        android:gravity="left|center_vertical"></TextView>
+        android:gravity="left|center_vertical"/>
 
 
     <TextView
@@ -44,7 +43,7 @@
         android:textIsSelectable="true"
         android:layout_below="@+id/j_killmail_item_ItemName"
         android:layout_toRightOf="@+id/j_killmail_item_ItemIcon"
-        android:layout_toEndOf="@+id/j_killmail_item_ItemIcon"></TextView>
+        android:layout_toEndOf="@+id/j_killmail_item_ItemIcon"/>
 
     <TextView
         android:id="@+id/j_killmail_item_ItemDropped"
@@ -56,8 +55,7 @@
         android:ellipsize="end"
         android:gravity="center_horizontal|right"
         android:maxLines="1"
-        android:text="1000"
-        android:textSize="12sp"></TextView>
+        android:textSize="12sp"/>
 
     <TextView
 
@@ -70,7 +68,7 @@
         android:textSize="12sp"
         android:layout_below="@+id/textView"
         android:layout_toRightOf="@+id/j_killmail_item_ItemIcon"
-        android:layout_toEndOf="@+id/j_killmail_item_ItemIcon"></TextView>
+        android:layout_toEndOf="@+id/j_killmail_item_ItemIcon"/>
 
     <TextView
         android:id="@+id/j_killmail_item_ItemDestroyed"
@@ -85,7 +83,6 @@
         android:ellipsize="end"
         android:gravity="center_horizontal|right"
         android:maxLines="1"
-        android:text="1000"
-        android:textSize="12sp"></TextView>
+        android:textSize="12sp"/>
 
 </RelativeLayout>

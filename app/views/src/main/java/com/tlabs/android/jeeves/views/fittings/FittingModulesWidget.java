@@ -10,7 +10,7 @@ import android.widget.FrameLayout;
 import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.dogma.Fitter;
 
-public class FittingModulesWidget extends FrameLayout implements FittingWidgetInterface {
+public class FittingModulesWidget extends FrameLayout implements FittingWidget {
 
     private RecyclerView listView;
     private View statsView;

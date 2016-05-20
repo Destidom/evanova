@@ -13,15 +13,17 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import dagger.Lazy;
+
 public class RouteUseCaseImpl implements RouteUseCase {
 
-    private final DotlanService dotlan;
-    private final CrestService crest;
+    private final Lazy<DotlanService> dotlan;
+    private final Lazy<CrestService> crest;
 
     private final SavedPreferences preferences;
 
     @Inject
-    public RouteUseCaseImpl(DotlanService dotlan, CrestService crest, SavedPreferences preferences) {
+    public RouteUseCaseImpl(Lazy<DotlanService> dotlan, Lazy<CrestService> crest, SavedPreferences preferences) {
         this.dotlan = dotlan;
         this.crest = crest;
         this.preferences = preferences;
@@ -31,17 +33,17 @@ public class RouteUseCaseImpl implements RouteUseCase {
     public DotlanRoute loadRoute(DotlanOptions options, int type) {
         switch (type) {
             case 1:
-                return this.dotlan.getHighSecRoute(options);
+                return this.dotlan.get().getHighSecRoute(options);
             case 2:
-                return this.dotlan.getLowSecRoute(options);
+                return this.dotlan.get().getLowSecRoute(options);
             default:
-                return this.dotlan.getFastestRoute(options);
+                return this.dotlan.get().getFastestRoute(options);
         }
     }
 
     @Override
     public DotlanRoute loadJumpRoute(DotlanJumpOptions options) {
-        return this.dotlan.getJumpRoute(options);
+        return this.dotlan.get().getJumpRoute(options);
     }
 
     @Override

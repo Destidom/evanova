@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/jeeves_panel_no_border"
+    android:orientation="vertical"
+    android:padding="4dp">
+
+    <TextView
+        android:id="@+id/rowIndustryTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:gravity="left|center_vertical"
+        android:text="6456356456"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/rowIndustryName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center_vertical"
+        android:maxLines="1"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/rowIndustryOwner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:gravity="left|center_vertical"
+        android:text="Owner"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:id="@+id/rowIndustryText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/rowIndustryText3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textColor="@color/white"/>
+</LinearLayout>

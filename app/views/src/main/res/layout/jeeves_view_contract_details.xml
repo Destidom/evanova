@@ -67,8 +67,7 @@
                     android:id="@+id/j_contract_IssuedBy"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:text="TextView" />
+                    android:layout_weight="0.5"/>
             </TableRow>
 
             <TableRow
@@ -87,8 +86,7 @@
                     android:id="@+id/j_contract_IssuedTo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:text="TextView" />
+                    android:layout_weight="0.5"/>
             </TableRow>
 
             <TableRow
@@ -108,8 +106,7 @@
                     android:id="@+id/j_contract_Availability"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:text="TextView" />
+                    android:layout_weight="0.5"/>
             </TableRow>
 
             <TableRow
@@ -128,8 +125,7 @@
                     android:id="@+id/j_contract_Location"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:text="TextView" />
+                    android:layout_weight="0.5"/>
             </TableRow>
 
             <TableRow
@@ -149,8 +145,7 @@
                     android:id="@+id/j_contract_DateIssued"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:text="TextView" />
+                    android:layout_weight="0.5"/>
             </TableRow>
 
             <TableRow
@@ -170,8 +165,7 @@
                     android:id="@+id/j_contract_DateExpiration"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:text="TextView" />
+                    android:layout_weight="0.5"/>
             </TableRow>
         </TableLayout>
 
@@ -211,8 +205,7 @@
                     android:id="@+id/j_contract_Price"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:text="TextView"/>
+                    android:layout_weight="0.5"/>
             </TableRow>
 
             <TableRow
@@ -232,7 +225,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
-                    android:text="TextView"
                     android:textColor="@color/green" />
             </TableRow>
 
@@ -253,8 +245,7 @@
                     android:id="@+id/j_contract_Buyout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:text="TextView" />
+                    android:layout_weight="0.5"/>
             </TableRow>
 
             <TableRow
@@ -273,8 +264,7 @@
                     android:id="@+id/j_contract_Collateral"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:text="TextView" />
+                    android:layout_weight="0.5"/>
             </TableRow>
 
             <TableRow
@@ -294,8 +284,7 @@
                     android:id="@+id/j_contract_Destination"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:text="TextView" />
+                    android:layout_weight="0.5"/>
             </TableRow>
 
             <TableRow
@@ -314,8 +303,7 @@
                     android:id="@+id/j_contract_Volume"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:text="TextView" />
+                    android:layout_weight="0.5"/>
             </TableRow>
         </TableLayout>
     </LinearLayout>

@@ -7,7 +7,7 @@ import android.widget.FrameLayout;
 import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.Contract;
 
-public class ContractDetailsWidget extends FrameLayout {
+public class ContractDetailsWidget extends FrameLayout implements ContractWidget {
 
     private ContractDetailsHolder holder;
 
@@ -26,6 +26,7 @@ public class ContractDetailsWidget extends FrameLayout {
         init();
     }
 
+    @Override
     public void setContract(final Contract contract, final long ownerID) {
         this.holder.render(contract, ownerID);
     }

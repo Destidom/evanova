@@ -6,8 +6,6 @@ import com.tlabs.android.evanova.R;
 import com.tlabs.android.evanova.app.EvanovaActivityPresenter;
 import com.tlabs.android.evanova.app.character.CharacterUseCase;
 import com.tlabs.android.evanova.app.character.CharacterView;
-import com.tlabs.android.evanova.mvp.ActivityPresenter;
-import com.tlabs.android.evanova.preferences.UserPreferences;
 import com.tlabs.android.jeeves.model.EveAccount;
 import com.tlabs.android.jeeves.model.EveCharacter;
 import com.tlabs.android.jeeves.views.EveImages;

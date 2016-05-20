@@ -15,13 +15,13 @@ import org.devfleet.dotlan.DotlanOptions;
 
 import java.util.List;
 
-public class RouteInputPager extends ViewPager {
+class RouteInputPager extends ViewPager {
 
     public interface Listener {
         void onRouteSelected(final DotlanOptions options);
     }
 
-    static class RouteInputPagerAdapter extends PagerAdapter {
+    private static class RouteInputPagerAdapter extends PagerAdapter {
         private final Context context;
 
         private final RouteListWidget listView;
@@ -102,26 +102,31 @@ public class RouteInputPager extends ViewPager {
         }
     }
 
+
+    private RouteInputPagerAdapter adapter;
     private Listener listener;
 
     public RouteInputPager(Context context, AttributeSet attrs) {
         super(context, attrs);
+        init();
     }
 
     public RouteInputPager(Context context) {
         super(context);
+        init();
     }
-    /*
-    @Override
-    protected RouteInputPagerAdapter createAdapter(Bundle savedInstanceState) {
-        return new RouteInputPagerAdapter(getContext()) {
+
+    private void init() {
+        setId(R.id.pagerRouteInput);
+        this.adapter = new RouteInputPagerAdapter(getContext()) {
             @Override
-            protected void onRouteSelected(final DotlanOptions options) {
+            protected void onRouteSelected(DotlanOptions options) {
                 if (null != listener) {
                     listener.onRouteSelected(options);
                 }
             }
         };
+        setAdapter(this.adapter);
     }
 
     public void setListener(Listener listener) {
@@ -129,23 +134,11 @@ public class RouteInputPager extends ViewPager {
     }
 
     public void setRoute(final DotlanOptions options) {
-        getPagerAdapter().setRoute(options);
+        this.adapter.setRoute(options);
     }
 
     public void setRoutes(final List<DotlanOptions> saved) {
-        getPagerAdapter().setRoutes(saved);
+        this.adapter.setRoutes(saved);
     }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-    }
-
-    @Override
-    protected int getPagerID() {
-        return R.id.pagerRoutesInput;
-    }
-*/
 
 }

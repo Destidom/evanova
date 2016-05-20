@@ -8,7 +8,6 @@ import com.tlabs.android.evanova.app.EvanovaActivityPresenter;
 import com.tlabs.android.evanova.app.character.CharacterListView;
 import com.tlabs.android.evanova.app.character.CharacterUseCase;
 import com.tlabs.android.evanova.app.character.ui.CharacterActivity;
-import com.tlabs.android.evanova.mvp.ActivityPresenter;
 import com.tlabs.android.jeeves.model.EveAccount;
 
 import javax.inject.Inject;

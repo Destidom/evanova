@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/jeeves_view_character_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/jeeves_panel_no_border">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="Jump Fatigue" />
+
+                <TextView
+                    android:id="@+id/j_character_attribute_JumpFatigue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="right"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="Jump Activation" />
+
+                <TextView
+                    android:id="@+id/j_character_attribute_JumpActivation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="right"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="Last Jump" />
+
+                <TextView
+                    android:id="@+id/j_character_attribute_JumpLastUpdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="right"/>
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:id="@+id/j_character_attribute_SheepSelectionBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/jeeves_panel_no_border"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/j_character_attribute_SheepImage"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="left|center_vertical"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/j_character_attribute_SheepText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:gravity="left"
+                    android:maxLines="1"
+                    android:minLines="1"/>
+
+                <TextView
+                    android:id="@+id/j_character_attribute_SheepTypeText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:gravity="left"
+                    android:maxLines="1"
+                    android:minLines="1"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/j_character_attribute_BirthSelectionBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/jeeves_panel_no_border"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/j_character_attribute_BirthImage"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="left|center_vertical"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/jeeves_level_list_races"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/j_character_attribute_BirthText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:gravity="left"
+                    android:maxLines="1"
+                    android:minLines="1"/>
+
+                <TextView
+                    android:id="@+id/j_character_attribute_AgeText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:gravity="left"
+                    android:maxLines="1"
+                    android:minLines="1"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/j_character_attribute_LocationText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:gravity="left|bottom"
+                    android:maxLines="2"
+                    android:minLines="1"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/jeeves_panel_no_border"
+            android:text="Employment History"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="4dp"
+            android:background="@color/lightblue"
+            android:layout_marginBottom="2dp" />
+        <LinearLayout
+            android:id="@+id/j_character_attribute_CorporationContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:clickable="false"
+            android:orientation="vertical"/>
+
+    </LinearLayout>
+</ScrollView>

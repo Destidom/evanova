@@ -23,9 +23,8 @@ public final class SavedPreferences extends PreferenceSupport {
     public static final String KEY_TAB = "saved.dashboard.tab";//String
 	public static final String KEY_TAB_INFO = "saved.dashboard.tab.info";//String
 
-	private static final String KEY_LAST_CHAR = "saved.charId";
-	private static final String KEY_LAST_CORP = "saved.corpId";
-	
+	private static final String KEY_LAST_ACCOUNT = "saved.accountID";
+
 	private static final String KEY_LAST_SKILL = "saved.skill.id";
 	private static final String KEY_SKILL_OPTION = "saved.skill.view";
 	private static final String KEY_ORDERS_OPTION = "saved.skill.order";
@@ -42,45 +41,16 @@ public final class SavedPreferences extends PreferenceSupport {
 		super(context);
 	}
 
-	public void setLastViewedCharacter(long id) {
+	public void setLastViewedAccount(long id) {
 		Editor editor = getPreferences().edit();
-		editor.putLong(KEY_LAST_CHAR, id);
+		editor.putLong(KEY_LAST_ACCOUNT, id);
 		editor.apply();
 	}
 
-	public long getLastViewedCharacter() {
-		return getPreferences().getLong(KEY_LAST_CHAR, -1L);
+	public long getLastViewedAccount() {
+		return getPreferences().getLong(KEY_LAST_ACCOUNT, -1L);
 	}
 
-    public void setCharacterListViewType(int type) {
-		getPreferences().
-        edit().
-        putInt(KEY_SELECTED_CHARACTER_LIST_TYPE, type).
-        commit();
-    }
-
-    public int getCharacterListViewType() {
-        return getPreferences().getInt(KEY_SELECTED_CHARACTER_LIST_TYPE, 0);
-    }
-    
-	public void setLastViewedCorporation(long id) {
-		getPreferences().
-		edit().
-		putLong(KEY_LAST_CORP, id).
-		commit();
-	}
-	
-	public long getLastViewedCorporation() {
-		return getPreferences().getLong(KEY_LAST_CORP, -1L);
-	}
-	
-	public void setSkill(long id) {
-		getPreferences().
-		edit().
-		putLong(KEY_LAST_SKILL, id).
-		commit();
-	}
-	
 	public long getSkill() {
 		return getPreferences().getLong(KEY_LAST_SKILL, -1L);
 	}

@@ -9,7 +9,6 @@ import com.tlabs.android.evanova.app.EvanovaActivityPresenter;
 import com.tlabs.android.evanova.app.accounts.AccountUseCase;
 import com.tlabs.android.evanova.app.accounts.AccountView;
 import com.tlabs.android.evanova.app.accounts.ui.AccountActivity;
-import com.tlabs.android.evanova.mvp.ActivityPresenter;
 import com.tlabs.android.jeeves.model.EveAccount;
 import com.tlabs.android.jeeves.service.EveAPIServicePreferences;
 

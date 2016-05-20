@@ -13,7 +13,7 @@ import com.tlabs.android.jeeves.views.ui.list.ListRecyclerViewAdapter;
 import com.tlabs.eve.dogma.Fitter;
 import com.tlabs.eve.dogma.model.Effect;
 
-public class FittingEffectListWidget extends AbstractListRecyclerView<Effect> implements FittingWidgetInterface {
+public class FittingEffectListWidget extends AbstractListRecyclerView<Effect> implements FittingWidget {
 
     private static class EffectHolder extends ListRecyclerViewAdapter.ViewHolder<Effect> {
         //  @BindView(R.id.rawEffectName)

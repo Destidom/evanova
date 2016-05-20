@@ -15,14 +15,16 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import dagger.Lazy;
+
 public class DashboardUseCaseImpl implements DashboardUseCase {
 
     private ContentFacade content;
-    private CrestService crest;
-    private EveNetwork eve;
+    private Lazy<CrestService> crest;
+    private Lazy<EveNetwork> eve;
 
     @Inject
-    public DashboardUseCaseImpl(ContentFacade content, CrestService crest, EveNetwork eve) {
+    public DashboardUseCaseImpl(ContentFacade content, Lazy<CrestService> crest, Lazy<EveNetwork> eve) {
         this.content = content;
         this.crest = crest;
         this.eve = eve;
@@ -40,11 +42,11 @@ public class DashboardUseCaseImpl implements DashboardUseCase {
 
     @Override
     public CrestServerStatus loadServerStatus() {
-        return crest.getServerStatus();
+        return crest.get().getServerStatus();
     }
 
     @Override
     public List<EveRSSEntry> loadRSS() {
-        return eve.execute(new EveRSSRequest()).getEntries();
+        return eve.get().execute(new EveRSSRequest()).getEntries();
     }
 }

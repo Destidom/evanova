@@ -17,10 +17,11 @@ import com.tlabs.android.jeeves.views.ui.list.AbstractListRowHolder;
 import com.tlabs.android.jeeves.views.ui.list.ListRecyclerViewAdapter;
 
 import com.tlabs.eve.api.mail.KillMailAttacker;
+import com.tlabs.eve.zkb.ZKillMail;
 
 import org.apache.commons.lang3.StringUtils;
 
-public class KillMailAttackersWidget extends AbstractListRecyclerView<KillMailAttacker> {
+public class KillMailAttackersWidget extends AbstractListRecyclerView<KillMailAttacker> implements KillMailWidget {
 
     private static class AttackerHolder extends AbstractListRowHolder<KillMailAttacker> {
 
@@ -95,6 +96,11 @@ public class KillMailAttackersWidget extends AbstractListRecyclerView<KillMailAt
 
     public KillMailAttackersWidget(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+    }
+
+    @Override
+    public void setKillMail(ZKillMail killMail) {
+        setItems(killMail.getAttackers());
     }
 
     @Override

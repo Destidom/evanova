@@ -66,7 +66,9 @@ public class ViewPager extends android.support.v4.view.ViewPager {
 	}
 	
 	private void init(Context context) {
-		this.gestureDetector = new GestureDetector(context, new SimpleOnGestureListener() {
+        setOffscreenPageLimit(5);//Default is 1 - we usually have 2 or 3
+
+        this.gestureDetector = new GestureDetector(context, new SimpleOnGestureListener() {
 
 			@Override
 			public boolean onSingleTapConfirmed(MotionEvent e) {
@@ -118,5 +120,6 @@ public class ViewPager extends android.support.v4.view.ViewPager {
 			return false;
 		}
 		return done;
-	}	
+	}
+
 }

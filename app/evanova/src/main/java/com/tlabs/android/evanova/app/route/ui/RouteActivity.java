@@ -4,10 +4,9 @@ import android.os.Bundle;
 
 import com.tlabs.android.evanova.app.Application;
 import com.tlabs.android.evanova.app.route.DaggerRouteComponent;
-import com.tlabs.android.evanova.app.route.RouteDisplayView;
-import com.tlabs.android.evanova.app.route.RouteInputView;
 import com.tlabs.android.evanova.app.route.RouteModule;
-import com.tlabs.android.evanova.app.route.presenter.RouteDisplayPresenter;
+import com.tlabs.android.evanova.app.route.RouteView;
+import com.tlabs.android.evanova.app.route.presenter.RoutePresenter;
 import com.tlabs.android.evanova.mvp.BaseActivity;
 
 import org.devfleet.dotlan.DotlanOptions;
@@ -19,14 +18,14 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class RouteActivity extends BaseActivity implements RouteDisplayView, RouteInputView {
+public class RouteActivity extends BaseActivity implements RouteView {
     private static final Logger LOG = LoggerFactory.getLogger(RouteActivity.class);
 
     public static final String EXTRA_WAYPOINTS = RouteActivity.class.getName() + ".waypoints";//array
     public static final String EXTRA_JUMP = RouteActivity.class.getName() + ".options";//custom format
 
     @Inject
-    RouteDisplayPresenter presenter;
+    RoutePresenter presenter;
 
     private RouteFragment fragment;
 
@@ -35,16 +34,19 @@ public class RouteActivity extends BaseActivity implements RouteDisplayView, Rou
         super.onCreate(savedInstanceState);
 
         DaggerRouteComponent
-                .builder()
-                .evanovaComponent(Application.getEveComponent())
-                .routeModule(new RouteModule())
-                .build()
-                .inject(this);
+            .builder()
+            .evanovaComponent(Application.getEveComponent())
+            .routeModule(new RouteModule())
+            .build()
+            .inject(this);
+
         this.fragment = new RouteFragment();
+        this.fragment.setPresenter(this.presenter);
+
         setFragment(this.fragment);
 
         this.presenter.setView(this);
-        this.presenter.loadRoutes(getIntent());
+        this.presenter.setRoutes(getIntent());
     }
 
     @Override
@@ -52,6 +54,13 @@ public class RouteActivity extends BaseActivity implements RouteDisplayView, Rou
         super.onDestroy();
         this.presenter.destroyView();
         this.presenter = null;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (!this.fragment.onBackPressed()) {
+            this.presenter.onBack();
+        }
     }
 
     @Override

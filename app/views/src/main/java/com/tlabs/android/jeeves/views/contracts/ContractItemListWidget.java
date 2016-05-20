@@ -6,7 +6,7 @@ import android.widget.ExpandableListView;
 
 import com.tlabs.eve.api.Contract;
 
-public class ContractItemListWidget extends ExpandableListView {
+public class ContractItemListWidget extends ExpandableListView implements ContractWidget {
 
     private ContractItemAdapter adapter;
 
@@ -25,6 +25,7 @@ public class ContractItemListWidget extends ExpandableListView {
         init();
     }
 
+    @Override
     public void setContract(final Contract contract, final long ownerID) {
         this.adapter.setItems(contract.getItems(), ownerID == contract.getIssuerID());
     }

@@ -55,7 +55,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:maxLines="1"
-            android:text="Consider donating to"
             android:textColor="@color/white"
             android:textSize="16sp"/>
 
@@ -65,7 +64,6 @@
             android:layout_height="wrap_content"
             android:gravity="left"
             android:maxLines="1"
-            android:text="Evanova Android"
             android:textColor="@color/white"
             android:textSize="14sp"/>
 

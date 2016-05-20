@@ -14,19 +14,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:text="11: powerOutput 23.0 MW"
         android:textColor="@color/white"
         android:textSize="16sp" />
 
     <TextView
         android:id="@+id/j_fittingEffectDescription"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Something something" />
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/j_fittingEffectExpression"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Something something" />
+        android:layout_height="wrap_content"/>
 </LinearLayout>

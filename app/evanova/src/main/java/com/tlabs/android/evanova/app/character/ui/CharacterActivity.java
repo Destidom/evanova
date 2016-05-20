@@ -3,7 +3,6 @@ package com.tlabs.android.evanova.app.character.ui;
 import android.os.Bundle;
 
 import com.tlabs.android.evanova.app.Application;
-import com.tlabs.android.evanova.app.character.CharacterComponent;
 import com.tlabs.android.evanova.app.character.CharacterModule;
 import com.tlabs.android.evanova.app.character.CharacterView;
 import com.tlabs.android.evanova.app.character.DaggerCharacterComponent;

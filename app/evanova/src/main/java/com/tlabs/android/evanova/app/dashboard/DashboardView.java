@@ -10,6 +10,8 @@ import java.util.List;
 
 public interface DashboardView extends ActivityView {
 
+    void selectAccount(final long accountID);
+
     void setAccounts(final List<EveAccount> accounts);
 
     void showAbout();

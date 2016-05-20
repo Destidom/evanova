@@ -28,7 +28,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/j_killmail_CharacterIcon"
-            android:text="Capsuleer Name"
             android:textSize="16sp" />
 
         <TextView
@@ -37,7 +36,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/j_killmail_Character"
             android:layout_toRightOf="@+id/j_killmail_CharacterIcon"
-            android:text="Corporation Name"
             android:layout_marginTop="2dp" />
 
         <TextView
@@ -46,7 +44,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/j_killmail_Corporation"
             android:layout_toRightOf="@+id/j_killmail_CharacterIcon"
-            android:text="Alliance Name"
             android:layout_marginTop="2dp" />
     </RelativeLayout>
 
@@ -58,14 +55,12 @@
         android:id="@+id/j_killmail_Damage"
         android:layout_width="64dp"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="Damage" />
+        android:gravity="center_vertical|center_horizontal"/>
     <TextView
         android:id="@+id/j_killmail_Ship"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
-        android:text="Ship Name" />
+        android:layout_marginLeft="4dp"/>
     </LinearLayout>
 
 </LinearLayout>

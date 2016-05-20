@@ -22,7 +22,6 @@
             android:gravity="left|center_vertical"
             android:minLines="2"
             android:maxLines="2"
-            android:text="Industrial Potato Construction"
             android:textColor="@color/white"/>
 
         <com.tlabs.android.jeeves.views.skills.SkillLevelWidget
@@ -44,8 +43,7 @@
             android:layout_gravity="left|center_vertical"
             android:layout_weight="0.2"
             android:gravity="left|center_vertical"
-            android:maxLines="2"
-            android:text="1d 12h 34mn 45s"/>
+            android:maxLines="2"/>
 
         <ProgressBar
             android:id="@+id/j_character_training_RowTimeProgress"
@@ -66,7 +64,6 @@
         android:gravity="left|center_vertical"
         android:maxLines="1"
         android:paddingRight="4dip"
-        android:text="Ends Sunday 12 January 22:45"
         android:textSize="14sp"/>
 
 </LinearLayout>

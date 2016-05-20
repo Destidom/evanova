@@ -31,9 +31,11 @@ public class CharacterDetailsFragment extends CharacterFragment {
             setId(R.id.pagerCharacterSummary);
 
             this.adapter = new ViewPagerAdapter(getContext());
-            this.adapter.addView(new CharacterSummaryWidget(getContext()), 0);
-            this.adapter.addView(new CharacterAttributesWidget(getContext()), 0);
-            this.adapter.addView(new CharacterClonesWidget(getContext()), 0);
+            this.adapter.addView(new CharacterSummaryWidget(getContext()), R.string.character_pager_summary);
+            this.adapter.addView(new CharacterAttributesWidget(getContext()), R.string.character_pager_summary);
+            this.adapter.addView(new CharacterClonesWidget(getContext()), R.string.character_pager_summary);
+
+            setAdapter(this.adapter);
         }
 
         public void setCharacter(final EveCharacter character) {

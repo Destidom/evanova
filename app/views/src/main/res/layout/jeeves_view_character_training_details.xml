@@ -27,7 +27,7 @@
                 android:maxLines="2"
                 android:text="No Capsuleer information."
                 android:textColor="@color/white"
-                android:textSize="16sp"></TextView>
+                android:textSize="16sp"/>
 
             <ImageView
                 android:id="@+id/j_character_training_DetailInfoIcon"
@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="2"
-            android:textSize="14sp"></TextView>
+            android:textSize="14sp"/>
 
         <ProgressBar
             android:id="@+id/j_character_training_DetailProgress"
@@ -52,7 +52,7 @@
             android:maxHeight="16dip"
             android:minHeight="16dip"
             android:progress="100"
-            android:progressDrawable="@drawable/jeeves_progress_bar"></ProgressBar>
+            android:progressDrawable="@drawable/jeeves_progress_bar"/>
     </LinearLayout>
 
     <TextView
@@ -64,7 +64,7 @@
         android:layout_marginTop="2dp"
         android:gravity="center_vertical|center_horizontal"
         android:textColor="@color/white"
-        android:textSize="28sp"></TextView>
+        android:textSize="28sp"/>
 
     <TextView
         android:id="@+id/j_character_training_DetailEndText"
@@ -72,9 +72,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|clip_vertical"
         android:gravity="center_vertical|center_horizontal"
-        android:maxLines="2">
+        android:maxLines="2"/>
 
-    </TextView>
 
     <TextView
         android:id="@+id/j_character_training_DetailPlanningText"
@@ -82,5 +81,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|clip_vertical"
         android:gravity="center_vertical|center_horizontal"
-        android:maxLines="2"></TextView>
+        android:maxLines="2"/>
 </LinearLayout>

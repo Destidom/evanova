@@ -55,7 +55,6 @@
                 android:gravity="left|center_vertical"
                 android:maxLines="1"
                 android:paddingRight="2dp"
-                android:text="Smashed Potatoe"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"/>
@@ -77,7 +76,6 @@
             android:layout_gravity="top"
             android:maxLines="1"
             android:paddingRight="2dp"
-            android:text="Not Your Mum&apos;s Corp"
             android:textSize="14sp"/>
 
         <TextView
@@ -86,8 +84,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             android:maxLines="1"
-
-            android:text="234,234,567,890.00 ISK"
             android:textSize="14sp"/>
 
         <TextView
@@ -97,7 +93,6 @@
             android:layout_gravity="top"
             android:maxLines="1"
             android:paddingRight="2dp"
-            android:text="Advanced Ninja Moves 4"
             android:textSize="14sp"/>
 
         <TextView
@@ -107,7 +102,6 @@
             android:layout_gravity="top"
             android:maxLines="1"
             android:paddingRight="2dp"
-            android:text="234d, 11h, 32mn"
             android:textColor="@color/white"
             android:textSize="14sp"/>
     </LinearLayout>

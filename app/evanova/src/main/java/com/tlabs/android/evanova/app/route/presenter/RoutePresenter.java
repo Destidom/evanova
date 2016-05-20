@@ -37,24 +37,34 @@ public class RoutePresenter extends EvanovaActivityPresenter<RouteView> {
         this.useCase = useCase;
     }
 
-    public void loadRoutes(final Intent startIntent) {
-        loadRoutes(startOptions(startIntent));
+    @Override
+    public void setView(RouteView view) {
+        super.setView(view);
+        setBackgroundDefault();
     }
 
-    public void loadRoutes(final DotlanOptions options) {
+    public void setRoutes(final Intent startIntent) {
+        setRoutes(startOptions(startIntent));
+    }
+
+    public void setRoutes(final DotlanOptions options) {
         if (null == options) {
             return;
         }
 
         if (options instanceof DotlanJumpOptions) {
-            loadJumpRouteImpl((DotlanJumpOptions)options);
+            setJumpRouteImpl((DotlanJumpOptions)options);
         }
         else {
-            loadRoutesImpl(options);
+            setRoutesImpl(options);
         }
     }
 
-    private void loadJumpRouteImpl(final DotlanJumpOptions options) {
+    public void onBack() {
+
+    }
+
+    private void setJumpRouteImpl(final DotlanJumpOptions options) {
         getView().setLoading(true);
         getView().setTitle(Strings.r(getContext(), R.string.jump_plan_title, options.getFrom(), options.getTo()));
         subscribe(
@@ -68,17 +78,17 @@ public class RoutePresenter extends EvanovaActivityPresenter<RouteView> {
             route -> {
                 getView().setLoading(false);
                 if (null == route) {
-                    getView().setTitleDescription(Strings.r(getContext(), R.string.jump_plan_subtitle, route.size()));
-                    getView().showRoute(route);
-                }
-                else {
                     getView().setTitleDescription(R.string.jump_plan_unavailable);
                     getView().showRoute(new DotlanRoute());
+                }
+                else {
+                    getView().setTitleDescription(Strings.r(getContext(), R.string.jump_plan_subtitle, route.size()));
+                    getView().showRoute(route);
                 }
             });
     }
 
-    private void loadRoutesImpl(final DotlanOptions options) {
+    private void setRoutesImpl(final DotlanOptions options) {
         getView().setLoading(true);
 
         Observable

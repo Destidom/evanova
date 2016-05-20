@@ -6,7 +6,6 @@ import com.tlabs.android.evanova.R;
 import com.tlabs.android.evanova.app.EvanovaActivityPresenter;
 import com.tlabs.android.evanova.app.killmail.KillMailUseCase;
 import com.tlabs.android.evanova.app.killmail.KillMailView;
-import com.tlabs.android.evanova.mvp.ViewPresenter;
 import com.tlabs.android.jeeves.model.EveAccount;
 import com.tlabs.android.jeeves.views.EveImages;
 import com.tlabs.eve.zkb.ZKillMail;

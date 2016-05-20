@@ -12,7 +12,7 @@ import com.tlabs.android.jeeves.views.fittings.FittingAttributeListWidget;
 import com.tlabs.android.jeeves.views.fittings.FittingEffectListWidget;
 import com.tlabs.android.jeeves.views.fittings.FittingModulesWidget;
 import com.tlabs.android.jeeves.views.fittings.FittingStatisticsWidget;
-import com.tlabs.android.jeeves.views.fittings.FittingWidgetInterface;
+import com.tlabs.android.jeeves.views.fittings.FittingWidget;
 import com.tlabs.android.jeeves.views.ui.pager.ViewPager;
 import com.tlabs.android.jeeves.views.ui.pager.ViewPagerAdapter;
 import com.tlabs.eve.dogma.Fitter;
@@ -37,8 +37,8 @@ public class FittingPager extends ViewPager {
 
         public void fit(final Fitter ship) {
             for (View v: getViews()) {
-                if (v instanceof FittingWidgetInterface) {
-                    ((FittingWidgetInterface)v).setFitting(ship);
+                if (v instanceof FittingWidget) {
+                    ((FittingWidget)v).setFitting(ship);
                 }
             }
         }

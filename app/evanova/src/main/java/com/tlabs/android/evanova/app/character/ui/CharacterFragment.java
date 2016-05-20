@@ -8,8 +8,6 @@ import com.tlabs.android.evanova.app.character.presenter.CharacterPresenter;
 import com.tlabs.android.evanova.mvp.BaseFragment;
 import com.tlabs.android.jeeves.model.EveCharacter;
 
-import javax.inject.Inject;
-
 public abstract class CharacterFragment extends BaseFragment {
 
     CharacterPresenter presenter;

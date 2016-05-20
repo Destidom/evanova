@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="jeeves_unknown">Unknown</string>
+    <string name="jeeves_NA">Not available</string>
 
     <string name="jeeves_server_status_online">Server is online</string>
     <string name="jeeves_server_status_offline">Server is offline</string>

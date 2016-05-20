@@ -22,7 +22,6 @@
             android:focusable="false"
             android:inputType="textMultiLine|textNoSuggestions"
             android:maxLines="2"
-            android:text="Bag of Potatoes"
             android:textColor="@color/white" >
         </TextView>
 
@@ -33,7 +32,6 @@
             android:focusable="false"
             android:gravity="right"
             android:maxLines="1"
-            android:text="Outstanding"
             android:textColor="@color/white" >
         </TextView>
     </LinearLayout>
@@ -48,8 +46,7 @@
             android:id="@+id/j_row_contractType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:focusable="false"
-            android:text="Item Exchange" />
+            android:focusable="false"/>
 
         <TextView
             android:id="@+id/j_row_contractDate"
@@ -59,15 +56,13 @@
             android:layout_weight="0.4"
             android:focusable="false"
             android:gravity="right"
-            android:maxLines="1"
-            android:text="Expires in 89d 23h 45mn" />
+            android:maxLines="1"/>
     </LinearLayout>
 
     <TextView
         android:id="@+id/j_row_contractPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:focusable="false"
-        android:text="3245687.00 / 32455332.34 ISK" />
+        android:focusable="false"/>
 
 </LinearLayout>

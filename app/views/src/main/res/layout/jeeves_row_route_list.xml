@@ -24,7 +24,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="- 0.66"
             android:textSize="14sp" />
 
     </LinearLayout>
@@ -39,7 +38,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.9"
-            android:text="Amarr Empire"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
@@ -65,7 +63,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.9"
-            android:text="234 kills"
             android:textColor="@color/white"
             android:textSize="12sp" />
 
@@ -76,7 +73,6 @@
             android:layout_gravity="right"
             android:layout_weight="0.1"
             android:gravity="right"
-            android:text="123 jumps"
             android:textColor="@color/white"
             android:textSize="12sp" />
 

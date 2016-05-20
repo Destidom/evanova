@@ -64,6 +64,10 @@ class DrawerSupport {
         this.drawer = builder.build();
     }
 
+    public void setSelected(final long account) {
+        this.drawer.setSelection(account, false);
+    }
+
     public void setAccounts(final List<EveAccount> accounts) {
         this.accounts.clear();
         this.accounts.addAll(accounts);

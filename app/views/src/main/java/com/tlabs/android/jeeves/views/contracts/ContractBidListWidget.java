@@ -16,7 +16,7 @@ import com.tlabs.android.jeeves.views.ui.list.ListRecyclerViewAdapter;
 import com.tlabs.eve.api.Contract;
 import com.tlabs.eve.api.ContractBid;
 
-public class ContractBidListWidget extends AbstractListRecyclerView<ContractBid> {
+public class ContractBidListWidget extends AbstractListRecyclerView<ContractBid> implements ContractWidget {
 
     private class ContractBidHolder extends AbstractListRowHolder<ContractBid> {
         private final TextView bidDate;
@@ -69,6 +69,7 @@ public class ContractBidListWidget extends AbstractListRecyclerView<ContractBid>
         return new ContractBidHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.jeeves_row_contract_bid, parent, false));
     }
 
+    @Override
     public void setContract(final Contract contract, final long ownerID) {
         this.issuerID = contract.getIssuerID();
         this.ownerID = ownerID;

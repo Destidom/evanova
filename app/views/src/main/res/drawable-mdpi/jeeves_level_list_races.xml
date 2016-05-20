@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<level-list xmlns:android="http://schemas.android.com/apk/res/android">
+  
+    <!--  Deteis -->
+    <item android:maxLevel="0" android:drawable="@drawable/icon29_128_2" />
+    <!--  Civire -->
+    <item android:maxLevel="1" android:drawable="@drawable/icon28_128_4" />
+    <!--  Sebiestor -->
+    <item android:maxLevel="2" android:drawable="@drawable/icon29_128_3" />
+    <!--  Brutor -->
+    <item android:maxLevel="3" android:drawable="@drawable/icon29_128_4" />
+    <!--  Amar -->
+    <item android:maxLevel="4" android:drawable="@drawable/icon28_128_1" />
+    <!--  Ni-Kunni -->
+    <item android:maxLevel="5" android:drawable="@drawable/icon29_128_1" />
+    <!--  Gallente -->
+    <item android:maxLevel="6" android:drawable="@drawable/icon19_128_3" />
+    <!--  Intaki -->
+    <item android:maxLevel="7" android:drawable="@drawable/ic_eve_member" />
+    <!--  static? -->
+    <item android:maxLevel="8" android:drawable="@drawable/ic_eve_member" />
+    <!--  modifier? -->
+    <item android:maxLevel="9" android:drawable="@drawable/ic_eve_member" />
+    <!--  Achura -->
+    <item android:maxLevel="10" android:drawable="@drawable/icon59_128_2" />
+    <!--  Jin-Mei -->
+    <item android:maxLevel="11" android:drawable="@drawable/icon59_128_4" />
+    <!--  Khanid -->
+    <item android:maxLevel="12" android:drawable="@drawable/icon59_128_3" />
+    <!--  Vherokior -->
+    <item android:maxLevel="13" android:drawable="@drawable/icon59_128_1" />
+     
+ </level-list>

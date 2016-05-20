@@ -18,7 +18,6 @@
         android:focusable="false"
         android:inputType="textMultiLine|textNoSuggestions"
         android:maxLines="2"
-        android:text="Bag of Potatoes"
         android:textColor="@color/white"
         android:textSize="14sp">
 

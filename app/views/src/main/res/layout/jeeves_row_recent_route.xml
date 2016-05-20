@@ -12,7 +12,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
-        android:text="Jita Must Burn"
         android:textColor="@color/white"
         android:textSize="16sp" />
 
@@ -21,7 +20,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="right"
-        android:text="Amarr Me Armour"
         android:textColor="@color/white"
         android:textSize="16sp" />
 

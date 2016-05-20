@@ -10,8 +10,7 @@
     <TextView
         android:id="@+id/j_walletTransactionWhen"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Saturday 1 April 2012 20h 34mn" >
+        android:layout_height="wrap_content">
     </TextView>
 
     <LinearLayout
@@ -27,7 +26,6 @@
             android:layout_weight="0.1"
             android:inputType="textMultiLine|textNoSuggestions"
             android:maxLines="2"
-            android:text="Bag of Potatoes"
             android:textColor="@color/white" >
         </TextView>
 
@@ -37,7 +35,6 @@
             android:layout_height="wrap_content"
             android:gravity="right"
             android:maxLines="1"
-            android:text="123.000.000 units"
             android:textColor="@color/white" >
         </TextView>
     </LinearLayout>
@@ -61,7 +58,6 @@
             android:layout_height="wrap_content"
             android:gravity="right"
             android:maxLines="1"
-            android:text="1.250.000.000,00 ISK"
             android:textColor="@color/white" >
         </TextView>
     </LinearLayout>
@@ -86,7 +82,6 @@
             android:layout_height="wrap_content"
             android:gravity="right"
             android:maxLines="1"
-            android:text="1.250.000.000.000,00 ISK"
             android:textColor="@color/green" >
         </TextView>
     </LinearLayout>
@@ -110,8 +105,7 @@
             android:id="@+id/j_walletTransactionClient"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:text="Ungrateful Wrench" >
+            android:gravity="right">
         </TextView>
     </LinearLayout>
 

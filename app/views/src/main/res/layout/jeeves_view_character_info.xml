@@ -21,7 +21,6 @@
             android:gravity="left"
             android:maxLines="2"
             android:minLines="1"
-            android:text="Like Evanova? Consider donating"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
@@ -38,7 +37,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
-        android:text="Evanova Android"
         android:textColor="@color/white"
         android:textSize="14sp" />
 
@@ -46,21 +44,18 @@
         android:id="@+id/j_character_infoSkillPointsText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Contact"
         android:textSize="14sp" />
 
     <TextView
         android:id="@+id/j_character_infoSecurityStatusText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
         android:textSize="14sp" />
 
     <TextView
         android:id="@+id/j_character_infoJumpFatigueText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="evanova.mobile@gmail.com"
         android:textSize="14sp" />
 
 </LinearLayout>

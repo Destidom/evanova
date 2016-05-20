@@ -8,4 +8,6 @@
 
     <item name="pagerKillMail" type="id"/>
 
+    <item name="pagerRouteDisplay" type="id"/>
+    <item name="pagerRouteInput" type="id"/>
 </resources>

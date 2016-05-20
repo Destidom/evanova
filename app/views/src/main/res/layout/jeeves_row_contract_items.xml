@@ -12,7 +12,6 @@
         android:layout_marginLeft="28dp"
         android:layout_marginRight="0dp"
         android:gravity="center_vertical|left"
-        android:text="You will receive NADA"
         android:textSize="14sp" />
 
 </LinearLayout>

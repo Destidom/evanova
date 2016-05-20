@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
+    android:background="@drawable/jeeves_panel_no_border"
+    android:minHeight="58dp"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/rowItemIcon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical|center_horizontal"        
+        android:background="@color/transparent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/rowItemName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:gravity="top|left"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/rowItemDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="4dp"
+            android:gravity="left"
+            android:maxLines="2"
+            android:bufferType="spannable"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+</LinearLayout>

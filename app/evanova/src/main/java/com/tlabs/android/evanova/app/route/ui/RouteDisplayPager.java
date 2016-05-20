@@ -1,96 +1,60 @@
 package com.tlabs.android.evanova.app.route.ui;
 
 import android.content.Context;
-import android.support.v4.view.PagerAdapter;
 import android.util.AttributeSet;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.tlabs.android.evanova.R;
 import com.tlabs.android.jeeves.views.routes.RouteDisplayWidget;
 import com.tlabs.android.jeeves.views.ui.pager.ViewPager;
+import com.tlabs.android.jeeves.views.ui.pager.ViewPagerAdapter;
 
 import org.devfleet.dotlan.DotlanRoute;
 
-import java.util.ArrayList;
-import java.util.List;
+class RouteDisplayPager extends ViewPager {
 
-public class RouteDisplayPager extends ViewPager {
-
-    static class RouteDisplayPagerAdapter extends PagerAdapter {
-        private final List<RouteDisplayWidget> views;
-        private final Context context;
+    private static class RouteDisplayPagerAdapter extends ViewPagerAdapter {
 
         public RouteDisplayPagerAdapter(final Context context) {
-            this.views = new ArrayList<>(3);
-            views.add(new RouteDisplayWidget(context));
-            views.add(new RouteDisplayWidget(context));
-            views.add(new RouteDisplayWidget(context));
+            super(context);
 
-            this.context = context;
+            addView(new RouteDisplayWidget(context), 0);
+            addView(new RouteDisplayWidget(context), 0);
+            addView(new RouteDisplayWidget(context), 0);
         }
 
-        @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            RouteDisplayWidget view =  views.get(position);
-            container.addView(view);
-            return view;
-        }
-
-        @Override
-        public int getCount() {
-            return views.size();
-        }
-
-        @Override
-        public boolean isViewFromObject(View arg0, Object arg1) {
-            return arg0 == arg1;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return this.context.getResources().getString(R.string.pager_title_routes_fastest);
-                case 1:
-                    return this.context.getResources().getString(R.string.pager_title_routes_high);
-                case 2:
-                    return this.context.getResources().getString(R.string.pager_title_routes_low);
-                default:
-                    return "";
-            }
-        }
 
         protected void setRoute(final DotlanRoute route, final int index) {
-            this.views.get(index).setRoute(route);
+           final RouteDisplayWidget w = getView(index);
+            w.setRoute(route);
         }
     }
 
+    private RouteDisplayPagerAdapter adapter;
+
     public RouteDisplayPager(Context context, AttributeSet attrs) {
         super(context, attrs);
+        init();
     }
 
     public RouteDisplayPager(Context context) {
         super(context);
-    }
-    /*
-    @Override
-    protected RouteDisplayPagerAdapter createAdapter(Bundle savedInstanceState) {
-        return new RouteDisplayPagerAdapter(getContext());
+        init();
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setPagerListener(page -> Activities.invalidateTitle(getActivity(), false));
+    private void init() {
+        setId(R.id.pagerRouteDisplay);
+
+        this.adapter = new RouteDisplayPagerAdapter(getContext());
+        setAdapter(this.adapter);
     }
 
-    @Override
-    protected int getPagerID() {
-        return R.id.pagerRoutesDisplay;
+    public void setRoute(final DotlanRoute route, final int index) {
+        this.adapter.setRoute(route, index);
     }
 
-    protected void setRoute(final DotlanRoute route, final int index) {
-        getPagerAdapter().setRoute(route, index);
-    }*/
+    public void setRoute(final DotlanRoute route) {
+        this.adapter.setRoute(route, 0);
+        this.adapter.setRoute(route, 1);
+        this.adapter.setRoute(route, 2);
+    }
 }

@@ -18,14 +18,16 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import dagger.Lazy;
+
 public class FittingUseCaseImpl implements FittingUseCase {
     private static final Logger LOG = LoggerFactory.getLogger(FittingUseCaseImpl.class);
 
     private final FittingFacade facade;
-    private final CrestService service;
+    private final Lazy<CrestService> service;
 
     @Inject
-    public FittingUseCaseImpl(final FittingFacade facade, final CrestService service) {
+    public FittingUseCaseImpl(final FittingFacade facade, final Lazy<CrestService> service) {
         this.facade = facade;
         this.service = service;
     }
@@ -35,7 +37,7 @@ public class FittingUseCaseImpl implements FittingUseCase {
         final List<Fitting> fittings = facade.list();
         if (null != service) {
             try {
-                for (CrestFitting f: service.getFittings()) {
+                for (CrestFitting f: service.get().getFittings()) {
                     fittings.add(transform(f));
                 }
             }

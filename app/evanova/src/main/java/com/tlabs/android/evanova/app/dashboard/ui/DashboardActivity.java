@@ -79,6 +79,11 @@ public final class DashboardActivity extends BaseActivity implements DashboardVi
     }
 
     @Override
+    public void selectAccount(long accountID) {
+        this.drawer.setSelected(accountID);
+    }
+
+    @Override
     public void setAccounts(List<EveAccount> accounts) {
         this.drawer.setAccounts(accounts);
     }

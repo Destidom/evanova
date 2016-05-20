@@ -8,7 +8,7 @@ import android.widget.FrameLayout;
 import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.dogma.Fitter;
 
-public class FittingStatisticsWidget extends FrameLayout implements FittingWidgetInterface {
+public class FittingStatisticsWidget extends FrameLayout implements FittingWidget {
 
     private View statsView;
 

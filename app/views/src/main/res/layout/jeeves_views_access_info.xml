@@ -17,7 +17,7 @@
             android:gravity="center_horizontal"
             android:text="No API Key selected"
             android:textColor="@color/white"
-            android:textSize="16sp"></TextView>
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/j_viewAccessKeyAccountLogonText"
@@ -36,9 +36,7 @@
             android:gravity="center_horizontal"
             android:text="Select an API Key from the list"
             android:textColor="@color/white"
-            android:textSize="16sp">
-
-        </TextView>
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/j_viewAccessKeyAccountUntilText"
@@ -47,9 +45,8 @@
             android:gravity="center_horizontal"
             android:text="or import a key from the Menu"
             android:textColor="@color/white"
-            android:textSize="16sp">
+            android:textSize="16sp"/>
 
-        </TextView>
     </LinearLayout>
 
 </ScrollView>

@@ -14,15 +14,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:text="11: powerOutput 23.0 MW"
         android:textColor="@color/white"
         android:textSize="16sp" />
 
     <TextView
         android:id="@+id/j_fittingAttributeDescription"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Something something" />
+        android:layout_height="wrap_content"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,16 +31,14 @@
             android:id="@+id/j_fittingAttributeDefaultValue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="10" />
+            android:layout_weight="0.5"/>
 
         <TextView
             android:id="@+id/j_fittingAttributeCurrentValue"
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="10" />
+            android:layout_weight="0.5"/>
     </LinearLayout>
 
 </LinearLayout>

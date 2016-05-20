@@ -56,4 +56,9 @@ public class ViewPagerAdapter extends PagerAdapter {
     public final List<View> getViews() {
         return Collections.unmodifiableList(this.views);
     }
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        //must be implemented.
+    }
 }

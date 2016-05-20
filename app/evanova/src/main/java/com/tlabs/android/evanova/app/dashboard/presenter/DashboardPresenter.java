@@ -13,9 +13,10 @@ import com.tlabs.android.evanova.app.corporation.ui.CorporationActivity;
 import com.tlabs.android.evanova.app.dashboard.DashboardUseCase;
 import com.tlabs.android.evanova.app.dashboard.DashboardView;
 import com.tlabs.android.evanova.app.fitting.ui.ShipFittingListActivity;
-import com.tlabs.android.evanova.app.route.ui.RouteInputActivity;
-import com.tlabs.android.evanova.mvp.ActivityPresenter;
+import com.tlabs.android.evanova.app.route.ui.RouteActivity;
 import com.tlabs.android.jeeves.model.EveAccount;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -45,6 +46,7 @@ public class DashboardPresenter extends EvanovaActivityPresenter<DashboardView> 
                 accounts -> {
                     setLoading(false);
                     getView().setAccounts(accounts);
+                    loadLastAccount(accounts);
                 });
     }
 
@@ -71,6 +73,7 @@ public class DashboardPresenter extends EvanovaActivityPresenter<DashboardView> 
                 intent = new Intent(getContext(), AccountActivity.class);
                 break;
         }
+        savedPreferences().setLastViewedAccount(account.getId());
         return startActivity(intent);
     }
 
@@ -94,7 +97,7 @@ public class DashboardPresenter extends EvanovaActivityPresenter<DashboardView> 
                 intent = new Intent(getContext(), ItemDatabaseActivity.class);
                 break;*/
             case R.id.menu_drawer_routes:
-                intent = new Intent(getContext(), RouteInputActivity.class);
+                intent = new Intent(getContext(), RouteActivity.class);
                 break;
             case R.id.menu_drawer_fittings:
                 intent = new Intent(getContext(), ShipFittingListActivity.class);
@@ -121,4 +124,27 @@ public class DashboardPresenter extends EvanovaActivityPresenter<DashboardView> 
     }
 
 
+    private void loadLastAccount(final List<EveAccount> accounts) {
+        if (accounts.size() == 0) {
+            getView().selectAccount(-1);
+            return;
+        }
+
+        final long last = savedPreferences().getLastViewedAccount();
+        if (last == -1) {
+            final EveAccount account = accounts.get(0);
+            Application.runWith(getContext(), account);
+            getView().selectAccount(account.getId());
+            return;
+        }
+
+        for (EveAccount a: accounts) {
+            if (a.getId() == last) {
+                Application.runWith(getContext(), a);
+                getView().selectAccount(a.getId());
+                return;
+            }
+        }
+        getView().selectAccount(-1);
+    }
 }

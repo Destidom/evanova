@@ -184,13 +184,7 @@
         </activity>
 
         <activity
-            android:name=".app.route.ui.RouteDisplayActivity"
-            android:configChanges="orientation|screenSize|keyboard"
-            android:exported="false">
-        </activity>
-
-        <activity
-            android:name=".app.route.ui.RouteInputActivity"
+            android:name=".app.route.ui.RouteActivity"
             android:configChanges="orientation|screenSize|keyboard"
             android:exported="false">
         </activity>

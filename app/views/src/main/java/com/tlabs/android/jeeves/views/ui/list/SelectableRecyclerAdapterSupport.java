@@ -28,7 +28,7 @@ class SelectableRecyclerAdapterSupport {
 
     public boolean getUpdating(final Object child) {
         final Boolean b = this.updating.get(child);
-        return null == b ? false : b.booleanValue();
+        return null == b ? false : b;
     }
 
     public final <T extends RecyclerView.ViewHolder> void onBindHolder(T h, Object child) {

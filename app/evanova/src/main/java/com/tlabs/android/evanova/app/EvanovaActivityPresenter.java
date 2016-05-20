@@ -4,28 +4,36 @@ import android.content.Context;
 
 import com.tlabs.android.evanova.mvp.ActivityPresenter;
 import com.tlabs.android.evanova.mvp.ActivityView;
+import com.tlabs.android.evanova.preferences.SavedPreferences;
 import com.tlabs.android.evanova.preferences.UserPreferences;
 import com.tlabs.android.jeeves.model.EveCharacter;
 import com.tlabs.android.jeeves.views.EveImages;
 
 public class EvanovaActivityPresenter<T extends ActivityView> extends ActivityPresenter<T> {
 
-    private UserPreferences userPreferences;
+    private final UserPreferences userPreferences;
+    private final SavedPreferences savedPreferences;
 
     public EvanovaActivityPresenter(Context context) {
         super(context);
         this.userPreferences = new UserPreferences(context.getApplicationContext());
+        this.savedPreferences = new SavedPreferences(context.getApplicationContext());
     }
 
     protected final UserPreferences userPreferences() {
         return userPreferences;
     }
 
-    protected void setBackgroundDefault() {
+    protected final SavedPreferences savedPreferences() {
+        return savedPreferences;
+    }
+
+
+    protected final void setBackgroundDefault() {
         setBackground(this.userPreferences.getBackgroundDefault());
     }
 
-    protected void setBackground(final EveCharacter character) {
+    protected final void setBackground(final EveCharacter character) {
         switch (userPreferences.getBackgroundOption()) {
             case UserPreferences.OPT_BACKGROUND_NONE:
                 setBackground((String)null);

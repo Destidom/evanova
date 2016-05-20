@@ -12,7 +12,7 @@ import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.mail.KillMailVictim;
 import com.tlabs.eve.zkb.ZKillMail;
 
-public class KillMailDetailsWidget extends FrameLayout {
+public class KillMailDetailsWidget extends FrameLayout implements KillMailWidget {
 
     private ImageView iconView;
     private TextView nameView;
@@ -39,6 +39,7 @@ public class KillMailDetailsWidget extends FrameLayout {
         init();
     }
 
+    @Override
     public void setKillMail(final ZKillMail killMail) {
 
         locationView.setText(killMail.getSolarSystemName());

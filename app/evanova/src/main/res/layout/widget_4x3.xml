@@ -35,7 +35,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:text="Traquenard Labs"
             android:textSize="16sp" />
 
         <TextView
@@ -52,15 +51,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:textSize="16sp"
-            android:text="Clone Grade Zupper Dupper" />
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/widgetCharacterISK"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:text="1,212,435,345,634 ISK"
             android:textSize="16sp"
             android:textColor="@color/white" />
 
@@ -88,31 +85,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:textSize="16sp"
-            android:text="Finished Friday 13 Nov. 2013" />
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/widgetTrainingNextTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:textSize="16sp"
-            android:text="Next" />
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/widgetTrainingNextText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:textSize="16sp"
-            android:text="Small Energy Turret 5" />
+            android:textSize="16sp"/>
         <TextView
             android:id="@+id/widgetMoreInfoText"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.1"
-            android:textSize="16sp"
-            android:text="" />
+            android:textSize="16sp"/>
                 
         <ProgressBar
             android:id="@+id/widgetProgressBar"
