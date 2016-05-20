@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="preferences_update_frequency_summary"></string>
+    <string name="preferences_update_frequency_title">Update frequency</string>
+
+    <string name="preferences_category_online">EVE Online Data</string>
+
+    <string name="preferences_caching_spare_title">Don\'t use mobile networks</string>
+    <string name="preferences_cachedialog_message">This will clear all cached data from your device. New data will be fetched when Evanova requires it.</string>
+    <string name="preferences_cachedialog_title">Clear caches</string>
+
+    <string name="preferences_category_network">Network settings</string>
+    <string name="preferences_category_caching_behaviour">Cache settings</string>
+
+    <string name="preferences_api_check_title">Override built-in settings</string>
+    <string name="preferences_api_check_summary">Change URLs used to retrieve data at your own risk.</string>
+    <string name="preferences_apiurl_title">Eve Online API</string>
+    <string name="preferences_apiurl_summary">Usually \'https://api.eveonline.com\'.</string>
+    <string name="preferences_imagesurl_behaviour">Eve Online Images</string>
+    <string name="preferences_imagesurl_behaviour_summary">Usually \'https://image.eveonline.com\'.</string>
+    <string name="preferences_status_behaviour_title">Eve Online Server</string>
+    <string name="preferences_statusurl_behaviour_summary">Usually \'http://client.eveonline.com\'.</string>
+    <string name="preferences_evecentral_title">Eve Central</string>
+    <string name="preferences_evecentral_summary">Usually \'http://api.eve-central.com\'.</string>
+
+    <string name="preferences_category_notifications">Notifications</string>
+    <string name="preferences_screen_notifications">Notifications options</string>
+    <string name="preferences_screen_notifications_summary">Select which notifications to display. These settings will override individual settings.</string>
+    <string name="preferences_notification_title">Enable Notifications</string>
+    <string name="preferences_notification_title_summary">Unchecking this option will disable all notifications and override individual settings.</string>
+
+    <string name="preferences_notifications_account_status_title">Account Status</string>
+    <string name="preferences_notifications_account_status_summary">EVE Account subscription expiring within 48h.</string>
+    <string name="preferences_notifications_account_training_title">Account Training</string>
+    <string name="preferences_notifications_account_training_summary">EVE Account with no training in progress.</string>
+    <string name="preferences_notifications_training_title">Capsuleer Training</string>
+    <string name="preferences_notifications_training_summary">Training queue expiring within 24h.</string>
+    <string name="preferences_notifications_mail_title">EVE Mail</string>
+    <string name="preferences_notifications_mail_summary">New EVE mail messages.</string>
+    <string name="preferences_notifications_notifications_title">EVE Messages</string>
+    <string name="preferences_notifications_notifications_summary">New EVE notification messages.</string>
+    <string name="preferences_notifications_calendar_title">Calendar</string>
+    <string name="preferences_notifications_calendar_summary">Calendar events happening within 24h.</string>
+    <string name="preferences_notifications_contracts_title">Contract</string>
+    <string name="preferences_notifications_contracts_summary">Contracts expiring within 24h.</string>
+    <string name="preferences_notification_ringtone_title">Notifications sound</string>
+
+    <string name="preferences_category_display">Display</string>
+    <string name="preferences_background_behaviour">Application background</string>
+    <string name="preferences_background_behaviour_summary">This option is applicable on some screens only and requires restarting Evanova.</string>
+    <string name="preferences_background_behaviour_dialog">Select…</string>
+
+    <string name="preferences_display_behaviour">Main screen</string>
+    <string name="preferences_display_behaviour_summary">This option allows you to change what is displayed on the main Character or Corporation screen</string>
+    <string name="preferences_display_behaviour_dialog">Select…</string>
+
+
+</resources>

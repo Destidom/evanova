@@ -102,7 +102,7 @@ public class PreferencesFragment extends PreferenceFragment implements OnSharedP
         if (requestCode == ACTIVITY_SELECT_IMAGE) {
             if (resultCode == Activity.RESULT_OK) {
                 userPreferences.saveBackgroundImage(null == data ? null : data.getData().toString());
-                Snacks.show(getActivity(), R.string.toast_background_success);
+                Snacks.show(getActivity(), R.string.toast_preferences_success);
             }
             return;
         }
@@ -146,16 +146,16 @@ public class PreferencesFragment extends PreferenceFragment implements OnSharedP
         switch (option) {
             case 0:
                 userPreferences.saveBackgroundImage(null);
-                Snacks.show(getActivity(), R.string.toast_background_success);
+                Snacks.show(getActivity(), R.string.toast_preferences_success);
                 break;
             case 1: {//Planet
                 userPreferences.saveBackgroundResource(R.drawable.background2);
-                Snacks.show(getActivity(), R.string.toast_background_success);
+                Snacks.show(getActivity(), R.string.toast_preferences_success);
                 break;
             }
             case 2: {//Moon
                 userPreferences.saveBackgroundResource(R.drawable.background);
-                Snacks.show(getActivity(), R.string.toast_background_success);
+                Snacks.show(getActivity(), R.string.toast_preferences_success);
                 break;
             }
             case 3: {

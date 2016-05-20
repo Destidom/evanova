@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="toast_apikey_import_zero">No account found</string>
+    <string name="toast_apikey_import_one">1 new account imported.</string>
+    <string name="toast_apikey_import_many">%1$d new accounts imported.</string>
+
+    <string name="toast_killmail_error">Kill mail not available.</string>
+
+    <string name="toast_preferences_success">Evanova needs to be restarted for this to apply.</string>
+
+</resources>

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.tlabs.android.evanova.R;
+import com.tlabs.android.evanova.app.EvanovaActivityPresenter;
 import com.tlabs.android.evanova.app.route.RouteInputView;
 import com.tlabs.android.evanova.app.route.RouteUseCase;
 import com.tlabs.android.evanova.app.route.ui.RouteDisplayActivity;
@@ -16,7 +17,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class RouteInputPresenter extends ActivityPresenter<RouteInputView> {
+public class RouteInputPresenter extends EvanovaActivityPresenter<RouteInputView> {
 
     private final RouteUseCase useCase;
 
@@ -29,6 +30,8 @@ public class RouteInputPresenter extends ActivityPresenter<RouteInputView> {
     @Override
     public void setView(RouteInputView view) {
         super.setView(view);
+        setBackground(userPreferences().getBackgroundDefault());
+
         view.setTitle(R.string.activity_routes_title);
         view.setTitleDescription(R.string.activity_routes_description);
         loadOptions();

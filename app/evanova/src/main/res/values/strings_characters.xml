@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="character_characterTrainingQueued_Inactive">Training inactive</string>
+    <string name="character_characterTrainingQueued_None">Training inactive</string>
+
+</resources>

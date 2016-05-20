@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="button_api">Accounts</string>
+    <string name="button_characters">Characters</string>
+    <string name="button_corporations">Corporations</string>
+
+    <string name="button_items">Items</string>
+    <string name="button_skills">Skills</string>
+    <string name="button_routes">Routes</string>
+    <string name="button_fittings">Fittings</string>
+    <string name="button_server">Server</string>
+
+    <string name="menu_accounts_add">Add Key</string>
+    <string name="menu_accounts_delete">Delete</string>
+    <string name="menu_accounts_add_eve_keys">Eve API Keys</string>
+    <string name="menu_accounts_add_eve_sso">Eve SSO</string>
+    <string name="menu_accounts_add_text_file">Text File</string>
+    <string name="menu_accounts_add_evemon_file">EveMon</string>
+
+    <string name="menu_fitting_add">Add</string>
+    <string name="menu_fitting_rename">Rename</string>
+    <string name="menu_fitting_import">Import</string>
+    <string name="menu_fitting_delete">Delete</string>
+
+    <string name="menu_notifications">Notifications</string>
+
+    <string name="menu_help">Help</string>
+    <string name="menu_settings">Settings</string>
+</resources>

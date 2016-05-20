@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="jump_plan_title">%1$s to %2$s</string>
+    <string name="jump_plan_subtitle">%1$d jumps</string>
+    <string name="jump_plan_unavailable">Jump data unavailable</string>
+
+    <string name="activity_routes.title">Routes</string>
+    <string name="activity_routes.description">Data from dotlan.net - last 3h</string>
+    <string name="activity_routes.input">Route</string>
+    <string name="activity_routes.saved">Saved</string>
+
+    <string name="pager_title_routes_fastest">Fastest</string>
+    <string name="pager_title_routes_high">High Sec</string>
+    <string name="pager_title_routes_low">Low Sec</string>
+
+</resources>

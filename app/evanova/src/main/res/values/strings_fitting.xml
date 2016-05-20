@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="fit_modules">Modules</string>
+    <string name="fit_statistics">Stats</string>
+    <string name="fit_attributes">Attr.</string>
+    <string name="fit_effects">Effects</string>
+
+</resources>

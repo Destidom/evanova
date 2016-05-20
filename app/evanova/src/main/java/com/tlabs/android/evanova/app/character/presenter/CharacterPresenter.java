@@ -3,6 +3,7 @@ package com.tlabs.android.evanova.app.character.presenter;
 import android.content.Context;
 
 import com.tlabs.android.evanova.R;
+import com.tlabs.android.evanova.app.EvanovaActivityPresenter;
 import com.tlabs.android.evanova.app.character.CharacterUseCase;
 import com.tlabs.android.evanova.app.character.CharacterView;
 import com.tlabs.android.evanova.mvp.ActivityPresenter;
@@ -13,10 +14,9 @@ import com.tlabs.android.jeeves.views.EveImages;
 
 import javax.inject.Inject;
 
-public class CharacterPresenter extends ActivityPresenter<CharacterView> {
+public class CharacterPresenter extends EvanovaActivityPresenter<CharacterView> {
 
     private final CharacterUseCase useCase;
-    private final UserPreferences userPreferences;
 
     private final EveAccount owner;
 
@@ -25,11 +25,9 @@ public class CharacterPresenter extends ActivityPresenter<CharacterView> {
     @Inject
     public CharacterPresenter(
             Context context,
-            UserPreferences userPreferences,
             CharacterUseCase useCase,
             EveAccount account) {
         super(context);
-        this.userPreferences = userPreferences;
         this.useCase = useCase;
         this.owner = account;
     }
@@ -51,12 +49,12 @@ public class CharacterPresenter extends ActivityPresenter<CharacterView> {
     }
 
     public void onCharacterDetailsSelected() {
-        setBackgroundImpl(null);
+        setBackground((EveCharacter)null);
         getView().showDetails(this.character);
     }
 
     public void onCharacterTrainingSelected() {
-        setBackgroundImpl(null);
+        setBackground((EveCharacter)null);
         getView().showTraining(this.character);
     }
 
@@ -72,34 +70,6 @@ public class CharacterPresenter extends ActivityPresenter<CharacterView> {
             setTitleDescription(character.getCorporationName());
             setTitleIcon(EveImages.getCharacterIconURL(getContext(), character.getID()));
         }
-        setBackgroundImpl(character);
-    }
-
-    private void setBackgroundImpl(final EveCharacter character) {
-        switch (userPreferences.getBackgroundOption()) {
-            case UserPreferences.OPT_BACKGROUND_NONE:
-                setBackground(null);
-                break;
-            case UserPreferences.OPT_BACKGROUND_PORTRAIT:
-                if (null == character) {
-                    setBackground(userPreferences.getBackgroundDefault());
-                }
-                else {
-                    setBackground(EveImages.getCharacterImageURL(getContext(), character.getID()));
-                }
-                break;
-            case UserPreferences.OPT_BACKGROUND_SHIP:
-                if (null == character) {
-                    setBackground(userPreferences.getBackgroundDefault());
-                }
-                else {
-                    setBackground(EveImages.getCharacterImageURL(getContext(), character.getShipTypeID()));
-                }
-                break;
-            case UserPreferences.OPT_BACKGROUND_APP:
-            default:
-                setBackground(userPreferences.getBackgroundDefault());
-                break;
-        }
+        setBackground(character);
     }
 }

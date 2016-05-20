@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import com.tlabs.android.evanova.R;
 import com.tlabs.android.evanova.app.Application;
+import com.tlabs.android.evanova.app.EvanovaActivityPresenter;
 import com.tlabs.android.evanova.app.accounts.ui.AccountActivity;
 import com.tlabs.android.evanova.app.character.ui.CharacterActivity;
 import com.tlabs.android.evanova.app.character.ui.CharacterListActivity;
@@ -18,7 +19,7 @@ import com.tlabs.android.jeeves.model.EveAccount;
 
 import javax.inject.Inject;
 
-public class DashboardPresenter extends ActivityPresenter<DashboardView> {
+public class DashboardPresenter extends EvanovaActivityPresenter<DashboardView> {
 
     private final DashboardUseCase useCase;
 
@@ -31,6 +32,8 @@ public class DashboardPresenter extends ActivityPresenter<DashboardView> {
     @Override
     public void setView(DashboardView view) {
         super.setView(view);
+        setBackgroundDefault();
+
         setTitle(R.string.app_name);
         setTitleDescription("");
         loadAccounts();

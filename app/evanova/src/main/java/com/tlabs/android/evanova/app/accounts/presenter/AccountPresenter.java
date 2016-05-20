@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.tlabs.android.evanova.R;
+import com.tlabs.android.evanova.app.EvanovaActivityPresenter;
 import com.tlabs.android.evanova.app.accounts.AccountUseCase;
 import com.tlabs.android.evanova.app.accounts.AccountView;
 import com.tlabs.android.evanova.app.accounts.ui.AccountActivity;
@@ -22,7 +23,7 @@ import javax.inject.Inject;
 
 import rx.Observer;
 
-public class AccountPresenter extends ActivityPresenter<AccountView> {
+public class AccountPresenter extends EvanovaActivityPresenter<AccountView> {
 
     private final AccountUseCase useCase;
     private final Observer<EveAccount> importObserver;
@@ -59,6 +60,8 @@ public class AccountPresenter extends ActivityPresenter<AccountView> {
     @Override
     public void setView(AccountView view) {
         super.setView(view);
+        setBackgroundDefault();
+
         loadAccounts();
     }
 

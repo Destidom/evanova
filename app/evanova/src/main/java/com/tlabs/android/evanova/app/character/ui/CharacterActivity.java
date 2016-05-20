@@ -42,22 +42,27 @@ public class CharacterActivity extends BaseActivity implements CharacterView {
 
     @Override
     public void showMainView(EveCharacter character) {
-        showCharacterFragment(new CharacterViewFragment(), character);
+        showCharacterFragment(new CharacterViewFragment(), character, false);
     }
 
     @Override
     public void showDetails(EveCharacter character) {
-        showCharacterFragment(new CharacterTrainingFragment(), character);
+        showCharacterFragment(new CharacterDetailsFragment(), character, true);
     }
 
     @Override
     public void showTraining(EveCharacter character) {
-        showCharacterFragment(new CharacterDetailsFragment(), character);
+        showCharacterFragment(new CharacterTrainingFragment(), character, true);
     }
 
-    private <T extends CharacterFragment> void showCharacterFragment(final T f, final EveCharacter character) {
+    private <T extends CharacterFragment> void showCharacterFragment(final T f, final EveCharacter character, final boolean stack) {
         f.setPresenter(this.presenter);
         f.setCharacter(character);
-        stackFragment(f);
+        if (stack) {
+            stackFragment(f);
+        }
+        else {
+            setFragment(f);
+        }
     }
 }
