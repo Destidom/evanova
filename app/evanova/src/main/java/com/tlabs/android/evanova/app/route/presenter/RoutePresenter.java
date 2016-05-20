@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.tlabs.android.evanova.R;
-import com.tlabs.android.evanova.app.route.RouteDisplayView;
+import com.tlabs.android.evanova.app.EvanovaActivityPresenter;
+import com.tlabs.android.evanova.app.route.RouteView;
 import com.tlabs.android.evanova.app.route.RouteUseCase;
-import com.tlabs.android.evanova.app.route.ui.RouteDisplayActivity;
-import com.tlabs.android.evanova.mvp.ActivityPresenter;
+import com.tlabs.android.evanova.app.route.ui.RouteActivity;
 import com.tlabs.android.jeeves.views.Strings;
 
 import org.apache.commons.lang3.ArrayUtils;
@@ -27,12 +27,12 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class RouteDisplayPresenter extends ActivityPresenter<RouteDisplayView> {
-    private static final Logger LOG = LoggerFactory.getLogger(RouteDisplayPresenter.class);
+public class RoutePresenter extends EvanovaActivityPresenter<RouteView> {
+    private static final Logger LOG = LoggerFactory.getLogger(RoutePresenter.class);
     private final RouteUseCase useCase;
 
     @Inject
-    public RouteDisplayPresenter(Context context, RouteUseCase useCase) {
+    public RoutePresenter(Context context, RouteUseCase useCase) {
         super(context);
         this.useCase = useCase;
     }
@@ -69,11 +69,11 @@ public class RouteDisplayPresenter extends ActivityPresenter<RouteDisplayView> {
                 getView().setLoading(false);
                 if (null == route) {
                     getView().setTitleDescription(Strings.r(getContext(), R.string.jump_plan_subtitle, route.size()));
-                    getView().displayJumps(route);
+                    getView().showRoute(route);
                 }
                 else {
                     getView().setTitleDescription(R.string.jump_plan_unavailable);
-                    getView().displayJumps(new DotlanRoute());
+                    getView().showRoute(new DotlanRoute());
                 }
             });
     }
@@ -112,7 +112,7 @@ public class RouteDisplayPresenter extends ActivityPresenter<RouteDisplayView> {
                     if (null != route && !route.isEmpty()) {
                         save = true;
                     }
-                    getView().displayRoute(route, count);
+                    getView().showRoute(route, count);
                     count = count + 1;
                 }
             });
@@ -123,12 +123,12 @@ public class RouteDisplayPresenter extends ActivityPresenter<RouteDisplayView> {
             return null;
         }
 
-        final String[] waypoints = intent.getStringArrayExtra(RouteDisplayActivity.EXTRA_WAYPOINTS);
+        final String[] waypoints = intent.getStringArrayExtra(RouteActivity.EXTRA_WAYPOINTS);
         if (ArrayUtils.isEmpty(waypoints)) {
             return null;
         }
 
-        final String jOptions = intent.getStringExtra(RouteDisplayActivity.EXTRA_JUMP);
+        final String jOptions = intent.getStringExtra(RouteActivity.EXTRA_JUMP);
         if (StringUtils.isEmpty(jOptions)) {
             return new DotlanOptions().setWaypoints(Arrays.asList(waypoints));
         }
