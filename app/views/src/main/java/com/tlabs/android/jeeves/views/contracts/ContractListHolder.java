@@ -10,7 +10,7 @@ import com.tlabs.android.jeeves.views.R;
 import com.tlabs.android.jeeves.views.ui.list.AbstractListRowHolder;
 import com.tlabs.eve.api.Contract;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 final class ContractListHolder extends AbstractListRowHolder<Contract> {
 

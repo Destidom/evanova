@@ -7,7 +7,7 @@ import com.tlabs.android.jeeves.model.data.social.MailFacade;
 import com.tlabs.eve.api.character.CharacterCalendar;
 import com.tlabs.eve.api.character.CharacterSheet;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 

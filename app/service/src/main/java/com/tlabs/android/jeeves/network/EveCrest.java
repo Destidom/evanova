@@ -5,7 +5,7 @@ import android.content.Context;
 import com.tlabs.android.jeeves.model.EveAccount;
 import com.tlabs.android.jeeves.service.R;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.devfleet.crest.CrestAccess;
 import org.devfleet.crest.CrestService;
 import org.devfleet.crest.retrofit.CrestClient;

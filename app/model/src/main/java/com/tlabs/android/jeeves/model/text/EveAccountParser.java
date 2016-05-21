@@ -5,7 +5,7 @@ import com.tlabs.eve.api.evemon.EveMonAccount;
 import com.tlabs.eve.api.evemon.EveMonSettingsParser;
 import com.tlabs.eve.api.evemon.EveMonSettingsResponse;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

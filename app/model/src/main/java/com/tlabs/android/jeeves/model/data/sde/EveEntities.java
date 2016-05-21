@@ -20,8 +20,8 @@ import com.tlabs.eve.api.Skill;
 import com.tlabs.eve.api.character.Certificate;
 import com.tlabs.eve.api.character.CertificateTree;
 
-import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

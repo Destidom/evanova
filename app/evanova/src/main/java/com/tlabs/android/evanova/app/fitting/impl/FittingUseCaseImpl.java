@@ -5,7 +5,7 @@ import com.tlabs.android.evanova.app.fitting.FittingUseCase;
 import com.tlabs.android.jeeves.model.data.fitting.FittingFacade;
 import com.tlabs.eve.dogma.Fitting;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.devfleet.crest.CrestService;
 import org.devfleet.crest.model.CrestFitting;
 import org.devfleet.crest.model.CrestInventory;

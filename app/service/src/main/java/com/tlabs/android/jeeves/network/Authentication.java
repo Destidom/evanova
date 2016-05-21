@@ -10,7 +10,7 @@ import com.tlabs.eve.api.EveAPIRequest;
 import com.tlabs.eve.api.character.CharacterRequest;
 import com.tlabs.eve.api.corporation.CorporationRequest;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.devfleet.crest.CrestAccess;
 import org.devfleet.crest.CrestService;
 import org.devfleet.crest.model.CrestCharacter;

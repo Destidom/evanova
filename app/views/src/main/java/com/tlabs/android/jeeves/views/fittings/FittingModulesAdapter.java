@@ -17,7 +17,8 @@ import com.tlabs.eve.dogma.Fitter;
 import com.tlabs.eve.dogma.extra.format.AttributeFormat;
 import com.tlabs.eve.dogma.model.Attribute;
 
-import org.apache.commons.collections.CollectionUtils;
+
+import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;

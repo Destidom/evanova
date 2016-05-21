@@ -1,7 +1,7 @@
 package com.tlabs.android.jeeves.model.data.evanova.entities;
 
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Collections;
 import java.util.ArrayList;

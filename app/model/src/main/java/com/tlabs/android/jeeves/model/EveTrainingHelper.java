@@ -6,8 +6,8 @@ import com.tlabs.eve.api.Skill;
 import com.tlabs.eve.api.character.CharacterSkill;
 import com.tlabs.eve.api.character.SkillInTraining;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.Predicate;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.Predicate;
 
 import java.util.ArrayList;
 import java.util.Calendar;

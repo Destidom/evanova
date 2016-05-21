@@ -9,7 +9,7 @@ import com.tlabs.android.jeeves.views.ui.TextProgressBar;
 import com.tlabs.eve.dogma.Fitter;
 import com.tlabs.eve.dogma.extra.format.AttributeFormat;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 final class FittingFormat {
 

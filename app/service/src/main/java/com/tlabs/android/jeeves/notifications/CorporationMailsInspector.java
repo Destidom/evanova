@@ -7,7 +7,7 @@ import com.tlabs.android.jeeves.model.data.social.MailFacade;
 import com.tlabs.eve.api.corporation.CorporationSheet;
 import com.tlabs.eve.api.mail.MailMessage;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 

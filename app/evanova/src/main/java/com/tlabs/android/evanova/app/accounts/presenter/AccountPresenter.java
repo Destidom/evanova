@@ -15,7 +15,7 @@ import com.tlabs.android.jeeves.service.EveAPIServicePreferences;
 
 import com.tlabs.android.jeeves.views.Strings;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.devfleet.crest.CrestAccess;
 
 import java.util.List;

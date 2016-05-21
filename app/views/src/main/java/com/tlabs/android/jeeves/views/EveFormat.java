@@ -31,7 +31,7 @@ package com.tlabs.android.jeeves.views;
 
 import android.graphics.Color;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.text.DecimalFormat;

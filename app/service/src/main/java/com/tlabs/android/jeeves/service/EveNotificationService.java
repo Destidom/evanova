@@ -35,7 +35,7 @@ import com.tlabs.android.util.Log;
 import com.tlabs.eve.api.character.CharacterSheet;
 import com.tlabs.eve.api.corporation.CorporationSheet;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Collections;
 import java.util.Date;

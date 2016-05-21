@@ -5,7 +5,7 @@ import android.content.Context;
 import com.tlabs.android.jeeves.model.EveAccount;
 import com.tlabs.android.jeeves.network.EveCrest;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.devfleet.crest.CrestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

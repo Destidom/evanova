@@ -9,7 +9,7 @@ import com.tlabs.android.jeeves.views.EveFormat;
 import com.tlabs.android.jeeves.views.R;
 import com.tlabs.android.jeeves.views.routes.RouteDisplayListAdapter.RouteHolder;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.devfleet.dotlan.DotlanJump;
 import org.devfleet.dotlan.DotlanSolarSystem;
 

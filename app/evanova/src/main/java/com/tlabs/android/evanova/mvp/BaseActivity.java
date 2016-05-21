@@ -10,7 +10,7 @@ import com.tlabs.android.evanova.R;
 import com.tlabs.android.jeeves.views.EveImages;
 
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;

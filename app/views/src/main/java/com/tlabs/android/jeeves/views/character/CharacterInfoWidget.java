@@ -11,7 +11,7 @@ import com.tlabs.android.jeeves.model.EveCharacter;
 import com.tlabs.android.jeeves.views.EveFormat;
 import com.tlabs.android.jeeves.views.R;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class CharacterInfoWidget extends FrameLayout implements CharacterWidget {
 

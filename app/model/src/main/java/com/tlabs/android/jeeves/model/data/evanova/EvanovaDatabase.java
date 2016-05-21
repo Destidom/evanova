@@ -22,7 +22,7 @@ import com.tlabs.android.jeeves.model.data.evanova.entities.CorporationEntity;
 import com.tlabs.android.jeeves.model.data.evanova.entities.WalletEntity;
 import com.tlabs.eve.api.character.SkillInTraining;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

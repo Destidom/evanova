@@ -3,7 +3,7 @@ package com.tlabs.android.evanova.mvp;
 import android.content.Context;
 import android.content.Intent;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class ActivityPresenter<T extends ActivityView> extends ViewPresenter<T> {
 

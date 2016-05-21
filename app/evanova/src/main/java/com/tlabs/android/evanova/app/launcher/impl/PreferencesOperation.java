@@ -8,7 +8,7 @@ import com.tlabs.android.evanova.app.launcher.LauncherUseCase;
 import com.tlabs.android.evanova.preferences.UserPreferences;
 import com.tlabs.android.jeeves.notifications.EveNotificationPreferences;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Map;
 import java.util.Set;

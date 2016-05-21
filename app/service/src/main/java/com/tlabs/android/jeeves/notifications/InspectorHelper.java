@@ -12,7 +12,7 @@ import com.tlabs.eve.api.character.CharacterCalendarResponse;
 import com.tlabs.eve.api.mail.MailMessage;
 import com.tlabs.eve.api.mail.NotificationMessage;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.ArrayList;
 import java.util.Collections;

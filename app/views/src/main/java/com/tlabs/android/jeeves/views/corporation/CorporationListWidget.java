@@ -15,7 +15,7 @@ import com.tlabs.android.jeeves.views.ui.list.AbstractListRowHolder;
 import com.tlabs.android.jeeves.views.R;
 import com.tlabs.android.jeeves.views.ui.list.ListRecyclerViewAdapter;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class CorporationListWidget extends AbstractListRecyclerView<EveCorporation> {
 

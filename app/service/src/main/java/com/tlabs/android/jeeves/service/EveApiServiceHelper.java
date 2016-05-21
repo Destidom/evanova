@@ -62,10 +62,10 @@ import com.tlabs.android.jeeves.service.events.StarbaseEndEvent;
 import com.tlabs.android.jeeves.service.events.StarbaseStartEvent;
 import com.tlabs.android.util.Log;
 
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
-import org.apache.commons.lang.time.StopWatch;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+import org.apache.commons.lang3.time.StopWatch;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;

@@ -10,8 +10,8 @@ import com.tlabs.android.evanova.app.route.RouteView;
 import com.tlabs.android.evanova.app.route.ui.RouteActivity;
 import com.tlabs.android.jeeves.views.Strings;
 
-import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.devfleet.dotlan.DotlanJumpOptions;
 import org.devfleet.dotlan.DotlanOptions;
 import org.devfleet.dotlan.DotlanRoute;
@@ -72,7 +72,7 @@ public class RoutePresenter extends EvanovaActivityPresenter<RouteView> {
         subscribe(
             () -> {
                 final DotlanRoute route = this.useCase.loadJumpRoute(options);
-                if (null != route && !route.isEmpty()) {
+                if (null != route && route.size() > 0) {
                     this.useCase.saveOptions(options);
                 }
                 return route;
@@ -121,7 +121,7 @@ public class RoutePresenter extends EvanovaActivityPresenter<RouteView> {
 
                 @Override
                 public void onNext(DotlanRoute route) {
-                    if (null != route && !route.isEmpty()) {
+                    if (null != route && route.size() > 0) {
                         save = true;
                     }
                     getView().showRoute(route, count);

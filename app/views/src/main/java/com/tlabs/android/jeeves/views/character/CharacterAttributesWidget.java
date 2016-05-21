@@ -18,7 +18,7 @@ import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.EveAPI;
 import com.tlabs.eve.api.character.CharacterSheet;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;

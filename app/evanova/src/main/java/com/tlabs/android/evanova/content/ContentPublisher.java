@@ -10,7 +10,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import com.tlabs.android.jeeves.service.EveAPIService;
 import com.tlabs.android.jeeves.service.events.EveApiEvent;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.parceler.Parcels;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

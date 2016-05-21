@@ -9,8 +9,8 @@ import com.tlabs.eve.api.SovereigntyResponse;
 import com.tlabs.eve.api.Station;
 import com.tlabs.eve.api.StationsResponse;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.Transformer;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.Transformer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
