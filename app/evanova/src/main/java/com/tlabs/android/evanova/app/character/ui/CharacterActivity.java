@@ -30,6 +30,7 @@ public class CharacterActivity extends BaseActivity implements CharacterView {
             .inject(this);
 
         this.presenter.setView(this);
+        this.presenter.startWithIntent(getIntent());
     }
 
     @Override

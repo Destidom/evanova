@@ -9,7 +9,7 @@ import com.tlabs.eve.api.mail.MailingList;
 import com.tlabs.eve.api.mail.Message;
 import com.tlabs.eve.api.mail.NotificationMessage;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;

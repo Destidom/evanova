@@ -3,7 +3,7 @@ package com.tlabs.android.evanova.mvp;
 import android.content.Context;
 import android.content.Intent;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 public class ActivityPresenter<T extends ActivityView> extends ViewPresenter<T> {
 
@@ -42,7 +42,7 @@ public class ActivityPresenter<T extends ActivityView> extends ViewPresenter<T> 
         getView().setTitleDescription(sRes);
     }
 
-    protected final void setLoading(boolean loading) {
+    protected final void showLoading(boolean loading) {
         getView().setLoading(loading);
     }
 
@@ -54,7 +54,7 @@ public class ActivityPresenter<T extends ActivityView> extends ViewPresenter<T> 
         if (null == s) {
             getView().setTitleDescription(null);
         }
-        else if (StringUtils.isBlank(s)) {
+        else if (StringUtils.isBlank(s.toString())) {
             getView().setTitleDescription(" ");//take the space
         }
         else {

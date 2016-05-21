@@ -1,17 +1,58 @@
 package com.tlabs.android.evanova.app.corporation.presenter;
 
+import android.content.Context;
+import android.content.Intent;
+
+import com.tlabs.android.evanova.R;
+import com.tlabs.android.evanova.app.EvanovaActivityPresenter;
 import com.tlabs.android.evanova.app.corporation.CorporationUseCase;
 import com.tlabs.android.evanova.app.corporation.CorporationView;
-import com.tlabs.android.evanova.mvp.ViewPresenter;
+import com.tlabs.android.evanova.app.corporation.ui.CorporationActivity;
+import com.tlabs.android.jeeves.model.EveCorporation;
+import com.tlabs.android.jeeves.views.EveImages;
 
 import javax.inject.Inject;
 
-public class CorporationPresenter extends ViewPresenter<CorporationView> {
+public class CorporationPresenter extends EvanovaActivityPresenter<CorporationView> {
 
     private CorporationUseCase useCase;
+    private EveCorporation corporation;
 
     @Inject
-    public CorporationPresenter(CorporationUseCase useCase) {
+    public CorporationPresenter(
+            Context context,
+            CorporationUseCase useCase) {
+        super(context);
         this.useCase = useCase;
+    }
+
+    public void startWithIntent(final Intent intent) {
+        final long id = (null == intent) ? -1l : intent.getLongExtra(CorporationActivity.EXTRA_CORP_ID, -1l);
+        if (id == -1l) {
+            return;
+        }
+        getView().setLoading(true);
+        subscribe(
+                () -> this.useCase.loadCorporation(id),
+                corporation -> {
+                    getView().setLoading(false);
+                    getView().showCorporation(corporation);
+                    setCorporation(corporation);
+                });
+    }
+
+    private void setCorporation(final EveCorporation corporation) {
+        this.corporation = corporation;
+        if (null == corporation) {
+            setTitle(R.string.app_name);
+            setTitleDescription("");
+            setTitleIcon(R.drawable.ic_eve_member);
+        }
+        else {
+            setTitle(corporation.getName());
+            setTitleDescription(corporation.getAllianceName());
+            setTitleIcon(EveImages.getCorporationIconURL(getContext(), corporation.getID()));
+        }
+        setBackground(corporation);
     }
 }

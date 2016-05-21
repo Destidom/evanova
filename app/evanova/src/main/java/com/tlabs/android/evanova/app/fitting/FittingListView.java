@@ -8,5 +8,5 @@ public interface FittingListView {
 
     void setFittings(final List<Fitting> fittings);
 
-  //  void setLoading(boolean loading);
+  //  void showLoading(boolean loading);
 }

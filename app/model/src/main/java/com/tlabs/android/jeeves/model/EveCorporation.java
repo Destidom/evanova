@@ -1,26 +1,24 @@
 package com.tlabs.android.jeeves.model;
 
-import com.tlabs.eve.api.EveAPI.CorporationAccess;
+import com.tlabs.eve.api.EveAPI;
 import com.tlabs.eve.api.corporation.CorporationSheet;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 
 public final class EveCorporation {
 
-	private final List<Long> accessMasks;
 	private final CorporationSheet corpInfo;
+	private final EveAccount account;
 	
 	private long createdDate;
 	private String location;
 
-	public EveCorporation(final CorporationSheet corpInfo) {
+	public EveCorporation(final CorporationSheet corpInfo, final EveAccount account) {
 		super();
 
 		this.corpInfo = corpInfo;
-		this.accessMasks = new ArrayList<>();
+		this.account = account;
 	}
 
 	public CorporationSheet getCorporationSheet() {
@@ -112,40 +110,20 @@ public final class EveCorporation {
 		this.location = location;
 	}
 
-	public final boolean hasAnyAccess(CorporationAccess... access) {
-		if (null == access || access.length == 0) {
-			return true;
-		}
-		for (CorporationAccess a: access) {
-			for (long m: this.accessMasks) {
-				if ((a.getAccessMask() & m) == a.getAccessMask()) {
-					return true;
-				}
-			}
-		}
-		return false;
+	public final boolean hasCrest() {
+		return this.account.hasCorporationScope();
 	}
-	
-	public final boolean hasAllAccess(CorporationAccess... access) {
-		if (null == access || access.length == 0) {
-			return true;
-		}
-		for (CorporationAccess a: access) {
-			boolean hasAccess = false;
-			for (long m: this.accessMasks) {
-				if ((a.getAccessMask() & m) == a.getAccessMask()) {
-					hasAccess = true;
-					break;
-				}
-			}
-			if (!hasAccess) {
-				return false;
-			}
-		}
-		return true;
+
+	public final boolean hasApiKey() {
+		return this.account.hasApiKey();
 	}
-	public final void setAccessMasks(final List<Long> masks) {
-		this.accessMasks.clear();
-		this.accessMasks.addAll(masks);
+
+	public final boolean hasAnyAccess(EveAPI.CharacterAccess... access) {
+		return EveAccessHelper.hasAnyAccess(this.account.getAccessMask(), access);
 	}
+
+	public final boolean hasAllAccess(EveAPI.CharacterAccess... access) {
+		return EveAccessHelper.hasAllAccess(this.account.getAccessMask(), access);
+	}
+
 }

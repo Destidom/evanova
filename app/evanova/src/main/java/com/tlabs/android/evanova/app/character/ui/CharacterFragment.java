@@ -8,7 +8,7 @@ import com.tlabs.android.evanova.app.character.presenter.CharacterPresenter;
 import com.tlabs.android.evanova.mvp.BaseFragment;
 import com.tlabs.android.jeeves.model.EveCharacter;
 
-public abstract class CharacterFragment extends BaseFragment {
+abstract class CharacterFragment extends BaseFragment {
 
     CharacterPresenter presenter;
 

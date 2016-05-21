@@ -11,8 +11,12 @@
 
     <string name="jeeves_accounts_noinformation">No account information</string>
     <string name="jeeves_accounts_paiduntil">Paid until %1$s</string>
-    <string name="jeeves_accounts_crest_enabled">CREST enabled</string>
-    <string name="jeeves_accounts_crest_disabled">CREST disabled</string>
+
+    <string name="jeeves_accounts_crest_api">CREST + Api Keys</string>
+    <string name="jeeves_accounts_crest_only">CREST only</string>
+    <string name="jeeves_accounts_api_only">Api Keys only</string>
+    <string name="jeeves_accounts_none">Not authenticated</string>
+
     <string name="jeeves_accounts_mask">Access Mask %1$d</string>
     <string name="jeeves_accounts_reload">reload or delete this account.</string>
     <string name="jeeves_accounts_invalid">Account not authenticated.</string>
@@ -90,6 +94,8 @@
 
     <string name="jeeves_corporations_members_one">1 member.</string>
     <string name="jeeves_corporations_members_many">%1$d members.</string>
+    <string name="jeeves_corporations_alliance_unavailable">No alliance</string>
+    <string name="jeeves_corporations_balance_unavailable">Balance unavailable</string>
 
     <string name="jeeves_fit_slots_high">High Slots (%2$d / %1$d)</string>
     <string name="jeeves_fit_slots_medium">Medium Slots (%2$d / %1$d)</string>

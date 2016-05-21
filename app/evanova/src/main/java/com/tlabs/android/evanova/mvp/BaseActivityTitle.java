@@ -29,9 +29,7 @@ final class BaseActivityTitle {
         this.refreshBar.setVisibility(View.GONE);
 
         this.toolbar.setNavigationIcon(R.mipmap.ic_action_previous_item);
-        this.toolbar.setNavigationOnClickListener(v -> {
-            activity.onBackPressed();
-        });
+        this.toolbar.setNavigationOnClickListener(v -> activity.onBackPressed());
     }
 
     protected final Toolbar getToolbar() {

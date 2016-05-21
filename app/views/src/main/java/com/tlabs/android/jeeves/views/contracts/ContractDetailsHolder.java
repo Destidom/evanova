@@ -10,7 +10,7 @@ import com.tlabs.android.jeeves.views.EveFormat;
 import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.Contract;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 final class ContractDetailsHolder {
 	

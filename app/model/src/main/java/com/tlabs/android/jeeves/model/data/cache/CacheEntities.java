@@ -11,8 +11,8 @@ import com.tlabs.eve.api.AccountStatusRequest;
 import com.tlabs.eve.api.Sovereignty;
 import com.tlabs.eve.api.Station;
 
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

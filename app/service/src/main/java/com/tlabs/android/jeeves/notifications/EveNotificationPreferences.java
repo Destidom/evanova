@@ -5,7 +5,7 @@ import android.net.Uri;
 
 import com.tlabs.android.util.PreferenceSupport;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 public final class EveNotificationPreferences extends PreferenceSupport {
 

@@ -6,5 +6,5 @@ public interface FittingView {
 
     void setFitting(Fitter fitter);
 
- //   void setLoading(boolean loading);
+ //   void showLoading(boolean loading);
 }

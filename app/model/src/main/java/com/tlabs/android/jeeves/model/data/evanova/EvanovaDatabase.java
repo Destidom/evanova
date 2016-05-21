@@ -22,7 +22,7 @@ import com.tlabs.android.jeeves.model.data.evanova.entities.CorporationEntity;
 import com.tlabs.android.jeeves.model.data.evanova.entities.WalletEntity;
 import com.tlabs.eve.api.character.SkillInTraining;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -762,22 +762,6 @@ public final class EvanovaDatabase {
             final List<Long> returned = new ArrayList<>(list.size());
             for (CorporationEntity e: list) {
                 returned.add(e.getCorporationID());
-            }
-            return returned;
-        }
-        catch (SQLException e) {
-            LOG.error(e.getLocalizedMessage(), e);
-            return Collections.emptyList();
-        }
-    }
-
-    public List<Long> listAccessMasks(final long ownerID) {
-        try {
-            final List<AccountEntity> accounts =
-                    accountDAO.queryBuilder().selectColumns("mask").where().eq("ownerID", ownerID).query();
-            final List<Long> returned = new ArrayList<>(accounts.size());
-            for (AccountEntity e: accounts) {
-                returned.add(e.getMask());
             }
             return returned;
         }

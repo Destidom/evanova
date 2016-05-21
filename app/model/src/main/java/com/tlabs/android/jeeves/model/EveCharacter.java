@@ -10,7 +10,6 @@ import com.tlabs.eve.api.character.SkillInTraining;
 import com.tlabs.eve.api.corporation.CorporationRole;
 import com.tlabs.eve.api.corporation.CorporationTitle;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -50,8 +49,6 @@ public class EveCharacter {
         }
     }
 
-	private final List<Long> accessMasks;
-
 	private long corporationJoinedOn = -1;
 	private String corporationTitles;
 	private String corporationRoles;
@@ -61,16 +58,22 @@ public class EveCharacter {
 
     private final CharacterSheet sheet;
     private final CharacterInfo info;
+
+    private final EveAccount account;
     private final EveTraining training;
 
     private final Map<String, Attribute> attributes;
 
-	public EveCharacter(final CharacterSheet sheet, final CharacterInfo info) {
+	public EveCharacter(
+            final CharacterSheet sheet,
+            final CharacterInfo info,
+            final EveAccount account) {
 		super();
+
         this.sheet = sheet;
         this.info = info;
+        this.account = account;
 
-		this.accessMasks = new ArrayList<>();
         this.attributes = new HashMap<>();
         this.attributes.put(EveAPI.ATTR_CHARISMA, new Attribute(EveAPI.ATTR_CHARISMA, sheet.getCharisma()));
         this.attributes.put(EveAPI.ATTR_MEMORY, new Attribute(EveAPI.ATTR_MEMORY, sheet.getMemory()));
@@ -296,10 +299,6 @@ public class EveCharacter {
         this.location = location;
     }
 
-    public final CharacterSheet getCharacterSheet() {
-        return this.sheet;
-    }
-
     public final float getSecurityStatus() {
         return this.info.getSecurityStatus();
     }
@@ -308,49 +307,25 @@ public class EveCharacter {
         return this.info.getHistory();
     }
 
-    public final void setAccessMasks(final List<Long> masks) {
-        this.accessMasks.clear();
-        this.accessMasks.addAll(masks);
-    }
-
     public final void addEnhancerValue(final String attributeName, final int value) {
         Attribute attr = this.attributes.get(attributeName);
         attr.setEnhancerValue(attr.getEnhancerValue() + value);
     }
 
-    //------------- Helper methods
+    public final boolean hasCrest() {
+        return this.account.hasCharacterScope();
+    }
+
+    public final boolean hasApiKey() {
+        return this.account.hasApiKey();
+    }
 
     public final boolean hasAnyAccess(CharacterAccess... access) {
-        if (null == access || access.length == 0) {
-            return true;
-        }
-        for (CharacterAccess a: access) {
-            for (long m: this.accessMasks) {
-                if ((a.getAccessMask() & m) == a.getAccessMask()) {
-                    return true;
-                }
-            }
-        }
-        return false;
+        return EveAccessHelper.hasAnyAccess(this.account.getAccessMask(), access);
     }
 
     public final boolean hasAllAccess(CharacterAccess... access) {
-        if (null == access || access.length == 0) {
-            return true;
-        }
-        for (CharacterAccess a: access) {
-            boolean hasAccess = false;
-            for (long m: this.accessMasks) {
-                if ((a.getAccessMask() & m) == a.getAccessMask()) {
-                    hasAccess = true;
-                    break;
-                }
-            }
-            if (!hasAccess) {
-                return false;
-            }
-        }
-        return true;
+        return EveAccessHelper.hasAllAccess(this.account.getAccessMask(), access);
     }
 
     public final void addJumpClone(final JumpClone clone) {

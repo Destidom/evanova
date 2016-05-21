@@ -19,7 +19,7 @@ import com.tlabs.android.jeeves.views.ui.list.ListRecyclerViewAdapter;
 import com.tlabs.eve.api.mail.KillMailAttacker;
 import com.tlabs.eve.zkb.ZKillMail;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 public class KillMailAttackersWidget extends AbstractListRecyclerView<KillMailAttacker> implements KillMailWidget {
 

@@ -5,7 +5,6 @@ import com.tlabs.eve.api.character.CharacterSheet;
 import com.tlabs.eve.api.character.CharacterSkill;
 import com.tlabs.eve.api.character.SkillInTraining;
 
-import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -19,7 +18,7 @@ public final class CharacterSkillsEntities {
     }
 
     public static List<CharacterSkillEntity> transform(final CharacterSheet sheet) {
-        if (null == sheet || CollectionUtils.isEmpty(sheet.getSkills())) {
+        if (null == sheet || sheet.getSkills().isEmpty()) {
             return Collections.emptyList();
         }
 

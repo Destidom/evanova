@@ -5,13 +5,13 @@ import android.content.Intent;
 
 import com.tlabs.android.evanova.R;
 import com.tlabs.android.evanova.app.EvanovaActivityPresenter;
-import com.tlabs.android.evanova.app.route.RouteView;
 import com.tlabs.android.evanova.app.route.RouteUseCase;
+import com.tlabs.android.evanova.app.route.RouteView;
 import com.tlabs.android.evanova.app.route.ui.RouteActivity;
 import com.tlabs.android.jeeves.views.Strings;
 
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang.StringUtils;
 import org.devfleet.dotlan.DotlanJumpOptions;
 import org.devfleet.dotlan.DotlanOptions;
 import org.devfleet.dotlan.DotlanRoute;
@@ -19,6 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -41,13 +42,14 @@ public class RoutePresenter extends EvanovaActivityPresenter<RouteView> {
     public void setView(RouteView view) {
         super.setView(view);
         setBackgroundDefault();
+        subscribe(() -> useCase.loadOptions(), options -> getView().showOptions(options));
     }
 
-    public void setRoutes(final Intent startIntent) {
-        setRoutes(startOptions(startIntent));
+    public void setRoute(final Intent startIntent) {
+        setRoute(startOptions(startIntent));
     }
 
-    public void setRoutes(final DotlanOptions options) {
+    public void setRoute(final DotlanOptions options) {
         if (null == options) {
             return;
         }
@@ -60,8 +62,8 @@ public class RoutePresenter extends EvanovaActivityPresenter<RouteView> {
         }
     }
 
-    public void onBack() {
-
+    public void saveRoutes(final List<DotlanOptions> routes) {
+        subscribe(() -> {this.useCase.saveOptions(routes); return null;});
     }
 
     private void setJumpRouteImpl(final DotlanJumpOptions options) {

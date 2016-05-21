@@ -7,7 +7,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tlabs.android.util.PreferenceSupport;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.devfleet.dotlan.DotlanJumpOptions;
 import org.devfleet.dotlan.DotlanOptions;
 import org.slf4j.Logger;

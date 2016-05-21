@@ -16,8 +16,19 @@ import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 import org.devfleet.dotlan.DotlanJumpOptions;
 import org.devfleet.dotlan.DotlanOptions;
 
+import java.util.Collections;
+import java.util.List;
+
 public class RouteInputWidget extends FrameLayout {
 
+
+    public interface RouteAutoComplete {
+
+        List<String> searchLocations(final String search, final float maxSecurityStatus);
+
+        List<String> searchJumpShips(final String search);
+
+    }
 
     public interface Listener {
         void onRouteSelected(final DotlanOptions options);
@@ -52,6 +63,7 @@ public class RouteInputWidget extends FrameLayout {
     private ImageButton submitButton;
 
     private RouteInputWidget.Listener listener;
+    private RouteAutoComplete autoComplete;
 
     public RouteInputWidget(Context context) {
         super(context);
@@ -109,34 +121,43 @@ public class RouteInputWidget extends FrameLayout {
                 .addWaypoint(this.toAutoComplete.getText().toString());
     }
 
+    public void setAutoComplete(RouteAutoComplete autoComplete) {
+        this.autoComplete = autoComplete;
+    }
+
     private void init() {
         final View view = inflate(getContext(), R.layout.jeeves_view_route_select, this);
         bind(view);
-        //FIXME
-/*
+
+        this.autoComplete = new RouteAutoComplete() {
+            @Override
+            public List<String> searchLocations(String search, float maxSecurityStatus) {
+                return Collections.emptyList();
+            }
+
+            @Override
+            public List<String> searchJumpShips(String search) {
+                return Collections.emptyList();
+            }
+        };
+
         setupAutoComplete(
                 this.fromAutoComplete,
-                (constraint -> SearchProvider.searchLocations(
-                        getContext().getContentResolver(),
-                        constraint,
-                        this.jumpCheck.isChecked() ? 0.5f : 1.0f)));
+                (constraint -> autoComplete.searchLocations(constraint, this.jumpCheck.isChecked() ? 0.5f : 1.0f)));
 
         setupAutoComplete(
                 this.toAutoComplete,
-                (constraint -> SearchProvider.searchLocations(
-                        getContext().getContentResolver(),
+                (constraint -> autoComplete.searchLocations(
                         constraint,
                         this.jumpCheck.isChecked() ? 0.5f : 1.0f)));
 
         setupAutoComplete(
                 this.freighterAutoComplete,
-                (constraint -> SearchProvider.searchJumpShips(
-                        getContext().getContentResolver(),
-                        constraint)));*/
+                (constraint -> autoComplete.searchJumpShips(constraint)));
     }
 
     private void setupAutoComplete(final AutoCompleteTextView view, AutoCompleteAdapter.AutoComplete<String> autoComplete) {
-        view.setAdapter(new AutoCompleteAdapter(getContext(), autoComplete, R.layout.jeeves_view_autocomplete));
+        view.setAdapter(new AutoCompleteAdapter(autoComplete));
         view.setThreshold(3);
         view.setOnItemClickListener(
                 (ac, v, position, id) -> view.setText((String) ac.getItemAtPosition(position)));

@@ -3,7 +3,7 @@ package com.tlabs.android.jeeves.model.data.evanova;
 import com.tlabs.android.jeeves.model.EveAccount;
 import com.tlabs.android.jeeves.model.data.evanova.entities.AccountEntity;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 public final class AccountEntities {
 

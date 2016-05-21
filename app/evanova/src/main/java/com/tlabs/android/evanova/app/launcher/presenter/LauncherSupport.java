@@ -11,7 +11,7 @@ import com.tlabs.android.evanova.app.corporation.ui.CorporationActivity;
 import com.tlabs.android.jeeves.notifications.Notifications;
 import com.tlabs.android.jeeves.views.Snacks;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

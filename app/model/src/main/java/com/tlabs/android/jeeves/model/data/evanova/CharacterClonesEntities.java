@@ -3,10 +3,8 @@ package com.tlabs.android.jeeves.model.data.evanova;
 import com.tlabs.android.jeeves.model.data.evanova.entities.CharacterCloneEntity;
 import com.tlabs.eve.api.character.CharacterSheet;
 
-import org.apache.commons.collections4.CollectionUtils;
-
-import java.util.Collections;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public final class CharacterClonesEntities {
@@ -15,7 +13,7 @@ public final class CharacterClonesEntities {
     }
 
     public static List<CharacterCloneEntity> transform(final CharacterSheet sheet) {
-        if (null == sheet || CollectionUtils.isEmpty(sheet.getJumpClones())) {
+        if (null == sheet || null == sheet.getJumpClones() || sheet.getJumpClones().isEmpty()) {
             return Collections.emptyList();
         }
 

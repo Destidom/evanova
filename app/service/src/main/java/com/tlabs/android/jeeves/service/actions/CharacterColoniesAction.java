@@ -9,8 +9,6 @@ import com.tlabs.eve.api.character.PlanetaryColoniesResponse;
 import com.tlabs.eve.api.character.PlanetaryColony;
 import com.tlabs.eve.api.character.PlanetaryPinsRequest;
 
-import org.apache.commons.collections4.CollectionUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +25,7 @@ public final class CharacterColoniesAction extends EveAction {
         final PlanetaryColoniesRequest pr = (PlanetaryColoniesRequest)request;
         final PlanetaryColoniesResponse ps = (PlanetaryColoniesResponse)response;
 
-        if (CollectionUtils.isEmpty(ps.getColonies())) {
+        if (null == ps.getColonies() || ps.getColonies().isEmpty()) {
             return null;
         }
 

@@ -34,8 +34,16 @@ public class RouteFragment extends BaseFragment {
         this.flipper = new ViewFlipper(getContext());
 
         this.inputPager = new RouteInputPager(getContext());
-        this.inputPager.setListener(r -> {
-            displayPresenter.setRoutes(r);
+        this.inputPager.setListener(new RouteInputPager.Listener() {
+            @Override
+            public void onRouteSelected(DotlanOptions options) {
+                displayPresenter.setRoute(options);
+            }
+
+            @Override
+            public void onRouteChanged(List<DotlanOptions> routes) {
+                displayPresenter.saveRoutes(routes);
+            }
         });
 
         this.flipper.addView(this.inputPager);

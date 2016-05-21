@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.tlabs.android.util.PreferenceSupport;
 
-import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang.ArrayUtils;
 
 import java.util.Arrays;
 import java.util.ArrayList;

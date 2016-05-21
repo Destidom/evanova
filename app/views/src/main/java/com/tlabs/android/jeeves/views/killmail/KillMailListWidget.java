@@ -16,7 +16,7 @@ import com.tlabs.android.jeeves.views.ui.list.ListRecyclerViewAdapter;
 import com.tlabs.eve.api.mail.KillMailVictim;
 import com.tlabs.eve.zkb.ZKillMail;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import java.util.List;
 

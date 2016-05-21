@@ -82,9 +82,8 @@ import com.tlabs.eve.zkb.ZKillCorporationLogRequest;
 import com.tlabs.eve.zkb.ZKillMail;
 import com.tlabs.eve.zkb.ZKillResponse;
 
-import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.compress.utils.IOUtils;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -717,7 +716,10 @@ public final class ContentFacadeImpl implements ContentFacade {
         }
 
         Collections.sort(rows, (lhs, rhs) -> ((String) lhs[2]).compareTo((String) rhs[2]));
-        CollectionUtils.forAllDo(rows, r -> returned.addRow((Object[])r));
+        for (Object[] row: rows) {
+            returned.addRow(row);
+        }
+
         return returned;
     }
 

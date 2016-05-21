@@ -13,7 +13,6 @@ import com.tlabs.android.jeeves.model.data.social.entities.MailboxEntity;
 import com.tlabs.android.jeeves.model.data.social.entities.MessageEntity;
 import com.tlabs.android.jeeves.model.data.social.entities.MessageListEntity;
 
-import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -97,7 +96,7 @@ public final class MailDatabase{
     }
 
     private void addMailboxes(final long ownerID, final MessageEntity message, final List<Long> mailboxes) {
-        if (CollectionUtils.isEmpty(mailboxes)) {
+        if ((null == mailboxes) || mailboxes.isEmpty()) {
             return;
         }
         try {

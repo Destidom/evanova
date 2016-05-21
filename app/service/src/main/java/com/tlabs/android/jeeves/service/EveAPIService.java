@@ -17,7 +17,7 @@ import com.tlabs.android.jeeves.model.data.sde.EveFacadeImpl;
 import com.tlabs.android.jeeves.service.events.EveApiEvent;
 import com.tlabs.android.util.Log;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringBuilder;
 import org.parceler.Parcels;
 
 public final class EveAPIService extends IntentService {

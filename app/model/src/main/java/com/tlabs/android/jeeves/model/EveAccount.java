@@ -1,5 +1,10 @@
 package com.tlabs.android.jeeves.model;
 
+import org.apache.commons.lang.StringUtils;
+
+import java.util.Collections;
+import java.util.List;
+
 public class EveAccount {
     public static final int UNKNOWN = -1;
     public static final int CHARACTER = 0;
@@ -197,5 +202,30 @@ public class EveAccount {
 
     public void setShipName(String shipName) {
         this.shipName = shipName;
+    }
+
+    public final List<String> getScopes() {
+        if (StringUtils.isEmpty(this.refreshToken)) {
+            return Collections.emptyList();
+        }
+        return EveAccessHelper.getCrestScopes(this.accessMask);
+    }
+
+    public final boolean hasCharacterScope() {
+        if (StringUtils.isEmpty(this.refreshToken)) {
+            return false;
+        }
+        return EveAccessHelper.hasCharacterCrest(this.accessMask);
+    }
+
+    public final boolean hasCorporationScope() {
+        if (StringUtils.isEmpty(this.refreshToken)) {
+            return false;
+        }
+        return EveAccessHelper.hasCorporationCrest(this.accessMask);
+    }
+
+    public final boolean hasApiKey() {
+        return StringUtils.isNotBlank(this.keyValue);
     }
 }

@@ -1,7 +1,7 @@
 package com.tlabs.android.jeeves.model.data.evanova.entities;
 
-import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
+
+import org.apache.commons.lang.StringUtils;
 
 import java.util.Collections;
 import java.util.ArrayList;
@@ -502,7 +502,7 @@ public class CharacterEntity {
     }
 
     public void setImplants(List<Long> implants) {
-        if (CollectionUtils.isEmpty(implants)) {
+        if (null == implants || implants.isEmpty()) {
             this.implants = null;
             return;
         }

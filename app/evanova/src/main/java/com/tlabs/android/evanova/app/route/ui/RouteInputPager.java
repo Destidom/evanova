@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.tlabs.android.evanova.R;
+import com.tlabs.android.jeeves.data.SearchProvider;
 import com.tlabs.android.jeeves.views.routes.RouteInputWidget;
 import com.tlabs.android.jeeves.views.routes.RouteListWidget;
 import com.tlabs.android.jeeves.views.ui.pager.ViewPager;
@@ -18,7 +19,10 @@ import java.util.List;
 class RouteInputPager extends ViewPager {
 
     public interface Listener {
+
         void onRouteSelected(final DotlanOptions options);
+
+        void onRouteChanged(final List<DotlanOptions> routes);
     }
 
     private static class RouteInputPagerAdapter extends PagerAdapter {
@@ -38,13 +42,24 @@ class RouteInputPager extends ViewPager {
                 }
 
                 @Override
-                public void onRouteChanged() {
-                    RouteInputPagerAdapter.this.onRouteChanged();
+                public void onRouteChanged(final List<DotlanOptions> routes) {
+                    RouteInputPagerAdapter.this.onRouteChanged(routes);
                 }
             });
 
             this.inputView = new RouteInputWidget(context);
             this.inputView.setListener(options -> onRouteSelected(options));
+            this.inputView.setAutoComplete(new RouteInputWidget.RouteAutoComplete() {
+                @Override
+                public List<String> searchLocations(String search, float maxSecurityStatus) {
+                    return SearchProvider.searchLocations(context.getContentResolver(), search, maxSecurityStatus);
+                }
+
+                @Override
+                public List<String> searchJumpShips(String search) {
+                    return SearchProvider.searchJumpShips(context.getContentResolver(), search);
+                }
+            });
         }
 
         @Override
@@ -89,16 +104,16 @@ class RouteInputPager extends ViewPager {
 
         protected void setRoutes(final List<DotlanOptions> options) {
             this.listView.setRoutes(options);
+            if (!options.isEmpty()) {
+                this.inputView.setRoute(options.get(0));
+            }
         }
 
-        protected List<DotlanOptions> getRoutes() {
-            return this.listView.getRoutes();
-        }
 
         protected void onRouteSelected(final DotlanOptions options) {
         }
 
-        protected void onRouteChanged() {
+        protected void onRouteChanged(final List<DotlanOptions> routes) {
         }
     }
 
@@ -123,6 +138,13 @@ class RouteInputPager extends ViewPager {
             protected void onRouteSelected(DotlanOptions options) {
                 if (null != listener) {
                     listener.onRouteSelected(options);
+                }
+            }
+
+            @Override
+            protected void onRouteChanged(final List<DotlanOptions> routes) {
+                if (null != listener) {
+                    listener.onRouteChanged(routes);
                 }
             }
         };

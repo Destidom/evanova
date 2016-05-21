@@ -5,7 +5,8 @@ import android.content.Context;
 import com.tlabs.android.jeeves.model.EveAccount;
 import com.tlabs.android.jeeves.service.R;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
+import org.devfleet.crest.CrestAccess;
 import org.devfleet.crest.CrestService;
 import org.devfleet.crest.retrofit.CrestClient;
 import org.slf4j.Logger;
@@ -29,16 +30,16 @@ public final class EveCrest {
 
     public static String loginUri(final Context context, EveAccount account) {
         if ((null == account) || StringUtils.isBlank(account.getRefreshToken())) {
-            return loginUri(context, CrestClient.PUBLIC_SCOPES);
+            return loginUri(context, CrestAccess.PUBLIC_SCOPES);
         }
         if (account.getType() == EveAccount.CORPORATION) {
-            return loginUri(context, CrestClient.CORPORATION_SCOPES);
+            return loginUri(context, CrestAccess.CORPORATION_SCOPES);
         }
-        return loginUri(context, CrestClient.CHARACTER_SCOPES);
+        return loginUri(context, CrestAccess.CHARACTER_SCOPES);
     }
 
     public static CrestClient client() {
-        return CrestClient.TQ(CrestClient.PUBLIC_SCOPES).build();
+        return CrestClient.TQ(CrestAccess.PUBLIC_SCOPES).build();
     }
 
     public static CrestClient client(final Context context, final String[] scopes) {
@@ -66,7 +67,7 @@ public final class EveCrest {
             final Context context, final EveAccount account) {
         final CrestClient authenticatedCREST = client(
                 context,
-                (account.getType() == EveAccount.CORPORATION) ? CrestClient.CORPORATION_SCOPES : CrestClient.CHARACTER_SCOPES);
+                (account.getType() == EveAccount.CORPORATION) ? CrestAccess.CORPORATION_SCOPES : CrestAccess.CHARACTER_SCOPES);
         try {
             return authenticatedCREST.fromRefreshToken(account.getRefreshToken());
         }

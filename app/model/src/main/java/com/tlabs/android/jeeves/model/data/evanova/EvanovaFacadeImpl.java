@@ -288,15 +288,18 @@ public final class EvanovaFacadeImpl implements EvanovaFacade {
             return null;
         }
 
+        final EveAccount account = AccountEntities.map(this.evanova.getAccountByOwner(charID));
+        if (null == account) {
+            return null;
+        }
+
         final CharacterSheet sheet = CharacterEntities.toCharacterSheet(entity);
         if (withSkills) {
             setSkills(sheet);
         }
 
         final CharacterInfo info = CharacterEntities.toCharacterInfo(entity);
-        final EveCharacter character = new EveCharacter(sheet, info);
-
-        character.setAccessMasks(this.evanova.listAccessMasks(charID));
+        final EveCharacter character = new EveCharacter(sheet, info, account);
 
         character.setBloodline(entity.getBloodLine());
         character.setCorporationJoinedOn(entity.getCorporationJoined());
@@ -317,8 +320,12 @@ public final class EvanovaFacadeImpl implements EvanovaFacade {
         if (null == entity) {
             return null;
         }
-        final EveCorporation corporation = new EveCorporation(CorporationEntities.transform(entity));
-        corporation.setAccessMasks(this.evanova.listAccessMasks(corpID));
+        final EveAccount account = AccountEntities.map(this.evanova.getAccountByOwner(corpID));
+        if (null == account) {
+            return null;
+        }
+
+        final EveCorporation corporation = new EveCorporation(CorporationEntities.transform(entity), account);
         return corporation;
     }
 

@@ -25,13 +25,17 @@ dependencies {
         exclude group: 'cglib'
     }
 
+    compile 'commons-collections:commons-collections:2.1.1'
+
     compile 'com.tlabs.eve.dogma:engine:0.+'
     compile 'com.tlabs.eve.dogma:ormlite:0.+'
     compile('com.tlabs.eve.dogma:extra:0.+') {
         exclude group: 'org.apache.commons', module: 'commons-jexl'
     }
     compile 'org.devfleet.crest:api:0.+'
-    compile 'org.devfleet.dotlan:dotlan:0.+'
+    compile ('org.devfleet.dotlan:dotlan:0.+') {
+    	transitive = false
+    }
 
     provided 'javax.annotation:jsr250-api:1.0'
     provided 'javax.persistence:persistence-api:1.0.2'

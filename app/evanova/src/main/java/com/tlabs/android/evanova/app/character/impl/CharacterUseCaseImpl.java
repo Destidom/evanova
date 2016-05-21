@@ -2,7 +2,6 @@ package com.tlabs.android.evanova.app.character.impl;
 
 import com.tlabs.android.evanova.app.character.CharacterUseCase;
 import com.tlabs.android.evanova.content.ContentFacade;
-import com.tlabs.android.jeeves.model.EveAccount;
 import com.tlabs.android.jeeves.model.EveCharacter;
 
 import java.util.ArrayList;
@@ -33,8 +32,4 @@ public class CharacterUseCaseImpl implements CharacterUseCase {
         return content.getCharacter(id, true);
     }
 
-    @Override
-    public EveAccount loadAccount(long charID) {
-        return content.getOwnerAccount(charID);
-    }
 }

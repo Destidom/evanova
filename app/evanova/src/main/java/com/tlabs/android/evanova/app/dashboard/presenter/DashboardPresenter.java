@@ -10,10 +10,13 @@ import com.tlabs.android.evanova.app.accounts.ui.AccountActivity;
 import com.tlabs.android.evanova.app.character.ui.CharacterActivity;
 import com.tlabs.android.evanova.app.character.ui.CharacterListActivity;
 import com.tlabs.android.evanova.app.corporation.ui.CorporationActivity;
+import com.tlabs.android.evanova.app.corporation.ui.CorporationListActivity;
 import com.tlabs.android.evanova.app.dashboard.DashboardUseCase;
 import com.tlabs.android.evanova.app.dashboard.DashboardView;
 import com.tlabs.android.evanova.app.fitting.ui.ShipFittingListActivity;
+import com.tlabs.android.evanova.app.items.ui.ItemDatabaseActivity;
 import com.tlabs.android.evanova.app.route.ui.RouteActivity;
+import com.tlabs.android.evanova.app.skills.SkillDatabaseActivity;
 import com.tlabs.android.jeeves.model.EveAccount;
 
 import java.util.List;
@@ -41,10 +44,10 @@ public class DashboardPresenter extends EvanovaActivityPresenter<DashboardView> 
     }
 
     public void loadAccounts() {
-        setLoading(true);
+        showLoading(true);
         subscribe(() -> this.useCase.loadAccounts(),
                 accounts -> {
-                    setLoading(false);
+                    showLoading(false);
                     getView().setAccounts(accounts);
                     loadLastAccount(accounts);
                 });
@@ -65,9 +68,11 @@ public class DashboardPresenter extends EvanovaActivityPresenter<DashboardView> 
             case EveAccount.ACCOUNT:
             case EveAccount.CHARACTER:
                 intent = new Intent(getContext(), CharacterActivity.class);
+                intent.putExtra(CharacterActivity.EXTRA_CHAR_ID, account.getOwnerId());
                 break;
             case EveAccount.CORPORATION:
                 intent = new Intent(getContext(), CorporationActivity.class);
+                intent.putExtra(CorporationActivity.EXTRA_CORP_ID, account.getOwnerId());
                 break;
             default:
                 intent = new Intent(getContext(), AccountActivity.class);
@@ -87,15 +92,15 @@ public class DashboardPresenter extends EvanovaActivityPresenter<DashboardView> 
                 intent = new Intent(getContext(), CharacterListActivity.class);
                 break;
             case R.id.menu_drawer_corporations:
-            //    intent = new Intent(getContext(), CorporationListActivity.class);
+                intent = new Intent(getContext(), CorporationListActivity.class);
                 break;
 
-           /* case R.id.menu_drawer_skills:
-                intent = new Intent(getContext(), SkillListActivity.class);
+            case R.id.menu_drawer_skills:
+                intent = new Intent(getContext(), SkillDatabaseActivity.class);
                 break;
             case R.id.menu_drawer_items:
                 intent = new Intent(getContext(), ItemDatabaseActivity.class);
-                break;*/
+                break;
             case R.id.menu_drawer_routes:
                 intent = new Intent(getContext(), RouteActivity.class);
                 break;

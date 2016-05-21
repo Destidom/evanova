@@ -46,7 +46,7 @@ public class RouteActivity extends BaseActivity implements RouteView {
         setFragment(this.fragment);
 
         this.presenter.setView(this);
-        this.presenter.setRoutes(getIntent());
+        this.presenter.setRoute(getIntent());
     }
 
     @Override
@@ -59,7 +59,7 @@ public class RouteActivity extends BaseActivity implements RouteView {
     @Override
     public void onBackPressed() {
         if (!this.fragment.onBackPressed()) {
-            this.presenter.onBack();
+            super.onBackPressed();
         }
     }
 
@@ -72,6 +72,7 @@ public class RouteActivity extends BaseActivity implements RouteView {
     public void showRoute(DotlanRoute route, int type) {
         this.fragment.displayRoute(route, type);
     }
+
 
     @Override
     public void showOptions(List<DotlanOptions> options) {

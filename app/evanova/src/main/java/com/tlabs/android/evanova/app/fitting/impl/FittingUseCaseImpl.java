@@ -5,7 +5,6 @@ import com.tlabs.android.evanova.app.fitting.FittingUseCase;
 import com.tlabs.android.jeeves.model.data.fitting.FittingFacade;
 import com.tlabs.eve.dogma.Fitting;
 
-import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.devfleet.crest.CrestService;
 import org.devfleet.crest.model.CrestFitting;
@@ -60,7 +59,7 @@ public class FittingUseCaseImpl implements FittingUseCase {
             fitting.setTypeName(ship.getName());
         }
 
-        if (CollectionUtils.isNotEmpty(f.getInventory())) {
+        if ((null != f.getInventory()) && !f.getInventory().isEmpty()) {
             for (CrestInventory i: f.getInventory()) {
                 final CrestItem item = i.getItem();
                 if (null == item) {

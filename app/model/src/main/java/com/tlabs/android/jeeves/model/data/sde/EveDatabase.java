@@ -22,7 +22,7 @@ import com.tlabs.android.jeeves.model.data.sde.entities.NameEntity;
 import com.tlabs.android.jeeves.model.data.sde.entities.SkillEntity;
 import com.tlabs.android.jeeves.model.data.sde.entities.UnitEntity;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

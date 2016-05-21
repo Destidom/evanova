@@ -14,6 +14,8 @@ public interface RouteUseCase {
 
     void saveOptions(final DotlanOptions options);
 
+    void saveOptions(final List<DotlanOptions> options);
+
     List<DotlanOptions> loadOptions();
 
     boolean updateLiveRoute(final DotlanRoute route);

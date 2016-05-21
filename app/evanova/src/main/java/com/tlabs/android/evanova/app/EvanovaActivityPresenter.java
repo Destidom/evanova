@@ -7,6 +7,7 @@ import com.tlabs.android.evanova.mvp.ActivityView;
 import com.tlabs.android.evanova.preferences.SavedPreferences;
 import com.tlabs.android.evanova.preferences.UserPreferences;
 import com.tlabs.android.jeeves.model.EveCharacter;
+import com.tlabs.android.jeeves.model.EveCorporation;
 import com.tlabs.android.jeeves.views.EveImages;
 
 public class EvanovaActivityPresenter<T extends ActivityView> extends ActivityPresenter<T> {
@@ -38,6 +39,7 @@ public class EvanovaActivityPresenter<T extends ActivityView> extends ActivityPr
             case UserPreferences.OPT_BACKGROUND_NONE:
                 setBackground((String)null);
                 break;
+
             case UserPreferences.OPT_BACKGROUND_PORTRAIT:
                 if (null == character) {
                     setBackground(userPreferences.getBackgroundDefault());
@@ -46,14 +48,39 @@ public class EvanovaActivityPresenter<T extends ActivityView> extends ActivityPr
                     setBackground(EveImages.getCharacterImageURL(getContext(), character.getID()));
                 }
                 break;
+
             case UserPreferences.OPT_BACKGROUND_SHIP:
                 if (null == character) {
                     setBackground(userPreferences.getBackgroundDefault());
                 }
                 else {
-                    setBackground(EveImages.getCharacterImageURL(getContext(), character.getShipTypeID()));
+                    setBackground(EveImages.getItemImageURL(getContext(), character.getShipTypeID()));
                 }
                 break;
+
+            case UserPreferences.OPT_BACKGROUND_APP:
+            default:
+                setBackground(userPreferences.getBackgroundDefault());
+                break;
+        }
+    }
+
+    protected final void setBackground(final EveCorporation corporation) {
+        switch (userPreferences.getBackgroundOption()) {
+            case UserPreferences.OPT_BACKGROUND_NONE:
+                setBackground((String)null);
+                break;
+
+            case UserPreferences.OPT_BACKGROUND_PORTRAIT:
+            case UserPreferences.OPT_BACKGROUND_SHIP:
+                if (null == corporation) {
+                    setBackground(userPreferences.getBackgroundDefault());
+                }
+                else {
+                    setBackground(EveImages.getCorporationImageURL(getContext(), corporation.getID()));
+                }
+                break;
+
             case UserPreferences.OPT_BACKGROUND_APP:
             default:
                 setBackground(userPreferences.getBackgroundDefault());

@@ -54,6 +54,7 @@ public class CharacterListWidget extends AbstractListRecyclerView<EveCharacter>
         public void render(EveCharacter character) {
             progress.setVisibility(updating ? View.VISIBLE : View.GONE);
             EveImages.loadCharacterIcon(character.getID(), portraitImage);
+
             text1.setText(character.getName());
             text2.setText(character.getCorporationName());
 
@@ -72,6 +73,21 @@ public class CharacterListWidget extends AbstractListRecyclerView<EveCharacter>
                     renderTraining(character);
                     break;
             }
+
+            boolean hasSSO = character.hasCrest();
+            boolean hasApi = character.hasApiKey();
+            if (hasSSO && hasApi) {
+                this.crestImage.setImageResource(R.drawable.ic_crest_enabled);
+                this.crestImage.setVisibility(VISIBLE);
+            }
+            else if (hasSSO) {
+                this.crestImage.setImageResource(R.drawable.ic_crest_disabled);
+                this.crestImage.setVisibility(VISIBLE);
+            }
+            else {
+                this.crestImage.setVisibility(INVISIBLE);
+            }
+
         }
 
         private void renderLocation(EveCharacter character) {

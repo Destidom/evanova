@@ -10,8 +10,8 @@ import android.database.MatrixCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 
-import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -252,7 +252,10 @@ public final class SearchProvider extends ContentProvider {
 
     public static List<String> searchJumpShips(final ContentResolver r, final String search) {
         final List<String> returned = new ArrayList<>(Arrays.asList(JUMPSHIPS));
-        CollectionUtils.filter(returned, s -> s.toLowerCase().startsWith(search.toLowerCase()));
+        CollectionUtils.filter(returned, input -> {
+                final String s = (String)input;
+                return s.toLowerCase().startsWith(search.toLowerCase());
+        });
         Collections.sort(returned);
         return returned;
     }

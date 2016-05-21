@@ -32,6 +32,8 @@ public class CorporationListActivity extends BaseActivity implements Corporation
                 .inject(this);
 
         this.fragment = new CorporationListFragment();
+        this.fragment.setPresenter(this.presenter);
+
         setFragment(this.fragment);
         this.presenter.setView(this);
     }

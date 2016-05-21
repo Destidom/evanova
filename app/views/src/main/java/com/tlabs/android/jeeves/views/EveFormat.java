@@ -31,7 +31,7 @@ package com.tlabs.android.jeeves.views;
 
 import android.graphics.Color;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.text.DecimalFormat;
@@ -146,7 +146,7 @@ public final class EveFormat {
         YEAR("EEEE dd MMMM yyyy"),
         YEAR_S("EE dd MMM yyyy"),
         MEDIUM("EEEE dd MMMM HH:mm"),
-        DATE("EEE dd MMM"),
+        DATE("EEE dd MMM yyyy"),
         DATE_S("dd MMM"),
         SHORT("EEE dd MMM HH:mm"),
         SHORT_Y("EEE dd MMM yyyy HH:mm"),

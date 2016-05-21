@@ -1,8 +1,6 @@
 package com.tlabs.android.jeeves.model.data.cache;
 
 import com.tlabs.android.jeeves.model.data.cache.entities.CacheRequestEntity;
-import com.tlabs.android.jeeves.model.data.cache.entities.CacheSovereigntyEntity;
-import com.tlabs.android.jeeves.model.data.cache.entities.CacheStationEntity;
 import com.tlabs.eve.EveRequest;
 import com.tlabs.eve.EveResponse;
 import com.tlabs.eve.api.NamesResponse;
@@ -11,8 +9,8 @@ import com.tlabs.eve.api.SovereigntyResponse;
 import com.tlabs.eve.api.Station;
 import com.tlabs.eve.api.StationsResponse;
 
-import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.collections4.Transformer;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.Transformer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -52,24 +50,24 @@ public class CacheFacadeImpl implements CacheFacade {
     public <T extends EveResponse> void cache(EveRequest<T> request, T response) {
         final CacheRequestEntity cacheEntity = CacheEntities.transform(request, response);
         this.cache.cache(cacheEntity);
-
         if (response instanceof StationsResponse) {
             this.cache.cacheStations(CollectionUtils.collect(
                     ((StationsResponse) response).getStations(),
-                    new Transformer<Station, CacheStationEntity>() {
+                    new Transformer() {
                         @Override
-                        public CacheStationEntity transform(Station input) {
-                            return CacheEntities.transform(input);
+                        public Object transform(Object input) {
+                            return CacheEntities.transform((Station)input);
                         }
                     }));
-         }
+
+        }
         else if (response instanceof SovereigntyResponse) {
             this.cache.cacheSovereignty(CollectionUtils.collect(
                     ((SovereigntyResponse) response).getSovereignty(),
-                    new Transformer<Sovereignty, CacheSovereigntyEntity>() {
+                    new Transformer() {
                         @Override
-                        public CacheSovereigntyEntity transform(Sovereignty input) {
-                            return CacheEntities.transform(input);
+                        public Object transform(Object input) {
+                            return CacheEntities.transform((Sovereignty) input);
                         }
                     }));
         }

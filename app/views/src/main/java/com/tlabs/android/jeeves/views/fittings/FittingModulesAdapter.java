@@ -17,7 +17,7 @@ import com.tlabs.eve.dogma.Fitter;
 import com.tlabs.eve.dogma.extra.format.AttributeFormat;
 import com.tlabs.eve.dogma.model.Attribute;
 
-import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -59,7 +59,12 @@ class FittingModulesAdapter extends SelectableExpandableRecyclerAdapter<FittingM
 
         public void render(final Slot slot) {
             int totalCount = slot.modules.size();
-            int filledCount = CollectionUtils.countMatches(slot.modules, o -> o.getItem() != null);
+
+            int filledCount =
+                    CollectionUtils.select(
+                    slot.modules,
+                    input -> ((Fitter.Module)input).getItem() != null)
+                    .size();
 
             switch (slot.attrID) {
                 case Attribute.FIT_HIGH_SLOTS:
@@ -195,13 +200,13 @@ class FittingModulesAdapter extends SelectableExpandableRecyclerAdapter<FittingM
 
     public final List<Fitter.Module> getEmptySelectedModules() {
         final List<Fitter.Module> modules = getSelectedModules();
-        CollectionUtils.filter(modules, o -> (null == o.getItem()));
+        CollectionUtils.filter(modules, o -> (null == ((Fitter.Module)o).getItem()));
         return modules;
     }
 
     public final List<Fitter.Module> getFilledSelectedModules() {
         final List<Fitter.Module> modules = getSelectedModules();
-        CollectionUtils.filter(modules, o -> (null != o.getItem()));
+        CollectionUtils.filter(modules, o -> (null != ((Fitter.Module)o).getItem()));
         return modules;
     }
 

@@ -5,7 +5,7 @@ import com.tlabs.eve.dogma.Fitting;
 import com.tlabs.eve.dogma.extra.format.FittingFormat;
 import com.tlabs.eve.dogma.model.Item;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

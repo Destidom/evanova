@@ -1,12 +1,13 @@
 package com.tlabs.android.evanova.app.character.presenter;
 
 import android.content.Context;
+import android.content.Intent;
 
 import com.tlabs.android.evanova.R;
 import com.tlabs.android.evanova.app.EvanovaActivityPresenter;
 import com.tlabs.android.evanova.app.character.CharacterUseCase;
 import com.tlabs.android.evanova.app.character.CharacterView;
-import com.tlabs.android.jeeves.model.EveAccount;
+import com.tlabs.android.evanova.app.character.ui.CharacterActivity;
 import com.tlabs.android.jeeves.model.EveCharacter;
 import com.tlabs.android.jeeves.views.EveImages;
 
@@ -16,34 +17,29 @@ public class CharacterPresenter extends EvanovaActivityPresenter<CharacterView> 
 
     private final CharacterUseCase useCase;
 
-    private final EveAccount owner;
-
     private EveCharacter character = null;
 
     @Inject
     public CharacterPresenter(
             Context context,
-            CharacterUseCase useCase,
-            EveAccount account) {
+            CharacterUseCase useCase) {
         super(context);
         this.useCase = useCase;
-        this.owner = account;
     }
 
-    @Override
-    public void setView(CharacterView view) {
-        super.setView(view);
-        if (null == this.owner) {
+    public void startWithIntent(final Intent intent) {
+        final long id = (null == intent) ? -1l : intent.getLongExtra(CharacterActivity.EXTRA_CHAR_ID, -1l);
+        if (id == -1l) {
             return;
         }
         getView().setLoading(true);
         subscribe(
-            () -> this.useCase.loadCharacter(this.owner.getOwnerId()),
-            character -> {
-                getView().setLoading(false);
-                getView().showMainView(character);
-                setCharacter(character);
-            });
+                () -> this.useCase.loadCharacter(id),
+                character -> {
+                    getView().setLoading(false);
+                    getView().showMainView(character);
+                    setCharacter(character);
+                });
     }
 
     public void onCharacterDetailsSelected() {

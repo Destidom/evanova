@@ -6,8 +6,8 @@ import com.tlabs.eve.api.Skill;
 import com.tlabs.eve.api.character.CharacterSkill;
 import com.tlabs.eve.api.character.SkillInTraining;
 
-import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.collections4.Predicate;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.Predicate;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -150,10 +150,10 @@ final class EveTrainingHelper {
     }
 
     private static void filterExisting(final List<CharacterSkill> skills, final List<SkillInTraining> candidates) {
-        CollectionUtils.filter(candidates, new Predicate<SkillInTraining>() {
+        CollectionUtils.filter(candidates, new Predicate() {
             @Override
-            public boolean evaluate(SkillInTraining object) {
-                final SkillInTraining t = object;
+            public boolean evaluate(Object input) {
+                final SkillInTraining t = (SkillInTraining)input;
                 for (CharacterSkill s: skills) {
                     if (s.getSkillID() == t.getSkillID() && s.getSkillLevel() >= t.getSkillLevel()) {
                         return false;
@@ -165,10 +165,10 @@ final class EveTrainingHelper {
     }
 
     private static void filterCompleted(final List<SkillInTraining> candidates) {
-        CollectionUtils.filter(candidates, new Predicate<SkillInTraining>() {
+        CollectionUtils.filter(candidates, new Predicate() {
             @Override
-            public boolean evaluate(SkillInTraining object) {
-                final SkillInTraining t = object;
+            public boolean evaluate(Object input) {
+                final SkillInTraining t = (SkillInTraining)input;
                 if (t.getTrainingType() == SkillInTraining.TYPE_QUEUE && t.getEndTime() < System.currentTimeMillis()) {
                     return false;
                 }

@@ -26,7 +26,7 @@ public class RouteListWidget extends FrameLayout {
 
         void onRouteSelected(final DotlanOptions options);
 
-        void onRouteChanged();
+        void onRouteChanged(final List<DotlanOptions> routes);
     }
 
     static class RouteHolder extends ListRecyclerViewAdapter.ViewHolder<DotlanOptions> {
@@ -120,7 +120,7 @@ public class RouteListWidget extends FrameLayout {
             public void doRemove(int position) {
                 adapter.removeItem(position);
                 if (null != listener) {
-                    listener.onRouteChanged();
+                    listener.onRouteChanged(adapter.getItems());
                 }
             }
 
@@ -133,7 +133,7 @@ public class RouteListWidget extends FrameLayout {
             public void doMove(int from, int to) {
                 adapter.swapItems(from, to);
                 if (null != listener) {
-                    listener.onRouteChanged();
+                    listener.onRouteChanged(adapter.getItems());
                 }
             }
         });

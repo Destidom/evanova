@@ -13,11 +13,12 @@ import com.tlabs.android.jeeves.model.EveCorporation;
 import javax.inject.Inject;
 
 public class CorporationActivity extends BaseActivity implements CorporationView {
+    public static final String EXTRA_CORP_ID = CorporationActivity.class.getSimpleName() + ".corpID";
 
     @Inject
     CorporationPresenter presenter;
 
-    private CorporationFragment fragment;
+    private CorporationViewFragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +30,12 @@ public class CorporationActivity extends BaseActivity implements CorporationView
                 .build()
                 .inject(this);
 
-        this.fragment = new CorporationFragment();
+        this.fragment = new CorporationViewFragment();
+        this.fragment.setPresenter(this.presenter);
+
         setFragment(this.fragment);
         this.presenter.setView(this);
+        this.presenter.startWithIntent(getIntent());
     }
 
     @Override
@@ -43,6 +47,6 @@ public class CorporationActivity extends BaseActivity implements CorporationView
 
     @Override
     public void showCorporation(EveCorporation corporation) {
-
+        this.fragment.setCorporation(corporation);
     }
 }

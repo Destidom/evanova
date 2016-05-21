@@ -7,8 +7,7 @@ import com.tlabs.android.jeeves.model.data.social.MailFacade;
 import com.tlabs.eve.api.character.CharacterCalendar;
 import com.tlabs.eve.api.character.CharacterSheet;
 
-import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import java.util.List;
 
@@ -28,7 +27,7 @@ final class CharacterCalendarInspector extends CharacterInspector {
         }
 
         final List<CharacterCalendar.Entry> entries = helper.inspectCalendar(sheet.getCharacterID());
-        if (CollectionUtils.isEmpty(entries)) {
+        if (null == entries || entries.isEmpty()) {
             return null;
         }
         if (entries.size() == 1) {

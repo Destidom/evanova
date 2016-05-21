@@ -64,6 +64,11 @@ public class RouteUseCaseImpl implements RouteUseCase {
     }
 
     @Override
+    public void saveOptions(List<DotlanOptions> options) {
+        this.preferences.setMostRecentRoutes(options);
+    }
+
+    @Override
     public List<DotlanOptions> loadOptions() {
         return this.preferences.getMostRecentRoutes();
     }

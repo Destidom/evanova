@@ -16,9 +16,9 @@ public class FittingListPresenter extends ViewPresenter<FittingListView> {
     }
 
     public void loadFittings() {
-       // getView().setLoading(true);
+       // getView().showLoading(true);
         subscribe(() -> this.useCase.loadFittings(), fittings -> {
-      //      getView().setLoading(false);
+      //      getView().showLoading(false);
             getView().setFittings(fittings);
         });
     }

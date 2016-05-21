@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.tlabs.android.jeeves.model.EveCorporation;
 import com.tlabs.android.jeeves.views.EveImages;
 import com.tlabs.android.jeeves.views.EveFormat;
+import com.tlabs.android.jeeves.views.Strings;
 import com.tlabs.android.jeeves.views.ui.list.AbstractListRecyclerView;
 import com.tlabs.android.jeeves.views.ui.list.AbstractListRowHolder;
 import com.tlabs.android.jeeves.views.R;
@@ -51,26 +52,39 @@ public class CorporationListWidget extends AbstractListRecyclerView<EveCorporati
             final int memberCount = corp.getMemberCount();
             if (memberCount > 1) {
                 final String sMemberCount = text2.getResources().getString(R.string.jeeves_corporations_members_many);
-                text2.setText(String.format(sMemberCount, memberCount));
+                text3.setText(String.format(sMemberCount, memberCount));
             }
             else {
-                text2.setText(R.string.jeeves_corporations_members_one);
+                text3.setText(R.string.jeeves_corporations_members_one);
             }
 
             final String alliance = corp.getAllianceName();
             if (StringUtils.isBlank(alliance)) {
-                text3.setText("");
+                Strings.r(text4, R.string.jeeves_corporations_alliance_unavailable);
             }
             else {
-                text3.setText(alliance);
+                text4.setText(alliance);
             }
             final double balance = corp.getBalance();
             if (balance == 0) {
-                text4.setVisibility(View.GONE);
+                Strings.r(text2, R.string.jeeves_corporations_balance_unavailable);
             }
             else {
-                text4.setVisibility(View.VISIBLE);
-                text4.setText(EveFormat.Currency.LONG(balance));
+                text2.setText(EveFormat.Currency.LONG(balance));
+            }
+
+            boolean hasSSO = corp.hasCrest();
+            boolean hasApi = corp.hasApiKey();
+            if (hasSSO && hasApi) {
+                this.crestImage.setImageResource(R.drawable.ic_crest_enabled);
+                this.crestImage.setVisibility(VISIBLE);
+            }
+            else if (hasSSO) {
+                this.crestImage.setImageResource(R.drawable.ic_crest_disabled);
+                this.crestImage.setVisibility(VISIBLE);
+            }
+            else {
+                this.crestImage.setVisibility(INVISIBLE);
             }
         }
     }

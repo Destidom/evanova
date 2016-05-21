@@ -61,13 +61,12 @@ public class AccountListWidget extends AbstractListRecyclerView<EveAccount> {
 
             if (StringUtils.isBlank(account.getStatusMessage())) {
                 if (account.getPaidUntil() == 0) {
-                    //I18N
                     Strings.r(text5, R.string.jeeves_accounts_noinformation);
                     text5.setTextColor(Color.GRAY);
                 }
                 else {
-                    Strings.r(text5, R.string.jeeves_accounts_paiduntil, EveFormat.DateTime.MEDIUM(account.getPaidUntil()));
-                    text5.setTextColor(EveFormat.getDurationColor(account.getPaidUntil() - System.currentTimeMillis()));
+                    Strings.r(text5, R.string.jeeves_accounts_paiduntil, EveFormat.Date.MEDIUM(account.getPaidUntil()));
+                    text5.setTextColor(EveFormat.getLongDurationColor(account.getPaidUntil() - System.currentTimeMillis()));
                 }
             }
             else {
@@ -75,20 +74,26 @@ public class AccountListWidget extends AbstractListRecyclerView<EveAccount> {
                 text5.setTextColor(Color.RED);
             }
 
-            boolean hasSSO = StringUtils.isNotBlank(account.getRefreshToken());
-            boolean hasApi = StringUtils.isNotBlank(account.getKeyID());
-            if (hasSSO) {
+            boolean hasSSO = account.hasCharacterScope() || account.hasCorporationScope();
+            boolean hasApi = account.hasApiKey();
+
+            if (hasSSO && hasApi) {
                 this.crestImage.setImageResource(R.drawable.ic_crest_enabled);
                 this.crestImage.setVisibility(VISIBLE);
-                Strings.r(text3, R.string.jeeves_accounts_crest_enabled);
+                Strings.r(text3, R.string.jeeves_accounts_crest_api);
             }
-            else if (hasApi) {
+            else if (hasSSO) {
                 this.crestImage.setImageResource(R.drawable.ic_crest_disabled);
                 this.crestImage.setVisibility(VISIBLE);
-                Strings.r(text3, R.string.jeeves_accounts_crest_disabled);
+                Strings.r(text3, R.string.jeeves_accounts_crest_only);
+            }
+            else if (hasApi) {
+                this.crestImage.setVisibility(INVISIBLE);
+                Strings.r(text3, R.string.jeeves_accounts_api_only);
             }
             else {
                 this.crestImage.setVisibility(INVISIBLE);
+                Strings.r(text3, R.string.jeeves_accounts_none);
             }
 
             Strings.r(text4, R.string.jeeves_accounts_mask, account.getAccessMask());
@@ -97,18 +102,19 @@ public class AccountListWidget extends AbstractListRecyclerView<EveAccount> {
                 case EveAccount.ACCOUNT: {
                     Strings.r(text2, R.string.jeeves_account_type_account);
                     EveImages.loadCharacterIcon(account.getOwnerId(), this.portraitImage);
+                    break;
                 }
                 case EveAccount.CHARACTER: {
                     Strings.r(text2, R.string.jeeves_account_type_character);
                     EveImages.loadCharacterIcon(account.getOwnerId(), this.portraitImage);
+                    break;
 
                 }
-                break;
                 case EveAccount.CORPORATION: {
                     Strings.r(text2, R.string.jeeves_account_type_corporation);
                     EveImages.loadCorporationIcon(account.getOwnerId(), this.portraitImage);
+                    break;
                 }
-                break;
                 default:
                     Strings.r(text2, R.string.jeeves_unknown);
                     this.portraitImage.setImageResource(R.drawable.icon9_64_3_disabled);
