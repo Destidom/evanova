@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- FIXME secure this -->
+    <string name="jeeves_crest_id">Your AppID</string>
+    <string name="jeeves_crest_key">Your AppKey</string>
+    <string name="jeeves_crest_callback">Your callback url</string>
+</resources>

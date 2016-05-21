@@ -73,7 +73,7 @@ public final class Authentication {
             return entity;
         }
         catch (IOException | IllegalStateException e) {
-            Log.e(LOG, e.getLocalizedMessage());
+            Log.e(LOG, e.getLocalizedMessage(), e);
             return null;
         }
     }
@@ -160,8 +160,7 @@ public final class Authentication {
     private EveAccount findAccount(final long ownerID) {
         final EveAccount account = this.evanova.getOwnerAccount(ownerID);
         if (null == account) {
-            if (Log.D)
-                Log.d(LOG, "authenticate: no account found for owner " + ownerID);
+             Log.w(LOG, "authenticate: no account found for owner " + ownerID);
         }
 
         if (StringUtils.isBlank(account.getRefreshToken())) {
@@ -192,7 +191,7 @@ public final class Authentication {
             return entity;
         }
         catch (IllegalStateException e) {
-            Log.e(LOG, e.getLocalizedMessage());
+            Log.e(LOG, e.getLocalizedMessage(), e);
             return null;
         }
     }

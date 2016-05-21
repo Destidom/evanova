@@ -8,6 +8,8 @@ import rx.Observer;
 
 public interface AccountUseCase {
 
+    List<Long> listAccounts();
+
     List<EveAccount> loadAccounts();
 
     void importAuthCode(String authCode, Observer<EveAccount> observer);

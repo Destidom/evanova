@@ -32,6 +32,11 @@ public class AccountUseCaseImpl implements AccountUseCase {
         this.receiver = receiver;
     }
 
+    @Override
+    public List<Long> listAccounts() {
+        return this.content.listAccounts();
+    }
+
     public List<EveAccount> loadAccounts() {
         final List<Long> ids = content.listAccounts();
         final List<EveAccount> accounts = new ArrayList<>(ids.size());

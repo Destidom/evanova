@@ -97,11 +97,8 @@ public class AccountPresenter extends EvanovaActivityPresenter<AccountView> {
     }
 
     public void reloadAccounts(final List<Long> ids) {
-        if (ids.size() == 0) {
-            return;
-        }
-
-        for (Long id: ids) {
+        final List<Long> accounts = (ids.size() == 0) ? this.useCase.listAccounts() : ids;
+        for (Long id: accounts) {
             getView().setLoading(true);
             useCase.reloadAccount(id, new Observer<EveAccount>() {
                 @Override

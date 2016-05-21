@@ -23,7 +23,7 @@ import java.util.List;
 public class AccountAction extends EveAction {
 
     private boolean authenticated;
-    private final EveAccount account;
+    private final EveAccount template;
     private final List<EveAccount> result;
 
     public AccountAction(final Context context, final EveAccount account) {
@@ -32,7 +32,7 @@ public class AccountAction extends EveAction {
                 set(new AccountStatusRequest(), account));
 
         this.authenticated = false;
-        this.account = account;
+        this.template = account;
         this.result = new ArrayList<>(3);
     }
 
@@ -59,99 +59,133 @@ public class AccountAction extends EveAction {
     public final List<EveAccount> getAccounts() {return Collections.unmodifiableList(this.result);}
 
     private void finish() {
-        if (!this.authenticated) {
-            return;
+        for (EveAccount account: this.result) {
+            this.evanova.saveAccount(account);
         }
     }
 
     private void onAccessInfo(final AccessInfoResponse r) {
         this.authenticated = !r.hasAuthenticationError() && null != r.getAccessInfo();
         if (!authenticated) {
-            this.account.setAccessMask(0);
-            this.account.setStatus(1);
-            this.account.setStatusMessage("Authentication error.");
-            this.evanova.saveAccount(this.account);
+            final EveAccount account = new EveAccount(this.template);
+            account.setAccessMask(0);
+            account.setStatus(1);
+            account.setStatusMessage("Authentication error.");
+            result.add(account);
             return;
         }
 
-        final AccessInfo accessInfo = r.getAccessInfo();
-        this.account.setAccessMask(accessInfo.getAccessMask());
-        this.account.setExpires(accessInfo.getExpires());
-
-        switch (accessInfo.getType()) {
+        switch (r.getAccessInfo().getType()) {
             case AccessInfo.ACCOUNT:
-                account.setType(EveAccount.ACCOUNT);
-                if (accessInfo.getCharacters().isEmpty()) {
-                    account.setStatus(3);
-                    account.setStatusMessage("No character found");
-                    this.result.add(this.evanova.saveAccount(this.account));
-                }
-                else {
-                    for (CharacterSheet s: accessInfo.getCharacters()) {
-                        EveAccount tmp = new EveAccount(this.account);
-                        tmp.setName(s.getCharacterName());
-                        tmp.setOwnerId(s.getCharacterID());
-                        this.result.add(this.evanova.saveAccount(tmp));
-                    }
-                }
+                addAccount(r);
                 break;
             case AccessInfo.CHARACTER:
-                account.setType(EveAccount.CHARACTER);
-                if (accessInfo.getCharacters().isEmpty()) {
-                    account.setStatus(3);
-                    account.setStatusMessage("No character found");
-                }
-                else {
-                    account.setStatus(0);
-                    final CharacterSheet character = accessInfo.getCharacters().get(0);
-                    account.setOwnerId(character.getCharacterID());
-                    if (StringUtils.isBlank(account.getName())) {
-                        account.setName(character.getCharacterName());
-                    }
-                }
-                this.result.add(this.evanova.saveAccount(this.account));
+                addCharacter(r);
                 break;
             case AccessInfo.CORPORATION:
-                account.setType(EveAccount.CORPORATION);
-                if (accessInfo.getCharacters().isEmpty()) {
-                    account.setStatus(3);
-                    account.setStatusMessage("No corporation found");
-                }
-                else {
-                    account.setStatus(0);
-                    final CharacterSheet character = accessInfo.getCharacters().get(0);
-                    account.setOwnerId(character.getCorporationID());
-                    if (StringUtils.isBlank(account.getName())) {
-                        account.setName(character.getCorporationName());
-                    }
-                }
-                this.result.add(this.evanova.saveAccount(this.account));
+                addCorporation(r);
                 break;
             case AccessInfo.UNKNOWN:
             default:
-                account.setType(EveAccount.UNKNOWN);
-                account.setStatus(3);
-                account.setStatusMessage("Unknown account type");
-                this.result.add(this.evanova.saveAccount(this.account));
+                addUnknown(r);
                 break;
         }
 
     }
 
-    private void onAccountStatus(final AccountStatusResponse r) {
-        if (r.hasAuthenticationError()) {
-            this.account.setPaidUntil(0);
-            this.account.setLogonCount(0);
-            this.account.setLogonMinutes(0);
-            this.account.setCreationDate(0);
+    private void addAccount(final AccessInfoResponse r) {
+        final EveAccount account = newAccount(r, EveAccount.ACCOUNT);
+        final AccessInfo accessInfo = r.getAccessInfo();
+
+        if (accessInfo.getCharacters().isEmpty()) {
+            account.setStatus(3);
+            account.setStatusMessage("No character found");
+            this.result.add(account);
         }
         else {
-            final AccountStatus accountStatus = r.getAccountStatus();
-            this.account.setCreationDate(accountStatus.getCreationDate());
-            this.account.setLogonCount(accountStatus.getLogonCount());
-            this.account.setLogonMinutes(accountStatus.getLogonMinutes());
-            this.account.setPaidUntil(accountStatus.getPaidUntil());
+            for (CharacterSheet s: accessInfo.getCharacters()) {
+                EveAccount tmp = new EveAccount(account);
+                tmp.setName(s.getCharacterName());
+                tmp.setOwnerId(s.getCharacterID());
+                this.result.add(tmp);
+            }
         }
+    }
+
+    private void addCharacter(final AccessInfoResponse r) {
+        final EveAccount account = newAccount(r, EveAccount.CHARACTER);
+        final AccessInfo accessInfo = r.getAccessInfo();
+
+        if (accessInfo.getCharacters().isEmpty()) {
+            account.setStatus(3);
+            account.setStatusMessage("No character found");
+        }
+        else {
+            account.setStatus(0);
+            final CharacterSheet character = accessInfo.getCharacters().get(0);
+            account.setOwnerId(character.getCharacterID());
+            if (StringUtils.isBlank(account.getName())) {
+                account.setName(character.getCharacterName());
+            }
+        }
+        this.result.add(account);
+    }
+
+    private void addCorporation(final AccessInfoResponse r) {
+        final EveAccount account = newAccount(r, EveAccount.CORPORATION);
+        final AccessInfo accessInfo = r.getAccessInfo();
+
+        if (accessInfo.getCharacters().isEmpty()) {
+            account.setStatus(3);
+            account.setStatusMessage("No corporation found");
+        }
+        else {
+            account.setStatus(0);
+            final CharacterSheet character = accessInfo.getCharacters().get(0);
+            account.setOwnerId(character.getCorporationID());
+            if (StringUtils.isBlank(account.getName())) {
+                account.setName(character.getCorporationName());
+            }
+        }
+        this.result.add(account);
+    }
+
+    private void addUnknown(final AccessInfoResponse r) {
+        final EveAccount account = newAccount(r, EveAccount.UNKNOWN);
+
+        account.setStatus(3);
+        account.setStatusMessage("Unknown account type");
+
+        this.result.add(account);
+    }
+
+    private void onAccountStatus(final AccountStatusResponse r) {
+        for (EveAccount account: this.result) {
+            if (r.hasAuthenticationError()) {
+                account.setPaidUntil(0);
+                account.setLogonCount(0);
+                account.setLogonMinutes(0);
+                account.setCreationDate(0);
+            }
+            else {
+                final AccountStatus accountStatus = r.getAccountStatus();
+                account.setCreationDate(accountStatus.getCreationDate());
+                account.setLogonCount(accountStatus.getLogonCount());
+                account.setLogonMinutes(accountStatus.getLogonMinutes());
+                account.setPaidUntil(accountStatus.getPaidUntil());
+            }
+        }
+    }
+
+    private EveAccount newAccount(final AccessInfoResponse r, int type) {
+        final EveAccount account = new EveAccount(this.template);
+        account.setType(type);
+
+        final AccessInfo accessInfo = r.getAccessInfo();
+        account.setAccessMask(accessInfo.getAccessMask());
+        account.setExpires(accessInfo.getExpires());
+
+        return account;
     }
 
     private static EveAPIRequest<?> set(final EveAPIRequest<?> request, final EveAccount account) {
