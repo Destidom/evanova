@@ -3,15 +3,12 @@ package com.tlabs.android.jeeves.modules;
 import android.content.Context;
 
 import com.tlabs.android.jeeves.model.EveAccount;
-import com.tlabs.android.jeeves.service.EveAPIServicePreferences;
+import com.tlabs.android.jeeves.network.EveCrest;
 
 import org.apache.commons.lang3.StringUtils;
 import org.devfleet.crest.CrestService;
-import org.devfleet.crest.retrofit.CrestClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
 
 import dagger.Module;
 import dagger.Provides;
@@ -42,36 +39,9 @@ public class EveCrestModule {
     private static CrestService authenticate(final Context context, final EveAccount account) {
         if (null == account || StringUtils.isBlank(account.getRefreshToken())) {
             LOG.debug("No account token available; providing public CREST");
-            return publicCREST();
+            return EveCrest.service(context);
         }
-
-        final EveAPIServicePreferences preferences = new EveAPIServicePreferences(context);
-        final CrestClient authenticatedCREST =
-                CrestClient
-                        .TQ(CrestClient.CHARACTER_SCOPES)
-                        .id(preferences.getApplicationId())
-                        .key(preferences.getApplicationKey())
-                        .redirect(preferences.getApplicationRedirect())
-                        .build();
-        try {
-            return authenticatedCREST.fromRefreshToken(account.getRefreshToken());
-        }
-        catch (IOException e) {
-            LOG.error(e.getLocalizedMessage(), e);
-            LOG.debug("{}: providing public CREST", e.getLocalizedMessage());
-            return publicCREST();
-        }
-    }
-
-    private static CrestService publicCREST() {
-        try {
-            return CrestClient.TQ("publicData").build().fromDefault();
-        }
-        catch (IOException e) {
-            LOG.error(e.getLocalizedMessage(), e);
-            LOG.debug("{}: no public CREST available", e.getLocalizedMessage());
-            return null;
-        }
+        return EveCrest.service(context, account);
     }
 
 }

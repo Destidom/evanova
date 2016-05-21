@@ -9,3 +9,5 @@
 .factorypath
 *.iml
 /build
+/src/main/res/values/crest.xml
+

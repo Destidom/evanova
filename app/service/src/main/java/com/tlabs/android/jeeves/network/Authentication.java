@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.tlabs.android.jeeves.model.EveAccount;
 import com.tlabs.android.jeeves.model.data.evanova.EvanovaFacade;
-import com.tlabs.android.jeeves.service.EveAPIServicePreferences;
 import com.tlabs.android.util.Log;
 import com.tlabs.eve.EveRequest;
 import com.tlabs.eve.api.EveAPIRequest;
@@ -35,18 +34,9 @@ public final class Authentication {
     private Authentication(
             final Context context,
             final EvanovaFacade evanova) {
-        final EveAPIServicePreferences preferences = new EveAPIServicePreferences(context.getApplicationContext());
-
         this.evanova = evanova;
         this.authenticated = new HashMap<>();
-        this.crest =
-            CrestClient
-                .TQ(CrestClient.CHARACTER_SCOPES)
-                .id(preferences.getApplicationId())
-                .key(preferences.getApplicationKey())
-                .redirect(preferences.getApplicationRedirect())
-                .build();
-        preferences.setCrestLogin(this.crest.getLoginUri());//FIXME berk
+        this.crest = EveCrest.client(context, CrestClient.CHARACTER_SCOPES);
     }
 
     public static Authentication from(final Context context, final EvanovaFacade facade) {

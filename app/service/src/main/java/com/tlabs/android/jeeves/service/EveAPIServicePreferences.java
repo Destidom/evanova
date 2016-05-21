@@ -85,30 +85,6 @@ public final class EveAPIServicePreferences extends PreferenceSupport {
         return getString(KEY_CENTRAL_URL, URL_CENTRAL_DEFAULT);
     }
 
-    public String getCrestLogin() {
-        return getString(KEY_CREST_LOGIN, null);
-    }
-
-    @Deprecated //FIXME
-    public void setCrestLogin(final String url) {
-        setString(KEY_CREST_LOGIN, url);
-    }
-
-    @Deprecated //FIXME
-    public String getApplicationId() {
-        return "AppID";
-    }
-
-    @Deprecated //FIXME
-    public String getApplicationKey() {
-        return "AppKey";
-    }
-
-    @Deprecated //FIXME
-    public String getApplicationRedirect() {
-        return "eve://crest.eveonline.com/redirect";
-    }
-
     public String getZKillboardURL() {
         return getString(KEY_ZKILLBOARD_URL, URL_ZKILLBOARD_DEFAULT);
     }

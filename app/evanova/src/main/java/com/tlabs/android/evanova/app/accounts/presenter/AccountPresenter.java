@@ -10,11 +10,13 @@ import com.tlabs.android.evanova.app.accounts.AccountUseCase;
 import com.tlabs.android.evanova.app.accounts.AccountView;
 import com.tlabs.android.evanova.app.accounts.ui.AccountActivity;
 import com.tlabs.android.jeeves.model.EveAccount;
+import com.tlabs.android.jeeves.network.EveCrest;
 import com.tlabs.android.jeeves.service.EveAPIServicePreferences;
 
 import com.tlabs.android.jeeves.views.Strings;
 
 import org.apache.commons.lang.StringUtils;
+import org.devfleet.crest.retrofit.CrestClient;
 
 import java.util.List;
 
@@ -153,7 +155,7 @@ public class AccountPresenter extends EvanovaActivityPresenter<AccountView> {
     }
 
     public void startSSOImport(final Activity activity) {
-        AccountSupport.startImportSSO(activity, apiPreferences.getCrestLogin());
+        AccountSupport.startImportSSO(activity, EveCrest.loginUri(getContext(), CrestClient.CHARACTER_SCOPES));
     }
 
     public void startEveMonImport(final Activity activity) {
