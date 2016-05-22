@@ -118,11 +118,11 @@ public final class EveCorporation {
 		return this.account.hasApiKey();
 	}
 
-	public final boolean hasAnyAccess(EveAPI.CharacterAccess... access) {
+	public final boolean hasAnyAccess(EveAPI.CorporationAccess... access) {
 		return EveAccessHelper.hasAnyAccess(this.account.getAccessMask(), access);
 	}
 
-	public final boolean hasAllAccess(EveAPI.CharacterAccess... access) {
+	public final boolean hasAllAccess(EveAPI.CorporationAccess... access) {
 		return EveAccessHelper.hasAllAccess(this.account.getAccessMask(), access);
 	}
 

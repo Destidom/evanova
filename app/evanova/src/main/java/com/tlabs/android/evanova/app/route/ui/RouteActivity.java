@@ -8,6 +8,7 @@ import com.tlabs.android.evanova.app.route.RouteModule;
 import com.tlabs.android.evanova.app.route.RouteView;
 import com.tlabs.android.evanova.app.route.presenter.RoutePresenter;
 import com.tlabs.android.evanova.mvp.BaseActivity;
+import com.tlabs.android.evanova.mvp.Presenter;
 
 import org.devfleet.dotlan.DotlanOptions;
 import org.devfleet.dotlan.DotlanRoute;
@@ -25,6 +26,7 @@ public class RouteActivity extends BaseActivity implements RouteView {
     public static final String EXTRA_JUMP = RouteActivity.class.getName() + ".options";//custom format
 
     @Inject
+    @Presenter
     RoutePresenter presenter;
 
     private RouteFragment fragment;
@@ -46,14 +48,6 @@ public class RouteActivity extends BaseActivity implements RouteView {
         setFragment(this.fragment);
 
         this.presenter.setView(this);
-        this.presenter.setRoute(getIntent());
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        this.presenter.destroyView();
-        this.presenter = null;
     }
 
     @Override

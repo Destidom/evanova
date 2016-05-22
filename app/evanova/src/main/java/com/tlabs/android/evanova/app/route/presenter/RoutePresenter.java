@@ -45,11 +45,12 @@ public class RoutePresenter extends EvanovaActivityPresenter<RouteView> {
         subscribe(() -> useCase.loadOptions(), options -> getView().showOptions(options));
     }
 
-    public void setRoute(final Intent startIntent) {
-        setRoute(startOptions(startIntent));
+    @Override
+    public void startView(final Intent startIntent) {
+        startView(startOptions(startIntent));
     }
 
-    public void setRoute(final DotlanOptions options) {
+    public void startView(final DotlanOptions options) {
         if (null == options) {
             return;
         }
@@ -67,7 +68,7 @@ public class RoutePresenter extends EvanovaActivityPresenter<RouteView> {
     }
 
     private void setJumpRouteImpl(final DotlanJumpOptions options) {
-        getView().setLoading(true);
+        getView().showLoading(true);
         getView().setTitle(Strings.r(getContext(), R.string.jump_plan_title, options.getFrom(), options.getTo()));
         subscribe(
             () -> {
@@ -78,7 +79,7 @@ public class RoutePresenter extends EvanovaActivityPresenter<RouteView> {
                 return route;
             },
             route -> {
-                getView().setLoading(false);
+                getView().showLoading(false);
                 if (null == route) {
                     getView().setTitleDescription(R.string.jump_plan_unavailable);
                     getView().showRoute(new DotlanRoute());
@@ -91,7 +92,7 @@ public class RoutePresenter extends EvanovaActivityPresenter<RouteView> {
     }
 
     private void setRoutesImpl(final DotlanOptions options) {
-        getView().setLoading(true);
+        getView().showLoading(true);
 
         Observable
             .concat(
@@ -110,7 +111,7 @@ public class RoutePresenter extends EvanovaActivityPresenter<RouteView> {
                     if (save) {
                         useCase.saveOptions(options);
                     }
-                    getView().setLoading(false);
+                    getView().showLoading(false);
                 }
 
                 @Override

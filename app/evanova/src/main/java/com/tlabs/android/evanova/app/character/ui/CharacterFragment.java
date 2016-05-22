@@ -5,14 +5,15 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.tlabs.android.evanova.app.character.presenter.CharacterPresenter;
+import com.tlabs.android.evanova.mvp.ActivityView;
 import com.tlabs.android.evanova.mvp.BaseFragment;
 import com.tlabs.android.jeeves.model.EveCharacter;
 
-abstract class CharacterFragment extends BaseFragment {
+public abstract class CharacterFragment extends BaseFragment {
 
-    CharacterPresenter presenter;
+    protected CharacterPresenter presenter;
 
-    EveCharacter character;
+    protected EveCharacter character;
 
     public void setPresenter(CharacterPresenter presenter) {
         this.presenter = presenter;
@@ -26,10 +27,11 @@ abstract class CharacterFragment extends BaseFragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public void onStart() {
+        super.onStart();
         onCharacterChanged(character);
     }
 
     protected void onCharacterChanged(final EveCharacter character) {}
+
 }

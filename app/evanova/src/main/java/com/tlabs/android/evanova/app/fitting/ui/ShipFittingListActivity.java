@@ -8,6 +8,7 @@ import com.tlabs.android.evanova.R;
 import com.tlabs.android.evanova.app.fitting.presenter.FittingListPresenter;
 import com.tlabs.android.evanova.mvp.ActivityView;
 import com.tlabs.android.evanova.mvp.BaseActivity;
+import com.tlabs.android.evanova.mvp.Presenter;
 import com.tlabs.eve.dogma.Fitting;
 import com.tlabs.eve.dogma.extra.format.FittingFormat;
 
@@ -26,6 +27,7 @@ public class ShipFittingListActivity extends BaseActivity implements ActivityVie
     private ShareActionProvider shareProvider;*/
 
     @Inject
+    @Presenter
     FittingListPresenter presenter;
 /*
     @Override

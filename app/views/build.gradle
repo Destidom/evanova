@@ -76,7 +76,7 @@ dependencies {
     compile 'com.github.afollestad.material-dialogs:commons:0.8.5+@aar'
     compile 'org.adw.library:discrete-seekbar:1.0.1'
     compile 'com.github.PhilJay:MPAndroidChart:v2.2.4'
-
+    compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
     compile 'com.prolificinteractive:material-calendarview:1.2.0'
     compile 'com.bignerdranch.android:expandablerecyclerview:2.1.1'
 

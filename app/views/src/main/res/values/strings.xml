@@ -110,6 +110,9 @@
 
     <string name="jeeeves_skilllevelview_level">Level %1d</string>
 
+    <string name="jeeeves_skills_requirements_matched">You meet the requirements for this skill.</string>
+    <string name="jeeeves_skills_requirements_unmatched">You do not meet the requirements for this skill.</string>
+
     <string name="jeeves_route_select_switch">Jump Freighter</string>
     <string name="jeeves_route_select_from">From</string>
     <string name="jeeves_route_select_to">To</string>

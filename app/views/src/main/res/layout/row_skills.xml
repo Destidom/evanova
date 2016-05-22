@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top|fill_horizontal"
+    android:background="@drawable/jeeves_panel_no_border"
+    android:minHeight="48dp"
+    android:orientation="horizontal"
+    android:paddingBottom="4dp">
+
+    <TextView
+        android:id="@+id/skillGroupText"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|center_vertical"
+        android:gravity="left|center_vertical"
+        android:maxLines="1"
+        android:paddingLeft="24dp"
+        android:text="Corporation Management"
+        android:textSize="16sp"
+        android:layout_weight="0.1"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/skillGroupDescription1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:maxLines="2"
+            android:text="Corporation Management"
+            android:textSize="12sp"
+            android:gravity="left|center_vertical"/>
+
+        <TextView
+            android:id="@+id/skillGroupDescription2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:gravity="left|center_vertical"
+            android:maxLines="2"
+            android:text="2 Skills Planned"
+            android:textSize="12sp"/>
+    </LinearLayout>
+</LinearLayout>

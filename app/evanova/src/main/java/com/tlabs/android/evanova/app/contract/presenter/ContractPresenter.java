@@ -23,9 +23,9 @@ public class ContractPresenter extends ViewPresenter<ContractView> {
     public void setView(ContractView view) {
         super.setView(view);
         if (null != this.owner) {
-            view.setLoading(true);
+            view.showLoading(true);
             subscribe(() -> useCase.loadContracts(this.owner.getOwnerId()), contracts -> {
-                view.setLoading(false);
+                view.showLoading(false);
                 view.showContracts(contracts, this.owner.getOwnerId());
             });
         }
@@ -35,9 +35,9 @@ public class ContractPresenter extends ViewPresenter<ContractView> {
         if (null == this.owner) {
             return;
         }
-        getView().setLoading(true);
+        getView().showLoading(true);
         subscribe(() -> useCase.loadContract(owner.getOwnerId(), contractID), c -> {
-            getView().setLoading(false);
+            getView().showLoading(false);
             getView().showContract(c, this.owner.getOwnerId());
         });
     }

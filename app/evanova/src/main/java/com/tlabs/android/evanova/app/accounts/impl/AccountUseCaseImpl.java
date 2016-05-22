@@ -3,7 +3,6 @@ package com.tlabs.android.evanova.app.accounts.impl;
 import com.tlabs.android.evanova.app.accounts.AccountUseCase;
 import com.tlabs.android.evanova.content.ContentFacade;
 import com.tlabs.android.evanova.content.ContentPublisher;
-import com.tlabs.android.evanova.mvp.RX;
 import com.tlabs.android.jeeves.model.EveAccount;
 import com.tlabs.android.jeeves.service.events.EveAccountUpdateEndEvent;
 import com.tlabs.android.jeeves.service.events.EveAccountUpdateStartEvent;
@@ -18,8 +17,13 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import rx.Observable;
 import rx.Observer;
 import rx.Subscriber;
+import rx.Subscription;
+import rx.functions.Action1;
+import rx.functions.Func0;
+import rx.schedulers.Schedulers;
 
 public class AccountUseCaseImpl implements AccountUseCase {
 
@@ -146,7 +150,7 @@ public class AccountUseCaseImpl implements AccountUseCase {
 
     @Override
     public void deleteAccount(long id, Observer<EveAccount> observer) {
-        RX.subscribe(() -> {
+        subscribe(() -> {
             final EveAccount account = content.getAccount(id);
             if (null != account) {
                 content.deleteAccount(id);
@@ -160,5 +164,19 @@ public class AccountUseCaseImpl implements AccountUseCase {
             observer.onNext(account);
             observer.onCompleted();
         });
+
     }
+
+    private static <T> Subscription subscribe(Func0<T> f, Action1<T> action1) {
+        return defer(f).subscribe(action1::call);
+    }
+
+    private static <T> Observable<T> defer(Func0<T> f) {
+        final Observable<T> observable =
+                Observable.defer(() -> Observable.fromCallable(f));
+        return observable
+                .subscribeOn(Schedulers.io())
+                .observeOn(Schedulers.io());
+    }
+
 }

@@ -7,11 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.tlabs.android.evanova.app.character.CharacterTrainingView;
 import com.tlabs.android.jeeves.model.EveCharacter;
+import com.tlabs.android.jeeves.model.EveTraining;
 import com.tlabs.android.jeeves.views.character.CharacterTrainingDetailsWidget;
 import com.tlabs.android.jeeves.views.character.CharacterTrainingListWidget;
 
-public class CharacterTrainingFragment extends CharacterFragment {
+public class CharacterTrainingFragment extends CharacterFragment implements CharacterTrainingView {
 
     private CharacterTrainingDetailsWidget wDetails;
     private CharacterTrainingListWidget wTraining;
@@ -35,9 +37,14 @@ public class CharacterTrainingFragment extends CharacterFragment {
     }
 
     @Override
-    protected void onCharacterChanged(EveCharacter character) {
+    public void showTraining(EveTraining training) {
         wDetails.setTraining(character.getTraining());
         wTraining.setTraining(character.getTraining());
+    }
+
+    @Override
+    protected void onCharacterChanged(EveCharacter character) {
+        presenter.setView(this);
     }
 
 }

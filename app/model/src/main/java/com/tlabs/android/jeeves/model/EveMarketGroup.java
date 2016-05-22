@@ -8,6 +8,8 @@ public class EveMarketGroup {
     private long parentGroupID;
     private long iconID;
 
+    private long childCount;
+
     public long getMarketGroupID() {
         return marketGroupID;
     }
@@ -38,5 +40,13 @@ public class EveMarketGroup {
 
     public void setIconID(long iconID) {
         this.iconID = iconID;
+    }
+
+    public long getChildCount() {
+        return childCount;
+    }
+
+    public void setChildCount(long childCount) {
+        this.childCount = childCount;
     }
 }

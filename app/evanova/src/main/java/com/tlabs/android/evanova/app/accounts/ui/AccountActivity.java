@@ -12,6 +12,7 @@ import com.tlabs.android.evanova.app.accounts.AccountView;
 import com.tlabs.android.evanova.app.accounts.DaggerAccountComponent;
 import com.tlabs.android.evanova.app.accounts.presenter.AccountPresenter;
 import com.tlabs.android.evanova.mvp.BaseActivity;
+import com.tlabs.android.evanova.mvp.Presenter;
 import com.tlabs.android.jeeves.model.EveAccount;
 
 import java.util.List;
@@ -27,6 +28,7 @@ public class AccountActivity extends BaseActivity implements AccountView {
     public static final String EXTRA_AUTH_CODE = AccountActivity.class.getName() + ".authCode";
 
     @Inject
+    @Presenter
     AccountPresenter presenter;
 
     private AccountFragment fragment;
@@ -44,7 +46,6 @@ public class AccountActivity extends BaseActivity implements AccountView {
         this.fragment = new AccountFragment();
         this.fragment.setListener(account -> this.presenter.onAccountSelected(account));
         setFragment(this.fragment);
-        this.presenter.setView(this);
     }
 
     @Override
@@ -96,13 +97,6 @@ public class AccountActivity extends BaseActivity implements AccountView {
     protected void onStart() {
         super.onStart();
         this.presenter.startWith(getIntent());
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        this.presenter.destroyView();
-        this.presenter = null;
     }
 
     @Override

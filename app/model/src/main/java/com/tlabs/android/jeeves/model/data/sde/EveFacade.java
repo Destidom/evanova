@@ -45,7 +45,7 @@ public interface EveFacade {
 
     CertificateTree getCertificates();
 
-    //Map<Long, String> getSkillGroups();
+    Map<Long, String> getSkillGroups();
 
     List<Skill> getSkills(final long groupID);
 

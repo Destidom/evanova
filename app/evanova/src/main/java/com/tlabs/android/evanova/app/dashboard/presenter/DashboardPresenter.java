@@ -16,7 +16,7 @@ import com.tlabs.android.evanova.app.dashboard.DashboardView;
 import com.tlabs.android.evanova.app.fitting.ui.ShipFittingListActivity;
 import com.tlabs.android.evanova.app.items.ui.ItemDatabaseActivity;
 import com.tlabs.android.evanova.app.route.ui.RouteActivity;
-import com.tlabs.android.evanova.app.skills.SkillDatabaseActivity;
+import com.tlabs.android.evanova.app.skills.ui.SkillDatabaseActivity;
 import com.tlabs.android.jeeves.model.EveAccount;
 
 import java.util.List;
@@ -112,11 +112,11 @@ public class DashboardPresenter extends EvanovaActivityPresenter<DashboardView> 
                 break;
             case R.id.menu_drawer_server:
                 getView().showServerStatus();
-                getView().setLoading(true);
+                getView().showLoading(true);
                 subscribe(() -> useCase.loadServerStatus(), status -> getView().updateServerStatus(status));
                 subscribe(() -> useCase.loadRSS(), rss -> {
                     getView().updateRSS(rss);
-                    getView().setLoading(false);
+                    getView().showLoading(false);
                 });
                 break;
             case R.id.menu_drawer_help:

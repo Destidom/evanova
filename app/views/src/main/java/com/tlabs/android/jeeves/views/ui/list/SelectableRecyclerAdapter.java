@@ -8,11 +8,16 @@ import android.view.ViewGroup;
 
 import com.tlabs.android.jeeves.views.R;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public abstract class SelectableRecyclerAdapter<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
+    private static final Logger LOG = LoggerFactory.getLogger(SelectableRecyclerAdapter.class);
+
     private final List<Long> selected;
     private final Map<Long, Boolean> updating;
 
@@ -42,6 +47,7 @@ public abstract class SelectableRecyclerAdapter<VH extends RecyclerView.ViewHold
         itemView.setSelected(selection);
         itemView.setOnClickListener(v -> {
             if (selected.isEmpty()) {
+                LOG.error("onItemClicked {}", itemId);
                 if (onItemClicked(itemId)) {
                     selected.add(itemId);
                     itemView.setBackgroundResource(backgroundResourceSelected);
@@ -51,6 +57,7 @@ public abstract class SelectableRecyclerAdapter<VH extends RecyclerView.ViewHold
 
             if (selected.contains(itemId)) {
                 selected.remove(itemId);
+                LOG.error("onItemSelected {} {}", itemId, false);
                 if (onItemSelected(itemId, false)) {
                     itemView.setBackgroundResource(backgroundResourceNotSelected);
                 } else {
@@ -59,6 +66,7 @@ public abstract class SelectableRecyclerAdapter<VH extends RecyclerView.ViewHold
             }
             else {
                 selected.add(itemId);
+                LOG.error("onItemSelected {} {}", itemId, true);
                 if (onItemSelected(itemId, true)) {
                     itemView.setBackgroundResource(backgroundResourceSelected);
                 } else {
@@ -69,6 +77,7 @@ public abstract class SelectableRecyclerAdapter<VH extends RecyclerView.ViewHold
         itemView.setOnLongClickListener(v -> {
             if (selected.contains(itemId)) {
                 selected.remove(itemId);
+                LOG.error("onItemSelected {} {} {}", itemId, h.getItemId(), false);
                 if (onItemSelected(h.getItemId(), false)) {
                     itemView.setBackgroundResource(backgroundResourceNotSelected);
                 } else {
@@ -76,6 +85,7 @@ public abstract class SelectableRecyclerAdapter<VH extends RecyclerView.ViewHold
                 }
             } else {
                 selected.add(itemId);
+                LOG.error("onItemSelected {} {} {}", itemId, h.getItemId(), true);
                 if (onItemSelected(h.getItemId(), true)) {
                     itemView.setBackgroundResource(backgroundResourceSelected);
                 } else {

@@ -16,7 +16,7 @@ public interface ActivityView {
 
 	void setTitleIcon(final String url);
 
-	void setLoading(final boolean loading);
+	void showLoading(final boolean loading);
 
     void showMessage(CharSequence s);
 

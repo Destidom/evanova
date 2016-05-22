@@ -26,19 +26,24 @@ public class CorporationPresenter extends EvanovaActivityPresenter<CorporationVi
         this.useCase = useCase;
     }
 
-    public void startWithIntent(final Intent intent) {
+    @Override
+    public void startView(final Intent intent) {
         final long id = (null == intent) ? -1l : intent.getLongExtra(CorporationActivity.EXTRA_CORP_ID, -1l);
         if (id == -1l) {
             return;
         }
-        getView().setLoading(true);
+        getView().showLoading(true);
         subscribe(
                 () -> this.useCase.loadCorporation(id),
                 corporation -> {
-                    getView().setLoading(false);
+                    getView().showLoading(false);
                     getView().showCorporation(corporation);
                     setCorporation(corporation);
                 });
+    }
+
+    public void onCorporationMenuSelected(final int buttonID) {
+
     }
 
     private void setCorporation(final EveCorporation corporation) {

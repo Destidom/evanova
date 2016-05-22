@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/menuCorporationButton"
+            style="@style/Theme.Evanova.MenuButton"
+            android:drawableTop="@drawable/level_list_button_corporation"
+            android:text="@string/button_corporation"/>
+
+        <Button
+            android:id="@+id/menuStarbasesButton"
+            style="@style/Theme.Evanova.MenuButton"
+            android:drawableTop="@drawable/level_list_button_starbases"
+            android:text="@string/button_starbases"/>
+
+        <Button
+            android:id="@+id/menuSkillsButton"
+            style="@style/Theme.Evanova.MenuButton"
+            android:drawableTop="@drawable/level_list_button_skills"
+            android:text="@string/button_skills" />
+
+        <Button
+            android:id="@+id/menuMailButton"
+            style="@style/Theme.Evanova.MenuButton"
+            android:drawableTop="@drawable/level_list_button_mail"
+            android:text="@string/button_mail"/>
+
+        <Button
+            android:id="@+id/menuAssetsButton"
+            style="@style/Theme.Evanova.MenuButton"
+            android:drawableTop="@drawable/level_list_button_assets"
+            android:text="@string/button_assets" />
+
+        <Button
+            android:id="@+id/menuWalletButton"
+            style="@style/Theme.Evanova.MenuButton"
+            android:drawableTop="@drawable/level_list_button_wallet"
+            android:text="@string/button_wallet" />
+
+        <Button
+            android:id="@+id/menuMarketButton"
+            style="@style/Theme.Evanova.MenuButton"
+            android:drawableTop="@drawable/level_list_button_orders"
+            android:text="@string/button_orders" />
+
+        <Button
+            android:id="@+id/menuContractsButton"
+            style="@style/Theme.Evanova.MenuButton"
+            android:drawableTop="@drawable/level_list_button_contracts"
+            android:text="@string/button_contracts"/>
+
+        <Button
+            android:id="@+id/menuIndustryJobsButton"
+            style="@style/Theme.Evanova.MenuButton"
+            android:drawableTop="@drawable/level_list_button_industry"
+            android:text="@string/button_industry"/>
+
+        <Button
+            android:id="@+id/menuSocialButton"
+            style="@style/Theme.Evanova.MenuButton"
+            android:drawableTop="@drawable/level_list_button_social"
+            android:text="@string/button_social"/>
+        <Button
+            android:id="@+id/menuCalendarButton"
+            style="@style/Theme.Evanova.MenuButton"
+            android:drawableTop="@drawable/level_list_button_calendar"
+            android:text="@string/button_calendar"/>
+    </LinearLayout>
+
+</HorizontalScrollView>

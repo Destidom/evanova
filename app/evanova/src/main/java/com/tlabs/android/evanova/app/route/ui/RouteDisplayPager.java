@@ -5,21 +5,22 @@ import android.util.AttributeSet;
 
 import com.tlabs.android.evanova.R;
 import com.tlabs.android.jeeves.views.routes.RouteDisplayWidget;
+import com.tlabs.android.jeeves.views.ui.pager.TabPager;
 import com.tlabs.android.jeeves.views.ui.pager.ViewPager;
 import com.tlabs.android.jeeves.views.ui.pager.ViewPagerAdapter;
 
 import org.devfleet.dotlan.DotlanRoute;
 
-class RouteDisplayPager extends ViewPager {
+class RouteDisplayPager extends TabPager {
 
     private static class RouteDisplayPagerAdapter extends ViewPagerAdapter {
 
         public RouteDisplayPagerAdapter(final Context context) {
             super(context);
 
-            addView(new RouteDisplayWidget(context), 0);
-            addView(new RouteDisplayWidget(context), 0);
-            addView(new RouteDisplayWidget(context), 0);
+            addView(new RouteDisplayWidget(context), R.string.pager_title_routes_fastest);
+            addView(new RouteDisplayWidget(context), R.string.pager_title_routes_high);
+            addView(new RouteDisplayWidget(context), R.string.pager_title_routes_low);
         }
 
 

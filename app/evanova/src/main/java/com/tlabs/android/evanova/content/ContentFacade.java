@@ -149,7 +149,7 @@ public interface ContentFacade /*extends EveFacade, MailFacade, EvanovaFacade*/ 
 
     Skill getSkill(final long skillID);
 
-    //Map<Long, String> getSkillGroups();
+    Map<Long, String> getSkillGroups();
 
     CertificateTree getCertificates();
 

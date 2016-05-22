@@ -8,17 +8,19 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.tlabs.android.evanova.R;
+import com.tlabs.android.evanova.app.character.CharacterDetailsView;
 import com.tlabs.android.jeeves.model.EveCharacter;
 import com.tlabs.android.jeeves.views.character.CharacterAttributesWidget;
 import com.tlabs.android.jeeves.views.character.CharacterClonesWidget;
 import com.tlabs.android.jeeves.views.character.CharacterSummaryWidget;
 import com.tlabs.android.jeeves.views.character.CharacterWidget;
+import com.tlabs.android.jeeves.views.ui.pager.TabPager;
 import com.tlabs.android.jeeves.views.ui.pager.ViewPager;
 import com.tlabs.android.jeeves.views.ui.pager.ViewPagerAdapter;
 
-public class CharacterDetailsFragment extends CharacterFragment {
+public class CharacterDetailsFragment extends CharacterFragment implements CharacterDetailsView {
 
-    private static class CharacterDetailsPager extends ViewPager {
+    private static class CharacterDetailsPager extends TabPager {
 
         private ViewPagerAdapter adapter;
 
@@ -32,8 +34,8 @@ public class CharacterDetailsFragment extends CharacterFragment {
 
             this.adapter = new ViewPagerAdapter(getContext());
             this.adapter.addView(new CharacterSummaryWidget(getContext()), R.string.character_pager_summary);
-            this.adapter.addView(new CharacterAttributesWidget(getContext()), R.string.character_pager_summary);
-            this.adapter.addView(new CharacterClonesWidget(getContext()), R.string.character_pager_summary);
+            this.adapter.addView(new CharacterAttributesWidget(getContext()), R.string.character_pager_attributes);
+            this.adapter.addView(new CharacterClonesWidget(getContext()), R.string.character_pager_clones);
 
             setAdapter(this.adapter);
         }
@@ -55,7 +57,17 @@ public class CharacterDetailsFragment extends CharacterFragment {
     }
 
     @Override
-    protected void onCharacterChanged(EveCharacter character) {
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    public void showCharacterDetails(EveCharacter character) {
         this.pager.setCharacter(character);
+    }
+
+    @Override
+    protected void onCharacterChanged(EveCharacter character) {
+        presenter.setView(this);
     }
 }

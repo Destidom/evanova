@@ -42,10 +42,6 @@ public class ActivityPresenter<T extends ActivityView> extends ViewPresenter<T> 
         getView().setTitleDescription(sRes);
     }
 
-    protected final void showLoading(boolean loading) {
-        getView().setLoading(loading);
-    }
-
     protected final void setTitleIcon(String url) {
         getView().setTitleIcon(url);
     }
@@ -64,6 +60,10 @@ public class ActivityPresenter<T extends ActivityView> extends ViewPresenter<T> 
 
     protected final void setTitleIcon(int iconRes) {
         getView().setTitleIcon(iconRes);
+    }
+
+    protected final void showLoading(boolean loading) {
+        getView().showLoading(loading);
     }
 
     protected final void showMessage(int sRes) {

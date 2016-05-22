@@ -9,6 +9,7 @@ import com.tlabs.android.evanova.app.dashboard.DashboardModule;
 import com.tlabs.android.evanova.app.dashboard.DashboardView;
 import com.tlabs.android.evanova.app.dashboard.presenter.DashboardPresenter;
 import com.tlabs.android.evanova.mvp.BaseActivity;
+import com.tlabs.android.evanova.mvp.Presenter;
 import com.tlabs.android.jeeves.model.EveAccount;
 import com.tlabs.eve.ccp.EveRSSEntry;
 
@@ -21,6 +22,7 @@ import javax.inject.Inject;
 public final class DashboardActivity extends BaseActivity implements DashboardView {
 
     @Inject
+    @Presenter
     DashboardPresenter presenter;
 
     private DrawerSupport drawer;
@@ -49,7 +51,8 @@ public final class DashboardActivity extends BaseActivity implements DashboardVi
         this.fStatus = new ServerStatusFragment();
 
         this.fPreferences = new PreferencesFragment();
-        final DashboardComponent component = DaggerDashboardComponent
+        final DashboardComponent component =
+                DaggerDashboardComponent
                 .builder()
                 .dashboardModule(new DashboardModule())
                 .evanovaComponent(Application.getEveComponent())
@@ -57,15 +60,6 @@ public final class DashboardActivity extends BaseActivity implements DashboardVi
 
         component.inject(this);
         component.inject(this.fPreferences);
-
-        this.presenter.setView(this);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        this.presenter.destroyView();
-        this.presenter = null;
     }
 
     @Override

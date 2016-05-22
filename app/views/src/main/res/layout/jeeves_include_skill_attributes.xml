@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/skillAttributesBox"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dp"
+    android:background="@drawable/jeeves_panel_no_border">
+
+    <ImageView
+        android:id="@+id/skillPrimaryImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:maxHeight="32dp"
+        android:maxWidth="32dp"
+        android:minHeight="32dp"
+        android:minWidth="32dp"
+        android:src="@drawable/jeeves_level_list_attributes"/>
+
+    <TextView
+        android:id="@+id/skillPrimaryItlte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@id/skillPrimaryImage"
+        android:layout_toRightOf="@id/skillPrimaryImage"
+        android:text="Primary attribute"/>
+
+    <TextView
+        android:id="@+id/skillPrimaryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Intelligence"
+        android:textColor="@color/white"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/skillPrimaryImage"
+        android:layout_toEndOf="@id/skillPrimaryImage"
+        android:layout_below="@id/skillPrimaryItlte"/>
+
+    <TextView
+        android:id="@+id/skillSecondaryTitlte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Secondary attribute"/>
+
+    <ImageView
+        android:id="@+id/skillSecondaryImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxHeight="32dp"
+        android:maxWidth="32dp"
+        android:minHeight="32dp"
+        android:minWidth="32dp"
+        android:src="@drawable/jeeves_level_list_attributes"
+        android:layout_alignTop="@id/skillSecondaryTitlte"
+        android:layout_toLeftOf="@id/skillSecondaryTitlte"
+        android:layout_toStartOf="@id/skillSecondaryTitlte" />
+
+    <TextView
+        android:id="@+id/skillSecondaryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Willpower"
+        android:textColor="@color/white"
+        android:layout_below="@id/skillSecondaryTitlte"
+        android:layout_alignLeft="@id/skillSecondaryTitlte"
+        android:layout_alignStart="@id/skillSecondaryTitlte" />
+
+    <TextView
+        android:id="@+id/skillTimeMultiplierTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/skillPrimaryImage"
+        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@id/skillPrimaryText"
+        android:text="Training Time Multiplier"/>
+
+    <TextView
+        android:id="@+id/skillTimeMultiplierText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/skillTimeMultiplierTitle"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@id/skillTimeMultiplierTitle"
+        android:text="x4"
+        android:textColor="@color/white"/>
+</RelativeLayout>

@@ -1,6 +1,7 @@
 package com.tlabs.android.evanova.mvp;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -18,6 +19,8 @@ import butterknife.Unbinder;
 public class BaseActivity extends AppCompatActivity implements ActivityView {
 
     private Unbinder unbind;
+    private PresenterLifeCycle lifeCycle = new PresenterLifeCycle();
+
     private BaseActivityTitle title;
 
     @Override
@@ -30,58 +33,79 @@ public class BaseActivity extends AppCompatActivity implements ActivityView {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        this.unbind.unbind();
+    protected void onPause() {
+        super.onPause();
+        this.lifeCycle.onPause();
     }
 
     @Override
-    public void setTitleDescription(CharSequence s) {
+    protected void onResume() {
+        super.onResume();
+        this.lifeCycle.onResume();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        this.lifeCycle.initializeLifeCycle(this, this);
+        this.lifeCycle.onStart(getIntent());
+    }
+
+    @Override
+    protected void onDestroy() {
+        this.lifeCycle.onDestroy();
+        this.unbind.unbind();
+        super.onDestroy();
+    }
+
+    @Override
+    public final void setTitleDescription(CharSequence s) {
         this.title.setDescription(s);
     }
 
     @Override
-    public void setTitleDescription(int sRes) {
+    public final void setTitleDescription(int sRes) {
         this.title.setDescription(sRes);
     }
 
     @Override
-    public void setTitleIcon(int iconRes) {
+    public final void setTitleIcon(int iconRes) {
         this.title.setImage(iconRes);
     }
 
     @Override
-    public void setTitleIcon(String url) {
+    public final void setTitleIcon(String url) {
         this.title.setImage(url);
     }
 
     @Override
-    public void setLoading(boolean loading) {
+    public final void showLoading(boolean loading) {
         this.title.setRefreshing(loading);
     }
 
     @Override
-    public void showMessage(CharSequence s) {
-        Snackbar.make(findViewById(R.id.activity2_container), s, Snackbar.LENGTH_SHORT).show();
+    public final void showMessage(CharSequence s) {
+        Snackbar.make(findViewById(R.id.activity_container), s, Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
-    public void showMessage(int sRes) {
-        Snackbar.make(findViewById(R.id.activity2_container), sRes, Snackbar.LENGTH_SHORT).show();
+    public final void showMessage(int sRes) {
+        Snackbar.make(findViewById(R.id.activity_container), sRes, Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
-    public void showError(CharSequence s) {
-        Snackbar.make(findViewById(R.id.activity2_container), s, Snackbar.LENGTH_SHORT).show();
+    public final void showError(CharSequence s) {
+        Snackbar.make(findViewById(R.id.activity_container), s, Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
-    public void showError(int sRes) {
-        Snackbar.make(findViewById(R.id.activity2_container), sRes, Snackbar.LENGTH_SHORT).show();
+    public final void showError(int sRes) {
+        Snackbar.make(findViewById(R.id.activity_container), sRes, Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
-    public void setBackground(String url) {
+    public final void setBackground(String url) {
         if (StringUtils.isBlank(url)) {
             getWindow().setBackgroundDrawableResource(R.drawable.md_transparent);
         }
@@ -117,7 +141,7 @@ public class BaseActivity extends AppCompatActivity implements ActivityView {
         }
 
         android.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.activity2_container, newFragment);
+        transaction.replace(R.id.activity_container, newFragment);
         if (backstack) {
             transaction.addToBackStack(null);
         }
@@ -135,28 +159,29 @@ public class BaseActivity extends AppCompatActivity implements ActivityView {
         }
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.activity2_container, newFragment);
+        transaction.replace(R.id.activity_container, newFragment);
         if (backstack) {
             transaction.addToBackStack(null);
         }
         transaction.commit();
+
     }
 
     private boolean isCurrent(final Fragment f) {
-        final Fragment other = getSupportFragmentManager().findFragmentById(R.id.activity2_container);
+        final Fragment other = getSupportFragmentManager().findFragmentById(R.id.activity_container);
         return other == f;
     }
 
     private boolean isCurrentCompat(final android.app.Fragment f) {
-        final android.app.Fragment other = getFragmentManager().findFragmentById(R.id.activity2_container);
+        final android.app.Fragment other = getFragmentManager().findFragmentById(R.id.activity_container);
         return other == f;
     }
 
     private final void snackbar(final int text) {
-        Snackbar.make(findViewById(R.id.activity2_container), text, Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(findViewById(R.id.activity_container), text, Snackbar.LENGTH_SHORT).show();
     }
 
     private final void snackbar(final String text) {
-        Snackbar.make(findViewById(R.id.activity2_container), text, Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(findViewById(R.id.activity_container), text, Snackbar.LENGTH_SHORT).show();
     }
 }

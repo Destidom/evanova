@@ -162,6 +162,7 @@ public abstract class AbstractListRecyclerView<T> extends FrameLayout {
                 }
                 return true;
             }
+
             @Override
             protected boolean onItemSelected(long id, boolean selected) {
                 if (null != listener) {

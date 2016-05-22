@@ -612,10 +612,10 @@ public final class ContentFacadeImpl implements ContentFacade {
         return eveFacade.getCertificates();
     }
 
-   /* @Override
+    @Override
     public Map<Long, String> getSkillGroups() {
         return eveFacade.getSkillGroups();
-    }*/
+    }
 
     @Override
     public String getCategoryName(long categoryId) {

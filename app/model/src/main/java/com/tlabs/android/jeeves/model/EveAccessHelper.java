@@ -72,6 +72,24 @@ final class EveAccessHelper {
         return false;
     }
 
+    public static boolean hasAnyAccess(Long mask, EveAPI.CorporationAccess... access) {
+        return hasAnyAccess(Collections.singletonList(mask), access);
+    }
+
+    public static boolean hasAnyAccess(List<Long> masks, EveAPI.CorporationAccess... access) {
+        if (null == access || access.length == 0) {
+            return true;
+        }
+        for (EveAPI.CorporationAccess a: access) {
+            for (long m: masks) {
+                if ((a.getAccessMask() & m) == a.getAccessMask()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public static boolean hasAllAccess(Long mask, EveAPI.CharacterAccess... access) {
         return hasAllAccess(Collections.singletonList(mask), access);
     }
@@ -95,4 +113,26 @@ final class EveAccessHelper {
         return true;
     }
 
+    public static boolean hasAllAccess(Long mask, EveAPI.CorporationAccess... access) {
+        return hasAllAccess(Collections.singletonList(mask), access);
+    }
+
+    public static boolean hasAllAccess(List<Long> masks, EveAPI.CorporationAccess... access) {
+        if (null == access || access.length == 0) {
+            return true;
+        }
+        for (EveAPI.CorporationAccess a: access) {
+            boolean hasAccess = false;
+            for (long m: masks) {
+                if ((a.getAccessMask() & m) == a.getAccessMask()) {
+                    hasAccess = true;
+                    break;
+                }
+            }
+            if (!hasAccess) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

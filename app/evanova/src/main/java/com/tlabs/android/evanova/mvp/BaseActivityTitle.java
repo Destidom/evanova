@@ -11,6 +11,10 @@ import com.tlabs.android.evanova.R;
 import com.tlabs.android.evanova.R.id;
 import com.tlabs.android.jeeves.views.EveImages;
 
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
+
 final class BaseActivityTitle {
 
     private final Toolbar toolbar;
@@ -49,14 +53,17 @@ final class BaseActivityTitle {
     }
 
     public void setImage(String imageUrl) {
-        RX.subscribe(() -> EveImages.getTitleImage(this.toolbar.getContext(), imageUrl),
-        bitmap -> {
-            if (null != bitmap) {
-                //toolbar.setNavigationIcon(new BitmapDrawable(toolbar.getResources(), bitmap));
-                //actionBar.setIcon(new BitmapDrawable(toolbar.getResources(), bitmap));
-                toolbar.setLogo(new BitmapDrawable(toolbar.getResources(), bitmap));
-            }
-        });
+        Observable.defer(() -> Observable.just(EveImages.getTitleImage(this.toolbar.getContext(), imageUrl)))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(bitmap -> {
+                    if (null != bitmap) {
+                        //toolbar.setNavigationIcon(new BitmapDrawable(toolbar.getResources(), bitmap));
+                        //actionBar.setIcon(new BitmapDrawable(toolbar.getResources(), bitmap));
+                        toolbar.setLogo(new BitmapDrawable(toolbar.getResources(), bitmap));
+                    }
+                });
+
     }
 
     public void setDescription(int subtitleRes) {

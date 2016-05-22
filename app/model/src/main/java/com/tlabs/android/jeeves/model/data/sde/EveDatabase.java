@@ -29,7 +29,10 @@ import org.slf4j.LoggerFactory;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 /** You need the "data" project to build a suitable database.*/
 public final class EveDatabase {
@@ -259,22 +262,25 @@ public final class EveDatabase {
    /* private static final String skillGroups =
             "SELECT count(_id) AS count, groupID, groupName " +
             "FROM apiSkillTree WHERE groupName NOT LIKE 'Fake Skills' " +
-            "GROUP BY groupID ORDER BY groupName ASC";
+            "GROUP BY groupID ORDER BY groupName ASC";*/
     public Map<Long, String> getSkillGroups() {
-        final Cursor c = getReadableDatabase().rawQuery(skillGroups, null);
-        if (c.getCount() == 0) {
-            c.close();
+        try {
+            final List<SkillEntity> skills =
+                    skillDAO.queryBuilder()
+                    .distinct().selectColumns("groupId")
+                    .selectColumns("groupID", "groupName")
+                    .query();
+            final Map<Long, String> map = new HashMap<>(skills.size());
+            for (SkillEntity e: skills) {
+                map.put(e.getGroupID(), e.getGroupName());
+            }
+            return map;
+        }
+        catch (SQLException e) {
+            LOG.error(e.getLocalizedMessage(), e);
             return Collections.emptyMap();
         }
-        final Map<Long, String> map = new LinkedHashMap<>(c.getCount());
-        c.moveToFirst();
-        while (!c.isAfterLast()) {
-            map.put(c.getLong(1), c.getString(2));
-            c.moveToNext();
-        }
-        c.close();
-        return map;
-    }*/
+    }
 
     public String getMarketGroupName(long marketGroupID) {
         try {
@@ -387,6 +393,17 @@ public final class EveDatabase {
             return Collections.emptyList();
         }
     }
+
+    public long countMarketChildren(long groupID) {
+        try {
+            return marketGroupDAO.queryBuilder().where().eq("parentGroupID",  groupID).countOf();
+        }
+        catch (SQLException e) {
+            LOG.error(e.getLocalizedMessage(), e);
+            return 0l;
+        }
+    }
+
     public List<ItemEntity> getItems(long categoryId, long groupId) {
         try {
             return fetch(itemDAO.queryBuilder().

@@ -40,12 +40,12 @@ public class AccountPresenter extends EvanovaActivityPresenter<AccountView> {
         this.importObserver = new Observer<EveAccount>() {
             @Override
             public void onCompleted() {
-                getView().setLoading(false);
+                getView().showLoading(false);
             }
 
             @Override
             public void onError(Throwable e) {
-                getView().setLoading(false);
+                getView().showLoading(false);
                 showError(e.getLocalizedMessage());
             }
 
@@ -69,7 +69,7 @@ public class AccountPresenter extends EvanovaActivityPresenter<AccountView> {
     public void startWith(final Intent intent) {
         final String authCode = intent.getStringExtra(AccountActivity.EXTRA_AUTH_CODE);
         if (StringUtils.isNotBlank(authCode)) {
-            getView().setLoading(true);
+            getView().showLoading(true);
             useCase.importAuthCode(authCode, importObserver);
             return;
         }
@@ -86,14 +86,14 @@ public class AccountPresenter extends EvanovaActivityPresenter<AccountView> {
 
         final String keyName = intent.getStringExtra(AccountActivity.EXTRA_KEY_NAME);
 
-        getView().setLoading(true);
+        getView().showLoading(true);
         useCase.importApiKey(apiId, apiKey, keyName, importObserver);
     }
 
     public void loadAccounts() {
-        getView().setLoading(true);
+        getView().showLoading(true);
         subscribe(() -> this.useCase.loadAccounts(), accounts -> {
-            getView().setLoading(false);
+            getView().showLoading(false);
             getView().setAccounts(accounts);
         });
     }
@@ -101,16 +101,16 @@ public class AccountPresenter extends EvanovaActivityPresenter<AccountView> {
     public void reloadAccounts(final List<Long> ids) {
         final List<Long> accounts = (ids.size() == 0) ? this.useCase.listAccounts() : ids;
         for (Long id: accounts) {
-            getView().setLoading(true);
+            getView().showLoading(true);
             useCase.reloadAccount(id, new Observer<EveAccount>() {
                 @Override
                 public void onCompleted() {
-                    getView().setLoading(false);
+                    getView().showLoading(false);
                 }
 
                 @Override
                 public void onError(Throwable e) {
-                    getView().setLoading(false);
+                    getView().showLoading(false);
                 }
 
                 @Override
@@ -126,16 +126,16 @@ public class AccountPresenter extends EvanovaActivityPresenter<AccountView> {
             return;
         }
         for (Long id: ids) {
-            getView().setLoading(true);
+            getView().showLoading(true);
             useCase.deleteAccount(id, new Observer<EveAccount>() {
                 @Override
                 public void onCompleted() {
-                    getView().setLoading(false);
+                    getView().showLoading(false);
                 }
 
                 @Override
                 public void onError(Throwable e) {
-                    getView().setLoading(false);
+                    getView().showLoading(false);
                 }
 
                 @Override
@@ -171,7 +171,7 @@ public class AccountPresenter extends EvanovaActivityPresenter<AccountView> {
             () -> AccountSupport.parseResult(getContext(), requestCode, resultCode, data),
             accounts -> {
                 for (EveAccount account: accounts) {
-                    getView().setLoading(true);
+                    getView().showLoading(true);
                     useCase.importApiKey(
                             Long.parseLong(account.getKeyID()),
                             account.getKeyValue(),

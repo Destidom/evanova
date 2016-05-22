@@ -4,7 +4,7 @@
     <string name="character_characterTrainingQueued_Inactive">Training inactive</string>
     <string name="character_characterTrainingQueued_None">Training inactive</string>
 
-    <string name="character_pager_summary">Training inactive</string>
-    <string name="character_pager_attributes">Training inactive</string>
-    <string name="character_pager_clones">Training inactive</string>
+    <string name="character_pager_summary">Summary</string>
+    <string name="character_pager_attributes">Attributes</string>
+    <string name="character_pager_clones">Clones</string>
 </resources>

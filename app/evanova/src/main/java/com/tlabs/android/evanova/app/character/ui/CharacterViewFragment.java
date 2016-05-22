@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.tlabs.android.evanova.R;
+import com.tlabs.android.evanova.ui.ButtonMenuWidget;
 import com.tlabs.android.jeeves.model.EveCharacter;
 import com.tlabs.android.jeeves.views.character.CharacterInfoWidget;
 import com.tlabs.android.jeeves.views.character.CharacterTrainingDetailsWidget;
@@ -15,6 +16,8 @@ public class CharacterViewFragment extends CharacterFragment {
 
     private CharacterInfoWidget wInfo;
     private CharacterTrainingDetailsWidget wTraining;
+
+    private ButtonMenuWidget wMenu;
 
     @Nullable
     @Override
@@ -27,11 +30,14 @@ public class CharacterViewFragment extends CharacterFragment {
         this.wTraining = (CharacterTrainingDetailsWidget)view.findViewById(R.id.f_character_CharacterTrainingDetailsWidget);
         this.wTraining.setListener(() -> presenter.onCharacterTrainingSelected());
 
+        this.wMenu = (ButtonMenuWidget)view.findViewById(R.id.f_character_ButtonMenuWidget);
+        this.wMenu.setListener(buttonId -> presenter.onCharacterMenuSelected(buttonId));
         return view;
     }
 
     @Override
     protected void onCharacterChanged(EveCharacter character) {
+        wMenu.setCharacter(character);
         wInfo.setCharacter(character);
         wTraining.setTraining(character.getTraining());
     }

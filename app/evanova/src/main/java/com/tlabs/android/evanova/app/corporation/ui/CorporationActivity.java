@@ -8,6 +8,7 @@ import com.tlabs.android.evanova.app.corporation.CorporationView;
 import com.tlabs.android.evanova.app.corporation.DaggerCorporationComponent;
 import com.tlabs.android.evanova.app.corporation.presenter.CorporationPresenter;
 import com.tlabs.android.evanova.mvp.BaseActivity;
+import com.tlabs.android.evanova.mvp.Presenter;
 import com.tlabs.android.jeeves.model.EveCorporation;
 
 import javax.inject.Inject;
@@ -16,6 +17,7 @@ public class CorporationActivity extends BaseActivity implements CorporationView
     public static final String EXTRA_CORP_ID = CorporationActivity.class.getSimpleName() + ".corpID";
 
     @Inject
+    @Presenter
     CorporationPresenter presenter;
 
     private CorporationViewFragment fragment;
@@ -34,15 +36,6 @@ public class CorporationActivity extends BaseActivity implements CorporationView
         this.fragment.setPresenter(this.presenter);
 
         setFragment(this.fragment);
-        this.presenter.setView(this);
-        this.presenter.startWithIntent(getIntent());
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        this.presenter.destroyView();
-        this.presenter = null;
     }
 
     @Override

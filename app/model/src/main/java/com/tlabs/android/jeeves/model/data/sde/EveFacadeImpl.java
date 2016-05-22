@@ -166,12 +166,12 @@ public class EveFacadeImpl implements EveFacade {
         final List<CertificateEntity> certificates = sde.getCertificates();
         return EveEntities.transform(certificates);
     }
-/*
+
     @Override
     public Map<Long, String> getSkillGroups() {
         return sde.getSkillGroups();
     }
-*/
+
     @Override
     public String getCategoryName(long categoryId) {
         return sde.getCategoryName(categoryId);
@@ -214,6 +214,7 @@ public class EveFacadeImpl implements EveFacade {
         final List<EveMarketGroup> groups = new ArrayList<>(entities.size());
         for (MarketGroupEntity e: entities) {
             final EveMarketGroup group = EveEntities.transform(e);
+            group.setChildCount(sde.countMarketChildren(parentGroupId));
             //group.setItemIconID(sde.getMarketGroupIcon(group.getMarketGroupID()));
             //group.setItems(getMarketItems(group.getMarketGroupID()));
             groups.add(group);

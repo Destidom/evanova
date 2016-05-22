@@ -50,7 +50,7 @@ public class KillMailPresenter extends EvanovaActivityPresenter<KillMailView> {
         this.useCase.loadKillMail(killMailID, new Observer<ZKillMail>() {
             @Override
             public void onCompleted() {
-                getView().setLoading(false);
+                getView().showLoading(false);
             }
 
             @Override

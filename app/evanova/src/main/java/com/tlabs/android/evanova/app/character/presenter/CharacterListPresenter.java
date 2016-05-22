@@ -24,11 +24,11 @@ public class CharacterListPresenter extends EvanovaActivityPresenter<CharacterLi
     public void setView(CharacterListView view) {
         super.setView(view);
         setBackgroundDefault();
-        view.setLoading(true);
+        view.showLoading(true);
         
         subscribe(() -> useCase.loadCharacters(), characters -> {
             getView().showCharacters(characters);
-            getView().setLoading(false);
+            getView().showLoading(false);
         });
     }
 

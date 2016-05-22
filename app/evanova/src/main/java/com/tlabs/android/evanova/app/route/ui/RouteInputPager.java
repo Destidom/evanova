@@ -10,13 +10,13 @@ import com.tlabs.android.evanova.R;
 import com.tlabs.android.jeeves.data.SearchProvider;
 import com.tlabs.android.jeeves.views.routes.RouteInputWidget;
 import com.tlabs.android.jeeves.views.routes.RouteListWidget;
-import com.tlabs.android.jeeves.views.ui.pager.ViewPager;
+import com.tlabs.android.jeeves.views.ui.pager.TabPager;
 
 import org.devfleet.dotlan.DotlanOptions;
 
 import java.util.List;
 
-class RouteInputPager extends ViewPager {
+class RouteInputPager extends TabPager {
 
     public interface Listener {
 

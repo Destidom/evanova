@@ -190,7 +190,7 @@
         </activity>
 
         <activity
-            android:name=".app.skills.SkillDatabaseActivity"
+            android:name=".app.skills.ui.SkillDatabaseActivity"
             android:configChanges="orientation|screenSize|keyboard"
             android:exported="false">
         </activity>

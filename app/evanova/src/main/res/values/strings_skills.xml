@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="skills_pager_skills">Skills</string>
+    <string name="skills_pager_certificates">Certificates</string>
+
+</resources>

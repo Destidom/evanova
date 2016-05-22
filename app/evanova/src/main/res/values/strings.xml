@@ -8,4 +8,16 @@
     <string name="search_items_hint">Search items</string>
     <string name="search_skills_hint">Search skills</string>
 
+
+    <string name="button_assets">Assets</string>
+    <string name="button_mail">Mails</string>
+    <string name="button_social">People</string>
+    <string name="button_calendar">Calendar</string>
+    <string name="button_wallet">Wallet</string>
+    <string name="button_orders">Orders</string>
+    <string name="button_contracts">Contracts</string>
+    <string name="button_industry">Industry</string>
+    <string name="button_corporation">Corporation</string>
+    <string name="button_starbases">Starbases</string>
+
 </resources>

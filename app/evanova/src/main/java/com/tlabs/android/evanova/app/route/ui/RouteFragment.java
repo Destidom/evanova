@@ -37,7 +37,7 @@ public class RouteFragment extends BaseFragment {
         this.inputPager.setListener(new RouteInputPager.Listener() {
             @Override
             public void onRouteSelected(DotlanOptions options) {
-                displayPresenter.setRoute(options);
+                displayPresenter.startView(options);
             }
 
             @Override

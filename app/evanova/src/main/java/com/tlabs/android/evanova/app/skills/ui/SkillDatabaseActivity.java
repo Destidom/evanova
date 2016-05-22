@@ -1,8 +1,11 @@
-package com.tlabs.android.evanova.app.skills;
+package com.tlabs.android.evanova.app.skills.ui;
 
 import android.os.Bundle;
 
 import com.tlabs.android.evanova.app.Application;
+import com.tlabs.android.evanova.app.skills.DaggerSkillDatabaseComponent;
+import com.tlabs.android.evanova.app.skills.SkillDatabaseModule;
+import com.tlabs.android.evanova.app.skills.SkillDatabaseView;
 import com.tlabs.android.evanova.app.skills.presenter.SkillDatabasePresenter;
 import com.tlabs.android.evanova.mvp.BaseActivity;
 
@@ -13,6 +16,8 @@ public class SkillDatabaseActivity extends BaseActivity implements SkillDatabase
     @Inject
     SkillDatabasePresenter presenter;
 
+    private SkillDatabaseFragment fragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +26,10 @@ public class SkillDatabaseActivity extends BaseActivity implements SkillDatabase
                 .skillDatabaseModule(new SkillDatabaseModule())
                 .build()
                 .inject(this);
+
+        this.fragment = new SkillDatabaseFragment();
+        this.fragment.setPresenter(this.presenter);
+        setFragment(this.fragment);
 
         this.presenter.setView(this);
     }
