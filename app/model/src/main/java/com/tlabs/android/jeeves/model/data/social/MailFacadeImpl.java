@@ -2,16 +2,17 @@ package com.tlabs.android.jeeves.model.data.social;
 
 import com.tlabs.android.jeeves.model.data.evanova.EvanovaDatabase;
 import com.tlabs.android.jeeves.model.data.social.entities.ContactEntity;
+import com.tlabs.android.jeeves.model.data.social.entities.MessageEntity;
 import com.tlabs.eve.api.mail.Contact;
 import com.tlabs.eve.api.mail.MailMessage;
 import com.tlabs.eve.api.mail.MailingList;
 import com.tlabs.eve.api.mail.NotificationMessage;
-import com.tlabs.android.jeeves.model.data.social.entities.MessageEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MailFacadeImpl implements MailFacade {
+
 
     private final MailDatabase mail;
     private final EvanovaDatabase evanova;
@@ -25,9 +26,9 @@ public class MailFacadeImpl implements MailFacade {
 
     @Override
     public void setup(long ownerID, List<MailingList> mailing) {
-      /*  for (MailingList l: defaultMailing()) {
+        for (MailingList l: defaultMailing()) {
             this.mail.setupMailbox(MailEntities.transform(ownerID, l));
-        }*///FIXME
+        }
         for (MailingList l: mailing) {
             this.mail.setupMailbox(MailEntities.transform(ownerID, l));
         }
@@ -54,7 +55,9 @@ public class MailFacadeImpl implements MailFacade {
     }
     @Override
     public void addNotification(long ownerID, NotificationMessage m) {
-        this.mail.saveNotification(ownerID, MailEntities.transform(m, ownerID, evanova.getCorporationId(ownerID)));
+        MessageEntity entity = MailEntities.transform(m, ownerID, evanova.getCorporationId(ownerID));
+        this.mail.saveNotification(ownerID, entity);
+        m.setTitle(entity.getTitle());
     }
 
     @Override
@@ -151,33 +154,16 @@ public class MailFacadeImpl implements MailFacade {
         }
         return returned;
     }
-/*
+
     private List<MailingList> defaultMailing() {
         List<MailingList> lists = new ArrayList<>();
-        lists.add(newMailingList(R.string.mailbox_inbox, MailEntities.INBOX_ID));
-        lists.add(newMailingList(R.string.mailbox_outbox, MailEntities.OUTBOX_ID));
-        lists.add(newMailingList(R.string.mailbox_corporation, MailEntities.CORP_ID));
-        lists.add(newMailingList(R.string.mailbox_alliance, MailEntities.ALLIANCE_ID));
-        lists.add(newMailingList(R.string.mailbox_others, MailEntities.OTHERS_ID));
-
-        lists.add(newMailingList(R.string.notifications_insurance, MailEntities.NOTIFICATION_INSURANCE));
-        lists.add(newMailingList(R.string.notifications_agents, MailEntities.NOTIFICATION_AGENTS));
-        lists.add(newMailingList(R.string.notifications_bounties, MailEntities.NOTIFICATION_BOUNTIES));
-        lists.add(newMailingList(R.string.notifications_bills, MailEntities.NOTIFICATION_BILLS));
-        lists.add(newMailingList(R.string.notifications_contacts, MailEntities.NOTIFICATION_CONTACTS));
-        lists.add(newMailingList(R.string.notifications_corporate, MailEntities.NOTIFICATION_CORPORATE));
-        lists.add(newMailingList(R.string.notifications_miscellaneous, MailEntities.NOTIFICATION_MISC));
-        lists.add(newMailingList(R.string.notifications_sovereignty, MailEntities.NOTIFICATION_SOV));
-        lists.add(newMailingList(R.string.notifications_structures, MailEntities.NOTIFICATION_STRUCTURES));
-        lists.add(newMailingList(R.string.notifications_war, MailEntities.NOTIFICATION_WAR));
+        for (NotificationResource.Group g: NotificationResource.getGroups()) {
+            final MailingList ml = new MailingList();
+            ml.setDisplayName(g.getText());
+            ml.setListID(g.getId());
+            lists.add(ml);
+        }
 
         return lists;
     }
-
-    private MailingList newMailingList(int nameId, long id) {
-        MailingList inbox = new MailingList();
-        inbox.setDisplayName(context.getResources().getString(nameId));
-        inbox.setListID(id);
-        return inbox;
-    }*/
 }

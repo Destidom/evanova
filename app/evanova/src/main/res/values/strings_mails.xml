@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="mails_pager_messages">Mails</string>
+    <string name="mails_pager_notifications">Notif.</string>
+    <string name="mails_pager_killmails">Kills</string>
+
+    <string name="mails_killmails_pager_attackers">Attackers</string>
+    <string name="mails_killmails_pager_details">Details</string>
+    <string name="mails_killmails_pager_items">Items</string>
+
+</resources>

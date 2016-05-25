@@ -10,13 +10,17 @@ public interface EveMailUseCase {
 
     List<MailFacade.Mailbox> loadMailBoxes(final long ownerID);
 
-    MailMessage loadMessage(final long messageID);
+    MailMessage loadMessage(final long ownerID, final long messageID);
 
     List<MailMessage> loadMessages(final long ownerID, final long mailboxID);
 
     List<MailFacade.Mailbox> loadNotificationBoxes(final long ownerID);
 
-    NotificationMessage loadNotification(final long messageID);
+    NotificationMessage loadNotification(final long ownerID, final long messageID);
 
     List<NotificationMessage> loadNotifications(final long ownerID, final long mailboxID);
+
+    void setMailRead(final long ownerID, final List<Long> messages, final boolean read);
+
+    void setNotificationRead(final long ownerID, final List<Long> messages, final boolean read);
 }

@@ -3,44 +3,49 @@ package com.tlabs.android.evanova.app.characters.main.ui;
 import android.os.Bundle;
 
 import com.tlabs.android.evanova.app.Application;
-import com.tlabs.android.evanova.app.characters.CharacterComponent;
 import com.tlabs.android.evanova.app.characters.CharacterListView;
 import com.tlabs.android.evanova.app.characters.CharacterModule;
 import com.tlabs.android.evanova.app.characters.DaggerCharacterComponent;
+import com.tlabs.android.evanova.app.characters.presenter.CharacterListPresenter;
 import com.tlabs.android.evanova.mvp.BaseActivity;
-import com.tlabs.android.evanova.mvp.BaseFragment;
+import com.tlabs.android.evanova.mvp.Presenter;
 import com.tlabs.android.jeeves.model.EveCharacter;
+import com.tlabs.android.jeeves.views.character.CharacterListWidget;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class CharacterListActivity extends BaseActivity implements CharacterListView {
 
-    private CharacterComponent component;
+    private CharacterListWidget listView;
 
-    private CharacterListFragment fragment;
+    @Inject
+    @Presenter
+    CharacterListPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.component =
-                DaggerCharacterComponent
+        DaggerCharacterComponent
                 .builder()
                 .applicationComponent(Application.getAppComponent())
                 .characterModule(new CharacterModule())
-                .build();
+                .build()
+                .inject(this);
 
-        this.fragment = CharacterListFragment.newInstance();
-        this.fragment.setRetainInstance(true);
-        setFragment(this.fragment);
-    }
-
-    @Override
-    protected void inject(BaseFragment fragment) {
-        component.inject((CharacterListFragment)fragment);
+        this.listView = new CharacterListWidget(this);
+        this.listView.setListener(new CharacterListWidget.Listener() {
+            @Override
+            public void onItemClicked(EveCharacter character) {
+                presenter.onCharacterSelected(character.getID());
+            }
+        });
+        setView(this.listView);
     }
 
     @Override
     public void showCharacters(List<EveCharacter> characters) {
-        this.fragment.showCharacters(characters);
+        this.listView.setItems(characters);
     }
 }

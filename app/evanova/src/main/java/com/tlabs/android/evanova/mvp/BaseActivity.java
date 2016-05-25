@@ -5,6 +5,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.FrameLayout;
 
 import com.tlabs.android.evanova.R;
 import com.tlabs.android.jeeves.views.EveImages;
@@ -130,6 +132,12 @@ public class BaseActivity extends AppCompatActivity implements ActivityView {
 
     protected final void stackFragment(final Fragment newFragment) {
         setFragment(newFragment, true);
+    }
+
+    protected final void setView(final View view) {
+        final FrameLayout frame = (FrameLayout)findViewById(R.id.activity_container);
+        frame.removeAllViews();
+        frame.addView(view);
     }
 
     private final void setFragment(final Fragment newFragment, final boolean backstack) {

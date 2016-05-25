@@ -1,0 +1,749 @@
+{
+  "groups": [
+    {
+      "id": "-999",
+      "text": "Inbox"
+    },
+    {
+      "id": "-998",
+      "text": "Outbox"
+    },
+    {
+      "id": "-997",
+      "text": "Corporation"
+    },
+    {
+      "id": "-996",
+      "text": "Alliance"
+    },
+    {
+      "id": "-995",
+      "text": "Misc."
+    },
+    {
+      "id": "-900",
+      "text": "Trash"
+    },
+    {
+      "id": "-890",
+      "text": "Agents"
+    },
+    {
+      "id": "-889",
+      "text": "Bounties"
+    },
+    {
+      "id": "-888",
+      "text": "Bills"
+    },
+    {
+      "id": "-887",
+      "text": "Contacts"
+    },
+    {
+      "id": "-886",
+      "text": "Corporation"
+    },
+    {
+      "id": "-885",
+      "text": "Misc."
+    },
+    {
+      "id": "-883",
+      "text": "Sovereignty"
+    },
+    {
+      "id": "-882",
+      "text": "Structures"
+    },
+    {
+      "id": "-881",
+      "text": "War"
+    },
+    {
+      "id": "-880",
+      "text": "Insurance"
+    },
+    {
+      "id": "-879",
+      "text": "Alliance"
+    },
+    {
+      "id": "-878",
+      "text": "Faction Warfare"
+    },
+    {
+      "id": "-877",
+      "text": "Character"
+    }
+  ],
+  "titles": [
+    {
+      "id": "1",
+      "group": "-885",
+      "text": "Legacy"
+    },
+    {
+      "id": "2",
+      "group": "-885",
+      "text": "Character deleted"
+    },
+    {
+      "id": "3",
+      "group": "-886",
+      "text": "Give medal to character"
+    },
+    {
+      "id": "4",
+      "group": "-879",
+      "text": "Alliance maintenance bill"
+    },
+    {
+      "id": "5",
+      "group": "-881",
+      "text": "Alliance war declared"
+    },
+    {
+      "id": "6",
+      "group": "-881",
+      "text": "Alliance war surrender"
+    },
+    {
+      "id": "7",
+      "group": "-881",
+      "text": "Alliance war retracted"
+    },
+    {
+      "id": "8",
+      "group": "-881",
+      "text": "Alliance war invalidated by Concord"
+    },
+    {
+      "id": "9",
+      "group": "-888",
+      "text": "Bill issued to a character"
+    },
+    {
+      "id": "10",
+      "group": "-888",
+      "text": "Bill issued to corporation or alliance"
+    },
+    {
+      "id": "11",
+      "group": "-888",
+      "text": "Bill not paid because there's not enough ISK available"
+    },
+    {
+      "id": "12",
+      "group": "-888",
+      "text": "Bill, issued by a character, paid"
+    },
+    {
+      "id": "13",
+      "group": "-888",
+      "text": "Bill, issued by a corporation or alliance, paid"
+    },
+    {
+      "id": "14",
+      "group": "-888",
+      "text": "Bounty claimed"
+    },
+    {
+      "id": "15",
+      "group": "-877",
+      "text": "Clone activated"
+    },
+    {
+      "id": "16",
+      "group": "-886",
+      "text": "New corp member application"
+    },
+    {
+      "id": "17",
+      "group": "-886",
+      "text": "Corp application rejected"
+    },
+    {
+      "id": "18",
+      "group": "-886",
+      "text": "Corp application accepted"
+    },
+    {
+      "id": "19",
+      "group": "-886",
+      "text": "Corp tax rate changed"
+    },
+    {
+      "id": "20",
+      "group": "-886",
+      "text": "Corp news report, typically for shareholders"
+    },
+    {
+      "id": "21",
+      "group": "-886",
+      "text": "Player leaves corp"
+    },
+    {
+      "id": "22",
+      "group": "-886",
+      "text": "Corp news, new CEO"
+    },
+    {
+      "id": "23",
+      "group": "-886",
+      "text": "Corp dividend/liquidation, sent to shareholders"
+    },
+    {
+      "id": "24",
+      "group": "-886",
+      "text": "Corp dividend payout, sent to shareholders"
+    },
+    {
+      "id": "25",
+      "group": "-886",
+      "text": "Corp vote created"
+    },
+    {
+      "id": "26",
+      "group": "-886",
+      "text": "Corp CEO votes revoked during voting"
+    },
+    {
+      "id": "27",
+      "group": "-881",
+      "text": "Corp declares war"
+    },
+    {
+      "id": "28",
+      "group": "-881",
+      "text": "Corp war has started"
+    },
+    {
+      "id": "29",
+      "group": "-881",
+      "text": "Corp surrenders war"
+    },
+    {
+      "id": "30",
+      "group": "-881",
+      "text": "Corp retracts war"
+    },
+    {
+      "id": "31",
+      "group": "-881",
+      "text": "Corp war invalidated by Concord"
+    },
+    {
+      "id": "32",
+      "text": "Container password retrieval"
+    },
+    {
+      "id": "33",
+      "group": "-888",
+      "text": "Contraband or low standings cause an attack or items being confiscated"
+    },
+    {
+      "id": "34",
+      "group": "-880",
+      "text": "First ship insurance"
+    },
+    {
+      "id": "35",
+      "group": "-880",
+      "text": "Ship destroyed, insurance payed"
+    },
+    {
+      "id": "36",
+      "group": "-880",
+      "text": "Insurance contract invalidated/runs out"
+    },
+    {
+      "id": "37",
+      "group": "-879",
+      "text": "Sovereignty claim fails (alliance)"
+    },
+    {
+      "id": "38",
+      "group": "-886",
+      "text": "Sovereignty claim fails (corporation)"
+    },
+    {
+      "id": "39",
+      "group": "-880",
+      "text": "Sovereignty bill late (alliance)"
+    },
+    {
+      "id": "40",
+      "group": "-886",
+      "text": "Sovereignty bill late (corporation)"
+    },
+    {
+      "id": "41",
+      "group": "-879",
+      "text": "Sovereignty claim lost (alliance)"
+    },
+    {
+      "id": "42",
+      "group": "-886",
+      "text": "Sovereignty claim lost (corporation)"
+    },
+    {
+      "id": "43",
+      "group": "-879",
+      "text": "Sovereignty claim acquired (alliance)"
+    },
+    {
+      "id": "44",
+      "group": "-886",
+      "text": "Sovereignty claim acquired (corporation)"
+    },
+    {
+      "id": "45",
+      "group": "-879",
+      "text": "Alliance anchoring alert"
+    },
+    {
+      "id": "46",
+      "group": "-879",
+      "text": "Alliance structure turns vulnerable"
+    },
+    {
+      "id": "47",
+      "group": "-879",
+      "text": "Alliance structure turns invulnerable"
+    },
+    {
+      "id": "48",
+      "group": "-883",
+      "text": "Sovereignty disruptor anchored"
+    },
+    {
+      "id": "49",
+      "group": "-883",
+      "text": "Structure won/lost"
+    },
+    {
+      "id": "50",
+      "group": "-886",
+      "text": "Corp office lease expiration notice"
+    },
+    {
+      "id": "51",
+      "group": "-877",
+      "text": "Clone contract revoked by station manager"
+    },
+    {
+      "id": "52",
+      "group": "-886",
+      "text": "Corp member clones moved between stations"
+    },
+    {
+      "id": "53",
+      "group": "-877",
+      "text": "Clone contract revoked by station manager"
+    },
+    {
+      "id": "54",
+      "group": "-880",
+      "text": "Insurance contract expired"
+    },
+    {
+      "id": "55",
+      "group": "-880",
+      "text": "Insurance contract issued"
+    },
+    {
+      "id": "56",
+      "group": "-877",
+      "text": "Jump clone destroyed"
+    },
+    {
+      "id": "57",
+      "group": "-877",
+      "text": "Jump clone destroyed"
+    },
+    {
+      "id": "58",
+      "group": "-878",
+      "text": "Corporation joining factional warfare"
+    },
+    {
+      "id": "59",
+      "group": "-878",
+      "text": "Corporation leaving factional warfare"
+    },
+    {
+      "id": "60",
+      "group": "-878",
+      "text": "Corporation kicked from factional warfare on startup because of too low standing to the faction"
+    },
+    {
+      "id": "61",
+      "group": "-878",
+      "text": "Character kicked from factional warfare on startup because of too low standing to the faction"
+    },
+    {
+      "id": "62",
+      "group": "-878",
+      "text": "Corporation in factional warfare warned on startup because of too low standing to the faction"
+    },
+    {
+      "id": "63",
+      "group": "-878",
+      "text": "Character in factional warfare warned on startup because of too low standing to the faction"
+    },
+    {
+      "id": "64",
+      "group": "-878",
+      "text": "Character loses factional warfare rank"
+    },
+    {
+      "id": "65",
+      "group": "-878",
+      "text": "Character gains factional warfare rank"
+    },
+    {
+      "id": "66",
+      "group": "-890",
+      "text": "Agent has moved"
+    },
+    {
+      "id": "67",
+      "group": "-888",
+      "text": "Mass transaction reversal message"
+    },
+    {
+      "id": "68",
+      "group": "-888",
+      "text": "Reimbursement message"
+    },
+    {
+      "id": "69",
+      "group": "-890",
+      "text": "Agent locates a character"
+    },
+    {
+      "id": "70",
+      "group": "-890",
+      "text": "Research mission becomes available from an agent"
+    },
+    {
+      "id": "71",
+      "group": "-890",
+      "text": "Agent mission offer expires"
+    },
+    {
+      "id": "72",
+      "group": "-890",
+      "text": "Agent mission times out"
+    },
+    {
+      "id": "73",
+      "group": "-890",
+      "text": "Agent offers a storyline mission"
+    },
+    {
+      "id": "74",
+      "group": "-877",
+      "text": "Tutorial message sent on character creation"
+    },
+    {
+      "id": "75",
+      "group": "-883",
+      "text": "Tower alert"
+    },
+    {
+      "id": "76",
+      "group": "-883",
+      "text": "Tower resource alert"
+    },
+    {
+      "id": "77",
+      "group": "-883",
+      "text": "Station service aggression message"
+    },
+    {
+      "id": "78",
+      "group": "-883",
+      "text": "Station state change message"
+    },
+    {
+      "id": "79",
+      "group": "-883",
+      "text": "Station conquered message"
+    },
+    {
+      "id": "80",
+      "group": "-883",
+      "text": "Station aggression message"
+    },
+    {
+      "id": "81",
+      "group": "-878",
+      "text": "Corporation requests joining factional warfare"
+    },
+    {
+      "id": "82",
+      "group": "-878",
+      "text": "Corporation requests leaving factional warfare"
+    },
+    {
+      "id": "83",
+      "group": "-878",
+      "text": "Corporation withdrawing a request to join factional warfare"
+    },
+    {
+      "id": "84",
+      "group": "-878",
+      "text": "Corporation withdrawing a request to leave factional warfare"
+    },
+    {
+      "id": "85",
+      "group": "-886",
+      "text": "Corporation liquidation"
+    },
+    {
+      "id": "86",
+      "text": "Territorial Claim Unit under attack"
+    },
+    {
+      "id": "87",
+      "group": "-883",
+      "text": "Sovereignty Blockade Unit under attack"
+    },
+    {
+      "id": "88",
+      "group": "-883",
+      "text": "Infrastructure Hub under attack"
+    },
+    {
+      "id": "89",
+      "group": "-887",
+      "text": "Contact add notification"
+    },
+    {
+      "id": "90",
+      "group": "-887",
+      "text": "Contact edit notification"
+    },
+    {
+      "id": "91",
+      "text": "Incursion Completed"
+    },
+    {
+      "id": "92",
+      "group": "-886",
+      "text": "Corp Kicked"
+    },
+    {
+      "id": "93",
+      "group": "-886",
+      "text": "Customs office has been attacked"
+    },
+    {
+      "id": "94",
+      "group": "-886",
+      "text": "Customs office has entered reinforced"
+    },
+    {
+      "id": "95",
+      "group": "-886",
+      "text": "Customs office has been transferred"
+    },
+    {
+      "id": "96",
+      "group": "-878",
+      "text": "FW Alliance Warning"
+    },
+    {
+      "id": "97",
+      "group": "-878",
+      "text": "FW Alliance Kick"
+    },
+    {
+      "id": "98",
+      "group": "-881",
+      "text": "AllWarCorpJoined Msg"
+    },
+    {
+      "id": "99",
+      "group": "-881",
+      "text": "Ally Joined Defender"
+    },
+    {
+      "id": "100",
+      "group": "-881",
+      "text": "Ally Has Joined a War Aggressor"
+    },
+    {
+      "id": "101",
+      "group": "-881",
+      "text": "Ally Joined War Ally"
+    },
+    {
+      "id": "102",
+      "group": "-881",
+      "text": "Entity is offering assistance in a war."
+    },
+    {
+      "id": "103",
+      "group": "-881",
+      "text": "War Surrender Offer"
+    },
+    {
+      "id": "104",
+      "group": "-881",
+      "text": "War Surrender Declined"
+    },
+    {
+      "id": "105",
+      "group": "-878",
+      "text": "FacWar LP Payout Kill"
+    },
+    {
+      "id": "106",
+      "group": "-878",
+      "text": "FacWar LP Payout Event"
+    },
+    {
+      "id": "107",
+      "group": "-878",
+      "text": "FacWar LP Disqualified Event"
+    },
+    {
+      "id": "108",
+      "group": "-878",
+      "text": "FacWar LP Disqualified Kill"
+    },
+    {
+      "id": "109",
+      "group": "-879",
+      "text": "Alliance Contract Cancelled"
+    },
+    {
+      "id": "110",
+      "group": "-881",
+      "text": "War Ally Declined Offer"
+    },
+    {
+      "id": "111",
+      "group": "-877",
+      "text": "Your Bounty Claimed"
+    },
+    {
+      "id": "112",
+      "group": "-877",
+      "text": "Bounty Placed (Char)"
+    },
+    {
+      "id": "113",
+      "group": "-886",
+      "text": "Bounty Placed (Corp)"
+    },
+    {
+      "id": "114",
+      "group": "-879",
+      "text": "Bounty Placed (Alliance)"
+    },
+    {
+      "id": "115",
+      "group": "-877",
+      "text": "Kill Right Available"
+    },
+    {
+      "id": "116",
+      "group": "-877",
+      "text": "Kill Right Available Open"
+    },
+    {
+      "id": "117",
+      "group": "-877",
+      "text": "Kill Right Earned"
+    },
+    {
+      "id": "118",
+      "group": "-877",
+      "text": "Kill Right Used"
+    },
+    {
+      "id": "119",
+      "group": "-877",
+      "text": "Kill Right Unavailable"
+    },
+    {
+      "id": "120",
+      "group": "-877",
+      "text": "Kill Right Unavailable Open"
+    },
+    {
+      "id": "121",
+      "group": "-881",
+      "text": "Declare War"
+    },
+    {
+      "id": "122",
+      "group": "-881",
+      "text": "Offered Surrender"
+    },
+    {
+      "id": "123",
+      "group": "-881",
+      "text": "Accepted Surrender"
+    },
+    {
+      "id": "124",
+      "group": "-881",
+      "text": "Made War Mutual"
+    },
+    {
+      "id": "125",
+      "group": "-881",
+      "text": "Retracts War"
+    },
+    {
+      "id": "126",
+      "group": "-881",
+      "text": "Offered To Ally"
+    },
+    {
+      "id": "127",
+      "group": "-881",
+      "text": "Accepted Ally"
+    },
+    {
+      "id": "128",
+      "group": "-877",
+      "text": "Character Application Accept Message"
+    },
+    {
+      "id": "129",
+      "group": "-877",
+      "text": "Character Application Reject Message"
+    },
+    {
+      "id": "130",
+      "group": "-877",
+      "text": "Character Application Withdraw Message"
+    },
+    {
+      "id": "137",
+      "text": "Team Auction lost"
+    },
+    {
+      "id": "147",
+      "text": "Entosis Link started"
+    },
+    {
+      "id": "148",
+      "text": "Entosis Link enabled module"
+    },
+    {
+      "id": "149",
+      "text": "Entosis Link disabled module"
+    },
+    {
+      "id": "150",
+      "text": "Entosis link halfcaptured a module"
+    }
+  ]
+}

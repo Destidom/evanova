@@ -10,17 +10,17 @@ import java.util.List;
 
 public interface MailView extends ActivityView {
 
-    void showMailBoxes(final List<MailFacade.Mailbox> mailboxes);
+    void setMailBoxes(final List<MailFacade.Mailbox> mailboxes);
 
     void showMails(final long mailboxID, final List<MailMessage> messages);
 
     void showMail(final MailMessage message);
 
-    void showKillMails(final List<ZKillMail> killMails, final long ownerID);
+    void setKillMails(final List<ZKillMail> killMails, final long ownerID);
 
     void showKillMail(final ZKillMail killMail, final long ownerID);
 
-    void showNotificationBoxes(final List<MailFacade.Mailbox> mailboxes);
+    void setNotificationBoxes(final List<MailFacade.Mailbox> mailboxes);
 
     void showNotifications(final long mailboxID, final List<NotificationMessage> messages);
 

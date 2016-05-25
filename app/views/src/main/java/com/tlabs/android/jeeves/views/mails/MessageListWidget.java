@@ -15,9 +15,9 @@ import com.tlabs.android.jeeves.views.ui.list.AbstractListRowHolder;
 import com.tlabs.android.jeeves.views.ui.list.ListRecyclerViewAdapter;
 import com.tlabs.eve.api.mail.Message;
 
-public class MessageListWidget extends AbstractListRecyclerView<Message> {
+public class MessageListWidget<T extends Message> extends AbstractListRecyclerView<T> {
 
-    private static class MessageHolder extends AbstractListRowHolder<Message> {
+    private static class MessageHolder<M extends Message> extends AbstractListRowHolder<M> {
 
         private final TextView titleView;
         private final TextView senderView;
@@ -58,7 +58,7 @@ public class MessageListWidget extends AbstractListRecyclerView<Message> {
     }
 
     @Override
-    protected ListRecyclerViewAdapter.ViewHolder<Message> onCreateViewHolder(ViewGroup parent, int viewType) {
+    protected ListRecyclerViewAdapter.ViewHolder<T> onCreateViewHolder(ViewGroup parent, int viewType) {
         return new MessageHolder(LayoutInflater.from(getContext()).inflate(R.layout.row_mailbox, parent, false));
     }
 

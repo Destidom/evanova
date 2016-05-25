@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ViewFlipper;
 
 import com.tlabs.android.evanova.R;
 import com.tlabs.android.evanova.app.Application;
@@ -14,7 +15,10 @@ import com.tlabs.android.evanova.app.accounts.presenter.AccountPresenter;
 import com.tlabs.android.evanova.mvp.BaseActivity;
 import com.tlabs.android.evanova.mvp.Presenter;
 import com.tlabs.android.jeeves.model.EveAccount;
+import com.tlabs.android.jeeves.views.account.AccountListWidget;
+import com.tlabs.android.jeeves.views.account.AccountWidget;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -31,7 +35,10 @@ public class AccountActivity extends BaseActivity implements AccountView {
     @Presenter
     AccountPresenter presenter;
 
-    private AccountFragment fragment;
+
+    private ViewFlipper flipperView;
+    private AccountListWidget listView;
+    private AccountWidget accountView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +51,25 @@ public class AccountActivity extends BaseActivity implements AccountView {
                 .build()
                 .inject(this);
 
-        this.fragment = new AccountFragment();
-        this.fragment.setListener(account -> this.presenter.onAccountSelected(account));
-        setFragment(this.fragment);
+        this.flipperView = new ViewFlipper(this);
+        this.listView = new AccountListWidget(this);
+        this.listView.setListener(new AccountListWidget.Listener() {
+            @Override
+            public void onItemClicked(EveAccount account) {
+                presenter.onAccountSelected(account);
+            }
+
+            @Override
+            public void onItemSelected(EveAccount account, boolean selected) {
+                presenter.onAccountSelected(account);
+            }
+        });
+
+        this.accountView = new AccountWidget(this);
+
+        this.flipperView.addView(this.listView);
+        this.flipperView.addView(this.accountView);
+        setView(this.flipperView);
     }
 
     @Override
@@ -59,11 +82,11 @@ public class AccountActivity extends BaseActivity implements AccountView {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_delete: {
-                this.presenter.deleteAccounts(this.fragment.getSelectedAccounts());
+                this.presenter.deleteAccounts(this.getSelectedAccounts());
                 return true;
             }
             case R.id.menu_reload: {
-                this.presenter.reloadAccounts(this.fragment.getSelectedAccounts());
+                this.presenter.reloadAccounts(this.getSelectedAccounts());
                 return true;
             }
             case R.id.menu_accounts_add_eve_keys: {
@@ -102,7 +125,8 @@ public class AccountActivity extends BaseActivity implements AccountView {
 
     @Override
     public void onBackPressed() {
-        if (this.fragment.onBackPressed()) {
+        if (this.flipperView.getDisplayedChild() == 1) {
+            this.flipperView.setDisplayedChild(0);
             return;
         }
         super.onBackPressed();
@@ -110,27 +134,40 @@ public class AccountActivity extends BaseActivity implements AccountView {
 
     @Override
     public void setAccounts(List<EveAccount> accounts) {
-        this.fragment.setAccounts(accounts);
+        this.listView.setItems(accounts);
+        this.flipperView.setDisplayedChild(0);
     }
 
     @Override
     public void setAccount(EveAccount account) {
-        this.fragment.setAccount(account);
+        this.accountView.setAccount(account);
+        this.flipperView.setDisplayedChild(1);
     }
 
     @Override
     public void addAccount(EveAccount account) {
-        this.fragment.addAccount(account);
+        this.listView.mergeItem(account);
     }
 
     @Override
     public void removeAccount(EveAccount account) {
-        this.fragment.removeAccount(account);
+        this.listView.removeItem(account.getId());
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         this.presenter.importResult(requestCode, resultCode, data);
+    }
+
+    private List<Long> getSelectedAccounts() {
+        if (this.flipperView.getDisplayedChild() == 0) {
+            return this.listView.getSelectedItems();
+        }
+        final EveAccount account = this.accountView.getAccount();
+        if (null == account) {
+            return Collections.emptyList();
+        }
+        return Collections.singletonList(account.getId());
     }
 }

@@ -18,6 +18,7 @@ import org.slf4j.LoggerFactory;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -85,7 +86,6 @@ public final class MailDatabase{
         try {
             final MessageEntity existing = messageDAO.queryForId(message.getId());
             if (null == existing) {
-                message.setTitle(getNotificationTitle((int)message.getTypeID()));
                 messageDAO.create(message);
                 addMailboxes(ownerID, message, message.getMailboxes());
             }
@@ -220,15 +220,44 @@ public final class MailDatabase{
     }
 
     public List<MailboxEntity> listMailBoxes(final long ownerID) {
-        return listMailboxes(ownerID, MailEntities.INBOX_ID, MailEntities.OTHERS_ID);
+        return listMailboxesIn(ownerID, Arrays.asList(
+                MailEntities.INBOX_ID,
+                MailEntities.OUTBOX_ID,
+                MailEntities.CORP_ID,
+                MailEntities.ALLIANCE_ID,
+                MailEntities.OTHERS_ID),
+                true);
     }
 
     public List<MailboxEntity> listNotificationBoxes(final long ownerID) {
-        return listMailboxes(ownerID, MailEntities.NOTIFICATION_AGENTS, MailEntities.NOTIFICATION_INSURANCE);
+        return listMailboxesIn(ownerID, Arrays.asList(
+                MailEntities.INBOX_ID,
+                MailEntities.OUTBOX_ID,
+                MailEntities.CORP_ID,
+                MailEntities.ALLIANCE_ID,
+                MailEntities.OTHERS_ID),
+                false);
     }
 
     public List<MailboxEntity> listMailingListBoxes(final long ownerID) {
-        return listMailboxes(ownerID, 1, Long.MAX_VALUE);
+        try {
+            final List<MailboxEntity> entities = mailboxDAO
+                    .queryBuilder()
+                    .where()
+                    .eq("owner_id", ownerID)
+                    .and()
+                    .gt("mailbox_id", 0)
+                    .query();
+            for (MailboxEntity e: entities) {
+                e.setReadCount(getReadCount(ownerID, e.getMailboxID()));
+                e.setTotalCount(getTotalCount(ownerID, e.getMailboxID()));
+            }
+            return entities;
+        }
+        catch (SQLException e) {
+            LOG.error(e.getLocalizedMessage(), e);
+            return Collections.emptyList();
+        }
     }
 
     public void setupMailbox(final MailboxEntity mailbox) {
@@ -301,15 +330,23 @@ public final class MailDatabase{
         }
     }
 
-    private List<MailboxEntity> listMailboxes(final long ownerID, long fromID, long toID) {
+    private List<MailboxEntity> listMailboxesIn(final long ownerID, List<Long> ids, boolean in) {
         try {
-            final List<MailboxEntity> entities = mailboxDAO
+            Where<MailboxEntity, Long> w = mailboxDAO
                     .queryBuilder()
                     .where()
                     .eq("owner_id", ownerID)
                     .and()
-                    .between("mailbox_id", fromID, toID)
-                    .query();
+                    .le("mailbox_id", 0)
+                    .and();
+            if (in) {
+                w = w.in("mailbox_id", ids);
+            }
+            else {
+                w = w.notIn("mailbox_id", ids);
+            }
+
+            final List<MailboxEntity> entities = w.query();
             for (MailboxEntity e: entities) {
                 e.setReadCount(getReadCount(ownerID, e.getMailboxID()));
                 e.setTotalCount(getTotalCount(ownerID, e.getMailboxID()));
@@ -346,15 +383,6 @@ public final class MailDatabase{
             LOG.error(e.getLocalizedMessage(), e);
             return 0;
         }
-    }
-
-    //FIXME
-    private String getNotificationTitle(Integer typeID) {
-       /* if ((typeID < 0) || (typeID >= this.notificationTitles.size())) {
-            return "TypeID " + typeID;
-        }
-        return this.notificationTitles.get(typeID);*/
-        return "Notification TypeID " + typeID;
     }
 
     private Where<MessageEntity, Long> listMessagesSince(final long ownerID, final long since) throws SQLException {
