@@ -119,7 +119,7 @@ class SkillRequiredAdapter extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         View view = convertView;
         if (null == view) {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_skill_group, parent, false);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_text_group, parent, false);
             view.setTag(new GroupHolder(view));
         }
 

@@ -10,17 +10,14 @@ import com.tlabs.android.evanova.app.accounts.AccountUseCase;
 import com.tlabs.android.evanova.app.accounts.AccountView;
 import com.tlabs.android.evanova.app.accounts.ui.AccountActivity;
 import com.tlabs.android.jeeves.model.EveAccount;
-import com.tlabs.android.jeeves.network.EveCrest;
-import com.tlabs.android.jeeves.service.EveAPIServicePreferences;
-
 import com.tlabs.android.jeeves.views.Strings;
 
 import org.apache.commons.lang3.StringUtils;
-import org.devfleet.crest.CrestAccess;
 
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import rx.Observer;
 
@@ -29,13 +26,20 @@ public class AccountPresenter extends EvanovaActivityPresenter<AccountView> {
     private final AccountUseCase useCase;
     private final Observer<EveAccount> importObserver;
 
-    private final EveAPIServicePreferences apiPreferences;
+    private final String apiLoginURL;
+    private final String crestLoginURL;
 
     @Inject
-    public AccountPresenter(Context context, AccountUseCase useCase) {
+    public AccountPresenter(
+            Context context,
+            AccountUseCase useCase,
+            @Named("apiURL") String apiLoginURL,
+            @Named("crestURL") String crestLoginURL) {
         super(context);
+
+        this.apiLoginURL = apiLoginURL;
+        this.crestLoginURL = crestLoginURL;
         this.useCase = useCase;
-        this.apiPreferences = new EveAPIServicePreferences(context.getApplicationContext());
 
         this.importObserver = new Observer<EveAccount>() {
             @Override
@@ -151,11 +155,11 @@ public class AccountPresenter extends EvanovaActivityPresenter<AccountView> {
     }
 
     public void startEveImport(final Activity activity) {
-        AccountSupport.startImportEve(activity, apiPreferences.getApiKeyInstallUri());
+        AccountSupport.startImportEve(activity, this.apiLoginURL);
     }
 
     public void startSSOImport(final Activity activity) {
-        AccountSupport.startImportSSO(activity, EveCrest.loginUri(getContext(), CrestAccess.CHARACTER_SCOPES));
+        AccountSupport.startImportSSO(activity, this.crestLoginURL);
     }
 
     public void startEveMonImport(final Activity activity) {

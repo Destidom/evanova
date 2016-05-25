@@ -9,7 +9,7 @@ import com.tlabs.android.util.PreferenceSupport;
 
 public final class UserPreferences extends PreferenceSupport {
 
-	public static final String KEY_BACKGROUND = "preferences.background.key";
+	public static final String KEY_BACKGROUND = "preferences.background_moon.key";
     public static final String KEY_DISPLAY = "preferences.display.key";
 
     //Applies to char views and corp views only
@@ -18,8 +18,8 @@ public final class UserPreferences extends PreferenceSupport {
     public static final int OPT_BACKGROUND_APP = 2;
     public static final int OPT_BACKGROUND_NONE = 3;
 
-    private static final String KEY_BACKGROUND_URI = "preferences.background.uri";
-    private static final String KEY_BACKGROUND_OPT = "preferences.background.option";
+    private static final String KEY_BACKGROUND_URI = "preferences.background_moon.uri";
+    private static final String KEY_BACKGROUND_OPT = "preferences.background_moon.option";
 
 	private static final String KEY_MAIN_CAPSULEER = "saved.user.capsuleer";//char ID
 	private static final String KEY_MAIN_REGION_ID = "saved.user.region.id";
@@ -33,7 +33,7 @@ public final class UserPreferences extends PreferenceSupport {
         remove(KEY_BACKGROUND);
         remove(KEY_DISPLAY);
 
-        saveBackgroundResource(R.drawable.background2);
+        saveBackgroundResource(R.drawable.background_planet);
         setInt(KEY_BACKGROUND_OPT, OPT_BACKGROUND_PORTRAIT);
 	}
 

@@ -11,6 +11,8 @@
 
         <item name="android:alertDialogTheme">@style/Theme.Evanova.DialogTheme</item>
         <item name="android:dialogTheme">@style/Theme.Evanova.DialogTheme</item>
+
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     </style>
 
     <style name="Theme.Evanova.DialogTheme" parent="Theme.AppCompat.Dialog">

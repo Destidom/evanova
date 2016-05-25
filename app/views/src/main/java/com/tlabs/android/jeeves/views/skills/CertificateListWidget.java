@@ -6,7 +6,6 @@ import android.widget.ExpandableListView;
 
 import com.tlabs.android.jeeves.model.EveCharacter;
 import com.tlabs.android.jeeves.views.ui.list.SingleListGroupDisplayAdapter;
-import com.tlabs.eve.api.Skill;
 import com.tlabs.eve.api.character.Certificate;
 import com.tlabs.eve.api.character.CertificateTree;
 

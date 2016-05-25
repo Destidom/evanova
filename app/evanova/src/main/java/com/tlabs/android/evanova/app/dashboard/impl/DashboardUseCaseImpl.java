@@ -1,8 +1,11 @@
 package com.tlabs.android.evanova.app.dashboard.impl;
 
+import android.content.Context;
+
 import com.tlabs.android.evanova.app.dashboard.DashboardUseCase;
 import com.tlabs.android.evanova.content.ContentFacade;
 import com.tlabs.android.jeeves.model.EveAccount;
+import com.tlabs.android.jeeves.network.EveCrest;
 import com.tlabs.eve.EveNetwork;
 import com.tlabs.eve.ccp.EveRSSEntry;
 import com.tlabs.eve.ccp.EveRSSRequest;
@@ -20,13 +23,17 @@ import dagger.Lazy;
 public class DashboardUseCaseImpl implements DashboardUseCase {
 
     private ContentFacade content;
-    private Lazy<CrestService> crest;
     private Lazy<EveNetwork> eve;
 
+    private final Context context;
+
     @Inject
-    public DashboardUseCaseImpl(ContentFacade content, Lazy<CrestService> crest, Lazy<EveNetwork> eve) {
+    public DashboardUseCaseImpl(
+            Context context,
+            ContentFacade content,
+            Lazy<EveNetwork> eve) {
+        this.context = context;
         this.content = content;
-        this.crest = crest;
         this.eve = eve;
     }
 
@@ -42,7 +49,11 @@ public class DashboardUseCaseImpl implements DashboardUseCase {
 
     @Override
     public CrestServerStatus loadServerStatus() {
-        return crest.get().getServerStatus();
+        final CrestService crest = EveCrest.obtainService(context);
+        if (null != crest) {
+            return crest.getServerStatus();
+        }
+        return null;
     }
 
     @Override

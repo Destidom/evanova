@@ -49,13 +49,92 @@ public class EveCharacter {
         }
     }
 
+    public static class Location {
+
+
+        private long locationID;
+        private String locationName;
+
+        private long constellationID;
+
+        private long stationID;
+        private String stationName;
+
+        private double securityStatus;
+
+        private long sovereigntyID;
+        private String sovereignty;
+
+        public long getLocationID() {
+            return locationID;
+        }
+
+        public void setLocationID(long locationID) {
+            this.locationID = locationID;
+        }
+
+        public String getLocationName() {
+            return locationName;
+        }
+
+        public void setLocationName(String locationName) {
+            this.locationName = locationName;
+        }
+
+        public long getConstellationID() {
+            return constellationID;
+        }
+
+        public void setConstellationID(long constellationID) {
+            this.constellationID = constellationID;
+        }
+
+        public long getStationID() {
+            return stationID;
+        }
+
+        public void setStationID(long stationID) {
+            this.stationID = stationID;
+        }
+
+        public String getStationName() {
+            return stationName;
+        }
+
+        public void setStationName(String stationName) {
+            this.stationName = stationName;
+        }
+
+        public double getSecurityStatus() {
+            return securityStatus;
+        }
+
+        public void setSecurityStatus(double securityStatus) {
+            this.securityStatus = securityStatus;
+        }
+
+        public long getSovereigntyID() {
+            return sovereigntyID;
+        }
+
+        public void setSovereigntyID(long sovereigntyID) {
+            this.sovereigntyID = sovereigntyID;
+        }
+
+        public String getSovereignty() {
+            return sovereignty;
+        }
+
+        public void setSovereignty(String sovereignty) {
+            this.sovereignty = sovereignty;
+        }
+    }
+
 	private long corporationJoinedOn = -1;
 	private String corporationTitles;
 	private String corporationRoles;
 
     private String bloodline;
-    private String location;
-
     private final CharacterSheet sheet;
     private final CharacterInfo info;
 
@@ -63,6 +142,7 @@ public class EveCharacter {
     private final EveTraining training;
 
     private final Map<String, Attribute> attributes;
+    private Location location;
 
 	public EveCharacter(
             final CharacterSheet sheet,
@@ -81,6 +161,7 @@ public class EveCharacter {
         this.attributes.put(EveAPI.ATTR_WILLPOWER, new Attribute(EveAPI.ATTR_WILLPOWER, sheet.getWillpower()));
         this.attributes.put(EveAPI.ATTR_PERCEPTION, new Attribute(EveAPI.ATTR_PERCEPTION, sheet.getPerception()));
         this.training = new EveTraining(sheet, info, this.attributes);
+        this.location = new Location();
 	}
 
     public void setTraining(final List<SkillInTraining> training) {
@@ -291,11 +372,11 @@ public class EveCharacter {
         return sheet.getTitles();
     }
 
-    public String getLocation() {
+    public Location getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(Location location) {
         this.location = location;
     }
 

@@ -19,6 +19,10 @@ public abstract class ListRecyclerViewAdapter<T> extends DragRecyclerAdapter<Lis
         }
 
         public void render(final T t) {}
+
+        protected final <T extends View> T findView(final int viewId) {
+            return (T)itemView.findViewById(viewId);
+        }
     }
 
     private final List<T> items;

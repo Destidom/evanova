@@ -13,7 +13,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top|left"
         android:gravity="left|center_vertical"
-        android:text="6456356456"
         android:maxLines="1"
         android:textColor="@color/white"
         android:textStyle="bold"/>

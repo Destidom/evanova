@@ -5,25 +5,34 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ViewFlipper;
 
 import com.tlabs.android.evanova.app.items.presenter.ItemDatabasePresenter;
 import com.tlabs.android.evanova.mvp.BaseFragment;
 import com.tlabs.android.jeeves.model.EveMarketGroup;
-import com.tlabs.android.jeeves.views.items.MarketGroupListView;
+import com.tlabs.android.jeeves.views.items.ItemListWidget;
+import com.tlabs.android.jeeves.views.items.MarketGroupListWidget;
 import com.tlabs.android.jeeves.views.ui.list.AbstractListRecyclerView;
+import com.tlabs.eve.api.Item;
 
 import java.util.List;
 
 public class ItemDatabaseFragment extends BaseFragment {
 
-    private MarketGroupListView listView;
+    private MarketGroupListWidget groupsView;
+    private ItemListWidget itemsView;
+
+    private ViewFlipper flipper;
+
     private ItemDatabasePresenter presenter;
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        this.listView = new MarketGroupListView(getContext());
-        this.listView.setListener(new AbstractListRecyclerView.Listener<EveMarketGroup>() {
+    public View onCreateFragmentView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        this.flipper = new ViewFlipper(getContext());
+
+        this.groupsView = new MarketGroupListWidget(getContext());
+        this.groupsView.setListener(new AbstractListRecyclerView.Listener<EveMarketGroup>() {
             @Override
             public void onItemClicked(EveMarketGroup group) {
                 presenter.onMarketGroupSelected(group);
@@ -39,7 +48,27 @@ public class ItemDatabaseFragment extends BaseFragment {
 
             }
         });
-        return listView;
+
+        this.itemsView = new ItemListWidget(getContext());
+        this.itemsView.setListener(new AbstractListRecyclerView.Listener<Item>() {
+            @Override
+            public void onItemClicked(Item item) {
+                presenter.onMarketItemSelected(item);
+            }
+
+            @Override
+            public void onItemSelected(Item item, boolean selected) {
+                presenter.onMarketItemSelected(item);
+            }
+
+            @Override
+            public void onItemMoved(Item item, int from, int to) {
+
+            }
+        });
+        this.flipper.addView(this.groupsView);
+        this.flipper.addView(this.itemsView);
+        return this.flipper;
     }
 
     public void setPresenter(ItemDatabasePresenter presenter) {
@@ -47,6 +76,12 @@ public class ItemDatabaseFragment extends BaseFragment {
     }
 
     public void setMarketGroups(final List<EveMarketGroup> groups) {
-        this.listView.setItems(groups);
+        this.groupsView.setItems(groups);
+        this.flipper.setDisplayedChild(0);
+    }
+
+    public void setMarketItems(final EveMarketGroup group, final List<Item> items) {
+        this.itemsView.setItems(items);
+        this.flipper.setDisplayedChild(1);
     }
 }

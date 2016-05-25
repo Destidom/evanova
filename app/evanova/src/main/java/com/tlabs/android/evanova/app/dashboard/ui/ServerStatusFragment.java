@@ -18,7 +18,7 @@ public class ServerStatusFragment extends BaseFragment {
     private ServerStatusWidget statusView;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saved) {
+    public View onCreateFragmentView(LayoutInflater inflater, ViewGroup container, Bundle saved) {
     	this.statusView = new ServerStatusWidget(getContext());
 
         return this.statusView;

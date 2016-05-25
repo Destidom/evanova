@@ -14,7 +14,7 @@ public final class AboutFragment extends BaseFragment {
 	private WebView helpView;
 	
 	@Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saved) {
+    public View onCreateFragmentView(LayoutInflater inflater, ViewGroup container, Bundle saved) {
     	this.helpView = new WebView(getContext());
     	this.helpView.setBackgroundColor(Color.TRANSPARENT);
 

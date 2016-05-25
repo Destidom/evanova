@@ -104,6 +104,8 @@
     <string name="jeeves_fit_slots_subsystems">Sub Systems (%2$d / %1$d)</string>
     <string name="jeeves_fit_disclaimer">Fitting statistics may not be accurate and the fields in orange color are fields that are not yet implemented. If you wish to help in figuring it all, please feel free to contact the author.</string>
 
+    <string name="jeeves_item_traits">%1$.0f %2$s %3$s.</string>
+
     <string name="jeeves_killmail_title_details">Victim</string>
     <string name="jeeves_killmail_title_attackers">Attackers</string>
     <string name="jeeves_killmail_title_items">Items</string>
@@ -112,6 +114,22 @@
 
     <string name="jeeeves_skills_requirements_matched">You meet the requirements for this skill.</string>
     <string name="jeeeves_skills_requirements_unmatched">You do not meet the requirements for this skill.</string>
+
+    <string name="jeeves_notification_attribute_shipName">Ship Name</string>
+    <string name="jeeves_notification_attribute_typeID">Item</string>
+    <string name="jeeves_notification_attribute_level">Level</string>
+    <string name="jeeves_notification_attribute_startDate">Start Date</string>
+    <string name="jeeves_notification_attribute_endDate">End Date</string>
+    <string name="jeeves_notification_attribute_numWeeks">Weeks</string>
+    <string name="jeeves_notification_attribute_hostileState">hostileState</string>
+    <string name="jeeves_notification_attribute_againstID">Against</string>
+    <string name="jeeves_notification_attribute_delayHours">Delayed for</string>
+    <string name="jeeves_notification_attribute_declaredByID">Declared by</string>
+    <string name="jeeves_notification_attribute_aggressorID">Aggressor</string>
+    <string name="jeeves_notification_attribute_aggressorCorpID">Aggressor Corp.</string>
+    <string name="jeeves_notification_attribute_cost">Cost</string>
+    <string name="jeeves_notification_attribute_amount">Amount</string>
+    <string name="jeeves_notification_attribute_payout">Payout</string>
 
     <string name="jeeves_route_select_switch">Jump Freighter</string>
     <string name="jeeves_route_select_from">From</string>

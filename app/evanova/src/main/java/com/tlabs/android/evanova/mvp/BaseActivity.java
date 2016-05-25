@@ -1,7 +1,6 @@
 package com.tlabs.android.evanova.mvp;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -9,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.tlabs.android.evanova.R;
 import com.tlabs.android.jeeves.views.EveImages;
-
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -23,13 +21,18 @@ public class BaseActivity extends AppCompatActivity implements ActivityView {
 
     private BaseActivityTitle title;
 
+    protected int getLayoutId() {
+        return R.layout.activity;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity);
+        setContentView(getLayoutId());
 
         this.title = new BaseActivityTitle(this);
         this.unbind = ButterKnife.bind(this);
+
     }
 
     @Override
@@ -114,38 +117,19 @@ public class BaseActivity extends AppCompatActivity implements ActivityView {
         }
     }
 
+    protected void inject(BaseFragment fragment) {}
+
+    @Override
+    public void showSearch() {
+        onSearchRequested();
+    }
+
     protected final void setFragment(final Fragment newFragment) {
         setFragment(newFragment, false);
     }
 
-    protected final void setFragment(final android.app.Fragment newFragment) {
-        setFragmentCompat(newFragment, false);
-    }
-
     protected final void stackFragment(final Fragment newFragment) {
         setFragment(newFragment, true);
-    }
-
-    protected final void stackFragment(final android.app.Fragment newFragment) {
-        setFragmentCompat(newFragment, true);
-    }
-
-    private final void setFragmentCompat(final android.app.Fragment newFragment, boolean backstack) {
-        if (isCurrentCompat(newFragment)) {
-            if (!newFragment.isVisible()) {
-                android.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.show(newFragment);
-                transaction.commit();
-            }
-            return;
-        }
-
-        android.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.activity_container, newFragment);
-        if (backstack) {
-            transaction.addToBackStack(null);
-        }
-        transaction.commit();
     }
 
     private final void setFragment(final Fragment newFragment, final boolean backstack) {

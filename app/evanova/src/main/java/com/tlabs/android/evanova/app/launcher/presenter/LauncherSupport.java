@@ -6,8 +6,8 @@ import android.content.UriMatcher;
 import android.net.Uri;
 
 import com.tlabs.android.evanova.app.accounts.ui.AccountActivity;
-import com.tlabs.android.evanova.app.character.ui.CharacterActivity;
-import com.tlabs.android.evanova.app.corporation.ui.CorporationActivity;
+import com.tlabs.android.evanova.app.characters.main.ui.CharacterViewActivity;
+import com.tlabs.android.evanova.app.corporations.ui.CorporationViewActivity;
 import com.tlabs.android.jeeves.notifications.Notifications;
 import com.tlabs.android.jeeves.views.Snacks;
 
@@ -55,7 +55,7 @@ final class LauncherSupport {
             case CHARACTER: {
                 final Long charId = extractID(data, 1);
                 if (null != charId) {
-                    intent = new Intent(activity, CharacterActivity.class);
+                    intent = new Intent(activity, CharacterViewActivity.class);
                  //   intent.putExtra(com.tlabs.android.evanova.activity.character.CharacterViewActivity.EXTRA_CHAR_ID, charId);
                 }
                 break;
@@ -64,7 +64,7 @@ final class LauncherSupport {
                 final Long corpId = extractID(data, 1);
                 if (null != corpId) {
 
-                    intent = new Intent(activity, CorporationActivity.class);
+                    intent = new Intent(activity, CorporationViewActivity.class);
                    // intent.putExtra(com.tlabs.android.evanova.activity.corporation.CorporationViewActivity.EXTRA_CORP_ID, corpId);
                 }
                 break;

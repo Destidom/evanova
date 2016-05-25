@@ -4,10 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceFragment;
-import android.preference.RingtonePreference;
 import android.provider.MediaStore;
+import android.provider.Settings;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceFragmentCompat;
 
 import com.tlabs.android.evanova.R;
 import com.tlabs.android.evanova.R.xml;
@@ -25,11 +28,12 @@ import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 
-public class PreferencesFragment extends PreferenceFragment implements OnSharedPreferenceChangeListener {
+public class PreferencesFragment extends PreferenceFragmentCompat implements OnSharedPreferenceChangeListener {
 
     private static final Logger LOG = LoggerFactory.getLogger(PreferencesFragment.class);
 
-    private static final int ACTIVITY_SELECT_IMAGE = 1231412;
+    private static final int ACTIVITY_SELECT_IMAGE = 2610;
+    private static final int ACTIVITY_SELECT_SOUND = 1921;
 
     @Inject
     UserPreferences userPreferences;
@@ -44,10 +48,9 @@ public class PreferencesFragment extends PreferenceFragment implements OnSharedP
     CacheFacade cache;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreatePreferences(Bundle bundle, String s) {
       //  EvanovaApplication.getAppComponent().inject(this);
-        addPreferencesFromResource(xml.preferences);
+        setPreferencesFromResource(xml.preferences, s);
 
         apiPreferences.register(this);
         notificationPreferences.register(this);
@@ -60,6 +63,34 @@ public class PreferencesFragment extends PreferenceFragment implements OnSharedP
         apiPreferences.unregister(this);
         notificationPreferences.unregister(this);
         userPreferences.unregister(this);
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (null == preference.getKey()) {
+            return super.onPreferenceTreeClick(preference);
+        }
+
+        if (!EveNotificationPreferences.KEY_NOTIFICATION_SOUND.equals(preference.getKey())) {
+            return super.onPreferenceTreeClick(preference);
+        }
+
+        Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
+        intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_NOTIFICATION);
+        intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_DEFAULT, true);
+        intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_SILENT, true);
+        intent.putExtra(RingtoneManager.EXTRA_RINGTONE_DEFAULT_URI, Settings.System.DEFAULT_NOTIFICATION_URI);
+
+        Uri ringtone = notificationPreferences.getNotificationSound();
+        if (null == ringtone) {
+            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, Settings.System.DEFAULT_NOTIFICATION_URI);
+        }
+        else {
+            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, ringtone);
+        }
+
+        startActivityForResult(intent, ACTIVITY_SELECT_SOUND);
+        return true;
     }
 
     @Override
@@ -98,22 +129,24 @@ public class PreferencesFragment extends PreferenceFragment implements OnSharedP
         if (null == data) {
             return;
         }
-
-        if (requestCode == ACTIVITY_SELECT_IMAGE) {
-            if (resultCode == Activity.RESULT_OK) {
-                userPreferences.saveBackgroundImage(null == data ? null : data.getData().toString());
-                Snacks.show(getActivity(), R.string.toast_preferences_success);
-            }
+        if (resultCode != Activity.RESULT_OK) {
             return;
         }
+        switch (requestCode) {
+            case ACTIVITY_SELECT_IMAGE:
+                userPreferences.saveBackgroundImage(null == data ? null : data.getData().toString());
+                Snacks.show(getActivity(), R.string.toast_preferences_success);
+                return;
+            case ACTIVITY_SELECT_SOUND:
+                final Uri ringtone = data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI);
+                notificationPreferences.setNotificationSound(ringtone);
+                return;
 
-        //Workaround for https://bitbucket.org/evanova/evanova/issue/49/
-        //The RingtonePreference does not receive its onActivityResult for some reason, so it doesn't fire events when a selection is ok-ed.
-        //Calling its onActivityResult() has to be done here and we don't even know what the request code should be.
-        //Experimentally requestCode seems to be consistently 100 for mail and 101 for training. This assumption is very dodgy.
+            default:
+                super.onActivityResult(requestCode, resultCode, data);
+                return;
+        }
 
-        RingtonePreference pref = (RingtonePreference) findPreference(EveNotificationPreferences.KEY_NOTIFICATION_SOUND);
-        pref.onActivityResult(requestCode, resultCode, data);
     }
 
     private void onAlarmOptionChanged() {
@@ -149,12 +182,12 @@ public class PreferencesFragment extends PreferenceFragment implements OnSharedP
                 Snacks.show(getActivity(), R.string.toast_preferences_success);
                 break;
             case 1: {//Planet
-                userPreferences.saveBackgroundResource(R.drawable.background2);
+                userPreferences.saveBackgroundResource(R.drawable.background_planet);
                 Snacks.show(getActivity(), R.string.toast_preferences_success);
                 break;
             }
             case 2: {//Moon
-                userPreferences.saveBackgroundResource(R.drawable.background);
+                userPreferences.saveBackgroundResource(R.drawable.background_moon);
                 Snacks.show(getActivity(), R.string.toast_preferences_success);
                 break;
             }

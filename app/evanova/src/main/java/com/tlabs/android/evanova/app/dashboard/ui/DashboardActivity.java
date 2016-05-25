@@ -55,7 +55,7 @@ public final class DashboardActivity extends BaseActivity implements DashboardVi
                 DaggerDashboardComponent
                 .builder()
                 .dashboardModule(new DashboardModule())
-                .evanovaComponent(Application.getEveComponent())
+                .applicationComponent(Application.getAppComponent())
                 .build();
 
         component.inject(this);
@@ -84,19 +84,19 @@ public final class DashboardActivity extends BaseActivity implements DashboardVi
 
     @Override
     public void showAbout() {
-        setFragment(this.fAbout);
+        stackFragment(this.fAbout);
         this.drawer.closeDrawer();
     }
 
     @Override
     public void showServerStatus() {
-        setFragment(this.fStatus);
+        stackFragment(this.fStatus);
         this.drawer.closeDrawer();
     }
 
     @Override
     public void showSettings() {
-        setFragment(this.fPreferences);
+        stackFragment(this.fPreferences);
         this.drawer.closeDrawer();
     }
 

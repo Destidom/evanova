@@ -64,11 +64,11 @@ public class CharacterInfoWidget extends FrameLayout implements CharacterWidget 
 
         spText.setText(EveFormat.SkillPoint.LONG(character.getTraining().getSkillPoints()));
 
-        if (StringUtils.isBlank(character.getLocation())) {
+        if (StringUtils.isBlank(character.getLocation().getLocationName())) {
             locationText.setText("No location information.");
         }
         else {
-            locationText.setText(character.getLocation());
+            locationText.setText(character.getLocation().getLocationName());
         }
 
         String status = "Security Status " + EveFormat.Number.FLOAT(character.getSecurityStatus());

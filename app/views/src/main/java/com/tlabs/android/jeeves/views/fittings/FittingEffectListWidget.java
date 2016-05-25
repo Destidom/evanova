@@ -50,7 +50,7 @@ public class FittingEffectListWidget extends AbstractListRecyclerView<Effect> im
 
     @Override
     protected ListRecyclerViewAdapter.ViewHolder<Effect> onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new EffectHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.jeeves_row_item_effect, parent, false));
+        return new EffectHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.jeeves_row_fitting_effect, parent, false));
     }
 
     @Override

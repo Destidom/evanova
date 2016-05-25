@@ -173,11 +173,11 @@ public class CharacterSummaryWidget extends FrameLayout implements CharacterWidg
                     EveFormat.Duration.MEDIUM(
                             System.currentTimeMillis() - character.getBirthdate()) + " old.");
 
-            if (StringUtils.isBlank(character.getLocation())) {
+            if (StringUtils.isBlank(character.getLocation().getLocationName())) {
                 locationText.setText("No location information.");
             }
             else {
-                locationText.setText(character.getLocation());
+                locationText.setText(character.getLocation().getLocationName());
             }
         }
     }

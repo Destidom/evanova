@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences.Editor;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tlabs.android.util.PreferenceSupport;
 
@@ -35,7 +36,11 @@ public final class SavedPreferences extends PreferenceSupport {
 	
 	private static final String KEY_SELECTED_CHARACTER_LIST_TYPE = "saved.characterListViewType";
 
-	private static ObjectMapper mapper = new ObjectMapper();
+	private static final ObjectMapper mapper;
+	static {
+		mapper = new ObjectMapper();
+		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+	}
 
 	public SavedPreferences(Context context) {
 		super(context);

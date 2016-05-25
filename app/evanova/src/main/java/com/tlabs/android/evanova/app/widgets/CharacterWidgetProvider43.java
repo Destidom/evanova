@@ -63,6 +63,6 @@ public final class CharacterWidgetProvider43 extends CharacterWidgetProvider {
         else {
             views.setTextViewText(id.widgetCharacterISK, EveFormat.Currency.LONG(character.getBalance(), true));
         }
-        views.setTextViewText(id.widgetCharacterLocation, character.getLocation());
+        views.setTextViewText(id.widgetCharacterLocation, character.getLocation().getLocationName());
     }
 }

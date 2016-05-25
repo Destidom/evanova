@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/jeeves_panel_no_border"
+    android:minHeight="64dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/mailTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:gravity="top|left"
+        android:lines="2"
+        android:maxLines="2"
+        android:text="I like Evanova and ISK is on your way. Thanks for the great app and stuff!"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp">
+
+        <TextView
+            android:id="@+id/mailSenderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
+            android:layout_weight="0.18"
+            android:gravity="left|center_vertical"
+            android:text="Dark Potator"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/mailDateText"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="2dp"
+            android:layout_weight="0.18"
+            android:gravity="right|center_vertical"
+            android:text="Jun 21"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>

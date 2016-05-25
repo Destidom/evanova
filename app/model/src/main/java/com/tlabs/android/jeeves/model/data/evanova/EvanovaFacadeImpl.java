@@ -303,14 +303,20 @@ public final class EvanovaFacadeImpl implements EvanovaFacade {
 
         character.setBloodline(entity.getBloodLine());
         character.setCorporationJoinedOn(entity.getCorporationJoined());
-        character.setLocation(entity.getLocation());
         character.setCorporationRoles(entity.getCorporationRoles());
         character.setCorporationTitles(entity.getCorporationTitles());
+
+        final EveCharacter.Location location = new EveCharacter.Location();
+        location.setLocationID(entity.getLocationID());
+        location.setLocationName(entity.getLocation());
+        character.setLocation(location);
+
 
         setImplants(character);
         setClones(character);
 
         setTraining(character);
+
         return character;
     }
 

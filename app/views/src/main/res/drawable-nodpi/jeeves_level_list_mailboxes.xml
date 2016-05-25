@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<level-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<!--  Any mailing list -->
+	<item 
+		android:maxLevel="0"
+		android:drawable="@drawable/icon7_64_14"/>
+
+    <!--  Inbox -->
+    <item
+        android:maxLevel="1"
+        android:drawable="@drawable/icon94_64_8"/>
+
+    <!--  Outbox -->
+    <item
+        android:maxLevel="2"
+        android:drawable="@drawable/icon94_64_8_disabled"/>
+
+    <!--  Corp -->
+    <item
+        android:maxLevel="3"
+        android:drawable="@drawable/icon7_64_6"/>
+
+    <!--  Alliance -->
+    <item
+        android:maxLevel="4"
+        android:drawable="@drawable/icon70_64_11"/>
+
+    <!--  Others -->
+    <item
+        android:maxLevel="5"
+        android:drawable="@drawable/icon7_64_14"/>
+
+    <!--  Trash -->
+    <item
+        android:maxLevel="10"
+        android:drawable="@drawable/icon94_64_8_disabled"/>
+
+    <!-- INSURANCE -->
+    <item
+        android:maxLevel="110"
+        android:drawable="@drawable/icon7_64_13"/>
+
+    <!-- NOTIFICATION_WAR -->
+    <item
+        android:maxLevel="111"
+        android:drawable="@drawable/icon7_64_7"/>
+
+    <!-- STRUCTURES -->
+    <item
+        android:maxLevel="112"
+        android:drawable="@drawable/icon40_64_14"/>
+
+    <!-- NOTIFICATION_SOV -->
+    <item
+        android:maxLevel="113"
+        android:drawable="@drawable/icon70_64_11"/>
+
+    <!-- NOTIFICATION_OLD -->
+    <item
+        android:maxLevel="114"
+        android:drawable="@drawable/icon94_64_1"/>
+
+    <!-- NOTIFICATION_MISC -->
+    <item
+        android:maxLevel="115"
+        android:drawable="@drawable/icon7_64_14"/>
+
+    <!-- NOTIFICATION_CORPORATE -->
+    <item
+        android:maxLevel="116"
+        android:drawable="@drawable/icon7_64_6"/>
+
+    <!-- NOTIFICATION_CONTACTS -->
+    <item
+        android:maxLevel="117"
+        android:drawable="@drawable/icon12_64_2"/>
+
+    <!-- NOTIFICATION_BILLS -->
+    <item
+        android:maxLevel="118"
+        android:drawable="@drawable/icon32_64_3"/>
+
+    <!-- BOUNTIES -->
+    <item
+        android:maxLevel="119"
+        android:drawable="@drawable/icon4_64_16"/>
+
+    <!--  NOTIFICATION_AGENTS -->
+    <item
+        android:maxLevel="120"
+        android:drawable="@drawable/icon31_64_7"/>
+
+    <!--Any-->
+    <item
+        android:maxLevel="121"
+        android:drawable="@drawable/icon7_64_14"/>
+
+</level-list>

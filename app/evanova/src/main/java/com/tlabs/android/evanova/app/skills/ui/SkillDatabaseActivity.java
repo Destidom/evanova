@@ -22,7 +22,7 @@ public class SkillDatabaseActivity extends BaseActivity implements SkillDatabase
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         DaggerSkillDatabaseComponent.builder()
-                .evanovaComponent(Application.getEveComponent())
+                .applicationComponent(Application.getAppComponent())
                 .skillDatabaseModule(new SkillDatabaseModule())
                 .build()
                 .inject(this);

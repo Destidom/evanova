@@ -155,6 +155,10 @@ public final class EveNotificationPreferences extends PreferenceSupport {
         return Uri.parse(uri);
     }
 
+    public void setNotificationSound(final Uri uri) {
+        setString(KEY_NOTIFICATION_SOUND,(null == uri) ? null : uri.toString());
+    }
+
     public void setAlarmOption(final int option) {
         setString(KEY_FREQUENCY, Integer.toString(option));
     }

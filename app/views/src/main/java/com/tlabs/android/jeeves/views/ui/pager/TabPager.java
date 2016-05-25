@@ -53,8 +53,8 @@ public class TabPager extends FrameLayout {
         this.tabs.setViewPager(this.pager);
     }
 
-    public final PagerAdapter getAdapter() {
-        return this.pager.getAdapter();
+    public final <T extends PagerAdapter>  T getAdapter() {
+        return (T)this.pager.getAdapter();
     }
 
     public final void setListener(Listener listener) {

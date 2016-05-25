@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
+    android:background="@drawable/jeeves_panel_no_border"
+    android:gravity="center_vertical"
+    android:minHeight="64dip"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/mailsInboxIcon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/jeeves_level_list_mailboxes" >
+    </ImageView>
+
+    <TextView
+        android:id="@+id/mailsInboxText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="8dp"
+        android:layout_weight="0.1"
+        android:gravity="center_vertical"
+        android:text="Inbox"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"        
+        android:layout_weight="0.1"
+        android:layout_marginRight="2dp"
+        android:gravity="right|center_vertical"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/mailsInboxTotalCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="123 messages"
+            android:textSize="16sp"
+            android:gravity="right" />
+       
+        <TextView
+            android:id="@+id/mailsInboxReadCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"            
+            android:text="2 unread"
+            android:textSize="16sp"
+            android:gravity="right" />
+    </LinearLayout>
+
+</LinearLayout>

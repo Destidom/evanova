@@ -92,7 +92,7 @@ public class CharacterListWidget extends AbstractListRecyclerView<EveCharacter>
 
         private void renderLocation(EveCharacter character) {
             text5.setTextColor(Color.WHITE);
-            text5.setText(character.getLocation());
+            text5.setText(character.getLocation().getLocationName());
 
             text4.setTextColor(Color.LTGRAY);
             Strings.r(

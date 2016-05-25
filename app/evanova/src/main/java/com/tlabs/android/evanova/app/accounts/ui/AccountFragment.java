@@ -34,7 +34,7 @@ public class AccountFragment extends BaseFragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateFragmentView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.flipperView = new ViewFlipper(getContext());
         this.listView = new AccountListWidget(getContext());
         this.listView.setListener(new AccountListWidget.Listener() {

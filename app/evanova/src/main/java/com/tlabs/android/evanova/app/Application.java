@@ -15,12 +15,8 @@ import com.mikepenz.materialdrawer.util.DrawerImageLoader;
 import com.squareup.picasso.Picasso;
 import com.tlabs.android.evanova.content.ContentModule;
 import com.tlabs.android.evanova.preferences.PreferencesModule;
+import com.tlabs.android.jeeves.JeevesModule;
 import com.tlabs.android.jeeves.model.EveAccount;
-import com.tlabs.android.jeeves.modules.EveAPIModule;
-import com.tlabs.android.jeeves.modules.EveAccountModule;
-import com.tlabs.android.jeeves.modules.EveContentModule;
-import com.tlabs.android.jeeves.modules.EveCrestModule;
-import com.tlabs.android.jeeves.modules.EveDotlanModule;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +28,7 @@ public class Application extends android.app.Application {
     private static final Logger LOG = LoggerFactory.getLogger(Application.class);
 
     private static ApplicationComponent appComponent;
-    private static EvanovaComponent userComponent;
+    private static UserComponent userComponent;
 
 	@Override
 	public void onCreate() {
@@ -67,13 +63,10 @@ public class Application extends android.app.Application {
                 .builder()
                 .preferencesModule(new PreferencesModule(getApplicationContext()))
                 .contentModule(new ContentModule())
-                .eveAPIModule(new EveAPIModule(getApplicationContext()))
-                .eveContentModule(new EveContentModule(getApplicationContext()))
-                .eveDotlanModule(new EveDotlanModule())
+                .jeevesModule(new JeevesModule(getApplicationContext()))
+                .preferencesModule(new PreferencesModule(getApplicationContext()))
                 .applicationModule(new ApplicationModule(this))
                 .build();
-
-        updateGraph(getApplicationContext(), null);
     }
 
     @Override
@@ -93,20 +86,16 @@ public class Application extends android.app.Application {
         return appComponent;
     }
 
-    public static EvanovaComponent getEveComponent() {
+    public static UserComponent getEveComponent() {
         return userComponent;
     }
 
     private static Void updateGraph(final Context context, final EveAccount user) {
-        final EveCrestModule cm = new EveCrestModule(context, user);
-
-        userComponent = DaggerEvanovaComponent
+        userComponent = DaggerUserComponent
                 .builder()
                 .applicationComponent(appComponent)
-                .eveAccountModule(new EveAccountModule(user))
-                .eveCrestModule(cm)
+                .userModule(new UserModule(context, user))
                 .build();
-
         return null;
     }
 }

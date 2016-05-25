@@ -1,17 +1,14 @@
 package com.tlabs.android.evanova.app.dashboard;
 
 
-
-import com.tlabs.android.evanova.app.EvanovaComponent;
+import com.tlabs.android.evanova.app.ApplicationComponent;
 import com.tlabs.android.evanova.app.dashboard.ui.DashboardActivity;
 import com.tlabs.android.evanova.app.dashboard.ui.PreferencesFragment;
-import com.tlabs.android.evanova.app.UserScope;
 
 import dagger.Component;
 
-@UserScope
 @Component(
-        dependencies = {EvanovaComponent.class},
+        dependencies = {ApplicationComponent.class},
         modules = {DashboardModule.class})
 public interface DashboardComponent {
 

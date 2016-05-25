@@ -37,7 +37,7 @@ public final class Authentication {
             final EvanovaFacade evanova) {
         this.evanova = evanova;
         this.authenticated = new HashMap<>();
-        this.crest = EveCrest.client(context, CrestAccess.CHARACTER_SCOPES);
+        this.crest = EveCrest.obtainClient(context, CrestAccess.CHARACTER_SCOPES);
     }
 
     public static Authentication from(final Context context, final EvanovaFacade facade) {

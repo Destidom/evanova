@@ -7,15 +7,16 @@ import com.tlabs.android.evanova.R;
 import com.tlabs.android.evanova.app.Application;
 import com.tlabs.android.evanova.app.EvanovaActivityPresenter;
 import com.tlabs.android.evanova.app.accounts.ui.AccountActivity;
-import com.tlabs.android.evanova.app.character.ui.CharacterActivity;
-import com.tlabs.android.evanova.app.character.ui.CharacterListActivity;
-import com.tlabs.android.evanova.app.corporation.ui.CorporationActivity;
-import com.tlabs.android.evanova.app.corporation.ui.CorporationListActivity;
+import com.tlabs.android.evanova.app.characters.CharacterView;
+import com.tlabs.android.evanova.app.characters.main.ui.CharacterViewActivity;
+import com.tlabs.android.evanova.app.characters.main.ui.CharacterListActivity;
+import com.tlabs.android.evanova.app.corporations.ui.CorporationViewActivity;
+import com.tlabs.android.evanova.app.corporations.ui.CorporationListActivity;
 import com.tlabs.android.evanova.app.dashboard.DashboardUseCase;
 import com.tlabs.android.evanova.app.dashboard.DashboardView;
-import com.tlabs.android.evanova.app.fitting.ui.ShipFittingListActivity;
+import com.tlabs.android.evanova.app.fittings.ui.ShipFittingListActivity;
 import com.tlabs.android.evanova.app.items.ui.ItemDatabaseActivity;
-import com.tlabs.android.evanova.app.route.ui.RouteActivity;
+import com.tlabs.android.evanova.app.routes.ui.RouteActivity;
 import com.tlabs.android.evanova.app.skills.ui.SkillDatabaseActivity;
 import com.tlabs.android.jeeves.model.EveAccount;
 
@@ -54,10 +55,7 @@ public class DashboardPresenter extends EvanovaActivityPresenter<DashboardView> 
     }
 
     public boolean onDrawerAccountSelected(final EveAccount account, final boolean current) {
-        if (!current) {
-            Application.runWith(getContext(), account);
-            return true;
-        }
+        Application.runWith(getContext(), account);
 
         if (null == account) {
             return false;
@@ -67,12 +65,12 @@ public class DashboardPresenter extends EvanovaActivityPresenter<DashboardView> 
         switch (account.getType()) {
             case EveAccount.ACCOUNT:
             case EveAccount.CHARACTER:
-                intent = new Intent(getContext(), CharacterActivity.class);
-                intent.putExtra(CharacterActivity.EXTRA_CHAR_ID, account.getOwnerId());
+                intent = new Intent(getContext(), CharacterViewActivity.class);
+                intent.putExtra(CharacterView.EXTRA_CHAR_ID, account.getOwnerId());
                 break;
             case EveAccount.CORPORATION:
-                intent = new Intent(getContext(), CorporationActivity.class);
-                intent.putExtra(CorporationActivity.EXTRA_CORP_ID, account.getOwnerId());
+                intent = new Intent(getContext(), CorporationViewActivity.class);
+                intent.putExtra(CorporationViewActivity.EXTRA_CORP_ID, account.getOwnerId());
                 break;
             default:
                 intent = new Intent(getContext(), AccountActivity.class);

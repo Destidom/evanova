@@ -36,6 +36,7 @@ public class AccountActivity extends BaseActivity implements AccountView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         DaggerAccountComponent
                 .builder()
                 .applicationComponent(Application.getAppComponent())

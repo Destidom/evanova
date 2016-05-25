@@ -154,31 +154,37 @@
         </activity>
 
         <activity
-            android:name=".app.contract.ui.ContractActivity"
+            android:name=".app.contracts.ui.ContractActivity"
             android:configChanges="orientation|screenSize|keyboard"
             android:exported="false">
         </activity>
 
         <activity
-            android:name=".app.character.ui.CharacterListActivity"
+            android:name=".app.characters.main.ui.CharacterListActivity"
             android:exported="false"
             android:launchMode="singleTask">
         </activity>
 
         <activity
-            android:name=".app.character.ui.CharacterActivity"
+            android:name=".app.characters.main.ui.CharacterViewActivity"
             android:exported="false"
             android:launchMode="singleTask">
         </activity>
 
         <activity
-            android:name=".app.corporation.ui.CorporationListActivity"
+            android:name=".app.corporations.ui.CorporationListActivity"
             android:exported="false"
             android:launchMode="singleTask">
         </activity>
 
         <activity
-            android:name=".app.corporation.ui.CorporationActivity"
+            android:name=".app.corporations.ui.CorporationViewActivity"
+            android:exported="false"
+            android:launchMode="singleTask">
+        </activity>
+
+        <activity
+            android:name=".app.mails.ui.MailActivity"
             android:exported="false"
             android:launchMode="singleTask">
         </activity>
@@ -186,7 +192,15 @@
         <activity
             android:name=".app.items.ui.ItemDatabaseActivity"
             android:configChanges="orientation|screenSize|keyboard"
+            android:launchMode="singleTop"
             android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable_items" />
         </activity>
 
         <activity
@@ -196,32 +210,32 @@
         </activity>
 
         <activity
-            android:name=".app.route.ui.RouteActivity"
+            android:name=".app.routes.ui.RouteActivity"
             android:configChanges="orientation|screenSize|keyboard"
             android:exported="false">
         </activity>
 
         <activity
-            android:name=".app.fitting.ui.ShipFittingListActivity"
+            android:name=".app.fittings.ui.ShipFittingListActivity"
             android:configChanges="orientation|screenSize|keyboard"
             android:exported="false">
         </activity>
 
         <activity
-            android:name=".app.fitting.ui.ShipFittingActivity"
+            android:name=".app.fittings.ui.ShipFittingActivity"
             android:configChanges="orientation|screenSize|keyboard"
             android:exported="false"
             android:uiOptions="splitActionBarWhenNarrow">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".app.fitting.ui.ShipFittingListActivity" />
+                android:value=".app.fittings.ui.ShipFittingListActivity" />
             <meta-data
                 android:name="android.support.UI_OPTIONS"
                 android:value="splitActionBarWhenNarrow" />
         </activity>
 
         <activity
-            android:name=".app.fitting.ui.ShipSearchActivity"
+            android:name=".app.fittings.ui.ShipSearchActivity"
             android:configChanges="orientation|screenSize|keyboard"
             android:exported="false"
             android:launchMode="singleTop">
@@ -235,7 +249,7 @@
         </activity>
 
         <activity
-            android:name=".app.fitting.ui.ModuleSearchActivity"
+            android:name=".app.fittings.ui.ModuleSearchActivity"
             android:configChanges="orientation|screenSize|keyboard"
             android:exported="false"
             android:launchMode="singleTop">

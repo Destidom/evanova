@@ -8,17 +8,22 @@ import com.tlabs.android.evanova.preferences.SavedPreferences;
 import com.tlabs.android.evanova.preferences.UserPreferences;
 import com.tlabs.android.jeeves.model.EveCharacter;
 import com.tlabs.android.jeeves.model.EveCorporation;
+import com.tlabs.android.jeeves.service.EveAPIServicePreferences;
 import com.tlabs.android.jeeves.views.EveImages;
+import com.tlabs.android.util.Environment;
 
 public class EvanovaActivityPresenter<T extends ActivityView> extends ActivityPresenter<T> {
 
     private final UserPreferences userPreferences;
     private final SavedPreferences savedPreferences;
+    private final EveAPIServicePreferences apiPreferences;
 
     public EvanovaActivityPresenter(Context context) {
         super(context);
+
         this.userPreferences = new UserPreferences(context.getApplicationContext());
         this.savedPreferences = new SavedPreferences(context.getApplicationContext());
+        this.apiPreferences = new EveAPIServicePreferences(context.getApplicationContext());
     }
 
     protected final UserPreferences userPreferences() {
@@ -29,6 +34,9 @@ public class EvanovaActivityPresenter<T extends ActivityView> extends ActivityPr
         return savedPreferences;
     }
 
+    protected final EveAPIServicePreferences apiPreferences() {
+        return apiPreferences;
+    }
 
     protected final void setBackgroundDefault() {
         setBackground(this.userPreferences.getBackgroundDefault());
@@ -86,5 +94,9 @@ public class EvanovaActivityPresenter<T extends ActivityView> extends ActivityPr
                 setBackground(userPreferences.getBackgroundDefault());
                 break;
         }
+    }
+
+    protected final boolean isNetworkAvailable() {
+        return Environment.isNetworkAvailable(getContext(), apiPreferences().getCachingSpareNetwork());
     }
 }

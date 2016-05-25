@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  levels are dgm_32_type_32_attributes.attributeID -->
+<level-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- //Capacity        -->
+    <!-- //Mass-->
+    <!-- //Volume-->
+
+    <item android:maxLevel="0" android:drawable="@drawable/icon13_32_6" /> <!-- Unknown -->
+    <item android:maxLevel="9" android:drawable="@drawable/icon37_32_13" /> <!-- structure HP -->
+    <item android:maxLevel="12" android:drawable="@drawable/icon_slot_low" /> <!-- low slots -->
+    <item android:maxLevel="13" android:drawable="@drawable/icon_slot_medium" /> <!-- medium slots -->
+    <item android:maxLevel="14" android:drawable="@drawable/icon_slot_high" /> <!-- high slot -->
+    <item android:maxLevel="37" android:drawable="@drawable/icon22_32_13" /> <!-- max velocity -->
+    <item android:maxLevel="55" android:drawable="@drawable/icon22_32_16" /> <!-- capacitor recharge time -->
+    
+    <item android:maxLevel="70" android:drawable="@drawable/icon22_32_24" /> <!-- Inertia mods -->
+    <item android:maxLevel="76" android:drawable="@drawable/icon22_32_15" /> <!-- max targeting range -->
+
+    <item android:maxLevel="101" android:drawable="@drawable/icon12_64_12" /> <!-- launchers-->
+    <item android:maxLevel="102" android:drawable="@drawable/icon13_64_6" /> <!-- turrets-->
+    <item android:maxLevel="109" android:drawable="@drawable/icon22_32_17" /> <!-- Kinetic res -->
+    <item android:maxLevel="110" android:drawable="@drawable/icon22_32_18" /> <!-- Thermal res -->
+    <item android:maxLevel="111" android:drawable="@drawable/icon22_32_19" /> <!-- EXP res -->
+    <item android:maxLevel="113" android:drawable="@drawable/icon22_32_20" /> <!-- EM res -->
+    <item android:maxLevel="127" android:drawable="@drawable/icon13_32_6" /> <!-- Drone bw -->
+    <item android:maxLevel="192" android:drawable="@drawable/icon22_32_23" /> <!-- max locked targets -->
+    <item android:maxLevel="211" android:drawable="@drawable/icon22_32_25" /> <!-- Gravimetric Sensor Strength -->
+    
+    <item android:maxLevel="263" android:drawable="@drawable/icon1_32_13" /> <!-- shield capacity -->
+    <item android:maxLevel="265" android:drawable="@drawable/icon22_32_6" /> <!-- Armor HP -->
+    <item android:maxLevel="267" android:drawable="@drawable/icon22_32_20" /> <!-- /Armor EM resistance -->
+    <item android:maxLevel="268" android:drawable="@drawable/icon22_32_19" /> <!-- Armor EXP resistance -->
+    <item android:maxLevel="269" android:drawable="@drawable/icon22_32_17" /> <!-- Armor Kinetic resistance -->
+    <item android:maxLevel="270" android:drawable="@drawable/icon22_32_18" /> <!-- Armor Thermal resistance  -->  
+    <item android:maxLevel="271" android:drawable="@drawable/icon22_32_20" /> <!-- shield EM resistance -->
+    <item android:maxLevel="272" android:drawable="@drawable/icon22_32_19" /> <!-- shield EXP resistance -->
+    <item android:maxLevel="273" android:drawable="@drawable/icon22_32_17" /> <!-- shield Kinetic resistance -->
+    <item android:maxLevel="274" android:drawable="@drawable/icon22_32_18" /> <!-- shield Thermal resistance -->                
+    <item android:maxLevel="283" android:drawable="@drawable/icon13_32_6" /> <!-- Drone capacity -->
+
+    <item android:maxLevel="479" android:drawable="@drawable/icon22_32_16" /> <!-- shield recharge time -->
+    <item android:maxLevel="482" android:drawable="@drawable/icon22_32_8" /> <!-- capacitor capacity -->
+    
+    <item android:maxLevel="552" android:drawable="@drawable/icon77_32_57" /> <!-- signature radius -->
+    <item android:maxLevel="564" android:drawable="@drawable/icon4_64_10" /> <!-- scan resolution -->
+
+    <item android:maxLevel="1137" android:drawable="@drawable/icon_slot_rigs" /> <!-- rigs -->
+    <item android:maxLevel="1281" android:drawable="@drawable/icon76_32_16" /> <!-- warp speed -->
+    <item android:maxLevel="1154" android:drawable="@drawable/icon_slot_rigs" /> <!-- upgrades -->
+    <item android:maxLevel="3772" android:drawable="@drawable/icon_slot_subsystems" /> <!-- subsystems -->
+ </level-list>

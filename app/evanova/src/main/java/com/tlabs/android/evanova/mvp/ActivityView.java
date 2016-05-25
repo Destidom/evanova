@@ -26,4 +26,5 @@ public interface ActivityView {
 
     void showError(int sRes);
 
+	void showSearch();
 }

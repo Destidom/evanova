@@ -31,7 +31,9 @@ public class AccountUseCaseImpl implements AccountUseCase {
     private final ContentPublisher receiver;
 
     @Inject
-    public AccountUseCaseImpl(ContentFacade content, ContentPublisher receiver) {
+    public AccountUseCaseImpl(
+            ContentFacade content,
+            ContentPublisher receiver) {
         this.content = content;
         this.receiver = receiver;
     }

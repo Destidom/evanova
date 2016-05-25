@@ -59,7 +59,7 @@ public class FittingAttributeListWidget extends AbstractListRecyclerView<Attribu
 
     @Override
     protected ListRecyclerViewAdapter.ViewHolder<Attribute> onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new AttributeHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.jeeves_row_item_attribute, parent, false));
+        return new AttributeHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.jeeves_row_fitting_attribute, parent, false));
 
     }
 

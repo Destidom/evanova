@@ -16,9 +16,12 @@ import java.io.IOException;
 
 public final class EveCrest {
     private static final Logger LOG = LoggerFactory.getLogger(EveCrest.class);
+
+    private static CrestClient publicClient;
+
     private EveCrest() {}
 
-    public static String loginUri(final Context context, final String[] scopes) {
+    public static String buildLoginUri(final Context context, final String[] scopes) {
         return CrestClient.getLoginUri(
             "login.eveonline.com",
             enh(context, R.string.jeeves_crest_id),
@@ -28,21 +31,24 @@ public final class EveCrest {
         );
     }
 
-    public static String loginUri(final Context context, EveAccount account) {
+    public static String buildLoginUri(final Context context, EveAccount account) {
         if ((null == account) || StringUtils.isBlank(account.getRefreshToken())) {
-            return loginUri(context, CrestAccess.PUBLIC_SCOPES);
+            return buildLoginUri(context, CrestAccess.PUBLIC_SCOPES);
         }
         if (account.getType() == EveAccount.CORPORATION) {
-            return loginUri(context, CrestAccess.CORPORATION_SCOPES);
+            return buildLoginUri(context, CrestAccess.CORPORATION_SCOPES);
         }
-        return loginUri(context, CrestAccess.CHARACTER_SCOPES);
+        return buildLoginUri(context, CrestAccess.CHARACTER_SCOPES);
     }
 
-    public static CrestClient client() {
-        return CrestClient.TQ(CrestAccess.PUBLIC_SCOPES).build();
+    public static CrestClient obtainClient() {
+        if (null == publicClient) {
+            publicClient = CrestClient.TQ(CrestAccess.PUBLIC_SCOPES).build();
+        }
+        return publicClient;
     }
 
-    public static CrestClient client(final Context context, final String[] scopes) {
+    public static CrestClient obtainClient(final Context context, final String[] scopes) {
         return
             CrestClient
                 .TQ(scopes)
@@ -52,9 +58,9 @@ public final class EveCrest {
                 .build();
     }
 
-    public static CrestService service(final Context context) {
+    public static CrestService obtainService(final Context context) {
         try {
-            return CrestClient.TQ("publicData").build().fromDefault();
+            return obtainClient().fromDefault();
         }
         catch (IOException e) {
             LOG.error(e.getLocalizedMessage(), e);
@@ -63,9 +69,9 @@ public final class EveCrest {
         }
     }
 
-    public static CrestService service(
+    public static CrestService obtainService(
             final Context context, final EveAccount account) {
-        final CrestClient authenticatedCREST = client(
+        final CrestClient authenticatedCREST = obtainClient(
                 context,
                 (account.getType() == EveAccount.CORPORATION) ? CrestAccess.CORPORATION_SCOPES : CrestAccess.CHARACTER_SCOPES);
         try {
@@ -74,7 +80,7 @@ public final class EveCrest {
         catch (IOException e) {
             LOG.error(e.getLocalizedMessage(), e);
             LOG.debug("{}: providing public CREST", e.getLocalizedMessage());
-            return service(context);
+            return obtainService(context);
         }
     }
     //TODO the idea behind this function is to decrypt resources.

@@ -20,7 +20,7 @@ import java.util.Map;
 class CertificateRequirementAdapter extends BaseExpandableListAdapter {
 
     private static final class GroupHolder {
-        private static final int LAYOUT = R.layout.row_skill_group;
+        private static final int LAYOUT = R.layout.row_text_group;
 
         private final TextView textView;
 

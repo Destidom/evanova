@@ -214,7 +214,7 @@ public class EveFacadeImpl implements EveFacade {
         final List<EveMarketGroup> groups = new ArrayList<>(entities.size());
         for (MarketGroupEntity e: entities) {
             final EveMarketGroup group = EveEntities.transform(e);
-            group.setChildCount(sde.countMarketChildren(parentGroupId));
+            group.setChildCount(sde.countMarketChildren(group.getMarketGroupID()));
             //group.setItemIconID(sde.getMarketGroupIcon(group.getMarketGroupID()));
             //group.setItems(getMarketItems(group.getMarketGroupID()));
             groups.add(group);

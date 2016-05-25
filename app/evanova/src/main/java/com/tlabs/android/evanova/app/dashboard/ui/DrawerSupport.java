@@ -127,7 +127,7 @@ class DrawerSupport {
         final AccountHeaderBuilder header =
             new AccountHeaderBuilder()
                 .withActivity(activity)
-                .withHeaderBackground(R.drawable.background2)
+                .withHeaderBackground(R.drawable.background_planet)
                 .withTranslucentStatusBar(true);
         header.withOnAccountHeaderListener((view, profile, current) -> onAccountSelected(profile.getIdentifier(), current));
 

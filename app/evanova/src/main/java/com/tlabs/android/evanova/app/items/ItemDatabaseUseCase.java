@@ -9,5 +9,7 @@ public interface ItemDatabaseUseCase {
 
     List<EveMarketGroup> getMarketGroups(final long groupID);
 
+    Item getMarketItem(final long itemID);
+
     List<Item> getMarketItems(final long groupID);
 }

@@ -24,6 +24,11 @@ public class ItemDatabaseUseCaseImpl implements ItemDatabaseUseCase {
     }
 
     @Override
+    public Item getMarketItem(long itemID) {
+        return this.content.getItem(itemID);
+    }
+
+    @Override
     public List<Item> getMarketItems(long groupID) {
         return this.content.getMarketItems(groupID);
     }

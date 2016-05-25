@@ -54,25 +54,27 @@ public final class Environment {
         if (null == manager) {
             return false;
         }
-
-        for (NetworkInfo info : manager.getAllNetworkInfo()) {
-            if (info.isConnected()) {
-                if (excludeCostlyConnection) {
-                    switch (info.getType()) {
-                    case ConnectivityManager.TYPE_BLUETOOTH:
-                    case ConnectivityManager.TYPE_DUMMY:
-                    case ConnectivityManager.TYPE_ETHERNET:
-                    case ConnectivityManager.TYPE_WIFI:
-                    case ConnectivityManager.TYPE_WIMAX:
-                        return true;
-                    }
-                }
-                else {
-                    return true;
-                }
-            }
+        final NetworkInfo active = manager.getActiveNetworkInfo();
+        if (null == active) {
+            return false;
         }
-        return false;
+        if (!active.isConnected()) {
+            return false;
+        }
+        if (!excludeCostlyConnection) {
+            return true;
+        }
+
+        switch (active.getType()) {
+            case ConnectivityManager.TYPE_BLUETOOTH:
+            case ConnectivityManager.TYPE_DUMMY:
+            case ConnectivityManager.TYPE_ETHERNET:
+            case ConnectivityManager.TYPE_WIFI:
+            case ConnectivityManager.TYPE_WIMAX:
+                return true;
+            default:
+                return false;
+        }
     }
 
 }

@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:key="jeeves.preferences">
 
     <PreferenceCategory android:title="@string/preferences_category_online">
-        <com.afollestad.materialdialogs.prefs.MaterialListPreference
-            android:dialogTitle="@string/preferences_update_frequency_title"
+        <ListPreference
             android:defaultValue="4"
+            android:dialogTitle="@string/preferences_update_frequency_title"
+            android:entries="@array/preferences_update_frequency_entries"
+            android:entryValues="@array/preferences_update_frequency_values"
             android:key="preferences.notifications.frequency"
             android:summary="@string/preferences_update_frequency_summary"
-            android:title="@string/preferences_update_frequency_title"
-            android:entries="@array/preferences_update_frequency_entries"
-            android:entryValues="@array/preferences_update_frequency_values" />
+            android:title="@string/preferences_update_frequency_title" />
 
         <CheckBoxPreference
             android:defaultValue="false"
@@ -56,7 +55,7 @@
                 android:dependency="preferences.api.check"
                 android:key="preferences.api.central.url"
                 android:summary="@string/preferences_evecentral_summary"
-                android:title="@string/preferences_evecentral_title"/>
+                android:title="@string/preferences_evecentral_title" />
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/preferences_category_notifications">
@@ -107,30 +106,27 @@
 
         </PreferenceScreen>
 
-        <RingtonePreference
+        <Preference
             android:key="preferences.notifications.sound"
-            android:ringtoneType="notification|alarm"
-            android:showDefault="true"
-            android:showSilent="true"
             android:title="@string/preferences_notification_ringtone_title" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/preferences_category_display">
 
-        <com.afollestad.materialdialogs.prefs.MaterialListPreference
+        <ListPreference
+            android:defaultValue="1"
             android:dialogTitle="@string/preferences_background_behaviour_dialog"
             android:entries="@array/preferences_background_entries"
             android:entryValues="@array/preferences_background_values"
-            android:defaultValue="1"
             android:key="preferences.background.key"
             android:persistent="true"
             android:summary="@string/preferences_background_behaviour_summary"
             android:title="@string/preferences_background_behaviour" />
 
-        <com.afollestad.materialdialogs.prefs.MaterialListPreference
+        <ListPreference
+            android:defaultValue="0"
             android:dialogTitle="@string/preferences_display_behaviour_dialog"
             android:entries="@array/preferences_display_entries"
             android:entryValues="@array/preferences_display_values"
-            android:defaultValue="0"
             android:key="preferences.display.key"
             android:persistent="true"
             android:summary="@string/preferences_display_behaviour_summary"

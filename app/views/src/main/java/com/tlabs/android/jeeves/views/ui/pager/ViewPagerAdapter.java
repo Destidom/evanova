@@ -18,6 +18,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     public ViewPagerAdapter(final Context context) {
         this.context = context;
+
         this.views = new ArrayList<>();
         this.titles = new ArrayList<>();
     }
@@ -29,6 +30,12 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     public final <T extends View> T getView(final int position) {
         return (T)this.views.get(position);
+    }
+
+    public final void removeAllViews() {
+        this.titles.clear();
+        this.views.clear();
+        notifyDataSetChanged();
     }
 
     @Override
@@ -59,6 +66,10 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        //must be implemented.
+        container.removeView(this.views.get(position));
+    }
+
+    protected Context getContext() {
+        return this.context;
     }
 }

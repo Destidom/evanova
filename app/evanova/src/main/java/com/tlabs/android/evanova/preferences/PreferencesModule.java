@@ -2,9 +2,6 @@ package com.tlabs.android.evanova.preferences;
 
 import android.content.Context;
 
-import com.tlabs.android.jeeves.service.EveAPIServicePreferences;
-import com.tlabs.android.jeeves.notifications.EveNotificationPreferences;
-
 import dagger.Module;
 import dagger.Provides;
 
@@ -27,13 +24,4 @@ public class PreferencesModule {
         return new UserPreferences(this.context);
     }
 
-    @Provides
-    public EveAPIServicePreferences provideAPIPreferences() {
-        return new EveAPIServicePreferences(this.context);
-    }
-
-    @Provides
-    public EveNotificationPreferences provideNotificationPreferences() {
-        return new EveNotificationPreferences(this.context);
-    }
 }

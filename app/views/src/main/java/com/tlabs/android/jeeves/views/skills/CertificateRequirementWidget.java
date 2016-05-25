@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.widget.ExpandableListView;
 
 import com.tlabs.android.jeeves.views.ui.list.SingleListGroupDisplayAdapter;
-import com.tlabs.eve.api.character.Certificate;
 
 public class CertificateRequirementWidget extends ExpandableListView {
     public interface Listener {
