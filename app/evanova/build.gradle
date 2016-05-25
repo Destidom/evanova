@@ -67,10 +67,10 @@ android {
     signingConfigs {
         //You need the proper gradle.properties
         release {
-            storeFile file(project['evanova.keystore.file'])
-            storePassword project['evanova.keystore.password']
-            keyAlias project['evanova.keystore.key.alias']
-            keyPassword project['evanova.keystore.key.password']
+            //storeFile file(project['evanova.keystore.file'])
+            //storePassword project['evanova.keystore.password']
+            //keyAlias project['evanova.keystore.key.alias']
+            //keyPassword project['evanova.keystore.key.password']
         }
     }
     buildTypes {
@@ -107,6 +107,9 @@ dependencies {
 
     compile 'com.jakewharton:butterknife:8.0.1'
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
+
+    //compile 'com.android.support:preference-v7:23.4.0'
+    compile 'com.takisoft.fix:preference-v7:23.4.0.2' 
 
     compile(project(':service')) {
         exclude module: 'log4j'
