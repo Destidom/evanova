@@ -64,6 +64,8 @@ The application requires a valid CREST application id and key for CREST access t
 
 For a lot of good reasons, starting by preserving the application' users security, only the maintainer can deploy Evanova on the Play Store. If you have a good case for publishing an application based on Evanova, please contact evanova.mobile@gmail.com before trying to do so.
 
+You are free however to create any application using the shared code, as long as it follows the license terms and does not use the 'Evanova' name.
+
 ###Evanova is recruiting!
 
 This project needs your help. If you wish to contribute in any capacity, please feel free to let yourself known.
