@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <!-- FIXME secure this -->
-    <string name="jeeves_crest_id">7b7cd01f9bd740349340458e1082d11f</string>
-    <string name="jeeves_crest_key">bXh14L3LYeXJ13QI0B32ZehbLv5zoh3dyuEToZcb</string>
-    <string name="jeeves_crest_callback">eve://crest.eveonline.com/redirect</string>
-</resources>
