@@ -11,13 +11,13 @@ This repository contains all the code needed to build Evanova 2.0.
 This repository is a re-write and re-design with clean architecture principles. The intention is to backport features from Evanova and provide the same set of functionalities at first release, with enhanced UI.
 
 ####Motivation
-Evanova was started in 2011 with support for Android 1.6. With the growing number of features, provinding fixes and updates was getting too difficult and the application had to be re-designed to be more maintainable, follow a better architecture and latest Android releases. 
+Evanova was started in 2011 with support for Android 1.6. With the growing number of features, provinding fixes and updates was getting too difficult and the application had to be re-designed to be more maintainable, follow a better architecture and latest Android releases.
 
 In addition, with the advent of CREST, many new features will be easy to add to the application with little effort and impact on the overall functionalities.
 
 ###Current State
 
-You can import characters and corporations using either CREST or an API key and view the list of accounts/chars/corps. 
+You can import characters and corporations using either CREST or an API key and view the list of accounts/chars/corps.
 
 While the back-end code is quite stable and usable, the UI has to be re-assembled. This includes building Android views (a.k.a widgets) and wiring them up in the application as well as enhancing UI feedback and interactions.
 
@@ -25,14 +25,10 @@ While the back-end code is quite stable and usable, the UI has to be re-assemble
 
 ####1 - Clone this repository
 
-`git clone https://github.com/evanova/evanova`
-
-If you want to make sure the dependencies are up to date, 
-
-`git submodule update --recursive`
+`git clone https://github.com/evanova/evanova --recursive`
 
 ####2 - Build the dependencies
-Before you can build the application, you will need to make sure the dependencies are built and installed in your local Gradle cache. In the root project, do a 
+Before you can build the application, you will need to make sure the dependencies are built and installed in your local Gradle cache. In the root project, do a
 
 `gradlew build install -x test`
 
@@ -40,7 +36,7 @@ Before you can build the application, you will need to make sure the dependencie
 
 ####3 - Build the application
 
-Once the above steps have been successfully performed, you can build the Android APK from the **app** module or from Android Studio. 
+Once the above steps have been successfully performed, you can build the Android APK from the **app** module or from Android Studio.
 
 ```
 cd app
@@ -60,7 +56,7 @@ The application requires a valid CREST application id and key for CREST access t
 
 ####4 - Publishing to the Play Store
 
-**You cannot do this under any circumstances.** 
+**You cannot do this under any circumstances.**
 
 For a lot of good reasons, starting by preserving the application' users security, only the maintainer can deploy Evanova on the Play Store. If you have a good case for publishing an application based on Evanova, please contact evanova.mobile@gmail.com before trying to do so.
 
