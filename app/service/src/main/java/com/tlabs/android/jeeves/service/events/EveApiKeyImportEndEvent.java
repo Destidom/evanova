@@ -6,7 +6,7 @@ import org.parceler.ParcelProperty;
 
 import java.util.List;
 
-@Parcel(value = Parcel.Serialization.BEAN, parcelsIndex = false)
+@Parcel(value = Parcel.Serialization.BEAN)
 public final class EveApiKeyImportEndEvent extends EveApiKeyEvent implements LongRunningEndEvent {
 
     @ParcelProperty("accountIds")
