@@ -1,31 +1,12 @@
 apply plugin: 'com.android.library'
 apply plugin: 'me.tatarka.retrolambda'
-apply plugin: 'com.neenbedankt.android-apt'
 
 group = 'com.tlabs.eve.android'
 version = '4.0'
 
-repositories {
-    maven { url "https://jitpack.io" }
-    maven { url 'http://dl.bintray.com/amulyakhare/maven' }
-}
-
 configurations {
     provided
     compile.extendsFrom provided
-}
-
-buildscript {
-    repositories {
-        mavenCentral()
-        jcenter()
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.0'
-        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-    }
 }
 
 android {
@@ -54,9 +35,11 @@ android {
     }
 }
 
-dependencies {
-    retrolambdaConfig 'com.jakewharton.retrolambda:retrolambda:2.1.0-jake2'
+repositories {
+    maven { url "https://jitpack.io" }
+}
 
+dependencies {
     compile project(":model")
 
     compile 'io.reactivex:rxandroid:1.1.0'
@@ -72,12 +55,10 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:cardview-v7:23.4.0'
 
-    compile 'com.github.afollestad.material-dialogs:core:0.8.5+@aar'
-    compile 'com.github.afollestad.material-dialogs:commons:0.8.5+@aar'
+    compile 'com.afollestad.material-dialogs:core:0.8.5.9'
     compile 'org.adw.library:discrete-seekbar:1.0.1'
     compile 'com.github.PhilJay:MPAndroidChart:v2.2.4'
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
     compile 'com.prolificinteractive:material-calendarview:1.2.0'
     compile 'com.bignerdranch.android:expandablerecyclerview:2.1.1'
-
 }

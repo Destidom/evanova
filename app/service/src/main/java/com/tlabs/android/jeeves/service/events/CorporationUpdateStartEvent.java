@@ -5,7 +5,7 @@ import org.parceler.Parcel;
 import org.parceler.ParcelConstructor;
 import org.parceler.ParcelProperty;
 
-@Parcel(value = Parcel.Serialization.BEAN, parcelsIndex = false)
+@Parcel(value = Parcel.Serialization.BEAN)
 public final class CorporationUpdateStartEvent extends CorporationUpdateEvent implements LongRunningStartEvent {
 
     @ParcelProperty("force")

@@ -4,7 +4,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.parceler.Parcel;
 import org.parceler.ParcelConstructor;
 
-@Parcel(value = Parcel.Serialization.BEAN, parcelsIndex = false)
+@Parcel(value = Parcel.Serialization.BEAN)
 public final class ServerInformationUpdateStartEvent extends EveApiEvent implements LongRunningStartEvent {
 
     @ParcelConstructor
