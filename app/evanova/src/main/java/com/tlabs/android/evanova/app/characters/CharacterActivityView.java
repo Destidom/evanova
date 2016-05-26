@@ -1,6 +1,5 @@
-package com.tlabs.android.evanova.app.characters.main;
+package com.tlabs.android.evanova.app.characters;
 
-import com.tlabs.android.evanova.app.characters.CharacterView;
 import com.tlabs.android.evanova.mvp.ActivityView;
 import com.tlabs.android.jeeves.model.EveCharacter;
 

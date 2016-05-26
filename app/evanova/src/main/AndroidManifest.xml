@@ -160,13 +160,13 @@
         </activity>
 
         <activity
-            android:name=".app.characters.main.ui.CharacterListActivity"
+            android:name=".app.characters.ui.CharacterListActivity"
             android:exported="false"
             android:launchMode="singleTask">
         </activity>
 
         <activity
-            android:name=".app.characters.main.ui.CharacterViewActivity"
+            android:name=".app.characters.ui.CharacterViewActivity"
             android:exported="false"
             android:launchMode="singleTask">
         </activity>

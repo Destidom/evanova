@@ -6,7 +6,7 @@ import android.content.UriMatcher;
 import android.net.Uri;
 
 import com.tlabs.android.evanova.app.accounts.ui.AccountActivity;
-import com.tlabs.android.evanova.app.characters.main.ui.CharacterViewActivity;
+import com.tlabs.android.evanova.app.characters.ui.CharacterViewActivity;
 import com.tlabs.android.evanova.app.corporations.ui.CorporationViewActivity;
 import com.tlabs.android.jeeves.notifications.Notifications;
 import com.tlabs.android.jeeves.views.Snacks;

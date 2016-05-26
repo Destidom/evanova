@@ -1,4 +1,4 @@
-package com.tlabs.android.evanova.app.characters.main.ui;
+package com.tlabs.android.evanova.app.characters.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 
 import com.tlabs.android.evanova.R;
 import com.tlabs.android.evanova.app.characters.CharacterFragment;
-import com.tlabs.android.evanova.app.characters.main.CharacterActivityView;
-import com.tlabs.android.evanova.app.characters.main.presenter.CharacterMainViewPresenter;
+import com.tlabs.android.evanova.app.characters.CharacterActivityView;
+import com.tlabs.android.evanova.app.characters.presenter.CharacterMainViewPresenter;
 import com.tlabs.android.evanova.mvp.Presenter;
 import com.tlabs.android.evanova.ui.ButtonMenuWidget;
 import com.tlabs.android.jeeves.model.EveCharacter;
@@ -24,7 +24,7 @@ public class CharacterViewFragment extends CharacterFragment implements Characte
 
     public static CharacterViewFragment newInstance(final long charID) {
         Bundle bundle = new Bundle();
-        bundle.putLong(CharacterActivityView.EXTRA_CHAR_ID, charID);
+        bundle.putLong(CharacterViewActivity.EXTRA_CHAR_ID, charID);
 
         final CharacterViewFragment f = new CharacterViewFragment();
         f.setArguments(bundle);
@@ -48,7 +48,7 @@ public class CharacterViewFragment extends CharacterFragment implements Characte
     public void onStart() {
         super.onStart();
         this.presenter.setCharacter(
-                getArguments().getLong(CharacterActivityView.EXTRA_CHAR_ID, -1l));
+                getArguments().getLong(CharacterViewActivity.EXTRA_CHAR_ID, -1l));
     }
 
     @Nullable

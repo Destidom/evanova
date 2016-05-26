@@ -1,9 +1,9 @@
 package com.tlabs.android.evanova.app.characters;
 
 import com.tlabs.android.evanova.app.ApplicationComponent;
-import com.tlabs.android.evanova.app.characters.main.ui.CharacterListActivity;
-import com.tlabs.android.evanova.app.characters.main.ui.CharacterViewActivity;
-import com.tlabs.android.evanova.app.characters.main.ui.CharacterViewFragment;
+import com.tlabs.android.evanova.app.characters.ui.CharacterListActivity;
+import com.tlabs.android.evanova.app.characters.ui.CharacterViewActivity;
+import com.tlabs.android.evanova.app.characters.ui.CharacterViewFragment;
 import com.tlabs.android.evanova.app.mails.MailModule;
 import com.tlabs.android.evanova.app.skills.SkillDatabaseModule;
 

@@ -1,4 +1,4 @@
-package com.tlabs.android.evanova.app.characters.main.ui;
+package com.tlabs.android.evanova.app.characters.ui;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import com.tlabs.android.evanova.R;
 
 import com.tlabs.android.evanova.app.characters.CharacterFragment;
-import com.tlabs.android.evanova.app.characters.main.CharacterDetailsView;
+import com.tlabs.android.evanova.app.characters.CharacterDetailsView;
 import com.tlabs.android.jeeves.model.EveCharacter;
 import com.tlabs.android.jeeves.views.character.CharacterAttributesWidget;
 import com.tlabs.android.jeeves.views.character.CharacterClonesWidget;

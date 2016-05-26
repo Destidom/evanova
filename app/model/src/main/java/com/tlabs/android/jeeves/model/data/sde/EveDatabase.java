@@ -489,32 +489,6 @@ public final class EveDatabase {
         }
     }
 
-    /*private static boolean installEveDatabase(final Context context) throws IOException {
-        final File db = context.getDatabasePath(DATABASE_NAME);
-        if (db.exists() && !db.delete()) {
-            throw new IOException("Cannot delete database " + db);
-        }
-        db.getParentFile().mkdirs();
-        db.createNewFile();
-
-        InputStream in = new GzipCompressorInputStream(context.getResources().openRawResource(R.raw.jeeves));
-        OutputStream out = new BufferedOutputStream(new FileOutputStream(db));
-        try {
-            IOUtils.copy(in, out);
-            out.flush();
-
-            final SharedPreferences prefs = context.getSharedPreferences("EveDatabase", 0);
-            prefs.edit().putString("Version", DATABASE_VERSION).apply();
-            if (Log.D)
-                Log.d(LOG, "EveDatabase#installEveDatabase(): installed " + DATABASE_VERSION + " to " + db.toString());
-        }
-        finally {
-            IOUtils.closeQuietly(in);
-            IOUtils.closeQuietly(out);
-        }
-        return false;
-    }*/
-
     private ItemEntity fetch(final ItemEntity entity) throws SQLException {
         if (null == entity) {
             return null;

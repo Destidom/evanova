@@ -1,4 +1,4 @@
-package com.tlabs.android.evanova.app.characters.main.presenter;
+package com.tlabs.android.evanova.app.characters.presenter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,7 +6,7 @@ import android.content.Intent;
 import com.tlabs.android.evanova.R;
 import com.tlabs.android.evanova.app.EvanovaActivityPresenter;
 import com.tlabs.android.evanova.app.characters.CharacterUseCase;
-import com.tlabs.android.evanova.app.characters.main.CharacterActivityView;
+import com.tlabs.android.evanova.app.characters.CharacterActivityView;
 import com.tlabs.android.evanova.app.mails.ui.MailActivity;
 import com.tlabs.android.jeeves.model.EveCharacter;
 import com.tlabs.android.jeeves.views.EveImages;

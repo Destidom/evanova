@@ -6,8 +6,7 @@ import android.content.Intent;
 import com.tlabs.android.evanova.app.EvanovaActivityPresenter;
 import com.tlabs.android.evanova.app.characters.CharacterListView;
 import com.tlabs.android.evanova.app.characters.CharacterUseCase;
-import com.tlabs.android.evanova.app.characters.CharacterView;
-import com.tlabs.android.evanova.app.characters.main.ui.CharacterViewActivity;
+import com.tlabs.android.evanova.app.characters.ui.CharacterViewActivity;
 
 import javax.inject.Inject;
 
@@ -35,7 +34,7 @@ public class CharacterListPresenter extends EvanovaActivityPresenter<CharacterLi
 
     public void onCharacterSelected(final long charID) {
         final Intent intent = new Intent(getContext(), CharacterViewActivity.class);
-        intent.putExtra(CharacterView.EXTRA_CHAR_ID, charID);
+        intent.putExtra(CharacterViewActivity.EXTRA_CHAR_ID, charID);
         startActivity(intent);
     }
 }

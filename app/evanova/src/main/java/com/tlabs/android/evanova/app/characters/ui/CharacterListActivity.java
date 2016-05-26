@@ -1,4 +1,4 @@
-package com.tlabs.android.evanova.app.characters.main.ui;
+package com.tlabs.android.evanova.app.characters.ui;
 
 import android.os.Bundle;
 

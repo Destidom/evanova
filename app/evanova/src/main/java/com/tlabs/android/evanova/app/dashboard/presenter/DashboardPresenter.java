@@ -7,9 +7,8 @@ import com.tlabs.android.evanova.R;
 import com.tlabs.android.evanova.app.Application;
 import com.tlabs.android.evanova.app.EvanovaActivityPresenter;
 import com.tlabs.android.evanova.app.accounts.ui.AccountActivity;
-import com.tlabs.android.evanova.app.characters.CharacterView;
-import com.tlabs.android.evanova.app.characters.main.ui.CharacterViewActivity;
-import com.tlabs.android.evanova.app.characters.main.ui.CharacterListActivity;
+import com.tlabs.android.evanova.app.characters.ui.CharacterViewActivity;
+import com.tlabs.android.evanova.app.characters.ui.CharacterListActivity;
 import com.tlabs.android.evanova.app.corporations.ui.CorporationViewActivity;
 import com.tlabs.android.evanova.app.corporations.ui.CorporationListActivity;
 import com.tlabs.android.evanova.app.dashboard.DashboardUseCase;
@@ -66,7 +65,7 @@ public class DashboardPresenter extends EvanovaActivityPresenter<DashboardView> 
             case EveAccount.ACCOUNT:
             case EveAccount.CHARACTER:
                 intent = new Intent(getContext(), CharacterViewActivity.class);
-                intent.putExtra(CharacterView.EXTRA_CHAR_ID, account.getOwnerId());
+                intent.putExtra(CharacterViewActivity.EXTRA_CHAR_ID, account.getOwnerId());
                 break;
             case EveAccount.CORPORATION:
                 intent = new Intent(getContext(), CorporationViewActivity.class);
