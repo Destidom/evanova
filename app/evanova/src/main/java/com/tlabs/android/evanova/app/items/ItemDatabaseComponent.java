@@ -1,7 +1,7 @@
 package com.tlabs.android.evanova.app.items;
 
 import com.tlabs.android.evanova.app.ApplicationComponent;
-import com.tlabs.android.evanova.app.items.ui.ItemDatabaseActivity;
+import com.tlabs.android.evanova.app.items.main.ItemDatabaseActivity;
 
 import dagger.Component;
 

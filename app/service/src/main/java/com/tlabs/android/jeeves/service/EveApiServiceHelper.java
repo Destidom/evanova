@@ -15,8 +15,6 @@ import com.tlabs.android.jeeves.model.data.evanova.EvanovaFacade;
 import com.tlabs.android.jeeves.network.Authentication;
 import com.tlabs.android.jeeves.service.actions.AccountAction;
 import com.tlabs.android.jeeves.service.actions.CharacterCacheAction;
-import com.tlabs.android.jeeves.service.actions.CharacterCalendarAction;
-import com.tlabs.android.jeeves.service.actions.CharacterCalendarEventAction;
 import com.tlabs.android.jeeves.service.actions.CharacterColoniesAction;
 import com.tlabs.android.jeeves.service.actions.CharacterContractItemsAction;
 import com.tlabs.android.jeeves.service.actions.CharacterContractsAction;
@@ -34,8 +32,6 @@ import com.tlabs.android.jeeves.service.actions.MailBodiesAction;
 import com.tlabs.android.jeeves.service.actions.NotificationBodiesAction;
 import com.tlabs.android.jeeves.service.actions.ServerInformationAction;
 import com.tlabs.android.jeeves.service.events.BroadcastedEvent;
-import com.tlabs.android.jeeves.service.events.CharacterCalendarEndEvent;
-import com.tlabs.android.jeeves.service.events.CharacterCalendarStartEvent;
 import com.tlabs.android.jeeves.service.events.CharacterSocialEndEvent;
 import com.tlabs.android.jeeves.service.events.CharacterSocialStartEvent;
 import com.tlabs.android.jeeves.service.events.CharacterUpdateEndEvent;
@@ -178,10 +174,6 @@ final class EveApiServiceHelper {
         }
         if (event instanceof CorporationSocialStartEvent) {
             reloadCorporationSocial((CorporationSocialStartEvent) event, messenger);
-            return;
-        }
-        if (event instanceof CharacterCalendarStartEvent) {
-            reloadCharacterCalendar((CharacterCalendarStartEvent) event, messenger);
             return;
         }
         Log.w(LOG, "Unhandled event " + event.getClass());
@@ -429,26 +421,6 @@ final class EveApiServiceHelper {
                 new NotificationBodiesAction(context, startEvent.getCharID(), startEvent.getMailIds()));
         sendReply(context,
                 new NotificationMessageEndEvent(startEvent.getCharID(), startEvent.getMailIds()),
-                messenger);
-    }
-
-    private void reloadCharacterCalendar(final CharacterCalendarStartEvent startEvent, final Messenger messenger) {
-        if (startEvent.getCharID() <= 0) {
-            return;
-        }
-
-        sendReply(context, startEvent, messenger);
-
-        final CharacterCalendarAction action = new CharacterCalendarAction(context, startEvent.getCharID());
-        this.actions.executeActions(false, action);
-
-        final List<CharacterCalendarEventAction> eventActions = new ArrayList<>(action.getEvents().size());
-        for (Long event: action.getEvents()) {
-            eventActions.add(new CharacterCalendarEventAction(context, startEvent.getCharID(), event));
-        }
-        this.actions.executeActions(false, eventActions.toArray(new CharacterCalendarEventAction[eventActions.size()]));
-        sendReply(context,
-                new CharacterCalendarEndEvent(startEvent.getCharID()),
                 messenger);
     }
 

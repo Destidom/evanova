@@ -1,7 +1,7 @@
 package com.tlabs.android.evanova.app.skills;
 
 import com.tlabs.android.evanova.app.ApplicationComponent;
-import com.tlabs.android.evanova.app.skills.ui.SkillDatabaseActivity;
+import com.tlabs.android.evanova.app.skills.main.SkillDatabaseActivity;
 
 import dagger.Component;
 

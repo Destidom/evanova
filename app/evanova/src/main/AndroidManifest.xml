@@ -143,54 +143,64 @@
         </activity>
 
         <activity
-            android:name=".app.dashboard.ui.DashboardActivity"
+            android:name=".app.dashboard.main.DashboardActivity"
             android:launchMode="singleTop">
         </activity>
 
         <activity
-            android:name=".app.accounts.ui.AccountActivity"
+            android:name=".app.accounts.main.AccountActivity"
             android:configChanges="orientation|screenSize|keyboard"
             android:exported="false">
         </activity>
 
         <activity
-            android:name=".app.contracts.ui.ContractActivity"
+            android:name=".app.contracts.main.ContractActivity"
             android:configChanges="orientation|screenSize|keyboard"
             android:exported="false">
         </activity>
 
         <activity
-            android:name=".app.characters.ui.CharacterListActivity"
+            android:name=".app.market.main.MarketOrdersActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".app.characters.list.CharacterListActivity"
             android:exported="false"
             android:launchMode="singleTask">
         </activity>
 
         <activity
-            android:name=".app.characters.ui.CharacterViewActivity"
+            android:name=".app.characters.main.CharacterViewActivity"
+            android:exported="false"
+            android:launchMode="singleTask">
+        </activity>
+        <activity
+            android:name=".app.characters.calendar.CharacterCalendarActivity"
+            android:exported="false"
+            android:launchMode="singleTask">
+        </activity>
+        <activity
+            android:name=".app.corporations.list.CorporationListActivity"
             android:exported="false"
             android:launchMode="singleTask">
         </activity>
 
         <activity
-            android:name=".app.corporations.ui.CorporationListActivity"
+            android:name=".app.corporations.main.CorporationViewActivity"
             android:exported="false"
             android:launchMode="singleTask">
         </activity>
 
         <activity
-            android:name=".app.corporations.ui.CorporationViewActivity"
+            android:name=".app.mails.main.MailActivity"
             android:exported="false"
             android:launchMode="singleTask">
         </activity>
 
         <activity
-            android:name=".app.mails.ui.MailActivity"
-            android:exported="false"
-            android:launchMode="singleTask">
-        </activity>
-
-        <activity
-            android:name=".app.items.ui.ItemDatabaseActivity"
+            android:name=".app.items.main.ItemDatabaseActivity"
             android:configChanges="orientation|screenSize|keyboard"
             android:launchMode="singleTop"
             android:exported="false">
@@ -204,13 +214,13 @@
         </activity>
 
         <activity
-            android:name=".app.skills.ui.SkillDatabaseActivity"
+            android:name=".app.skills.main.SkillDatabaseActivity"
             android:configChanges="orientation|screenSize|keyboard"
             android:exported="false">
         </activity>
 
         <activity
-            android:name=".app.routes.ui.RouteActivity"
+            android:name=".app.routes.main.RouteActivity"
             android:configChanges="orientation|screenSize|keyboard"
             android:exported="false">
         </activity>

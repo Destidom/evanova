@@ -1,8 +1,6 @@
 package com.tlabs.android.evanova.app.routes;
 
 
-import com.tlabs.android.evanova.app.routes.impl.RouteUseCaseImpl;
-
 import dagger.Module;
 import dagger.Provides;
 

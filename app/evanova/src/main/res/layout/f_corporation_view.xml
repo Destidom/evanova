@@ -5,12 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <com.tlabs.android.jeeves.views.corporation.CorporationMainWidget
+        android:id="@+id/f_corporation_MainWidget"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-    </LinearLayout>
+        android:layout_height="wrap_content"/>
 
     <com.tlabs.android.evanova.ui.ButtonMenuWidget
         android:id="@+id/f_corporation_ButtonMenuWidget"

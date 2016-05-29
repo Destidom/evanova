@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewSwitcher xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/jeeves_panel_no_border"
+            app:mcv_arrowColor="@color/white"
+
+            app:mcv_dateTextAppearance="?android:attr/textAppearanceMedium"
+            app:mcv_firstDayOfWeek="monday"
+            app:mcv_headerTextAppearance="?android:attr/textAppearanceMedium"
+            app:mcv_selectionColor="@color/lightgrey"
+            app:mcv_showOtherDates="all"
+            app:mcv_tileSize="48dp"
+            app:mcv_weekDayTextAppearance="?android:attr/textAppearanceMedium" />
+    </ScrollView>
+    <com.tlabs.android.jeeves.views.character.CharacterCalendarEventListWidget
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</ViewSwitcher>

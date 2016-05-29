@@ -2,8 +2,8 @@ package com.tlabs.android.evanova.app.corporations;
 
 import com.tlabs.android.evanova.app.ApplicationComponent;
 import com.tlabs.android.evanova.app.UserComponent;
-import com.tlabs.android.evanova.app.corporations.ui.CorporationViewActivity;
-import com.tlabs.android.evanova.app.corporations.ui.CorporationListActivity;
+import com.tlabs.android.evanova.app.corporations.list.CorporationListActivity;
+import com.tlabs.android.evanova.app.corporations.main.CorporationViewFragment;
 
 import dagger.Component;
 
@@ -16,5 +16,5 @@ public interface CorporationComponent extends UserComponent{
 
     void inject(CorporationListActivity activity);
 
-    void inject(CorporationViewActivity activity);
+    void inject(CorporationViewFragment fragment);
 }

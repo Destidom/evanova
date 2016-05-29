@@ -2,8 +2,8 @@ package com.tlabs.android.evanova.app.dashboard;
 
 
 import com.tlabs.android.evanova.app.ApplicationComponent;
-import com.tlabs.android.evanova.app.dashboard.ui.DashboardActivity;
-import com.tlabs.android.evanova.app.dashboard.ui.PreferencesFragment;
+import com.tlabs.android.evanova.app.dashboard.main.DashboardActivity;
+import com.tlabs.android.evanova.app.dashboard.main.PreferencesFragment;
 
 import dagger.Component;
 

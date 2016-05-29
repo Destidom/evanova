@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dp"
+    android:background="@drawable/jeeves_panel_no_border"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/rowOutpostSolarSystem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Solar System Name"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp" />
+
+    <TextView
+        android:id="@+id/rowOutpostStation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Station Name"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:id="@+id/rowOutpostOwner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:text="Owner Name"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/rowOutpostStanding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="Standing Name"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/rowOutpostType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Station Type"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/white"
+        android:layout_marginBottom="2dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:id="@+id/rowOutpostReprocessingTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:text="Reprocessing"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/rowOutpostReprocessingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</LinearLayout>

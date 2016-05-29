@@ -1,7 +1,7 @@
 package com.tlabs.android.evanova.app.mails;
 
 import com.tlabs.android.evanova.app.ApplicationComponent;
-import com.tlabs.android.evanova.app.mails.ui.MailActivity;
+import com.tlabs.android.evanova.app.mails.main.MailActivity;
 
 import dagger.Component;
 

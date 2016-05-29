@@ -3,7 +3,7 @@ package com.tlabs.android.evanova.app.launcher.presenter;
 import android.app.Activity;
 import android.content.Intent;
 
-import com.tlabs.android.evanova.app.dashboard.ui.DashboardActivity;
+import com.tlabs.android.evanova.app.dashboard.main.DashboardActivity;
 import com.tlabs.android.evanova.app.launcher.ui.LauncherActivity;
 import com.tlabs.android.evanova.app.launcher.LauncherUseCase;
 import com.tlabs.android.evanova.app.launcher.LauncherView;

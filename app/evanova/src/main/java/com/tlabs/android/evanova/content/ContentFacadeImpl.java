@@ -26,6 +26,7 @@ import com.tlabs.eve.api.ItemAttribute;
 import com.tlabs.eve.api.MarketOrder;
 import com.tlabs.eve.api.MarketOrderResponse;
 import com.tlabs.eve.api.Skill;
+import com.tlabs.eve.api.SkillTree;
 import com.tlabs.eve.api.Standing;
 import com.tlabs.eve.api.StandingsResponse;
 import com.tlabs.eve.api.WalletJournalEntry;
@@ -159,26 +160,11 @@ public final class ContentFacadeImpl implements ContentFacade {
     }
 
     @Override
-    public List<MarketOrder> getCharacterMarketOrders(long charID) {
-        final CharacterMarketOrderRequest request = new CharacterMarketOrderRequest(Long.toString(charID));
-        final MarketOrderResponse response = cacheFacade.getCached(request);
-        if (null == response) {
-            return Collections.emptyList();
-        }
-        final List<MarketOrder> orders = new ArrayList<>();
-        orders.addAll(response.getBuyOrders());
-        orders.addAll(response.getSellOrders());
-        for (MarketOrder o: orders) {
-            o.setItemName(getItemName(o.getItemID()));
-            o.setStationName(getLocationName(o.getStationID()));
-        }
-        return orders;
-    }
-
-    @Override
-    public List<MarketOrder> getCorporationMarketOrders(long corpID) {
-        final CorporationMarketOrderRequest request = new CorporationMarketOrderRequest(Long.toString(corpID));
-        final MarketOrderResponse response = cacheFacade.getCached(request);
+    public List<MarketOrder> getMarketOrders(long ownerID) {
+        final boolean isCharacter = (null != evanovaFacade.hitCharacter(ownerID));
+        final MarketOrderResponse response = cacheFacade.getCached(isCharacter ?
+                new CharacterMarketOrderRequest(Long.toString(ownerID)) :
+                new CorporationMarketOrderRequest(Long.toString(ownerID)));
         if (null == response) {
             return Collections.emptyList();
         }
@@ -610,6 +596,11 @@ public final class ContentFacadeImpl implements ContentFacade {
     @Override
     public CertificateTree getCertificates() {
         return eveFacade.getCertificates();
+    }
+
+    @Override
+    public SkillTree getSkills() {
+        return eveFacade.getSkills();
     }
 
     @Override

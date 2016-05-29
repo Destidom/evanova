@@ -17,6 +17,7 @@ import com.tlabs.eve.api.Item;
 import com.tlabs.eve.api.ItemAttribute;
 import com.tlabs.eve.api.ItemTrait;
 import com.tlabs.eve.api.Skill;
+import com.tlabs.eve.api.SkillTree;
 import com.tlabs.eve.api.character.Certificate;
 import com.tlabs.eve.api.character.CertificateTree;
 
@@ -120,7 +121,24 @@ final class EveEntities {
         return agent;
     }
 
-    public static CertificateTree transform(final List<CertificateEntity> certificates) {
+    public static SkillTree transformSkills(final List<SkillEntity> skills) {
+        final SkillTree tree = new SkillTree();
+
+        final Map<Long, SkillTree.SkillGroup> groups = new HashMap<>();
+        for (SkillEntity e: skills) {
+            SkillTree.SkillGroup group = groups.get(e.getGroupID());
+            if (null == group) {
+                group = new SkillTree.SkillGroup();
+                group.setGroupID(e.getGroupID());
+                group.setGroupName(e.getGroupName());
+                groups.put(e.getGroupID(), group);
+            }
+            group.addSkill(transform(e));
+        }
+        return tree;
+    }
+
+    public static CertificateTree transformCertificates(final List<CertificateEntity> certificates) {
         final CertificateTree tree = new CertificateTree();
         for (CertificateEntity e: certificates) {
             tree.add(transform(e));

@@ -10,4 +10,5 @@ public class CharacterModule {
     public CharacterUseCase provideCharacterUseCase(CharacterUseCaseImpl impl) {
         return impl;
     }
+
 }

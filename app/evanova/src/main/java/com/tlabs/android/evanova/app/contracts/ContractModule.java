@@ -1,7 +1,5 @@
 package com.tlabs.android.evanova.app.contracts;
 
-import com.tlabs.android.evanova.app.contracts.impl.ContractUseCaseImpl;
-
 import dagger.Module;
 import dagger.Provides;
 

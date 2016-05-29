@@ -6,6 +6,7 @@ import com.tlabs.android.evanova.content.ContentFacade;
 import com.tlabs.android.jeeves.model.EveAccount;
 import com.tlabs.android.jeeves.model.EveCharacter;
 import com.tlabs.android.jeeves.network.EveCrest;
+import com.tlabs.eve.api.character.CharacterCalendar;
 
 import org.devfleet.crest.model.CrestItem;
 import org.devfleet.crest.model.CrestLocation;
@@ -68,6 +69,11 @@ public class CharacterUseCaseImpl implements CharacterUseCase {
         }
 
         return observable(account, character).subscribe(observer);
+    }
+
+    @Override
+    public CharacterCalendar loadCalendar(final long ownerId) {
+        return this.content.getCharacterCalendar(ownerId);
     }
 
     private Observable<EveCharacter> observable(final EveAccount account, final EveCharacter character) {

@@ -1,9 +1,23 @@
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.neenbedankt.android-apt'
 
 configurations {
     provided
     compile.extendsFrom provided
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.0'
+        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+    }
 }
 
 android {
@@ -87,9 +101,9 @@ dependencies {
         exclude module: 'org.sl4j'
     }
 
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.0.1'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.0'
-    annotationProcessor "org.parceler:parceler:1.1.5"
+    apt 'com.jakewharton:butterknife-compiler:8.0.1'
+    apt 'com.google.dagger:dagger-compiler:2.0'
+    apt "org.parceler:parceler:1.1.5"
 
     compile 'com.jakewharton:butterknife:8.0.1'
     compile 'org.parceler:parceler-api:1.1.5'

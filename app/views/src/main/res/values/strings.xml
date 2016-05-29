@@ -38,9 +38,24 @@
     <string name="jeeves_characters_planning_one">1 skill planned until %1$s</string>
     <string name="jeeves_characters_planning_many">%1$d skills planned until %2$s</string>
 
-
     <string name="jeeves_characters_ship">%1$s (%2$s)</string>
     <string name="jeeves_characters_skill">%1$s %2$d</string>
+
+    <string name="jeeves_corporation_no_office">No known corporation office.</string>
+    <string name="jeeves_corporation_members_one">1 member.</string>
+    <string name="jeeves_corporation_members_many">%1$d members.</string>
+    <string name="jeeves_corporation_tax_rate">%1$.1f %%</string>
+    <string name="jeeves_corporation_shares">%1$d</string>
+    <string name="jeeves_corporation_balance_unknown">Unknown</string>
+    <string name="jeeves_corporation_balance">%1$s</string>
+
+    <string name="jeeves_corporation_starbase_status_anchored">Anchored</string>
+    <string name="jeeves_corporation_starbase_status_anchoring">Anchoring</string>
+    <string name="jeeves_corporation_starbase_status_online">Online</string>
+    <string name="jeeves_corporation_starbase_status_offline">Offline</string>
+    <string name="jeeves_corporation_starbase_status_onlining">Onlining</string>
+    <string name="jeeves_corporation_starbase_status_reinforced">Reinforced</string>
+    <string name="jeeves_corporation_starbase_status_unanchored">Unanchored</string>
 
     <string name="jeeves_contract_title_untitled">Untitled contract</string>
     <string name="jeeves_contract_page_all">All</string>

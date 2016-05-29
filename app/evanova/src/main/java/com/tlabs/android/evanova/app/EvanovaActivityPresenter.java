@@ -1,6 +1,7 @@
 package com.tlabs.android.evanova.app;
 
 import android.content.Context;
+import android.content.Intent;
 
 import com.tlabs.android.evanova.mvp.ActivityPresenter;
 import com.tlabs.android.evanova.mvp.ActivityView;
@@ -13,6 +14,8 @@ import com.tlabs.android.jeeves.views.EveImages;
 import com.tlabs.android.util.Environment;
 
 public class EvanovaActivityPresenter<T extends ActivityView> extends ActivityPresenter<T> {
+
+    public static final String EXTRA_OWNER_ID = "evanova.ownerID";
 
     private final UserPreferences userPreferences;
     private final SavedPreferences savedPreferences;
@@ -98,5 +101,9 @@ public class EvanovaActivityPresenter<T extends ActivityView> extends ActivityPr
 
     protected final boolean isNetworkAvailable() {
         return Environment.isNetworkAvailable(getContext(), apiPreferences().getCachingSpareNetwork());
+    }
+
+    protected static final long ownerOf(final Intent intent) {
+        return (null == intent) ? -1l : intent.getLongExtra(EXTRA_OWNER_ID, -1l);
     }
 }

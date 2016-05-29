@@ -244,6 +244,16 @@ public final class EveDatabase {
         }
     }
 
+    public List<SkillEntity> getSkills() {
+        try {
+            return skillDAO.queryForAll();
+        }
+        catch (SQLException e) {
+            LOG.error(e.getLocalizedMessage(), e);
+            return Collections.emptyList();
+        }
+    }
+
     public List<LocationEntity> getRegions() {
         try {
             return locationDAO.queryBuilder().

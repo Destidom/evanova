@@ -1,7 +1,5 @@
 package com.tlabs.android.evanova.app.corporations;
 
-import com.tlabs.android.evanova.app.corporations.impl.CorporationUseCaseImpl;
-
 import dagger.Module;
 import dagger.Provides;
 

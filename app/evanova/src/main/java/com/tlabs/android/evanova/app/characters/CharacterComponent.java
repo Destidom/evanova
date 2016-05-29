@@ -1,9 +1,9 @@
 package com.tlabs.android.evanova.app.characters;
 
 import com.tlabs.android.evanova.app.ApplicationComponent;
-import com.tlabs.android.evanova.app.characters.ui.CharacterListActivity;
-import com.tlabs.android.evanova.app.characters.ui.CharacterViewActivity;
-import com.tlabs.android.evanova.app.characters.ui.CharacterViewFragment;
+import com.tlabs.android.evanova.app.characters.calendar.CharacterCalendarActivity;
+import com.tlabs.android.evanova.app.characters.list.CharacterListActivity;
+import com.tlabs.android.evanova.app.characters.main.CharacterViewActivity;
 import com.tlabs.android.evanova.app.mails.MailModule;
 import com.tlabs.android.evanova.app.skills.SkillDatabaseModule;
 
@@ -22,7 +22,8 @@ public interface CharacterComponent {
 
     void inject(CharacterViewActivity activity);
 
-    void inject(CharacterViewFragment fragment);
+    void inject(CharacterCalendarActivity activity);
+
 
 
 }

@@ -9,9 +9,6 @@ import com.tlabs.android.jeeves.views.ui.list.SingleListGroupDisplayAdapter;
 import com.tlabs.eve.api.Skill;
 import com.tlabs.eve.api.SkillTree;
 
-import java.util.List;
-import java.util.Map;
-
 public class SkillListWidget extends ExpandableListView {
     public interface Listener {
 
@@ -36,12 +33,12 @@ public class SkillListWidget extends ExpandableListView {
         init();
     }
 
-    public void setSkills(final Map<SkillTree.SkillGroup, List<Skill>> skills) {
-        setAdapter(new SkillListAdapter(skills));
+    public void setSkills(final SkillTree tree) {
+        setAdapter(new SkillTreeAdapter(tree));
     }
 
     public void setCharacter(final EveCharacter character) {
-        final SkillListAdapter adapter = (SkillListAdapter)getExpandableListAdapter();
+        final SkillTreeAdapter adapter = (SkillTreeAdapter)getExpandableListAdapter();
         if (null != adapter) {
             adapter.setCharacter(character);
         }

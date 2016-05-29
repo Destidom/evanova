@@ -7,6 +7,7 @@ import com.tlabs.eve.api.Blueprint;
 import com.tlabs.eve.api.Item;
 import com.tlabs.eve.api.ItemAttribute;
 import com.tlabs.eve.api.Skill;
+import com.tlabs.eve.api.SkillTree;
 import com.tlabs.eve.api.character.CertificateTree;
 
 import java.util.List;
@@ -44,6 +45,8 @@ public interface EveFacade {
     Agent getAgent(final long agentID);
 
     CertificateTree getCertificates();
+
+    SkillTree getSkills();
 
     Map<Long, String> getSkillGroups();
 

@@ -1,8 +1,5 @@
 package com.tlabs.android.evanova.app.mails;
 
-import com.tlabs.android.evanova.app.mails.impl.EveMailUseCaseImpl;
-import com.tlabs.android.evanova.app.mails.impl.KillMailUseCaseImpl;
-
 import dagger.Module;
 import dagger.Provides;
 

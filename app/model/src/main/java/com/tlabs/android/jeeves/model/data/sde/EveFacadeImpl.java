@@ -5,7 +5,6 @@ import com.tlabs.android.jeeves.model.data.sde.entities.AgentEntity;
 import com.tlabs.android.jeeves.model.data.sde.entities.AttributeEntity;
 import com.tlabs.android.jeeves.model.data.sde.entities.BlueprintEntity;
 import com.tlabs.android.jeeves.model.data.sde.entities.CategoryEntity;
-import com.tlabs.android.jeeves.model.data.sde.entities.CertificateEntity;
 import com.tlabs.android.jeeves.model.data.sde.entities.GroupEntity;
 import com.tlabs.android.jeeves.model.data.sde.entities.InventoryFlagEntity;
 import com.tlabs.android.jeeves.model.data.sde.entities.ItemEntity;
@@ -19,6 +18,7 @@ import com.tlabs.eve.api.Blueprint;
 import com.tlabs.eve.api.Item;
 import com.tlabs.eve.api.ItemAttribute;
 import com.tlabs.eve.api.Skill;
+import com.tlabs.eve.api.SkillTree;
 import com.tlabs.eve.api.character.CertificateTree;
 
 import java.util.ArrayList;
@@ -163,8 +163,12 @@ public class EveFacadeImpl implements EveFacade {
 
     @Override
     public CertificateTree getCertificates() {
-        final List<CertificateEntity> certificates = sde.getCertificates();
-        return EveEntities.transform(certificates);
+        return EveEntities.transformCertificates(sde.getCertificates());
+    }
+
+    @Override
+    public SkillTree getSkills() {
+        return EveEntities.transformSkills(sde.getSkills());
     }
 
     @Override

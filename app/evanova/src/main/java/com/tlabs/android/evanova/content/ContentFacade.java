@@ -16,6 +16,7 @@ import com.tlabs.eve.api.Item;
 import com.tlabs.eve.api.ItemAttribute;
 import com.tlabs.eve.api.MarketOrder;
 import com.tlabs.eve.api.Skill;
+import com.tlabs.eve.api.SkillTree;
 import com.tlabs.eve.api.Standing;
 import com.tlabs.eve.api.WalletJournalEntry;
 import com.tlabs.eve.api.WalletTransaction;
@@ -59,7 +60,6 @@ public interface ContentFacade /*extends EveFacade, MailFacade, EvanovaFacade*/ 
 
     List<SkillInTraining> getTrainingQueue(final long charID);
 
-    List<MarketOrder> getCharacterMarketOrders(final long charID);
 
     List<IndustryJob> getCharacterIndustryJobs(final long charID);
 
@@ -71,7 +71,7 @@ public interface ContentFacade /*extends EveFacade, MailFacade, EvanovaFacade*/ 
 
     EveCorporation getCorporation(final long corpID);
 
-    List<MarketOrder> getCorporationMarketOrders(final long corpID);
+    List<MarketOrder> getMarketOrders(final long ownerID);
 
     List<Outpost> getCorporationOutposts(final long corpID);
 
@@ -152,6 +152,8 @@ public interface ContentFacade /*extends EveFacade, MailFacade, EvanovaFacade*/ 
     Map<Long, String> getSkillGroups();
 
     CertificateTree getCertificates();
+
+    SkillTree getSkills();
 
     List<EveRSSEntry> getEveNews();
 

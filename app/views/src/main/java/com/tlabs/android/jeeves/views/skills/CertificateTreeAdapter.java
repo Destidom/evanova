@@ -17,7 +17,6 @@ import com.tlabs.eve.api.character.CertificateTree;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -168,19 +167,19 @@ final class CertificateTreeAdapter extends BaseExpandableListAdapter {
     }
     
     private final CertificateTree tree;
-    private final Map<Long, String> skillGroupLabels;
+  //  private final Map<Long, String> skillGroupLabels;
     
-    private final List<Long> skillGroups;
+//    private final List<Long> skillGroups;
     
     private final Map<Certificate, Level> characterCertificates;
     private final Map<Long, Level> characterGroupCertificates;
     
-    public CertificateTreeAdapter(final CertificateTree tree, final Map<Long, String> skillGroups) {
+    public CertificateTreeAdapter(final CertificateTree tree) {
         super();
         this.tree = tree;
-        this.skillGroups = new ArrayList<>();
-        this.skillGroups.addAll(skillGroups.keySet());
-        this.skillGroupLabels = skillGroups;
+     //   this.skillGroups = new ArrayList<>();
+       // this.skillGroups.addAll(skillGroups.keySet());
+     //   this.skillGroupLabels = skillGroups;
         this.characterCertificates = new HashMap<>();
         this.characterGroupCertificates = new HashMap<>();
     }
@@ -228,7 +227,7 @@ final class CertificateTreeAdapter extends BaseExpandableListAdapter {
         if (null == view) {
             view = TreeGroupHolder.create(parent.getContext());
         }
-        final Long groupId = getGroupId(groupPosition);
+       /* final Long groupId = getGroupId(groupPosition);
         String name = this.skillGroupLabels.get(groupId);
         name = (StringUtils.isBlank(name) ? "" + groupId : name.trim());
         if (this.characterGroupCertificates.isEmpty()) {
@@ -236,7 +235,7 @@ final class CertificateTreeAdapter extends BaseExpandableListAdapter {
         }
         else {
             TreeGroupHolder.render(view, name, this.characterGroupCertificates.get(groupId));
-        }        
+        }        */
         return view;
     }
 
@@ -274,12 +273,14 @@ final class CertificateTreeAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getGroupCount() {
-        return this.skillGroups.size();
+        //return this.skillGroups.size();
+        return 0;
     }
 
     @Override
     public long getGroupId(int groupPosition) {        
-        return this.skillGroups.get(groupPosition);
+        //return this.skillGroups.get(groupPosition);
+        return 0;
     }
 
     @Override

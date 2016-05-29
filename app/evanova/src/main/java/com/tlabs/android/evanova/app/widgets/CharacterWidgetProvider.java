@@ -12,8 +12,8 @@ import android.widget.RemoteViews;
 import com.tlabs.android.evanova.R.id;
 import com.tlabs.android.evanova.R.layout;
 import com.tlabs.android.evanova.R.string;
-import com.tlabs.android.evanova.app.characters.CharacterView;
-import com.tlabs.android.evanova.app.characters.ui.CharacterViewActivity;
+import com.tlabs.android.evanova.app.characters.main.CharacterPresenter;
+import com.tlabs.android.evanova.app.characters.main.CharacterViewActivity;
 import com.tlabs.android.jeeves.data.EvanovaDatabaseOpenHelper;
 import com.tlabs.android.jeeves.data.EveDatabaseOpenHelper;
 import com.tlabs.android.jeeves.model.EveCharacter;
@@ -50,8 +50,8 @@ public class CharacterWidgetProvider extends AppWidgetProvider {
             return;
         }
 
-        Intent intent = new Intent(context, CharacterView.class);
-        intent.putExtra(CharacterViewActivity.EXTRA_CHAR_ID, charId);
+        Intent intent = new Intent(context, CharacterViewActivity.class);
+        intent.putExtra(CharacterPresenter.EXTRA_OWNER_ID, charId);
 
          // needed to clear the back stack and make sure we get back to the screen
          //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);  

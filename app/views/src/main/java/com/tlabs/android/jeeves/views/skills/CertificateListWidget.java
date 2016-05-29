@@ -9,8 +9,6 @@ import com.tlabs.android.jeeves.views.ui.list.SingleListGroupDisplayAdapter;
 import com.tlabs.eve.api.character.Certificate;
 import com.tlabs.eve.api.character.CertificateTree;
 
-import java.util.Map;
-
 public class CertificateListWidget extends ExpandableListView {
     public interface Listener {
 
@@ -35,8 +33,12 @@ public class CertificateListWidget extends ExpandableListView {
         init();
     }
 
-    public final void setCertificates(final CertificateTree tree, final Map<Long, String> skillGroups) {
-        final CertificateTreeAdapter adapter = new CertificateTreeAdapter(tree, skillGroups);
+    public void setListener(Listener listener) {
+        this.listener = listener;
+    }
+
+    public final void setCertificates(final CertificateTree tree) {
+        final CertificateTreeAdapter adapter = new CertificateTreeAdapter(tree);
         setAdapter(adapter);
     }
 

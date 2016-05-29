@@ -1,16 +1,15 @@
 package com.tlabs.android.evanova.app.contracts;
 
 
-import com.tlabs.android.evanova.app.UserComponent;
-import com.tlabs.android.evanova.app.UserScope;
-import com.tlabs.android.evanova.app.contracts.ui.ContractActivity;
+import com.tlabs.android.evanova.app.ApplicationComponent;
+import com.tlabs.android.evanova.app.contracts.main.ContractActivity;
 
-import dagger.Subcomponent;
+import dagger.Component;
 
-@UserScope
-@Subcomponent(
+@Component(
+        dependencies = {ApplicationComponent.class},
         modules = {ContractModule.class})
-public interface ContractComponent extends UserComponent {
+public interface ContractComponent {
 
     void inject(ContractActivity activity);
 }

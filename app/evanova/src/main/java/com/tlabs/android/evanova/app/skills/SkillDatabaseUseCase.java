@@ -1,14 +1,14 @@
 package com.tlabs.android.evanova.app.skills;
 
-import com.tlabs.eve.api.Skill;
+import com.tlabs.android.jeeves.model.EveCharacter;
 import com.tlabs.eve.api.SkillTree;
-
-import java.util.List;
-import java.util.Map;
+import com.tlabs.eve.api.character.CertificateTree;
 
 public interface SkillDatabaseUseCase {
 
-    Map<Long, String> getSkillGroups();
+    CertificateTree getCertificateTree();
 
-    Map<SkillTree.SkillGroup, List<Skill>> getSkillTree();
+    SkillTree getSkillTree();
+
+    EveCharacter loadCharacter(final long charID);
 }
