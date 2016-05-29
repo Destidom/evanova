@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.v4.util.ArrayMap;
 
 import com.tlabs.android.jeeves.views.EveFormat;
-import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.mail.MailMessage;
 import com.tlabs.eve.api.mail.NotificationMessage;
 

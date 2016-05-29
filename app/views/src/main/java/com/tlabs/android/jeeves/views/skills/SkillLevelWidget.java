@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.tlabs.android.jeeves.views.R;
 import com.tlabs.android.jeeves.views.Strings;
 import com.tlabs.android.jeeves.views.ui.animation.BlinkAnimation;
 

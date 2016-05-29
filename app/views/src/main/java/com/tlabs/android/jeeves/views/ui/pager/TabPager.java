@@ -7,7 +7,6 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
 import com.astuetz.PagerSlidingTabStrip;
-import com.tlabs.android.jeeves.views.R;
 
 public class TabPager extends FrameLayout {
 

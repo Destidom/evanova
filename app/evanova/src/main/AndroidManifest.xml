@@ -166,6 +166,12 @@
         </activity>
 
         <activity
+            android:name=".app.wallet.main.WalletActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:exported="false">
+        </activity>
+
+        <activity
             android:name=".app.characters.list.CharacterListActivity"
             android:exported="false"
             android:launchMode="singleTask">

@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.tlabs.android.jeeves.model.EveAccount;
 import com.tlabs.android.jeeves.views.EveFormat;
-import com.tlabs.android.jeeves.views.R;
 
 final class AccountInfoAdapter extends BaseExpandableListAdapter {
 

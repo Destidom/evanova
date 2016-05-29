@@ -1,39 +1,49 @@
 package com.tlabs.android.jeeves.views.wallet;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.tlabs.android.jeeves.views.EveFormat;
 import com.tlabs.android.jeeves.views.ui.list.AbstractListRecyclerView;
-import com.tlabs.android.jeeves.views.R;
+import com.tlabs.android.jeeves.views.ui.list.AbstractListRowHolder;
 import com.tlabs.android.jeeves.views.ui.list.ListRecyclerViewAdapter;
 import com.tlabs.eve.api.WalletJournalEntry;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class WalletJournalWidget extends AbstractListRecyclerView<WalletJournalEntry> {
 
-    private static final class JournalEntryHolder extends ListRecyclerViewAdapter.ViewHolder {
+    private static final class JournalEntryHolder extends AbstractListRowHolder<WalletJournalEntry> {
 
-       // @BindView(id.walletJournalAmount)
-        TextView amountView;
-     //   @BindView(id.walletJournalBalance) TextView balanceView;
-     //   @BindView(id.walletJournalOwner1) TextView owner1View;
-     //   @BindView(id.walletJournalOwner2) TextView owner2View;
-    //    @BindView(id.walletJournalReason) TextView reasonView;
-    //    @BindView(id.walletJournalType) TextView typeView;
-    //    @BindView(id.walletJournalWhen) TextView whenView;
+        private final TextView amountView;
+        private final TextView balanceView;
+        private final TextView owner1View;
+        private final TextView owner2View;
+        private final TextView reasonView;
+        private final TextView typeView;
+        private final TextView whenView;
 
         public JournalEntryHolder(View view) {
             super(view);
-    //        ButterKnife.bind(this, view);
+            this.amountView = findView(R.id.j_walletJournalAmount);
+            this.balanceView = findView(R.id.j_walletJournalBalance);
+            this.owner1View = findView(R.id.j_walletJournalOwner1);
+            this.owner2View = findView(R.id.j_walletJournalOwner2);
+            this.reasonView = findView(R.id.j_walletJournalReason);
+            this.typeView = findView(R.id.j_walletJournalType);
+            this.whenView = findView(R.id.j_walletJournalWhen);
         }
 
-        public void bind(WalletJournalEntry e) {
-          /*  whenView.setText(FormatHelper.DateTime.LONG(e.getWhen(), false));
-            amountView.setText(FormatHelper.Currency.LONG(e.getAmount()));
-            balanceView.setText(FormatHelper.Currency.LONG(e.getBalance()));
+        @Override
+        public void render(WalletJournalEntry e) {
+            whenView.setText(EveFormat.DateTime.LONG(e.getWhen(), false));
+            amountView.setText(EveFormat.Currency.LONG(e.getAmount()));
+            balanceView.setText(EveFormat.Currency.LONG(e.getBalance()));
             owner1View.setText(e.getOwnerName1());
             owner2View.setText(e.getOwnerName2());
             typeView.setText(e.getRefTypeName());
@@ -50,7 +60,7 @@ public class WalletJournalWidget extends AbstractListRecyclerView<WalletJournalE
             }
             else {
                 amountView.setTextColor(Color.GREEN);
-            }*/
+            }
         }
     }
 

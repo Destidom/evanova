@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.tlabs.android.jeeves.model.EveCharacter;
 import com.tlabs.android.jeeves.model.EveTraining;
 import com.tlabs.android.jeeves.views.EveFormat;
-import com.tlabs.android.jeeves.views.R;
 import com.tlabs.android.jeeves.views.skills.SkillLevelWidget;
 import com.tlabs.android.jeeves.views.ui.list.AbstractListRecyclerView;
 import com.tlabs.android.jeeves.views.ui.list.AbstractListRowHolder;

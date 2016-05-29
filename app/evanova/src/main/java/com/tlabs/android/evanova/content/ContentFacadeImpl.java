@@ -120,6 +120,16 @@ public final class ContentFacadeImpl implements ContentFacade {
     }
 
     @Override
+    public String hitCharacter(long ownerID) {
+        return this.evanovaFacade.hitCharacter(ownerID);
+    }
+
+    @Override
+    public String hitCorporation(long ownerID) {
+        return this.evanovaFacade.hitCorporation(ownerID);
+    }
+
+    @Override
     public EveAccount getAccount(long accountId) {
         return this.evanovaFacade.getAccount(accountId);
     }

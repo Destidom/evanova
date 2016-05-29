@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tlabs.android.jeeves.model.EveCharacter;
-import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.character.Certificate;
 import com.tlabs.eve.api.character.Certificate.Level;
 import com.tlabs.eve.api.character.CertificateTree;

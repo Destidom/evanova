@@ -32,11 +32,8 @@ public class CharacterCalendarActivity extends BaseActivity implements Character
                 .inject(this);
 
         this.wCalendar = new CharacterCalendarWidget(this);
-        this.wCalendar.setListener(new CharacterCalendarWidget.Listener() {
-            @Override
-            public void onEventsSelected(List<CharacterCalendar.Entry> entries) {
+        this.wCalendar.setListener(entries -> {
 
-            }
         });
         setView(this.wCalendar);
     }

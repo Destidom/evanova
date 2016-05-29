@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 
 
 import com.tlabs.android.jeeves.views.EveFormat;
-import com.tlabs.android.jeeves.views.R;
 import com.tlabs.android.jeeves.views.routes.RouteDisplayGridAdapter.RouteHolder;
 
 import org.devfleet.dotlan.DotlanJump;

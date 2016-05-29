@@ -8,6 +8,7 @@ import com.tlabs.android.evanova.app.EvanovaActivityPresenter;
 import com.tlabs.android.evanova.app.contracts.main.ContractActivity;
 import com.tlabs.android.evanova.app.corporations.CorporationUseCase;
 import com.tlabs.android.evanova.app.market.main.MarketOrdersActivity;
+import com.tlabs.android.evanova.app.wallet.main.WalletActivity;
 import com.tlabs.android.jeeves.model.EveCorporation;
 import com.tlabs.android.jeeves.views.EveImages;
 
@@ -67,6 +68,12 @@ public class CorporationPresenter extends EvanovaActivityPresenter<CorporationVi
             }
             case R.id.menuContractsButton: {
                 final Intent intent = new Intent(getContext(), ContractActivity.class);
+                intent.putExtra(EXTRA_OWNER_ID, this.corporation.getID());
+                startActivity(intent);
+                break;
+            }
+            case R.id.menuWalletButton: {
+                final Intent intent = new Intent(getContext(), WalletActivity.class);
                 intent.putExtra(EXTRA_OWNER_ID, this.corporation.getID());
                 startActivity(intent);
                 break;

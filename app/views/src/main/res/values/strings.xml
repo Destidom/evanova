@@ -157,4 +157,7 @@
     <string name="jeeves_route_select_conservation_skill">Fuel Conservation</string>
 
 
+    <string name="jeeves_wallet_transaction_qty">%1$d unit(s).</string>
+    <string name="jeeves_wallet_transaction_seller">Seller</string>
+    <string name="jeeves_wallet_transaction_buyer">Buyer</string>
 </resources>

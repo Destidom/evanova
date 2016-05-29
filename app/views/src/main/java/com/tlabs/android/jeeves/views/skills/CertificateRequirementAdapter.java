@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tlabs.android.jeeves.views.EveImages;
-import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.Item;
 
 import java.util.ArrayList;

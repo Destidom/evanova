@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.ConnectionSource;
 import com.tlabs.android.jeeves.model.data.sde.EveDatabase;
-import com.tlabs.android.jeeves.service.R;
 import com.tlabs.eve.dogma.FittingProvider;
 import com.tlabs.eve.dogma.ormlite.OrmLiteFittingProvider;
 

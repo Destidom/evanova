@@ -18,7 +18,6 @@ import android.widget.TextView;
 import com.tlabs.android.jeeves.model.EveCharacter;
 import com.tlabs.android.jeeves.views.EveFormat;
 import com.tlabs.android.jeeves.views.EveImages;
-import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.character.CharacterInfo;
 
 import org.apache.commons.lang3.StringUtils;

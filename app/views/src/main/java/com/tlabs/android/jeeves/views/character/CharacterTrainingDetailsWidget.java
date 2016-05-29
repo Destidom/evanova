@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.tlabs.android.jeeves.model.EveCharacter;
 import com.tlabs.android.jeeves.model.EveTraining;
 import com.tlabs.android.jeeves.views.EveFormat;
-import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.character.SkillInTraining;
 
 public class CharacterTrainingDetailsWidget extends FrameLayout implements CharacterWidget {

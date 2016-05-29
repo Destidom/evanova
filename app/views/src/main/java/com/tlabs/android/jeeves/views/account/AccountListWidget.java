@@ -15,7 +15,6 @@ import com.tlabs.android.jeeves.views.EveFormat;
 import com.tlabs.android.jeeves.views.Strings;
 import com.tlabs.android.jeeves.views.ui.list.AbstractListRecyclerView;
 import com.tlabs.android.jeeves.views.ui.list.AbstractListRowHolder;
-import com.tlabs.android.jeeves.views.R;
 
 import org.apache.commons.lang3.StringUtils;
 

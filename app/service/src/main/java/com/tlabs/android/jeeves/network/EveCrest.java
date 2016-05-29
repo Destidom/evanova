@@ -3,7 +3,6 @@ package com.tlabs.android.jeeves.network;
 import android.content.Context;
 
 import com.tlabs.android.jeeves.model.EveAccount;
-import com.tlabs.android.jeeves.service.R;
 
 import org.apache.commons.lang3.StringUtils;
 import org.devfleet.crest.CrestAccess;

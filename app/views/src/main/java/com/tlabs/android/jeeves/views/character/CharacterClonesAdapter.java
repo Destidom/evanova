@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tlabs.android.jeeves.views.EveImages;
-import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.character.CharacterSheet.Implant;
 import com.tlabs.eve.api.character.CharacterSheet.JumpClone;
 

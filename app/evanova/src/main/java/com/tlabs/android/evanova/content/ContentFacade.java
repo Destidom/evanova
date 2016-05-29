@@ -174,4 +174,7 @@ public interface ContentFacade /*extends EveFacade, MailFacade, EvanovaFacade*/ 
     void saveTraining(final EveTraining training);
 
 
+    String hitCharacter(final long ownerID);
+
+    String hitCorporation(final long ownerID);
 }

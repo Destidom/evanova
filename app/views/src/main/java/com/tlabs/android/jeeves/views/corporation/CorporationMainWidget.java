@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.tlabs.android.jeeves.model.EveCorporation;
 import com.tlabs.android.jeeves.views.EveFormat;
 import com.tlabs.android.jeeves.views.EveImages;
-import com.tlabs.android.jeeves.views.R;
 
 import org.apache.commons.lang3.StringUtils;
 

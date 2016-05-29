@@ -10,7 +10,6 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
 import com.tlabs.android.jeeves.model.EveAccount;
-import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.EveAPI;
 
 import java.util.ArrayList;

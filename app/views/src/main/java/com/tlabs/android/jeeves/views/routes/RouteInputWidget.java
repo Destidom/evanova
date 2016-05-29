@@ -9,7 +9,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.tlabs.android.jeeves.views.R;
 import com.tlabs.android.jeeves.views.ui.AutoCompleteAdapter;
 
 import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;

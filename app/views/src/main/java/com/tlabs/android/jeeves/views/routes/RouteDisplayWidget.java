@@ -7,8 +7,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.tlabs.android.jeeves.views.R;
-
 import org.devfleet.dotlan.DotlanRoute;
 
 public class RouteDisplayWidget extends FrameLayout {

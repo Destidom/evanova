@@ -11,6 +11,7 @@ import com.tlabs.android.evanova.app.contracts.main.ContractActivity;
 import com.tlabs.android.evanova.app.mails.main.MailActivity;
 import com.tlabs.android.evanova.app.market.main.MarketOrdersActivity;
 import com.tlabs.android.evanova.app.skills.main.SkillDatabaseActivity;
+import com.tlabs.android.evanova.app.wallet.main.WalletActivity;
 import com.tlabs.android.jeeves.model.EveCharacter;
 import com.tlabs.android.jeeves.views.EveImages;
 
@@ -98,9 +99,12 @@ public class CharacterPresenter extends EvanovaActivityPresenter<CharacterMainVi
             case R.id.menuAssetsButton:
 
                 break;
-            case R.id.menuWalletButton:
-
+            case R.id.menuWalletButton: {
+                final Intent intent = new Intent(getContext(), WalletActivity.class);
+                intent.putExtra(EXTRA_OWNER_ID, this.character.getID());
+                startActivity(intent);
                 break;
+            }
             case R.id.menuMarketButton: {
                 final Intent intent = new Intent(getContext(), MarketOrdersActivity.class);
                 intent.putExtra(EXTRA_OWNER_ID, this.character.getID());
