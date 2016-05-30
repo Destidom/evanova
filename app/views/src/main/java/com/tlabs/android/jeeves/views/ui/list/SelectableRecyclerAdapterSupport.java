@@ -1,9 +1,11 @@
 package com.tlabs.android.jeeves.views.ui.list;
 
-import android.support.v4.util.ArrayMap;
 import android.support.v7.widget.RecyclerView;
 
+import com.tlabs.android.jeeves.views.R;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -17,7 +19,7 @@ class SelectableRecyclerAdapterSupport {
 
     public SelectableRecyclerAdapterSupport() {
         this.selected = new ArrayList<>();
-        this.updating = new ArrayMap<>();
+        this.updating = new HashMap<>();
     }
 
     public boolean getSelected(final Object child) {

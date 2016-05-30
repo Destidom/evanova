@@ -7,6 +7,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.ItemAttribute;
 import com.tlabs.eve.dogma.extra.format.AttributeFormat;
 

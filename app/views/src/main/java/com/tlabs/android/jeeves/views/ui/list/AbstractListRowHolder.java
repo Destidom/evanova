@@ -5,6 +5,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.tlabs.android.jeeves.views.R;
+
 public abstract class AbstractListRowHolder<T> extends ListRecyclerViewAdapter.ViewHolder<T>{
 
     protected final TextView text1;

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.tlabs.android.jeeves.views.R;
 import com.tlabs.android.jeeves.views.ui.list.ItemTouchCallbackAdapter;
 import com.tlabs.android.jeeves.views.ui.list.ListRecyclerViewAdapter;
 

@@ -10,6 +10,7 @@ import com.bignerdranch.expandablerecyclerview.Model.ParentListItem;
 import com.bignerdranch.expandablerecyclerview.ViewHolder.ChildViewHolder;
 import com.bignerdranch.expandablerecyclerview.ViewHolder.ParentViewHolder;
 import com.tlabs.android.jeeves.views.EveImages;
+import com.tlabs.android.jeeves.views.R;
 import com.tlabs.android.jeeves.views.ui.list.SelectableExpandableRecyclerAdapter;
 import com.tlabs.eve.api.ItemAttribute;
 import com.tlabs.eve.dogma.Fitter;

@@ -12,6 +12,7 @@ import com.tlabs.android.jeeves.model.EveAccount;
 
 import com.tlabs.android.jeeves.views.EveImages;
 import com.tlabs.android.jeeves.views.EveFormat;
+import com.tlabs.android.jeeves.views.R;
 import com.tlabs.android.jeeves.views.Strings;
 import com.tlabs.android.jeeves.views.ui.list.AbstractListRecyclerView;
 import com.tlabs.android.jeeves.views.ui.list.AbstractListRowHolder;

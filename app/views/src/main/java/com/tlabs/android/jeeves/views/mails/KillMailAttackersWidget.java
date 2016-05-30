@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.tlabs.android.jeeves.views.EveImages;
 import com.tlabs.android.jeeves.views.EveFormat;
+import com.tlabs.android.jeeves.views.R;
 import com.tlabs.android.jeeves.views.ui.list.AbstractListRecyclerView;
 import com.tlabs.android.jeeves.views.ui.list.AbstractListRowHolder;
 import com.tlabs.android.jeeves.views.ui.list.ListRecyclerViewAdapter;

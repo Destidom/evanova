@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.tlabs.android.jeeves.views.EveImages;
 import com.tlabs.android.jeeves.views.EveFormat;
+import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.mail.KillMailVictim;
 import com.tlabs.eve.zkb.ZKillMail;
 

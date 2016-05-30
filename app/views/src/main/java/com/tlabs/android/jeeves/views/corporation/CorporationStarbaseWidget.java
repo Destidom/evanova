@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.tlabs.android.jeeves.views.EveFormat;
+import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.corporation.Starbase;
 
 import java.util.ArrayList;

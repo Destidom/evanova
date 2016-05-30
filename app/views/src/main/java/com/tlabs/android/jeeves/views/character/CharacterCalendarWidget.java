@@ -11,6 +11,7 @@ import com.prolificinteractive.materialcalendarview.DayViewDecorator;
 import com.prolificinteractive.materialcalendarview.DayViewFacade;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.spans.DotSpan;
+import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.character.CharacterCalendar;
 
 import java.util.ArrayList;

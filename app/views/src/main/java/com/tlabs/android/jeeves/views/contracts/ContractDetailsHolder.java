@@ -7,6 +7,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.tlabs.android.jeeves.views.EveFormat;
+import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.Contract;
 
 import org.apache.commons.lang3.StringUtils;

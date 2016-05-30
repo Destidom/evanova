@@ -10,6 +10,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
 import com.tlabs.android.jeeves.model.EveCharacter;
+import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.EveAPI;
 import com.tlabs.eve.api.Skill;
 import com.tlabs.eve.api.SkillTree;

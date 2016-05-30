@@ -2,7 +2,8 @@ package com.tlabs.android.jeeves.views.character;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.v4.util.ArrayMap;
+
+
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.tlabs.android.jeeves.model.EveCharacter;
 import com.tlabs.android.jeeves.views.EveFormat;
 import com.tlabs.android.jeeves.views.EveImages;
+import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.EveAPI;
 import com.tlabs.eve.api.character.CharacterSheet;
 
@@ -21,6 +23,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -32,7 +35,7 @@ public class CharacterAttributesWidget extends FrameLayout implements CharacterW
     private static final Map<String, Integer> attributeIcons;
 
     static {
-        attributeIcons = new ArrayMap<>();
+        attributeIcons = new HashMap<>();
         attributeIcons.put(EveAPI.ATTR_INTELLIGENCE, R.drawable.icon22_32_3);
         attributeIcons.put(EveAPI.ATTR_CHARISMA, R.drawable.icon22_32_1);
         attributeIcons.put(EveAPI.ATTR_WILLPOWER, R.drawable.icon22_32_2);

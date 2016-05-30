@@ -3,7 +3,7 @@ package com.tlabs.android.jeeves.notifications;
 import android.content.ContentUris;
 import android.content.Context;
 import android.net.Uri;
-
+import com.tlabs.android.jeeves.service.R;
 import com.tlabs.android.jeeves.model.EveAccount;
 
 import com.tlabs.eve.api.character.CharacterSheet;

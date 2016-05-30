@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
+import com.tlabs.android.jeeves.views.R;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

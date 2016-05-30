@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.ContractItem;
 
 import java.util.ArrayList;

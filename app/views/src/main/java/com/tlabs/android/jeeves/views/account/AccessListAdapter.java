@@ -2,7 +2,8 @@ package com.tlabs.android.jeeves.views.account;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.v4.util.ArrayMap;
+
+import android.util.ArrayMap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
 import com.tlabs.android.jeeves.model.EveAccount;
+import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.EveAPI;
 
 import java.util.ArrayList;

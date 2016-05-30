@@ -11,6 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.tlabs.android.jeeves.views.R;
+
 public class TextProgressBar extends LinearLayout {
 
 	private TextView textView;

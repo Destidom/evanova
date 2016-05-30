@@ -9,6 +9,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
+import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.Item;
 import com.tlabs.eve.api.ItemTrait;
 

@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.tlabs.android.jeeves.views.EveFormat;
+import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.mail.MailMessage;
 import com.tlabs.eve.api.mail.Message;
 import com.tlabs.eve.api.mail.NotificationMessage;

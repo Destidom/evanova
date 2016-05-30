@@ -1,15 +1,16 @@
 package com.tlabs.android.jeeves.views.mails;
 
 import android.content.Context;
-import android.support.v4.util.ArrayMap;
 
 import com.tlabs.android.jeeves.views.EveFormat;
+import com.tlabs.android.jeeves.views.R;
 import com.tlabs.eve.api.mail.MailMessage;
 import com.tlabs.eve.api.mail.NotificationMessage;
 
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -151,7 +152,7 @@ final class MailFormat {
     private static final Map<String, Integer> attributeTitleResources;
 
     static {
-        attributeTitleResources = new ArrayMap<>();
+        attributeTitleResources = new HashMap<>();
         attributeTitleResources.put("shipName", R.string.jeeves_notification_attribute_shipName);
 
         attributeTitleResources.put("shipName", R.string.jeeves_notification_attribute_shipName);
