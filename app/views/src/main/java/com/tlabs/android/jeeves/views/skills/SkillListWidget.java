@@ -10,6 +10,11 @@ import com.tlabs.eve.api.Skill;
 import com.tlabs.eve.api.SkillTree;
 
 public class SkillListWidget extends ExpandableListView {
+
+    public static final int VIEW_ALL = SkillTreeAdapter.SHOW_ALL;
+    public static final int VIEW_CURRENT = SkillTreeAdapter.SHOW_CURRENT;
+    public static final int VIEW_TRAINABLE = SkillTreeAdapter.SHOW_TRAINABLE;
+
     public interface Listener {
 
         void onSkillSelected(final Skill skill, final boolean selected);
@@ -37,11 +42,14 @@ public class SkillListWidget extends ExpandableListView {
         setAdapter(new SkillTreeAdapter(tree));
     }
 
+    public void setViewType(int type) {
+        final SkillTreeAdapter adapter = (SkillTreeAdapter)getExpandableListAdapter();
+        adapter.setShow(type);
+    }
+
     public void setCharacter(final EveCharacter character) {
         final SkillTreeAdapter adapter = (SkillTreeAdapter)getExpandableListAdapter();
-        if (null != adapter) {
-            adapter.setCharacter(character);
-        }
+        adapter.setCharacter(character);
     }
 
     public void setListener(Listener listener) {
@@ -49,7 +57,6 @@ public class SkillListWidget extends ExpandableListView {
     }
 
     private void init() {
-
         setOnItemLongClickListener((parent, view, position, id) -> {
             if (null == listener) {
                 return false;
@@ -66,11 +73,12 @@ public class SkillListWidget extends ExpandableListView {
             if (null == listener) {
                 return false;
             }
-            //listener.onSkillSelected(id, false);
+            listener.onSkillSelected(
+                    (Skill)parent.getExpandableListAdapter().getChild(groupPosition, childPosition), true);
             return true;
         });
 
-        //One opened group at a time...
         setOnGroupExpandListener(new SingleListGroupDisplayAdapter(this));
+        setAdapter(new SkillTreeAdapter(new SkillTree()));
     }
 }

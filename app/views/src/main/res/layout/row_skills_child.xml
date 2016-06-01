@@ -25,7 +25,7 @@
             android:textStyle="bold" >
         </TextView>
 
-        <com.tlabs.android.evanova.ui.view.SkillLevelView
+        <com.tlabs.android.jeeves.views.skills.SkillLevelWidget
             android:id="@+id/skillLevelView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

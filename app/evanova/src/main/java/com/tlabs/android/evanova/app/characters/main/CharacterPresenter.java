@@ -7,6 +7,7 @@ import com.tlabs.android.evanova.R;
 import com.tlabs.android.evanova.app.EvanovaActivityPresenter;
 import com.tlabs.android.evanova.app.characters.CharacterUseCase;
 import com.tlabs.android.evanova.app.characters.calendar.CharacterCalendarActivity;
+import com.tlabs.android.evanova.app.characters.training.CharacterTrainingActivity;
 import com.tlabs.android.evanova.app.contracts.main.ContractActivity;
 import com.tlabs.android.evanova.app.mails.main.MailActivity;
 import com.tlabs.android.evanova.app.market.main.MarketOrdersActivity;
@@ -75,7 +76,9 @@ public class CharacterPresenter extends EvanovaActivityPresenter<CharacterMainVi
     }
 
     public void onCharacterTrainingSelected() {
-
+        final Intent intent = new Intent(getContext(), CharacterTrainingActivity.class);
+        intent.putExtra(EXTRA_OWNER_ID, this.character.getID());
+        startActivity(intent);
     }
 
     public void onCharacterMenuSelected(final int buttonID) {

@@ -37,11 +37,6 @@ import java.util.Map;
 public final class EveDatabase {
     private static final Logger LOG = LoggerFactory.getLogger(EveDatabase.class);
 
-    //the version we store in the database.	When it changes, the database is replaced from /res/raw.
-    //static final String DATABASE_VERSION = "sde-20160429-TRANQUILITY";
-
-   // static final String DATABASE_NAME = "eve.db";
-
     private Dao<NameEntity, Long> nameDAO;
     private Dao<LocationEntity, Long> locationDAO;
 

@@ -44,9 +44,7 @@ public class CertificateListWidget extends ExpandableListView {
 
     public final void setCharacter(final EveCharacter character) {
         final CertificateTreeAdapter adapter = (CertificateTreeAdapter)getExpandableListAdapter();
-        if (null != adapter) {
-            adapter.setCharacter(character);
-        }
+        adapter.setCharacter(character);
     }
 
     private void init() {
@@ -58,6 +56,6 @@ public class CertificateListWidget extends ExpandableListView {
             listener.onCertificateSelected((Certificate) getExpandableListAdapter().getChild(group, child));
             return true;
         });
-
+        setAdapter(new CertificateTreeAdapter(new CertificateTree()));
     }
 }

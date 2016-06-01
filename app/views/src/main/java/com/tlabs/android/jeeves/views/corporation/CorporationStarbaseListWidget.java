@@ -130,6 +130,6 @@ public class CorporationStarbaseListWidget extends AbstractListRecyclerView<Star
 
     @Override
     protected long getItemId(Starbase item) {
-        return item.getItemID() << 32 & item.getLocationID();
+        return item.getItemID() << 64 + item.getLocationID();
     }
 }

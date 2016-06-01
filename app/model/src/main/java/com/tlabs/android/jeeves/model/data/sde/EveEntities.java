@@ -132,6 +132,7 @@ final class EveEntities {
                 group.setGroupID(e.getGroupID());
                 group.setGroupName(e.getGroupName());
                 groups.put(e.getGroupID(), group);
+                tree.addGroup(group);
             }
             group.addSkill(transform(e));
         }

@@ -27,8 +27,8 @@ import java.sql.SQLException;
 public final class EveDatabaseOpenHelper extends OrmLiteSqliteOpenHelper {
     private static final Logger LOG = LoggerFactory.getLogger(EveDatabaseOpenHelper.class);
 
-    //the version we store in the helper.	When it changes, the helper is replaced from /res/raw.
-    static final String DATABASE_VERSION = "citadel-1.0.0";
+    //the version we store in the helper.	When it changes, the database is replaced by /res/raw/jeeves
+    static final String DATABASE_VERSION = "sde-31052016.0";
 
     static final String DATABASE_NAME = "eve.db";
 

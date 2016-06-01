@@ -69,12 +69,15 @@ public final class MailDatabase{
         }
     }
 
-    public void saveMail(final long ownerID, final MessageEntity message) {
+    public void saveMessage(final long ownerID, final MessageEntity message) {
         try {
             final MessageEntity existing = messageDAO.queryForId(message.getId());
             if (null == existing) {
                 messageDAO.create(message);
                 addMailboxes(ownerID, message, message.getMailboxes());
+            }
+            else {
+                messageDAO.update(message);
             }
         }
         catch (SQLException e) {
@@ -82,18 +85,6 @@ public final class MailDatabase{
         }
     }
 
-    public void saveNotification(final long ownerID, final MessageEntity message) {
-        try {
-            final MessageEntity existing = messageDAO.queryForId(message.getId());
-            if (null == existing) {
-                messageDAO.create(message);
-                addMailboxes(ownerID, message, message.getMailboxes());
-            }
-        }
-        catch (SQLException e) {
-            LOG.error(e.getLocalizedMessage(), e);
-        }
-    }
 
     private void addMailboxes(final long ownerID, final MessageEntity message, final List<Long> mailboxes) {
         if ((null == mailboxes) || mailboxes.isEmpty()) {

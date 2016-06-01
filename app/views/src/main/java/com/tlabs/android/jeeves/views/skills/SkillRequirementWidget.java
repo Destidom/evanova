@@ -104,6 +104,6 @@ public class SkillRequirementWidget extends AbstractListRecyclerView<SkillRequir
 
     @Override
     protected long getItemId(Requirement item) {
-        return item.skill.getGroupID() << 32 & item.skill.getSkillID();
+        return item.skill.getGroupID() << 64 + item.skill.getSkillID();
     }
 }

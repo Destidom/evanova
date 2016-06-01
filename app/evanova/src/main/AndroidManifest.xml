@@ -3,8 +3,8 @@
     package="com.tlabs.android.evanova"
     android:hardwareAccelerated="true"
     android:installLocation="auto"
-    android:versionCode="0415070"
-    android:versionName="33">
+    android:versionCode="0500000"
+    android:versionName="50">
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -184,6 +184,11 @@
         </activity>
         <activity
             android:name=".app.characters.calendar.CharacterCalendarActivity"
+            android:exported="false"
+            android:launchMode="singleTask">
+        </activity>
+        <activity
+            android:name=".app.characters.training.CharacterTrainingActivity"
             android:exported="false"
             android:launchMode="singleTask">
         </activity>

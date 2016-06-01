@@ -57,7 +57,7 @@ public class CharacterTrainingListWidget extends AbstractListRecyclerView<SkillI
                     final double left = skill.getEndTime() - System.currentTimeMillis();
                     final double progress = left / duration * 100d;
                     this.remainingView.setText(EveFormat.Duration.MEDIUM(Math.max(0, Math.round(left))));
-                    timeProgress.setProgress(Math.max(0, (int)progress));
+                    timeProgress.setProgress(Math.max(0, 100 - (int)progress));
                 }
                 else {
                     final long remaining = skill.getEndTime() - skill.getStartTime();

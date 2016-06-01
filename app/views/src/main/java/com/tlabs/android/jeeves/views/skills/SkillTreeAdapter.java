@@ -148,19 +148,6 @@ class SkillTreeAdapter extends BaseExpandableListAdapter {
                         EveAPI.getRequiredSkillPoints(skill.getRank(), level) + " / " + EveAPI.getRequiredSkillPoints(skill.getRank(), level + 1) + " SP");
             }
         }
-
-        public static void renderView(final View view, final Skill training, final EveCharacter character) {
-            final SkillHolder h = (SkillHolder)view.getTag();
-            h.render(training, character);
-        }
-
-		public static View createView(Context context) {
-			LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);		
-			View view = inflater.inflate(LAYOUT, null);
-			SkillHolder tag = new SkillHolder(view);
-			view.setTag(tag);
-			return view;
-		}
 	}
 
     static class GroupHolder {
@@ -175,35 +162,35 @@ class SkillTreeAdapter extends BaseExpandableListAdapter {
             this.skillGroupDescription2 = (TextView)view.findViewById(R.id.skillGroupDescription2);
         }
 
-        public void render(final SkillTree.SkillGroup group, final EveCharacter character) {
+        public void render(final SkillGroup group, final EveCharacter character) {
             if (null == character) {
                 renderGroup(group);
             }
             else {
-       //         renderGroup(group, character);
+                renderGroup(group, character);
             }
         }
 
-        private void renderGroup(final SkillTree.SkillGroup group) {
+        private void renderGroup(final SkillGroup group) {
             skillGroupText.setTextColor(Color.WHITE);
-            skillGroupText.setText(group.getGroupName());
+            skillGroupText.setText(group.groupName);
 
             skillGroupDescription1.setVisibility(View.GONE);
             skillGroupDescription2.setVisibility(View.GONE);
         }
 
-        private void renderGroup(final SkillTree.SkillGroup group, final EveCharacter character) {
-         /*   if ((group.inTraining == 0) && (group.inPlanning == 0)) {
+        private void renderGroup(final SkillGroup group, final EveCharacter character) {
+            if ((group.inTraining == 0) && (group.inPlanning == 0)) {
                 renderGroup(group);
                 return;
-            }*/
+            }
             skillGroupDescription1.setVisibility(View.VISIBLE);
             skillGroupDescription2.setVisibility(View.VISIBLE);
 
             skillGroupText.setTextColor(Color.WHITE);
-            skillGroupText.setText(group.getGroupName());
+            skillGroupText.setText(group.groupName);
 
-          /*  if (group.inTraining == 0) {
+            if (group.inTraining == 0) {
                 final int orange = skillGroupText.getResources().getColor(R.color.orange);
 
                 skillGroupDescription1.setTextColor(orange);
@@ -216,11 +203,11 @@ class SkillTreeAdapter extends BaseExpandableListAdapter {
                 }
                 skillGroupDescription2.setText("");
                 return;
-            }*/
+            }
 
             skillGroupDescription1.setTextColor(Color.YELLOW);
             //I18N
-         /*   if (group.inTraining == 1) {
+            if (group.inTraining == 1) {
                 skillGroupDescription1.setText(group.inTraining + " skill in training.");
             }
             else {
@@ -230,20 +217,20 @@ class SkillTreeAdapter extends BaseExpandableListAdapter {
             if (group.inPlanning == 0) {
                 skillGroupDescription2.setText("");
                 return;
-            }*/
+            }
 
             final int orange = skillGroupText.getResources().getColor(R.color.orange);
             skillGroupDescription2.setTextColor(orange);
             //I18N
-          /*  if (group.inPlanning == 1) {
+            if (group.inPlanning == 1) {
                 skillGroupDescription2.setText(group.inPlanning + " skill planned.");
             }
             else {
                 skillGroupDescription2.setText(group.inPlanning + " skills planned.");
-            }*/
+            }
         }
 
-        public static void render(final View view, final SkillTree.SkillGroup group, final EveCharacter character) {
+        public static void render(final View view, final SkillGroup group, final EveCharacter character) {
             final GroupHolder h = (GroupHolder)view.getTag();
             h.render(group, character);
         }
@@ -256,27 +243,30 @@ class SkillTreeAdapter extends BaseExpandableListAdapter {
         }
     }
 
-    private final Map<SkillTree.SkillGroup, List<Skill>> skills;
-    private final Map<SkillTree.SkillGroup, List<Skill>> filtered;
-    private final List<SkillTree.SkillGroup> groups;
+    private final Map<SkillGroup, List<Skill>> skills;
+    private final Map<SkillGroup, List<Skill>> filtered;
+    private final List<SkillGroup> groups;
 
-    private int show;
+    private int show = SHOW_ALL;
     private EveCharacter character;
 
     public SkillTreeAdapter(final SkillTree tree) {
         this(toLegacyParams(tree));
     }
 
-    private static Map<SkillTree.SkillGroup, List<Skill>> toLegacyParams(final SkillTree tree) {
-        final Map<SkillTree.SkillGroup, List<Skill>> skills = new HashMap<>();
+    private static Map<SkillGroup, List<Skill>> toLegacyParams(final SkillTree tree) {
+        final Map<SkillGroup, List<Skill>> skills = new HashMap<>();
         for (SkillTree.SkillGroup g: tree.getGroups()) {
-            skills.put(g, g.getSkills());
+            SkillGroup ng = new SkillGroup();
+            ng.groupID = g.getGroupID();
+            ng.groupName = g.getGroupName();
+
+            skills.put(ng, g.getSkills());
         }
         return skills;
     }
 
-    @Deprecated
-	private SkillTreeAdapter(final Map<SkillTree.SkillGroup, List<Skill>> skills) {
+	private SkillTreeAdapter(final Map<SkillGroup, List<Skill>> skills) {
         this.skills = skills;
         this.filtered = new LinkedHashMap<>();
         this.groups = new ArrayList<>();
@@ -288,10 +278,6 @@ class SkillTreeAdapter extends BaseExpandableListAdapter {
 	}
 
     public void setCharacter(final EveCharacter character) {
-        if (this.character == character) {
-            return;
-        }
-
         this.character = character;
         reset();
         notifyDataSetChanged();
@@ -325,9 +311,11 @@ class SkillTreeAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         View view = convertView;
         if (null == view) {
-            view = SkillHolder.createView(parent.getContext());
+            view = LayoutInflater.from(parent.getContext()).inflate(SkillHolder.LAYOUT, parent, false);
+            view.setTag(new SkillHolder(view));
         }
-        SkillHolder.renderView(view, (Skill) getChild(groupPosition, childPosition), this.character);
+        final SkillHolder h = (SkillHolder)view.getTag();
+        h.render((Skill)getChild(groupPosition, childPosition), character);
         return view;
     }
 
@@ -338,7 +326,7 @@ class SkillTreeAdapter extends BaseExpandableListAdapter {
 
 	@Override
 	public int getChildrenCount(int groupPosition) {
-        final SkillTree.SkillGroup group = this.groups.get(groupPosition);
+        final SkillGroup group = this.groups.get(groupPosition);
         return this.filtered.get(group).size();
 	}
 
@@ -349,18 +337,18 @@ class SkillTreeAdapter extends BaseExpandableListAdapter {
 
 	@Override
 	public Object getChild(int groupPosition, int childPosition) {
-        final SkillTree.SkillGroup group = this.groups.get(groupPosition);
+        final SkillGroup group = this.groups.get(groupPosition);
         return this.filtered.get(group).get(childPosition);
 	}
 
 	@Override
 	public long getGroupId(int groupPosition) {
-		return groups.get(groupPosition).getGroupID();
+		return groups.get(groupPosition).groupID;
 	}
 
 	@Override
 	public long getChildId(int groupPosition, int childPosition) {
-        final SkillTree.SkillGroup group = this.groups.get(groupPosition);
+        final SkillGroup group = this.groups.get(groupPosition);
 		return this.filtered.get(group).get(childPosition).getSkillID();
 	}
 
@@ -377,7 +365,7 @@ class SkillTreeAdapter extends BaseExpandableListAdapter {
     private void reset() {
         this.filtered.clear();
 
-        for (Map.Entry<SkillTree.SkillGroup, List<Skill>> e: this.skills.entrySet()) {
+        for (Map.Entry<SkillGroup, List<Skill>> e: this.skills.entrySet()) {
             final List<Skill> skills = new ArrayList<>();
             skills.addAll(e.getValue());
             this.filtered.put(e.getKey(), skills);
@@ -391,22 +379,8 @@ class SkillTreeAdapter extends BaseExpandableListAdapter {
         filter(this.filtered, character, this.show);
     }
 
-   /* private static Map<SkillGroup, List<Skill>> init(final Context context) {
-      //  final EveFacade eve = new EveFacadeImpl(context.getApplicationContext());
-        final Map<SkillGroup, List<Skill>> all = new LinkedHashMap<>();
-
-        for (Map.Entry<Long, String> g: eve.getSkillGroups().entrySet()) {
-            final SkillGroup group = new SkillGroup();
-            group.groupID = g.getKey();
-            group.groupName = g.getValue();
-
-            all.put(group, eve.getSkills(g.getKey()));
-        }
-        return Collections.unmodifiableMap(all);
-    }*/
-
-    private static void train(final Map<SkillTree.SkillGroup, List<Skill>> all, final EveCharacter character) {
-        for (Map.Entry<SkillTree.SkillGroup, List<Skill>> e: all.entrySet()) {
+    private static void train(final Map<SkillGroup, List<Skill>> all, final EveCharacter character) {
+        for (Map.Entry<SkillGroup, List<Skill>> e: all.entrySet()) {
 
             int training = 0;
             int planning = 0;
@@ -418,12 +392,12 @@ class SkillTreeAdapter extends BaseExpandableListAdapter {
                     planning = planning + 1;
                 }
             }
-        //    e.getKey().inPlanning = planning;
-     //       e.getKey().inTraining = training;
+            e.getKey().inPlanning = planning;
+            e.getKey().inTraining = training;
         }
     }
 
-    private static void filter(final Map<SkillTree.SkillGroup, List<Skill>> all, final EveCharacter character, final int show) {
+    private static void filter(final Map<SkillGroup, List<Skill>> all, final EveCharacter character, final int show) {
         for (List<Skill> skills: all.values()) {
             CollectionUtils.filter(skills, object -> {
                 final Skill skill = object;

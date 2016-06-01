@@ -53,10 +53,11 @@ public class MailFacadeImpl implements MailFacade {
         }
         return messages;
     }
+
     @Override
     public void addNotification(long ownerID, NotificationMessage m) {
         MessageEntity entity = MailEntities.transform(m, ownerID, evanova.getCorporationId(ownerID));
-        this.mail.saveNotification(ownerID, entity);
+        this.mail.saveMessage(ownerID, entity);
         m.setTitle(entity.getTitle());
     }
 
@@ -67,7 +68,7 @@ public class MailFacadeImpl implements MailFacade {
 
     @Override
     public void addMail(long ownerID, MailMessage m) {
-        this.mail.saveMail(ownerID, MailEntities.transform(m, ownerID, evanova.getCorporationId(ownerID)));
+        this.mail.saveMessage(ownerID, MailEntities.transform(m, ownerID, evanova.getCorporationId(ownerID)));
     }
 
     @Override
